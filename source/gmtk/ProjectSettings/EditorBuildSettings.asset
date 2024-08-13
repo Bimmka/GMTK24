@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Bootstrapp.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/HomeScreen.unity
+    guid: ec823b0135dcf0d4bb88053669bc4d1b
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: 56b9ca7ad085b7d4d8b983250e17db45
   m_configObjects: {}

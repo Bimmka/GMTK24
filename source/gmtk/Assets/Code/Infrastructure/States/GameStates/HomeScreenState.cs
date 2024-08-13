@@ -1,4 +1,6 @@
+using Code.Infrastructure.Loading;
 using Code.Infrastructure.States.StateInfrastructure;
+using Code.Infrastructure.States.StateMachine;
 using Code.Infrastructure.Systems;
 using Code.Meta;
 
@@ -8,15 +10,18 @@ namespace Code.Infrastructure.States.GameStates
   {
     private readonly ISystemFactory _systems;
     private readonly GameContext _gameContext;
+    private readonly IGameStateMachine _gameStateMachine;
 
     private HomeScreenFeature _homeScreenFeature;
 
     public HomeScreenState(
       ISystemFactory systems, 
-      GameContext gameContext)
+      GameContext gameContext,
+      IGameStateMachine gameStateMachine)
     {
       _systems = systems;
       _gameContext = gameContext;
+      _gameStateMachine = gameStateMachine;
     }
 
     public override void Enter()
@@ -27,6 +32,8 @@ namespace Code.Infrastructure.States.GameStates
 
     protected override void OnUpdate()
     {
+      _gameStateMachine.Enter<LoadingBattleState, string>(Scenes.GameScene);
+      
       _homeScreenFeature.Execute();
       _homeScreenFeature.Cleanup();
     }

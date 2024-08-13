@@ -27,12 +27,6 @@ namespace Code.Infrastructure.States.StateInfrastructure
 
     void IUpdateable.Update()
     {
-      // THIS IS WRONG, since it will exit on the next frame instead of the end of current frame
-      // if (!IsExitRequested)
-      //   OnUpdate();
-      // else
-      //   ResolveExitPromise();
-
       if (!ExitWasRequested)
         OnUpdate();
       

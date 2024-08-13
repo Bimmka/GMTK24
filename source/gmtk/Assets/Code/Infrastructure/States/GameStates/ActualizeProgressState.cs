@@ -15,9 +15,7 @@ namespace Code.Infrastructure.States.GameStates
     private readonly IProgressProvider _progressProvider;
     private readonly ISystemFactory _systemFactory;
     private readonly ISaveLoadService _saveLoadService;
-    
-    
-
+      
     public ActualizeProgressState(
       IGameStateMachine stateMachine,
       ITimeService time,

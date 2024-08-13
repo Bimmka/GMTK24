@@ -9,16 +9,18 @@
 public static class GameComponentsLookup {
 
     public const int Destructed = 0;
-    public const int Radius = 1;
-    public const int SelfDestructTimer = 2;
-    public const int View = 3;
-    public const int ViewPath = 4;
-    public const int ViewPrefab = 5;
+    public const int Id = 1;
+    public const int Radius = 2;
+    public const int SelfDestructTimer = 3;
+    public const int View = 4;
+    public const int ViewPath = 5;
+    public const int ViewPrefab = 6;
 
-    public const int TotalComponents = 6;
+    public const int TotalComponents = 7;
 
     public static readonly string[] componentNames = {
         "Destructed",
+        "Id",
         "Radius",
         "SelfDestructTimer",
         "View",
@@ -28,6 +30,7 @@ public static class GameComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(Code.Common.Destructed),
+        typeof(Code.Common.Id),
         typeof(Code.Common.Radius),
         typeof(Code.Common.SelfDestructTimer),
         typeof(Code.Common.View),

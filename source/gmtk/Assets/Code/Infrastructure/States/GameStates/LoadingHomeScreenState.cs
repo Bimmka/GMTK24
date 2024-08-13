@@ -7,6 +7,7 @@ namespace Code.Infrastructure.States.GameStates
   public class LoadingHomeScreenState : SimpleState
   {
     private const string HomeScreenSceneName = "HomeScreen";
+
     private readonly IGameStateMachine _stateMachine;
     private readonly ISceneLoader _sceneLoader;
 
