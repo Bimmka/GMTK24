@@ -8,12 +8,17 @@ namespace Code.Gameplay.Features.Rabbits
         public RabbitFeature(ISystemFactory systems)
         {
             Add(systems.Create<UpdateTimeForMovingSystem>());
+            Add(systems.Create<UpdateTimeForReplicationSystem>());
+            
+            Add(systems.Create<SetReplicationTargetSystem>());
+            
             Add(systems.Create<StarMoveRabbitSystem>());
             Add(systems.Create<StopMoveRabbitSystem>());
+
             Add(systems.Create<RefreshTimeForMovingForReachedTargetRabbitSystem>());
             
             //cleanup
-            Add(systems.Create<CleanupTargetReachedRabbit>());
+            Add(systems.Create<CleanupTargetReachedRabbitSystem>());
         }
     }
 }

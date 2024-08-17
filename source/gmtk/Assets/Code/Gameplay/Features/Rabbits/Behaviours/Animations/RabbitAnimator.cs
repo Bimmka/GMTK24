@@ -20,5 +20,10 @@ namespace Code.Gameplay.Features.Rabbits.Behaviours.Animations
         {
             
         }
+
+        public void PlayReplication()
+        {
+            
+        }
     }
 }

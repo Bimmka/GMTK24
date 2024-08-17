@@ -3,12 +3,12 @@ using Entitas;
 
 namespace Code.Gameplay.Features.Rabbits.Systems
 {
-    public class CleanupTargetReachedRabbit : ICleanupSystem
+    public class CleanupTargetReachedRabbitSystem : ICleanupSystem
     {
         private readonly IGroup<GameEntity> _rabbits;
         private readonly List<GameEntity> _buffer = new List<GameEntity>(32);
 
-        public CleanupTargetReachedRabbit(GameContext game)
+        public CleanupTargetReachedRabbitSystem(GameContext game)
         {
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(

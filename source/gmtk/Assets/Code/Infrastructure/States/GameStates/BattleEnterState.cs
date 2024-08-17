@@ -65,7 +65,10 @@ namespace Code.Infrastructure.States.GameStates
         _rabbitFactory
           .Create(rabbit.Type, _stallService.GetRandomPositionInStall(rabbit.StallIndex), rabbit.StallIndex)
           .With(x => x.isMovementAvailable = true)
-          .With(x => x.isWaitingForMoving = true);
+          .With(x => x.isWaitingForMoving = true)
+          .With(x => x.isCanBeChosenForReplication = true)
+          .With(x => x.isWaitingForNextReplicationUp = true)
+          ;
       }
     }
   }

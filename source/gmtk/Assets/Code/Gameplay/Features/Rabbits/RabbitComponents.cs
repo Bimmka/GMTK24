@@ -13,9 +13,11 @@ namespace Code.Gameplay.Features.Rabbits
     [Game] public class WaitingForMoving : IComponent { }
     
     [Game] public class ReplicationInterval : IComponent { public float Value; }
-    [Game] public class TimeLeftForReplication : IComponent { public float Value; }
+    [Game] public class TimeLeftForNextReplication : IComponent { public float Value; }
     [Game] public class ReplicationDuration : IComponent { public float Value; }
     [Game] public class ReplicationTimeLeft : IComponent { public float Value; }
+    [Game] public class WaitingForNextReplicationUp : IComponent {}
+    [Game] public class CanBeChosenForReplication : IComponent {}
     [Game] public class ReplicationUp : IComponent {}
     [Game] public class ReplicationFinished : IComponent {}
     [Game] public class Replicating : IComponent {}

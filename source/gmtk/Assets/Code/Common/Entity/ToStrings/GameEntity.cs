@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text;
 using Code.Common.Entity.ToStrings;
 using Code.Common.Extensions;
+using Code.Gameplay.Features.Rabbits;
 using Entitas;
 using UnityEngine;
 
@@ -32,8 +33,8 @@ public sealed partial class GameEntity : INamedEntity
       {
         switch (component.GetType().Name)
         {
-          // case nameof(Hero):
-          //   return PrintHero();
+          case nameof(Rabbit):
+            return PrintRabbit();
           //
           // case nameof(Enemy):
           //   return PrintEnemy();
@@ -48,9 +49,9 @@ public sealed partial class GameEntity : INamedEntity
     return components.First().GetType().Name;
   }
 
-  private string PrintHero()
+  private string PrintRabbit()
   {
-    return new StringBuilder($"Hero ")
+    return new StringBuilder($"Rabbit ")
       .With(s => s.Append($"Id:{Id}"), when: hasId)
       .ToString();
   }
