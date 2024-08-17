@@ -1,4 +1,5 @@
-﻿using Code.Gameplay.Windows;
+﻿using Code.Gameplay.Features.Level.Config;
+using Code.Gameplay.Windows;
 using UnityEngine;
 
 namespace Code.Gameplay.StaticData
@@ -7,5 +8,6 @@ namespace Code.Gameplay.StaticData
   {
     void LoadAll();
     GameObject GetWindowPrefab(WindowId id);
+    LevelConfig GetLevelConfig(string id);
   }
 }

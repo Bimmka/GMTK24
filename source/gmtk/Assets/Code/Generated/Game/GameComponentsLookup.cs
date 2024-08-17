@@ -15,8 +15,15 @@ public static class GameComponentsLookup {
     public const int View = 4;
     public const int ViewPath = 5;
     public const int ViewPrefab = 6;
+    public const int ParentTransform = 7;
+    public const int SaveRotationInSpawn = 8;
+    public const int Transform = 9;
+    public const int WorldPosition = 10;
+    public const int Stall = 11;
+    public const int StallBounds = 12;
+    public const int StallIndex = 13;
 
-    public const int TotalComponents = 7;
+    public const int TotalComponents = 14;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -25,7 +32,14 @@ public static class GameComponentsLookup {
         "SelfDestructTimer",
         "View",
         "ViewPath",
-        "ViewPrefab"
+        "ViewPrefab",
+        "ParentTransform",
+        "SaveRotationInSpawn",
+        "Transform",
+        "WorldPosition",
+        "Stall",
+        "StallBounds",
+        "StallIndex"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -35,6 +49,13 @@ public static class GameComponentsLookup {
         typeof(Code.Common.SelfDestructTimer),
         typeof(Code.Common.View),
         typeof(Code.Common.ViewPath),
-        typeof(Code.Common.ViewPrefab)
+        typeof(Code.Common.ViewPrefab),
+        typeof(Code.Gameplay.Common.ParentTransform),
+        typeof(Code.Gameplay.Common.SaveRotationInSpawn),
+        typeof(Code.Gameplay.Common.TransformComponent),
+        typeof(Code.Gameplay.Common.WorldPosition),
+        typeof(Code.Gameplay.Features.Stall.Stall),
+        typeof(Code.Gameplay.Features.Stall.StallBounds),
+        typeof(Code.Gameplay.Features.Stall.StallIndex)
     };
 }

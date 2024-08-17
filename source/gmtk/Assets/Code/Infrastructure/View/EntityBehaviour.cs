@@ -18,7 +18,7 @@ namespace Code.Infrastructure.View
     public void SetEntity(GameEntity entity)
     {
       _entity = entity;
-      // _entity.AddView(this);
+      _entity.AddView(this);
       _entity.Retain(this);
 
       foreach (IEntityComponentRegistrar registrar in GetComponentsInChildren<IEntityComponentRegistrar>()) 
