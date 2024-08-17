@@ -10,6 +10,7 @@ namespace Code.Infrastructure.Installers
     public Camera MainCamera;
     public Transform StartPoint;
     public Transform StallSpawnParent;
+    public Transform RabbitSpawnParent;
 
     private ICameraProvider _cameraProvider;
     private ILevelDataProvider _levelDataProvider;
@@ -28,6 +29,8 @@ namespace Code.Infrastructure.Installers
     {
       _levelDataProvider.SetStartPoint(StartPoint.position);
       _levelDataProvider.SetStallSpawnParent(StallSpawnParent);
+      _levelDataProvider.SetRabbitSpawnParent(RabbitSpawnParent);
+
       _cameraProvider.SetMainCamera(MainCamera);
     }
   }

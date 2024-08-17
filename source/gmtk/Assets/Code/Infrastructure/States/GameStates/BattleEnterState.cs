@@ -1,6 +1,8 @@
 using Code.Gameplay;
 using Code.Gameplay.Features.Level.Config;
+using Code.Gameplay.Features.Rabbits.Factory;
 using Code.Gameplay.Features.Stalls.Factory;
+using Code.Gameplay.Features.Stalls.Services;
 using Code.Gameplay.Levels;
 using Code.Gameplay.StaticData;
 using Code.Infrastructure.States.StateInfrastructure;
@@ -15,6 +17,8 @@ namespace Code.Infrastructure.States.GameStates
     private readonly ILevelDataProvider _levelDataProvider;
     private readonly IStallsFactory _stallsFactory;
     private readonly IStaticDataService _staticDataService;
+    private readonly IStallService _stallService;
+    private readonly IRabbitFactory _rabbitFactory;
     private readonly ISystemFactory _systems;
     private readonly GameContext _gameContext;
 
@@ -22,28 +26,42 @@ namespace Code.Infrastructure.States.GameStates
       IGameStateMachine stateMachine, 
       ILevelDataProvider levelDataProvider,
       IStallsFactory stallsFactory,
-      IStaticDataService staticDataService)
+      IStaticDataService staticDataService,
+      IStallService stallService,
+      IRabbitFactory rabbitFactory)
     {
       _stateMachine = stateMachine;
       _levelDataProvider = levelDataProvider;
       _stallsFactory = stallsFactory;
       _staticDataService = staticDataService;
+      _stallService = stallService;
+      _rabbitFactory = rabbitFactory;
     }
     
     public override void Enter()
     {
-      PlaceStalls();
+      LevelConfig config = _staticDataService.GetLevelConfig(_levelDataProvider.CurrentId);
+      
+      PlaceStalls(config.StallsSpawnData);
+      PlaceRabbits(config.PresetupRabbits);
       
       _stateMachine.Enter<BattleLoopState>();
     }
 
-    private void PlaceStalls()
+    private void PlaceStalls(StallsSpawnData[] stallsSpawnData)
     {
-      LevelConfig config = _staticDataService.GetLevelConfig(_levelDataProvider.CurrentId);
-
-      foreach (StallsSpawnData spawnData in config.StallsSpawnData)
+      foreach (StallsSpawnData spawnData in stallsSpawnData)
       {
-        _stallsFactory.CreateStall(spawnData, _levelDataProvider.StallSpawnParent);
+        GameEntity stall = _stallsFactory.CreateStall(spawnData, _levelDataProvider.StallSpawnParent);
+        _stallService.Registry(spawnData.Index, stall);
+      }
+    }
+
+    private void PlaceRabbits(PresetupRabbitData[] presetupRabbits)
+    {
+      foreach (PresetupRabbitData rabbit in presetupRabbits)
+      {
+        _rabbitFactory.Create(rabbit.Type, _stallService.GetRandomPositionInStall(rabbit.StallIndex), rabbit.StallIndex);
       }
     }
   }

@@ -22,3 +22,8 @@ MonoBehaviour:
     SpawnPosition: {x: 0, y: 0, z: 1.47}
     Index: 0
     Bounds: {x: 16.1, y: 7.31}
+  PresetupRabbits:
+  - Type: 1
+    StallIndex: 0
+  - Type: 1
+    StallIndex: 1

@@ -6,9 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using Code.Gameplay.Features.Stalls;
-
 public static class GameComponentsLookup {
 
     public const int Destructed = 0;
@@ -22,11 +19,33 @@ public static class GameComponentsLookup {
     public const int SaveRotationInSpawn = 8;
     public const int Transform = 9;
     public const int WorldPosition = 10;
-    public const int Stall = 11;
-    public const int StallBounds = 12;
-    public const int StallIndex = 13;
+    public const int MoveDirection = 11;
+    public const int MovementAvailable = 12;
+    public const int Moving = 13;
+    public const int Speed = 14;
+    public const int TargetPoint = 15;
+    public const int TargetReached = 16;
+    public const int MaxRabbitsSpawnAfterReplication = 17;
+    public const int MinRabbitsSpawnAfterReplication = 18;
+    public const int MovingInterval = 19;
+    public const int Rabbit = 20;
+    public const int RabbitType = 21;
+    public const int RabbitTypesForReplicationWith = 22;
+    public const int Replicating = 23;
+    public const int ReplicationDuration = 24;
+    public const int ReplicationFinished = 25;
+    public const int ReplicationInterval = 26;
+    public const int ReplicationTarget = 27;
+    public const int ReplicationTimeLeft = 28;
+    public const int ReplicationUp = 29;
+    public const int StallParentIndex = 30;
+    public const int TimeLeftForMoving = 31;
+    public const int TimeLeftForReplication = 32;
+    public const int Stall = 33;
+    public const int StallBounds = 34;
+    public const int StallIndex = 35;
 
-    public const int TotalComponents = 14;
+    public const int TotalComponents = 36;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -40,6 +59,28 @@ public static class GameComponentsLookup {
         "SaveRotationInSpawn",
         "Transform",
         "WorldPosition",
+        "MoveDirection",
+        "MovementAvailable",
+        "Moving",
+        "Speed",
+        "TargetPoint",
+        "TargetReached",
+        "MaxRabbitsSpawnAfterReplication",
+        "MinRabbitsSpawnAfterReplication",
+        "MovingInterval",
+        "Rabbit",
+        "RabbitType",
+        "RabbitTypesForReplicationWith",
+        "Replicating",
+        "ReplicationDuration",
+        "ReplicationFinished",
+        "ReplicationInterval",
+        "ReplicationTarget",
+        "ReplicationTimeLeft",
+        "ReplicationUp",
+        "StallParentIndex",
+        "TimeLeftForMoving",
+        "TimeLeftForReplication",
         "Stall",
         "StallBounds",
         "StallIndex"
@@ -57,8 +98,30 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Common.SaveRotationInSpawn),
         typeof(Code.Gameplay.Common.TransformComponent),
         typeof(Code.Gameplay.Common.WorldPosition),
-        typeof(Stall),
-        typeof(StallBounds),
-        typeof(StallIndex)
+        typeof(Code.Gameplay.Features.Movement.MoveDirection),
+        typeof(Code.Gameplay.Features.Movement.MovementAvailable),
+        typeof(Code.Gameplay.Features.Movement.Moving),
+        typeof(Code.Gameplay.Features.Movement.Speed),
+        typeof(Code.Gameplay.Features.Movement.TargetPoint),
+        typeof(Code.Gameplay.Features.Movement.TargetReached),
+        typeof(Code.Gameplay.Features.Rabbits.MaxRabbitsSpawnAfterReplication),
+        typeof(Code.Gameplay.Features.Rabbits.MinRabbitsSpawnAfterReplication),
+        typeof(Code.Gameplay.Features.Rabbits.MovingInterval),
+        typeof(Code.Gameplay.Features.Rabbits.Rabbit),
+        typeof(Code.Gameplay.Features.Rabbits.RabbitTypeComponent),
+        typeof(Code.Gameplay.Features.Rabbits.RabbitTypesForReplicationWith),
+        typeof(Code.Gameplay.Features.Rabbits.Replicating),
+        typeof(Code.Gameplay.Features.Rabbits.ReplicationDuration),
+        typeof(Code.Gameplay.Features.Rabbits.ReplicationFinished),
+        typeof(Code.Gameplay.Features.Rabbits.ReplicationInterval),
+        typeof(Code.Gameplay.Features.Rabbits.ReplicationTarget),
+        typeof(Code.Gameplay.Features.Rabbits.ReplicationTimeLeft),
+        typeof(Code.Gameplay.Features.Rabbits.ReplicationUp),
+        typeof(Code.Gameplay.Features.Rabbits.StallParentIndex),
+        typeof(Code.Gameplay.Features.Rabbits.TimeLeftForMoving),
+        typeof(Code.Gameplay.Features.Rabbits.TimeLeftForReplication),
+        typeof(Code.Gameplay.Features.Stalls.Stall),
+        typeof(Code.Gameplay.Features.Stalls.StallBounds),
+        typeof(Code.Gameplay.Features.Stalls.StallIndex)
     };
 }
