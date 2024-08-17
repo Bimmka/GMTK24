@@ -1,6 +1,6 @@
 ﻿using Code.Infrastructure.Systems;
 
-namespace Code.Gameplay.Features.Stall
+namespace Code.Gameplay.Features.Stalls
 {
     public sealed class StallFeature : Feature
     {

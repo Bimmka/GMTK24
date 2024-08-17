@@ -6,6 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Code.Gameplay.Features.Stalls;
+
 public sealed partial class GameMatcher {
 
     static Entitas.IMatcher<GameEntity> _matcherStall;
@@ -33,7 +36,7 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Gameplay.Features.Stall.Stall stallComponent = new Code.Gameplay.Features.Stall.Stall();
+    static readonly Stall stallComponent = new Stall();
 
     public bool isStall {
         get { return HasComponent(GameComponentsLookup.Stall); }

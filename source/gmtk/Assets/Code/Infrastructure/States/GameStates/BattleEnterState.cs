@@ -1,6 +1,6 @@
 using Code.Gameplay;
 using Code.Gameplay.Features.Level.Config;
-using Code.Gameplay.Features.Stall.Factory;
+using Code.Gameplay.Features.Stalls.Factory;
 using Code.Gameplay.Levels;
 using Code.Gameplay.StaticData;
 using Code.Infrastructure.States.StateInfrastructure;

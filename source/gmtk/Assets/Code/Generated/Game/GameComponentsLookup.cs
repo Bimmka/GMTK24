@@ -6,6 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Code.Gameplay.Features.Stalls;
+
 public static class GameComponentsLookup {
 
     public const int Destructed = 0;
@@ -54,8 +57,8 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Common.SaveRotationInSpawn),
         typeof(Code.Gameplay.Common.TransformComponent),
         typeof(Code.Gameplay.Common.WorldPosition),
-        typeof(Code.Gameplay.Features.Stall.Stall),
-        typeof(Code.Gameplay.Features.Stall.StallBounds),
-        typeof(Code.Gameplay.Features.Stall.StallIndex)
+        typeof(Stall),
+        typeof(StallBounds),
+        typeof(StallIndex)
     };
 }

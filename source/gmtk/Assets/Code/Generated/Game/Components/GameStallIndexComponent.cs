@@ -6,6 +6,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
+using Code.Gameplay.Features.Stalls;
+
 public sealed partial class GameMatcher {
 
     static Entitas.IMatcher<GameEntity> _matcherStallIndex;
@@ -33,13 +36,13 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.Gameplay.Features.Stall.StallIndex stallIndex { get { return (Code.Gameplay.Features.Stall.StallIndex)GetComponent(GameComponentsLookup.StallIndex); } }
+    public StallIndex stallIndex { get { return (StallIndex)GetComponent(GameComponentsLookup.StallIndex); } }
     public int StallIndex { get { return stallIndex.Value; } }
     public bool hasStallIndex { get { return HasComponent(GameComponentsLookup.StallIndex); } }
 
     public GameEntity AddStallIndex(int newValue) {
         var index = GameComponentsLookup.StallIndex;
-        var component = (Code.Gameplay.Features.Stall.StallIndex)CreateComponent(index, typeof(Code.Gameplay.Features.Stall.StallIndex));
+        var component = (StallIndex)CreateComponent(index, typeof(StallIndex));
         component.Value = newValue;
         AddComponent(index, component);
         return this;
@@ -47,7 +50,7 @@ public partial class GameEntity {
 
     public GameEntity ReplaceStallIndex(int newValue) {
         var index = GameComponentsLookup.StallIndex;
-        var component = (Code.Gameplay.Features.Stall.StallIndex)CreateComponent(index, typeof(Code.Gameplay.Features.Stall.StallIndex));
+        var component = (StallIndex)CreateComponent(index, typeof(StallIndex));
         component.Value = newValue;
         ReplaceComponent(index, component);
         return this;

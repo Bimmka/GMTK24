@@ -1,7 +1,7 @@
 ﻿using Code.Gameplay.StaticData;
 using Entitas;
 
-namespace Code.Gameplay.Features.Stall.Systems
+namespace Code.Gameplay.Features.Stalls.Systems
 {
     public class InitializeStallsSystem : IInitializeSystem
     {
