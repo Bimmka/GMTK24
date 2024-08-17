@@ -17,35 +17,38 @@ public static class GameComponentsLookup {
     public const int ViewPrefab = 6;
     public const int ParentTransform = 7;
     public const int SaveRotationInSpawn = 8;
-    public const int Transform = 9;
-    public const int WorldPosition = 10;
-    public const int MoveDirection = 11;
-    public const int MovementAvailable = 12;
-    public const int Moving = 13;
-    public const int Speed = 14;
-    public const int TargetPoint = 15;
-    public const int TargetReached = 16;
-    public const int MaxRabbitsSpawnAfterReplication = 17;
-    public const int MinRabbitsSpawnAfterReplication = 18;
-    public const int MovingInterval = 19;
-    public const int Rabbit = 20;
-    public const int RabbitType = 21;
-    public const int RabbitTypesForReplicationWith = 22;
-    public const int Replicating = 23;
-    public const int ReplicationDuration = 24;
-    public const int ReplicationFinished = 25;
-    public const int ReplicationInterval = 26;
-    public const int ReplicationTarget = 27;
-    public const int ReplicationTimeLeft = 28;
-    public const int ReplicationUp = 29;
-    public const int StallParentIndex = 30;
-    public const int TimeLeftForMoving = 31;
-    public const int TimeLeftForReplication = 32;
-    public const int Stall = 33;
-    public const int StallBounds = 34;
-    public const int StallIndex = 35;
+    public const int SpriteRenderer = 9;
+    public const int Transform = 10;
+    public const int WorldPosition = 11;
+    public const int MoveDirection = 12;
+    public const int MovementAvailable = 13;
+    public const int Moving = 14;
+    public const int Speed = 15;
+    public const int TargetPoint = 16;
+    public const int TargetReached = 17;
+    public const int ChosenForReplication = 18;
+    public const int MaxRabbitsSpawnAfterReplication = 19;
+    public const int MinRabbitsSpawnAfterReplication = 20;
+    public const int MovingInterval = 21;
+    public const int Rabbit = 22;
+    public const int RabbitAnimator = 23;
+    public const int RabbitType = 24;
+    public const int RabbitTypesForReplicationWith = 25;
+    public const int Replicating = 26;
+    public const int ReplicationDuration = 27;
+    public const int ReplicationFinished = 28;
+    public const int ReplicationInterval = 29;
+    public const int ReplicationTarget = 30;
+    public const int ReplicationTimeLeft = 31;
+    public const int ReplicationUp = 32;
+    public const int StallParentIndex = 33;
+    public const int TimeLeftForMoving = 34;
+    public const int TimeLeftForReplication = 35;
+    public const int Stall = 36;
+    public const int StallBounds = 37;
+    public const int StallIndex = 38;
 
-    public const int TotalComponents = 36;
+    public const int TotalComponents = 39;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -57,6 +60,7 @@ public static class GameComponentsLookup {
         "ViewPrefab",
         "ParentTransform",
         "SaveRotationInSpawn",
+        "SpriteRenderer",
         "Transform",
         "WorldPosition",
         "MoveDirection",
@@ -65,10 +69,12 @@ public static class GameComponentsLookup {
         "Speed",
         "TargetPoint",
         "TargetReached",
+        "ChosenForReplication",
         "MaxRabbitsSpawnAfterReplication",
         "MinRabbitsSpawnAfterReplication",
         "MovingInterval",
         "Rabbit",
+        "RabbitAnimator",
         "RabbitType",
         "RabbitTypesForReplicationWith",
         "Replicating",
@@ -96,6 +102,7 @@ public static class GameComponentsLookup {
         typeof(Code.Common.ViewPrefab),
         typeof(Code.Gameplay.Common.ParentTransform),
         typeof(Code.Gameplay.Common.SaveRotationInSpawn),
+        typeof(Code.Gameplay.Common.SpriteRendererComponent),
         typeof(Code.Gameplay.Common.TransformComponent),
         typeof(Code.Gameplay.Common.WorldPosition),
         typeof(Code.Gameplay.Features.Movement.MoveDirection),
@@ -104,10 +111,12 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Movement.Speed),
         typeof(Code.Gameplay.Features.Movement.TargetPoint),
         typeof(Code.Gameplay.Features.Movement.TargetReached),
+        typeof(Code.Gameplay.Features.Rabbits.ChosenForReplication),
         typeof(Code.Gameplay.Features.Rabbits.MaxRabbitsSpawnAfterReplication),
         typeof(Code.Gameplay.Features.Rabbits.MinRabbitsSpawnAfterReplication),
         typeof(Code.Gameplay.Features.Rabbits.MovingInterval),
         typeof(Code.Gameplay.Features.Rabbits.Rabbit),
+        typeof(Code.Gameplay.Features.Rabbits.RabbitAnimatorComponent),
         typeof(Code.Gameplay.Features.Rabbits.RabbitTypeComponent),
         typeof(Code.Gameplay.Features.Rabbits.RabbitTypesForReplicationWith),
         typeof(Code.Gameplay.Features.Rabbits.Replicating),

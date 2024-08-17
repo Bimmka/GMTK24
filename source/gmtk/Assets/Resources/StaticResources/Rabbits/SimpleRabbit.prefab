@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3973167145347575126}
   - component: {fileID: 2658883369037870289}
   - component: {fileID: 2128263421736950260}
+  - component: {fileID: 6300163563413326717}
   m_Layer: 0
   m_Name: SimpleRabbit
   m_TagString: Untagged
@@ -60,6 +61,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EntityView: {fileID: 2658883369037870289}
   Transform: {fileID: 3973167145347575126}
+--- !u!114 &6300163563413326717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3556678750113848877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e04813ac49fa4e89a29c3b6123da9e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EntityView: {fileID: 2658883369037870289}
+  RabbitAnimator: {fileID: 1145137375436715457}
 --- !u!1 &4314749522020946278
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,6 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2210051911768160127}
   - component: {fileID: 1387650854986374518}
+  - component: {fileID: 1389944570153264527}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -144,6 +160,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1389944570153264527
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4314749522020946278}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5756874043178821601
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,6 +190,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4425136043714267817}
+  - component: {fileID: 1145137375436715457}
   m_Layer: 0
   m_Name: Container
   m_TagString: Untagged
@@ -176,3 +214,16 @@ Transform:
   - {fileID: 2210051911768160127}
   m_Father: {fileID: 3973167145347575126}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1145137375436715457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5756874043178821601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7f88fdf5b9431cbd7af234f700bee2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 1389944570153264527}

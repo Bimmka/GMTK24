@@ -6,6 +6,8 @@ namespace Code.Gameplay.Features.Stalls.Services
 {
     public class StallService : IStallService
     {
+        private const float BoarderShift = 0.5f;
+        
         private readonly IRandomService _randomService;
         private readonly Dictionary<int, GameEntity> _stallsByIndex = new Dictionary<int, GameEntity>();
 
@@ -46,10 +48,10 @@ namespace Code.Gameplay.Features.Stalls.Services
             if (stall.hasStallBounds == false)
                 return Vector3.positiveInfinity;
 
-            Vector2 maxShift = stall.StallBounds / 2;
+            Vector2 maxShift = (stall.StallBounds / 2) - Vector2.one * BoarderShift;
 
-            float randomX = Random.Range(stall.WorldPosition.x - maxShift.x, stall.WorldPosition.x + maxShift.x);
-            float randomY = Random.Range(stall.WorldPosition.y - maxShift.y, stall.WorldPosition.y + maxShift.y);
+            float randomX = _randomService.Range(stall.WorldPosition.x - maxShift.x, stall.WorldPosition.x + maxShift.x);
+            float randomY = _randomService.Range(stall.WorldPosition.y - maxShift.y, stall.WorldPosition.y + maxShift.y);
 
             return new Vector3(randomX, randomY, stall.WorldPosition.z);
 
