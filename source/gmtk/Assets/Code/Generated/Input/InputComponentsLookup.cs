@@ -9,17 +9,56 @@
 public static class InputComponentsLookup {
 
     public const int AxisInput = 0;
-    public const int Input = 1;
+    public const int Click = 1;
+    public const int ClickInterval = 2;
+    public const int Draging = 3;
+    public const int Input = 4;
+    public const int LastMouseDownTime = 5;
+    public const int LongTap = 6;
+    public const int LongTapInterval = 7;
+    public const int MouseDown = 8;
+    public const int MousePressed = 9;
+    public const int MouseUp = 10;
+    public const int ScreenMousePosition = 11;
+    public const int StartMouseDownScreenPosition = 12;
+    public const int StartMouseDownWorldPosition = 13;
+    public const int WorldMousePosition = 14;
 
-    public const int TotalComponents = 2;
+    public const int TotalComponents = 15;
 
     public static readonly string[] componentNames = {
         "AxisInput",
-        "Input"
+        "Click",
+        "ClickInterval",
+        "Draging",
+        "Input",
+        "LastMouseDownTime",
+        "LongTap",
+        "LongTapInterval",
+        "MouseDown",
+        "MousePressed",
+        "MouseUp",
+        "ScreenMousePosition",
+        "StartMouseDownScreenPosition",
+        "StartMouseDownWorldPosition",
+        "WorldMousePosition"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(Code.Gameplay.Input.AxisInput),
-        typeof(Code.Gameplay.Input.Input)
+        typeof(Code.Gameplay.Input.Click),
+        typeof(Code.Gameplay.Input.ClickInterval),
+        typeof(Code.Gameplay.Input.Draging),
+        typeof(Code.Gameplay.Input.Input),
+        typeof(Code.Gameplay.Input.LastMouseDownTime),
+        typeof(Code.Gameplay.Input.LongTap),
+        typeof(Code.Gameplay.Input.LongTapInterval),
+        typeof(Code.Gameplay.Input.MouseDown),
+        typeof(Code.Gameplay.Input.MousePressed),
+        typeof(Code.Gameplay.Input.MouseUp),
+        typeof(Code.Gameplay.Input.ScreenMousePosition),
+        typeof(Code.Gameplay.Input.StartMouseDownScreenPosition),
+        typeof(Code.Gameplay.Input.StartMouseDownWorldPosition),
+        typeof(Code.Gameplay.Input.WorldMousePosition)
     };
 }

@@ -33,34 +33,53 @@ public static class GameComponentsLookup {
     public const int ChosenForReplicationBy = 22;
     public const int CurrentReplicationDuration = 23;
     public const int DefaultReplicationDuration = 24;
-    public const int InvalidReplicationTarget = 25;
-    public const int MaxRabbitsSpawnAfterReplication = 26;
-    public const int MinRabbitsSpawnAfterReplication = 27;
-    public const int MovingInterval = 28;
-    public const int MovingPhase = 29;
-    public const int MovingUp = 30;
-    public const int NearReplicationTarget = 31;
-    public const int Rabbit = 32;
-    public const int RabbitAnimator = 33;
-    public const int RabbitType = 34;
-    public const int RabbitTypesForReplicationWith = 35;
-    public const int Replicating = 36;
-    public const int ReplicationFinished = 37;
-    public const int ReplicationInterval = 38;
-    public const int ReplicationPhase = 39;
-    public const int ReplicationTarget = 40;
-    public const int ReplicationTimeLeft = 41;
-    public const int ReplicationUp = 42;
-    public const int StallParentIndex = 43;
-    public const int TimeLeftForMoving = 44;
-    public const int TimeLeftForNextReplication = 45;
-    public const int WaitingForMoving = 46;
-    public const int WaitingForNextReplicationUp = 47;
-    public const int Stall = 48;
-    public const int StallBounds = 49;
-    public const int StallIndex = 50;
+    public const int DraggingPhase = 25;
+    public const int InvalidReplicationTarget = 26;
+    public const int MaxRabbitsSpawnAfterReplication = 27;
+    public const int MinRabbitsSpawnAfterReplication = 28;
+    public const int MovingInterval = 29;
+    public const int MovingPhase = 30;
+    public const int MovingUp = 31;
+    public const int NearReplicationTarget = 32;
+    public const int Rabbit = 33;
+    public const int RabbitAnimator = 34;
+    public const int RabbitType = 35;
+    public const int RabbitTypesForReplicationWith = 36;
+    public const int RabbitVisualChanger = 37;
+    public const int Replicating = 38;
+    public const int ReplicationFinished = 39;
+    public const int ReplicationInterval = 40;
+    public const int ReplicationPhase = 41;
+    public const int ReplicationTarget = 42;
+    public const int ReplicationTimeLeft = 43;
+    public const int ReplicationUp = 44;
+    public const int ResetReplicationProcess = 45;
+    public const int StallParentIndex = 46;
+    public const int TimeLeftForMoving = 47;
+    public const int TimeLeftForNextReplication = 48;
+    public const int WaitingForMoving = 49;
+    public const int WaitingForNextReplicationUp = 50;
+    public const int AfterDragPosition = 51;
+    public const int DragCanceled = 52;
+    public const int DragFinished = 53;
+    public const int Dragging = 54;
+    public const int FollowSelectCenterSpeed = 55;
+    public const int HasSelections = 56;
+    public const int MoveToAfterDragPositionSpeed = 57;
+    public const int MovingToAfterDragPosition = 58;
+    public const int SavedPositionBeforeDrag = 59;
+    public const int Selectable = 60;
+    public const int SelectCenterPosition = 61;
+    public const int SelectCenterRadius = 62;
+    public const int Selected = 63;
+    public const int SelectedEntities = 64;
+    public const int SelectionLayerMask = 65;
+    public const int ShiftFromSelect = 66;
+    public const int Stall = 67;
+    public const int StallBounds = 68;
+    public const int StallIndex = 69;
 
-    public const int TotalComponents = 51;
+    public const int TotalComponents = 70;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -88,6 +107,7 @@ public static class GameComponentsLookup {
         "ChosenForReplicationBy",
         "CurrentReplicationDuration",
         "DefaultReplicationDuration",
+        "DraggingPhase",
         "InvalidReplicationTarget",
         "MaxRabbitsSpawnAfterReplication",
         "MinRabbitsSpawnAfterReplication",
@@ -99,6 +119,7 @@ public static class GameComponentsLookup {
         "RabbitAnimator",
         "RabbitType",
         "RabbitTypesForReplicationWith",
+        "RabbitVisualChanger",
         "Replicating",
         "ReplicationFinished",
         "ReplicationInterval",
@@ -106,11 +127,28 @@ public static class GameComponentsLookup {
         "ReplicationTarget",
         "ReplicationTimeLeft",
         "ReplicationUp",
+        "ResetReplicationProcess",
         "StallParentIndex",
         "TimeLeftForMoving",
         "TimeLeftForNextReplication",
         "WaitingForMoving",
         "WaitingForNextReplicationUp",
+        "AfterDragPosition",
+        "DragCanceled",
+        "DragFinished",
+        "Dragging",
+        "FollowSelectCenterSpeed",
+        "HasSelections",
+        "MoveToAfterDragPositionSpeed",
+        "MovingToAfterDragPosition",
+        "SavedPositionBeforeDrag",
+        "Selectable",
+        "SelectCenterPosition",
+        "SelectCenterRadius",
+        "Selected",
+        "SelectedEntities",
+        "SelectionLayerMask",
+        "ShiftFromSelect",
         "Stall",
         "StallBounds",
         "StallIndex"
@@ -142,6 +180,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Rabbits.ChosenForReplicationBy),
         typeof(Code.Gameplay.Features.Rabbits.CurrentReplicationDuration),
         typeof(Code.Gameplay.Features.Rabbits.DefaultReplicationDuration),
+        typeof(Code.Gameplay.Features.Rabbits.DraggingPhase),
         typeof(Code.Gameplay.Features.Rabbits.InvalidReplicationTarget),
         typeof(Code.Gameplay.Features.Rabbits.MaxRabbitsSpawnAfterReplication),
         typeof(Code.Gameplay.Features.Rabbits.MinRabbitsSpawnAfterReplication),
@@ -153,6 +192,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Rabbits.RabbitAnimatorComponent),
         typeof(Code.Gameplay.Features.Rabbits.RabbitTypeComponent),
         typeof(Code.Gameplay.Features.Rabbits.RabbitTypesForReplicationWith),
+        typeof(Code.Gameplay.Features.Rabbits.RabbitVisualChangerComponent),
         typeof(Code.Gameplay.Features.Rabbits.Replicating),
         typeof(Code.Gameplay.Features.Rabbits.ReplicationFinished),
         typeof(Code.Gameplay.Features.Rabbits.ReplicationInterval),
@@ -160,11 +200,28 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Rabbits.ReplicationTarget),
         typeof(Code.Gameplay.Features.Rabbits.ReplicationTimeLeft),
         typeof(Code.Gameplay.Features.Rabbits.ReplicationUp),
+        typeof(Code.Gameplay.Features.Rabbits.ResetReplicationProcess),
         typeof(Code.Gameplay.Features.Rabbits.StallParentIndex),
         typeof(Code.Gameplay.Features.Rabbits.TimeLeftForMoving),
         typeof(Code.Gameplay.Features.Rabbits.TimeLeftForNextReplication),
         typeof(Code.Gameplay.Features.Rabbits.WaitingForMoving),
         typeof(Code.Gameplay.Features.Rabbits.WaitingForNextReplicationUp),
+        typeof(Code.Gameplay.Features.Selection.AfterDragPosition),
+        typeof(Code.Gameplay.Features.Selection.DragCanceled),
+        typeof(Code.Gameplay.Features.Selection.DragFinished),
+        typeof(Code.Gameplay.Features.Selection.Dragging),
+        typeof(Code.Gameplay.Features.Selection.FollowSelectCenterSpeed),
+        typeof(Code.Gameplay.Features.Selection.HasSelections),
+        typeof(Code.Gameplay.Features.Selection.MoveToAfterDragPositionSpeed),
+        typeof(Code.Gameplay.Features.Selection.MovingToAfterDragPosition),
+        typeof(Code.Gameplay.Features.Selection.SavedPositionBeforeDrag),
+        typeof(Code.Gameplay.Features.Selection.Selectable),
+        typeof(Code.Gameplay.Features.Selection.SelectCenterPosition),
+        typeof(Code.Gameplay.Features.Selection.SelectCenterRadius),
+        typeof(Code.Gameplay.Features.Selection.Selected),
+        typeof(Code.Gameplay.Features.Selection.SelectedEntities),
+        typeof(Code.Gameplay.Features.Selection.SelectionLayerMask),
+        typeof(Code.Gameplay.Features.Selection.ShiftFromSelect),
         typeof(Code.Gameplay.Features.Stalls.Stall),
         typeof(Code.Gameplay.Features.Stalls.StallBounds),
         typeof(Code.Gameplay.Features.Stalls.StallIndex)

@@ -13,7 +13,10 @@ GameObject:
   - component: {fileID: 2128263421736950260}
   - component: {fileID: 6300163563413326717}
   - component: {fileID: 8264336031989916748}
-  m_Layer: 0
+  - component: {fileID: 946809907180951998}
+  - component: {fileID: 4063518330826436246}
+  - component: {fileID: 8942472079699152202}
+  m_Layer: 6
   m_Name: SimpleRabbit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,6 +93,70 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EntityView: {fileID: 2658883369037870289}
   SpriteRenderer: {fileID: 1387650854986374518}
+--- !u!70 &946809907180951998
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3556678750113848877}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.08, y: 2.06}
+  m_Direction: 0
+--- !u!114 &4063518330826436246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3556678750113848877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c472198c09714f7387afe7f8a33a0523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteRenderer: {fileID: 1387650854986374518}
+  SelectedColor: {r: 0.3824134, g: 1, b: 0, a: 1}
+  UnselectedColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &8942472079699152202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3556678750113848877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bb820b871ac4c1190c2e6338316e75c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EntityView: {fileID: 2658883369037870289}
+  VisualChanger: {fileID: 4063518330826436246}
 --- !u!1 &4314749522020946278
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,7 +168,7 @@ GameObject:
   - component: {fileID: 2210051911768160127}
   - component: {fileID: 1387650854986374518}
   - component: {fileID: 1389944570153264527}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4425136043714267817}
   - component: {fileID: 1145137375436715457}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}

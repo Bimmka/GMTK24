@@ -30,6 +30,7 @@ namespace Code.Gameplay.Features.Rabbits.Systems
                 rabbit.isReplicationFinished = false;
                 rabbit.isCanBeChosenForReplication = true;
                 rabbit.isNearReplicationTarget = false;
+                rabbit.isSelectable = true;
                 
                 rabbit.isReplicationPhase = false;
                 rabbit.isMovingPhase = true;

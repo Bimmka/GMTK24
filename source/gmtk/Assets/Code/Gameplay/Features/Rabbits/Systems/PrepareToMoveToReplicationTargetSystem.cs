@@ -25,6 +25,7 @@ namespace Code.Gameplay.Features.Rabbits.Systems
             {
                 rabbit.isWaitingForMoving = false;
                 rabbit.isMovingUp = false;
+                rabbit.isWaitingForNextReplicationUp = false;
 
                 rabbit.isReplicationPhase = true;
                 rabbit.isMovingPhase = false;
