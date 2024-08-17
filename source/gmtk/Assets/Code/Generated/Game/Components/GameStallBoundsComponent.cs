@@ -6,9 +6,6 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using Code.Gameplay.Features.Stalls;
-
 public sealed partial class GameMatcher {
 
     static Entitas.IMatcher<GameEntity> _matcherStallBounds;
@@ -36,13 +33,13 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public StallBounds stallBounds { get { return (StallBounds)GetComponent(GameComponentsLookup.StallBounds); } }
+    public Code.Gameplay.Features.Stalls.StallBounds stallBounds { get { return (Code.Gameplay.Features.Stalls.StallBounds)GetComponent(GameComponentsLookup.StallBounds); } }
     public UnityEngine.Vector2 StallBounds { get { return stallBounds.Value; } }
     public bool hasStallBounds { get { return HasComponent(GameComponentsLookup.StallBounds); } }
 
     public GameEntity AddStallBounds(UnityEngine.Vector2 newValue) {
         var index = GameComponentsLookup.StallBounds;
-        var component = (StallBounds)CreateComponent(index, typeof(StallBounds));
+        var component = (Code.Gameplay.Features.Stalls.StallBounds)CreateComponent(index, typeof(Code.Gameplay.Features.Stalls.StallBounds));
         component.Value = newValue;
         AddComponent(index, component);
         return this;
@@ -50,7 +47,7 @@ public partial class GameEntity {
 
     public GameEntity ReplaceStallBounds(UnityEngine.Vector2 newValue) {
         var index = GameComponentsLookup.StallBounds;
-        var component = (StallBounds)CreateComponent(index, typeof(StallBounds));
+        var component = (Code.Gameplay.Features.Stalls.StallBounds)CreateComponent(index, typeof(Code.Gameplay.Features.Stalls.StallBounds));
         component.Value = newValue;
         ReplaceComponent(index, component);
         return this;

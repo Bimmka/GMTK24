@@ -8,5 +8,6 @@ namespace Code.Gameplay.Features.Level.Config
         public string Id;
 
         public StallsSpawnData[] StallsSpawnData;
+        public PresetupRabbitData[] PresetupRabbits;
     }
 }

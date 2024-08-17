@@ -1,4 +1,5 @@
 ﻿using Code.Gameplay.Features.Level.Config;
+using Code.Gameplay.Features.Rabbits.Config;
 using Code.Gameplay.Windows;
 using UnityEngine;
 
@@ -9,5 +10,6 @@ namespace Code.Gameplay.StaticData
     void LoadAll();
     GameObject GetWindowPrefab(WindowId id);
     LevelConfig GetLevelConfig(string id);
+    RabbitConfig GetRabbitConfig(RabbitType type);
   }
 }

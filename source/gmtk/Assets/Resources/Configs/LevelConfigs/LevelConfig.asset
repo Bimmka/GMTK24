@@ -15,10 +15,15 @@ MonoBehaviour:
   Id: first
   StallsSpawnData:
   - View: {fileID: 3863858705266743693, guid: cbd4301e14f360a4eb98718fd5ff4ce8, type: 3}
-    SpawnPosition: {x: 0, y: 0, z: -6.87}
+    SpawnPosition: {x: 0, y: -3.9999998, z: 0}
     Index: 1
     Bounds: {x: 16.1, y: 7.31}
   - View: {fileID: 3863858705266743693, guid: cbd4301e14f360a4eb98718fd5ff4ce8, type: 3}
-    SpawnPosition: {x: 0, y: 0, z: 1.47}
+    SpawnPosition: {x: 0, y: 3.93, z: 0}
     Index: 0
     Bounds: {x: 16.1, y: 7.31}
+  PresetupRabbits:
+  - Type: 1
+    StallIndex: 0
+  - Type: 1
+    StallIndex: 1

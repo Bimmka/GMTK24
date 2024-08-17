@@ -14,7 +14,7 @@ namespace Code.Gameplay.Utils.Stalls
         public void OnDrawGizmos()
         {
             Gizmos.color = DisplayColor;
-            Gizmos.DrawWireCube(transform.position, new Vector3(Bounds.x, 0, Bounds.y));
+            Gizmos.DrawWireCube(transform.position, new Vector3(Bounds.x, Bounds.y, 0));
         }
     }
 }
