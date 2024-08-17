@@ -57,6 +57,7 @@ namespace Code.Gameplay.Features.Rabbits.Factory
                     .AddSpeed(rabbitConfig.Speed)
                     .With(x => x.isRabbit = true)
                     .With(x => x.isSaveRotationInSpawn = true)
+                    .With(x => x.isTurnedAlongDirection = true)
                     ;
         }
     }

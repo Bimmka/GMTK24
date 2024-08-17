@@ -1,3 +1,4 @@
+using Code.Common.Extensions;
 using Code.Gameplay;
 using Code.Gameplay.Features.Level.Config;
 using Code.Gameplay.Features.Rabbits.Factory;
@@ -61,7 +62,10 @@ namespace Code.Infrastructure.States.GameStates
     {
       foreach (PresetupRabbitData rabbit in presetupRabbits)
       {
-        _rabbitFactory.Create(rabbit.Type, _stallService.GetRandomPositionInStall(rabbit.StallIndex), rabbit.StallIndex);
+        _rabbitFactory
+          .Create(rabbit.Type, _stallService.GetRandomPositionInStall(rabbit.StallIndex), rabbit.StallIndex)
+          .With(x => x.isMovementAvailable = true)
+          .With(x => x.isWaitingForMoving = true);
       }
     }
   }
