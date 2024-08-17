@@ -18,7 +18,7 @@ namespace Code.Gameplay.Features.Selection.Systems
             _clicks = input.GetGroup(InputMatcher.AllOf(InputMatcher.Click));
             _selections = game.GetGroup(GameMatcher
                 .AllOf(
-                    GameMatcher.SelectedEntities,
+                    GameMatcher.EntitiesForSelectionQueue,
                     GameMatcher.SelectionLayerMask));
         }
 
@@ -32,18 +32,11 @@ namespace Code.Gameplay.Features.Selection.Systems
 
                     if (result == null)
                     {
-                        foreach (int entityId in selection.SelectedEntities)
-                        {
-                            GameEntity selectedEntity = _game.GetEntityWithId(entityId);
-                            selectedEntity.isSelected = false;
-                        }
-
-                        selection.SelectedEntities.Clear();
+                        selection.isUnselectSelectedEntities = true;
                     }
-                    else if (result.isSelectable && selection.SelectedEntities.Contains(result.Id) == false)
+                    else if (result.isSelectable )
                     {
-                        selection.SelectedEntities.Add(result.Id);
-                        selection.isHasSelections = true;
+                        selection.EntitiesForSelectionQueue.Enqueue(result.Id);
                         result.isSelected = true;
                     }
                 }
