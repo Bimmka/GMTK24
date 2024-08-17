@@ -22,7 +22,6 @@ namespace Code.Gameplay.Features.Rabbits.Systems
                 .AllOf(
                     GameMatcher.Rabbit,
                     GameMatcher.ReplicationUp,
-                    GameMatcher.CanBeChosenForReplication,
                     GameMatcher.StallParentIndex,
                     GameMatcher.Id,
                     GameMatcher.RabbitTypesForReplicationWith));
@@ -40,14 +39,11 @@ namespace Code.Gameplay.Features.Rabbits.Systems
                 if (chosenTarget != null)
                 {
                     chosenTarget.isChosenForReplication = true;
-                    chosenTarget.isWaitingForNextReplicationUp = false;
-                    chosenTarget.isCanBeChosenForReplication = false;
-                    chosenTarget.isReplicationUp = false;
-                    
+                    chosenTarget.RemoveWaitReplicationComponent();
+                    chosenTarget.ReplaceChosenForReplicationBy(replicationUpRabbit.Id);
+
                     replicationUpRabbit.ReplaceReplicationTarget(chosenTarget.Id);
-                    replicationUpRabbit.isWaitingForNextReplicationUp = false;
-                    replicationUpRabbit.isReplicationUp = false;
-                    replicationUpRabbit.isCanBeChosenForReplication = false;
+                    replicationUpRabbit.RemoveWaitReplicationComponent();
                 }
             }
         }

@@ -2,16 +2,16 @@
 
 namespace Code.Gameplay.Features.Rabbits.Systems
 {
-    public class RefreshTimeForMovingForReachedTargetRabbitSystem : IExecuteSystem
+    public class RefreshTimeForMovingForReachedTargetSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _rabbits;
 
-        public RefreshTimeForMovingForReachedTargetRabbitSystem(GameContext game)
+        public RefreshTimeForMovingForReachedTargetSystem(GameContext game)
         {
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Rabbit,
-                    GameMatcher.TargetReached,
+                    GameMatcher.TargetPointReached,
                     GameMatcher.MovingInterval,
                     GameMatcher.TimeLeftForMoving));
         }

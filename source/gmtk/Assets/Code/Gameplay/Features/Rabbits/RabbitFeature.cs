@@ -1,4 +1,5 @@
-﻿using Code.Gameplay.Features.Rabbits.Systems;
+﻿using Code.Gameplay.Features.Movement.Systems;
+using Code.Gameplay.Features.Rabbits.Systems;
 using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Features.Rabbits
@@ -10,15 +11,30 @@ namespace Code.Gameplay.Features.Rabbits
             Add(systems.Create<UpdateTimeForMovingSystem>());
             Add(systems.Create<UpdateTimeForReplicationSystem>());
             
-            Add(systems.Create<SetReplicationTargetSystem>());
+            Add(systems.Create<UpdateActivityFreeMarkSystem>());
             
-            Add(systems.Create<StarMoveRabbitSystem>());
-            Add(systems.Create<StopMoveRabbitSystem>());
+            Add(systems.Create<SetReplicationTargetSystem>());
 
-            Add(systems.Create<RefreshTimeForMovingForReachedTargetRabbitSystem>());
+            Add(systems.Create<PrepareToMoveToReplicationTargetSystem>());
+            Add(systems.Create<RemoveReplicationTargetComponentWithoutPositionSystem>());
+            Add(systems.Create<RemoveReplicationTargetComponentWhenDifferenceStallSystem>());
+
+            Add(systems.Create<MarkNearReplicationTargetSystem>());
+            Add(systems.Create<ChangeMovingMarkWhenHasReplicationTargetSystem>());
+
+            Add(systems.Create<UpdateDirectionToReplicationTargetSystem>());
+            
+            Add(systems.Create<StarMoveRabbitToRandomTargetPointInStallSystem>());
+
+            Add(systems.Create<StartReplicationSystem>());
+            Add(systems.Create<UpdateReplicationDurationSystem>());
+            Add(systems.Create<SpawnRabbitsAfterReplicationFinishedSystem>());
+            Add(systems.Create<ResetAfterReplicationFinishedSystem>());
+            
+            Add(systems.Create<RefreshTimeForMovingForReachedTargetSystem>());
             
             //cleanup
-            Add(systems.Create<CleanupTargetReachedRabbitSystem>());
+            Add(systems.Create<CleanupTargetReachedSystem>());
         }
     }
 }

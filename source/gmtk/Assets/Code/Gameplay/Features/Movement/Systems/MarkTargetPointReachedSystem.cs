@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace Code.Gameplay.Features.Movement.Systems
 {
-    public class MarkTargetReachedSystem : IExecuteSystem
+    public class MarkTargetPointReachedSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _movers;
 
-        public MarkTargetReachedSystem(GameContext game)
+        public MarkTargetPointReachedSystem(GameContext game)
         {
             _movers = game.GetGroup(GameMatcher
                 .AllOf(
@@ -20,7 +20,7 @@ namespace Code.Gameplay.Features.Movement.Systems
             foreach (GameEntity mover in _movers)
             {
                 if (Vector3.SqrMagnitude(mover.TargetPoint - mover.WorldPosition) <= 0.5f)
-                    mover.isTargetReached = true;
+                    mover.isTargetPointReached = true;
             }
         }
     }

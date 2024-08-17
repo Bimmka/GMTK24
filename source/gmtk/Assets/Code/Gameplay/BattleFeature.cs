@@ -14,9 +14,9 @@ namespace Code.Gameplay
       Add(systems.Create<InputFeature>());
       Add(systems.Create<BindViewFeature>());
 
-      Add(systems.Create<RabbitFeature>());
       Add(systems.Create<MovementFeature>());
-        
+      Add(systems.Create<RabbitFeature>());
+
       Add(systems.Create<ProcessDestructedFeature>());
     }
   }

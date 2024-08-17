@@ -42,7 +42,8 @@ namespace Code.Gameplay.Features.Rabbits.Factory
                     .Empty()
                     .AddId(_identifierService.Next())
                     .AddRabbitType(rabbitConfig.Type)
-                    .AddReplicationDuration(rabbitConfig.ReplicationDuration)
+                    .AddDefaultReplicationDuration(rabbitConfig.ReplicationDuration)
+                    .AddCurrentReplicationDuration(rabbitConfig.ReplicationDuration)
                     .AddReplicationInterval(rabbitConfig.IntervalBetweenReplication)
                     .AddReplicationTimeLeft(rabbitConfig.ReplicationDuration)
                     .AddTimeLeftForNextReplication(rabbitConfig.IntervalBetweenReplication)
@@ -59,6 +60,7 @@ namespace Code.Gameplay.Features.Rabbits.Factory
                     .With(x => x.isRabbit = true)
                     .With(x => x.isSaveRotationInSpawn = true)
                     .With(x => x.isTurnedAlongDirection = true)
+                    .With(x => x.isMovingPhase = true)
                     ;
         }
     }

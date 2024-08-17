@@ -8,17 +8,17 @@
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherTargetReached;
+    static Entitas.IMatcher<GameEntity> _matcherNearReplicationTarget;
 
-    public static Entitas.IMatcher<GameEntity> TargetReached {
+    public static Entitas.IMatcher<GameEntity> NearReplicationTarget {
         get {
-            if (_matcherTargetReached == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.TargetReached);
+            if (_matcherNearReplicationTarget == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.NearReplicationTarget);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherTargetReached = matcher;
+                _matcherNearReplicationTarget = matcher;
             }
 
-            return _matcherTargetReached;
+            return _matcherNearReplicationTarget;
         }
     }
 }
@@ -33,18 +33,18 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Gameplay.Features.Movement.TargetReached targetReachedComponent = new Code.Gameplay.Features.Movement.TargetReached();
+    static readonly Code.Gameplay.Features.Rabbits.NearReplicationTarget nearReplicationTargetComponent = new Code.Gameplay.Features.Rabbits.NearReplicationTarget();
 
-    public bool isTargetReached {
-        get { return HasComponent(GameComponentsLookup.TargetReached); }
+    public bool isNearReplicationTarget {
+        get { return HasComponent(GameComponentsLookup.NearReplicationTarget); }
         set {
-            if (value != isTargetReached) {
-                var index = GameComponentsLookup.TargetReached;
+            if (value != isNearReplicationTarget) {
+                var index = GameComponentsLookup.NearReplicationTarget;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : targetReachedComponent;
+                            : nearReplicationTargetComponent;
 
                     AddComponent(index, component);
                 } else {

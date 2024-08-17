@@ -4,13 +4,13 @@ using Entitas;
 
 namespace Code.Gameplay.Features.Rabbits.Systems
 {
-    public class StarMoveRabbitSystem : IExecuteSystem
+    public class StarMoveRabbitToRandomTargetPointInStallSystem : IExecuteSystem
     {
         private readonly IStallService _stallService;
         private readonly IGroup<GameEntity> _rabbits;
         private readonly List<GameEntity> _buffer = new List<GameEntity>(32);
 
-        public StarMoveRabbitSystem(GameContext game, IStallService stallService)
+        public StarMoveRabbitToRandomTargetPointInStallSystem(GameContext game, IStallService stallService)
         {
             _stallService = stallService;
 
@@ -20,7 +20,8 @@ namespace Code.Gameplay.Features.Rabbits.Systems
                     GameMatcher.MovingUp,
                     GameMatcher.MovementAvailable,
                     GameMatcher.StallParentIndex,
-                    GameMatcher.WorldPosition));
+                    GameMatcher.WorldPosition,
+                    GameMatcher.MovingPhase));
         }
 
         public void Execute()
@@ -34,7 +35,7 @@ namespace Code.Gameplay.Features.Rabbits.Systems
                 if (rabbit.hasRabbitAnimator)
                     rabbit.RabbitAnimator.PlayMoving();
 
-                rabbit.AddTargetPoint(_stallService.GetRandomPositionInStall(rabbit.StallParentIndex));
+                rabbit.ReplaceTargetPoint(_stallService.GetRandomPositionInStall(rabbit.StallParentIndex));
                 rabbit.ReplaceMoveDirection((rabbit.TargetPoint - rabbit.WorldPosition).normalized);
             }
         }
