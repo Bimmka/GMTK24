@@ -4,6 +4,7 @@ using Code.Gameplay.Common.Collisions;
 using Code.Gameplay.Common.Physics;
 using Code.Gameplay.Common.Random;
 using Code.Gameplay.Common.Time;
+using Code.Gameplay.Features.Stall.Factory;
 using Code.Gameplay.Input.Service;
 using Code.Gameplay.Levels;
 using Code.Gameplay.StaticData;
@@ -98,6 +99,7 @@ namespace Code.Infrastructure.Installers
     private void BindGameplayFactories()
     {
       Container.Bind<IEntityViewFactory>().To<EntityViewFactory>().AsSingle();
+      Container.Bind<IStallsFactory>().To<StallsFactory>().AsSingle();
     }
 
     private void BindEntityIndices()

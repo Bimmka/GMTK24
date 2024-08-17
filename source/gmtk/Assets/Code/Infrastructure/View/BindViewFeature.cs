@@ -7,6 +7,8 @@ namespace Code.Infrastructure.View
   {
     public BindViewFeature(ISystemFactory systems)
     {
+      Add(systems.Create<BindEntityViewFromPrefabWithParentAndRotationSystem>());
+      Add(systems.Create<BindEntityViewFromPrefabWithParentSystem>());
       Add(systems.Create<BindEntityViewFromPathSystem>());
       Add(systems.Create<BindEntityViewFromPrefabSystem>());
     }
