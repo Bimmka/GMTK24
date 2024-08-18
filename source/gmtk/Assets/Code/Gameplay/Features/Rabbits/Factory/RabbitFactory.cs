@@ -57,36 +57,38 @@ namespace Code.Gameplay.Features.Rabbits.Factory
             float intervalBeforeNextReplication = _randomService.Range(rabbitConfig.MinIntervalBetweenReplication,
                 rabbitConfig.MaxIntervalBetweenReplication);
 
+            float randomSpeed = _randomService.Range(rabbitConfig.MinSpeed, rabbitConfig.MaxSpeed);
+            float randomReplicationDuration = _randomService.Range(rabbitConfig.MinReplicationDuration, rabbitConfig.MaxReplicationDuration);
+            float randomDragReleaseDuration = _randomService.Range(rabbitConfig.MinTimeToReleaseFromDrag, rabbitConfig.MaxTimeToReleaseFromDrag);
+            float randomIntervalBetweenMoving = _randomService.Range(rabbitConfig.MinIntervalBetweenMoving, rabbitConfig.MaxIntervalBetweenMoving);
+            float randomWaitReplicationDuration = _randomService.Range(rabbitConfig.MinWaitReplicationDuration, rabbitConfig.MaxWaitReplicationDuration);
+
             Dictionary<Stats, float> baseStats = InitStats.EmptyStatDictionary()
-                .With(x => x[Stats.Speed] = rabbitConfig.Speed)
-                .With(x => x[Stats.ReplicationDuration] = rabbitConfig.ReplicationDuration)
-                .With(x => x[Stats.MinIntervalBetweenReplications] = rabbitConfig.MinIntervalBetweenReplication)
-                .With(x => x[Stats.MaxIntervalBetweenReplications] = rabbitConfig.MaxIntervalBetweenReplication)
-                .With(x => x[Stats.DragReleaseDuration] = rabbitConfig.TimeToRelease)
+                .With(x => x[Stats.Speed] = randomSpeed)
+                .With(x => x[Stats.ReplicationDuration] = randomReplicationDuration)
+                .With(x => x[Stats.DragReleaseDuration] = randomDragReleaseDuration)
                 ;
             
             rabbitEntity
                 .AddId(_identifierService.Next())
                 .AddRabbitColorType(rabbitConfig.ColorType)
-                .AddDefaultReplicationDuration(rabbitConfig.ReplicationDuration)
-                .AddCurrentReplicationDuration(rabbitConfig.ReplicationDuration)
+                .AddDefaultReplicationDuration(randomReplicationDuration)
+                .AddCurrentReplicationDuration(randomReplicationDuration)
                 .AddReplicationInterval(intervalBeforeNextReplication)
-                .AddMinReplicationInterval(rabbitConfig.MinIntervalBetweenReplication)
-                .AddMaxReplicationInterval(rabbitConfig.MaxIntervalBetweenReplication)
-                .AddReplicationTimeLeft(rabbitConfig.ReplicationDuration)
+                .AddReplicationTimeLeft(randomReplicationDuration)
                 .AddTimeLeftForNextReplication(intervalBeforeNextReplication)
-                .AddMovingInterval(rabbitConfig.IntervalBetweenMoving)
+                .AddMovingInterval(randomIntervalBetweenMoving)
                 .AddTimeLeftForMoving(0)
                 .AddWorldPosition(at)
                 .AddStallParentIndex(stallIndex)
                 .AddViewPrefab(rabbitConfig.View)
                 .AddParentTransform(_levelDataProvider.RabbitSpawnParent)
-                .AddSpeed(rabbitConfig.Speed)
-                .AddSelectionDragMaxTime(rabbitConfig.TimeToRelease)
-                .AddSelectionDragTimeLeft(rabbitConfig.TimeToRelease)
+                .AddSpeed(randomSpeed)
+                .AddSelectionDragMaxTime(randomDragReleaseDuration)
+                .AddSelectionDragTimeLeft(randomDragReleaseDuration)
                 .AddRabbitStateMachine(stateMachine)
-                .AddWaitReplicationDuration(rabbitConfig.WaitReplicationDuration)
-                .AddWaitReplicationTimeLeft(rabbitConfig.WaitReplicationDuration)
+                .AddWaitReplicationDuration(randomWaitReplicationDuration)
+                .AddWaitReplicationTimeLeft(randomWaitReplicationDuration)
                 .AddBaseStats(baseStats)
                 .AddStatModifiers(InitStats.EmptyStatDictionary())
                 .With(x => x.isRabbit = true)

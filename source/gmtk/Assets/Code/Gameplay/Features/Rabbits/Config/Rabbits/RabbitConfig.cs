@@ -9,14 +9,28 @@ namespace Code.Gameplay.Features.Rabbits.Config.Rabbits
         public RabbitColorType ColorType;
         public EntityBehaviour View;
 
-        public float IntervalBetweenMoving = 1f;
+        [Header("Interval Between Moving")]
+        public float MinIntervalBetweenMoving = 1f;
+        public float MaxIntervalBetweenMoving = 1f;
 
+        [Header("Interval Between Replicatin")]
         public float MinIntervalBetweenReplication = 1f;
         public float MaxIntervalBetweenReplication = 2f;
-        public float ReplicationDuration = 1f;
-        public float WaitReplicationDuration = 5f;
+        
+        [Header("Replication Process Duration")]
+        public float MinReplicationDuration = 1f;
+        public float MaxReplicationDuration = 1f;
+        
+        [Header("Time For Next Replication")]
+        public float MinWaitReplicationDuration = 5f;
+        public float MaxWaitReplicationDuration = 5f;
 
-        public float Speed = 1f;
-        public float TimeToRelease = 4f;
+        [Header("Speed")]
+        public float MinSpeed = 1f;
+        public float MaxSpeed = 1f;
+        
+        [Header("Time To Release From Drag")]
+        public float MinTimeToReleaseFromDrag = 4f;
+        public float MaxTimeToReleaseFromDrag = 4f;
     }
 }

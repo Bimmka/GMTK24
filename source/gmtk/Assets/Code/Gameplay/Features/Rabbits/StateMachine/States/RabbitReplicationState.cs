@@ -38,7 +38,7 @@ namespace Code.Gameplay.Features.Rabbits.StateMachine.States
             Entity.isReplicationTimeUp = false;
             Entity.isWaitingReplicationTarget = false;
 
-            Entity.ReplaceTimeLeftForNextReplication(_randomService.Range(Entity.MinReplicationInterval, Entity.MaxReplicationInterval));
+            Entity.ReplaceTimeLeftForNextReplication(Entity.ReplicationInterval);
             Entity.ReplaceWaitReplicationTimeLeft(Entity.WaitReplicationDuration);
             
             Entity.RabbitVisualChanger.SetWaitTarget(Entity.isWaitingReplicationTarget);

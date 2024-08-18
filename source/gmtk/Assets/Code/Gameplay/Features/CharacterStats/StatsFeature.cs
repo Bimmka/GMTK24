@@ -12,8 +12,6 @@ namespace Code.Gameplay.Features.CharacterStats
       Add(systems.Create<ApplySpeedFromStatsSystem>());
       Add(systems.Create<ApplyDragReleaseDurationFromStatsSystem>());
       Add(systems.Create<ApplyReplicationDurationFromStatsSystem>());
-      Add(systems.Create<ApplyMinIntervalBetweenReplicationsFromStatsSystem>());
-      Add(systems.Create<ApplyMaxIntervalBetweenReplicationsFromStatsSystem>());
     }
   }
 }

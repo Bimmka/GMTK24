@@ -20,8 +20,6 @@ namespace Code.Gameplay.Features.Rabbits
     [Game] public class CleanupResetReplicationMarkers : IComponent { }
     
     [Game] public class ReplicationInterval : IComponent { public float Value; }
-    [Game] public class MinReplicationInterval : IComponent { public float Value; }
-    [Game] public class MaxReplicationInterval : IComponent { public float Value; }
     [Game] public class WaitReplicationDuration : IComponent { public float Value; }
     [Game] public class WaitReplicationTimeLeft : IComponent { public float Value; }
     [Game] public class TimeLeftForNextReplication : IComponent { public float Value; }
