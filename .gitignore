@@ -70,3 +70,5 @@ source/gmtk/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 # Temporary auto-generated Android Assets
 source/gmtk/[Aa]ssets/[Ss]treamingAssets/aa.meta
 source/gmtk/[Aa]ssets/[Ss]treamingAssets/aa/*
+source/gmtk/Assets/Scenes/Art_Test.unity
+source/gmtk/Assets/Scenes/Art_Test.unity.meta
