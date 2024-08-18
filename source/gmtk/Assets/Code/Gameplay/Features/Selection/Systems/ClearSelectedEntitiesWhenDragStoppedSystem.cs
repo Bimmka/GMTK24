@@ -2,18 +2,19 @@
 
 namespace Code.Gameplay.Features.Selection.Systems
 {
-    public class ClearSelectedEntitiesWhenUnselectSystem : IExecuteSystem
+    public class ClearSelectedEntitiesWhenDragStoppedSystem : IExecuteSystem
     {
         private readonly GameContext _game;
         private readonly IGroup<GameEntity> _selections;
 
-        public ClearSelectedEntitiesWhenUnselectSystem(GameContext game)
+        public ClearSelectedEntitiesWhenDragStoppedSystem(GameContext game)
         {
             _game = game;
             _selections = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.SelectedEntities,
-                    GameMatcher.UnselectSelectedEntities));
+                    GameMatcher.HasSelections,
+                    GameMatcher.DragStopped));
         }
 
         public void Execute()
@@ -27,7 +28,6 @@ namespace Code.Gameplay.Features.Selection.Systems
                 }
 
                 selection.SelectedEntities.Clear();
-                selection.isCleanupUnselectMark = true;
             }
         }
     }

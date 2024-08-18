@@ -15,10 +15,12 @@ namespace Code.Gameplay.Features.Selection
             Add(systems.Create<MarkWaitingMouseDragFinishSystem>());
             Add(systems.Create<DisplayMultipleSelectionAreaSystem>());
             Add(systems.Create<HideMultipleSelectionAreaSystem>());
+            
             Add(systems.Create<SelectByClickSystem>());
             Add(systems.Create<SelectByMouseDraggingSystem>());
             
             Add(systems.Create<ClearSelectedEntitiesWhenUnselectSystem>());
+
             Add(systems.Create<AddSelectedEntitiesFromQueueSystem>());
             Add(systems.Create<RefreshHasSelectedMarkSystem>());
 
@@ -27,8 +29,11 @@ namespace Code.Gameplay.Features.Selection
             Add(systems.Create<DragSelectionsFeature>());
             Add(systems.Create<SelectionCenterFeature>());
             Add(systems.Create<MoveSelectedFeature>());
+            
+            Add(systems.Create<ClearSelectedEntitiesWhenDragStoppedSystem>());
 
             Add(systems.Create<RemoveUnselectMarkFromSelectionSystem>());
+            Add(systems.Create<RemoveDragMarksFromSelectionSystem>());
         }
     }
 }

@@ -19,7 +19,8 @@ namespace Code.Gameplay.Features.Selection.Systems
             _selections = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.EntitiesForSelectionQueue,
-                    GameMatcher.SelectionLayerMask));
+                    GameMatcher.SelectionLayerMask)
+                .NoneOf(GameMatcher.Dragging));
         }
 
         public void Execute()
@@ -34,7 +35,7 @@ namespace Code.Gameplay.Features.Selection.Systems
                     {
                         selection.isUnselectSelectedEntities = true;
                     }
-                    else if (result.isSelectable )
+                    else if (result.isSelectable)
                     {
                         selection.EntitiesForSelectionQueue.Enqueue(result.Id);
                         result.isSelected = true;

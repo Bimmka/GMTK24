@@ -60,32 +60,35 @@ public static class GameComponentsLookup {
     public const int WaitingForMoving = 49;
     public const int WaitingForNextReplicationUp = 50;
     public const int AfterDragPosition = 51;
-    public const int DragCanceled = 52;
-    public const int DragFinished = 53;
-    public const int Dragging = 54;
-    public const int EntitiesForSelectionQueue = 55;
-    public const int FollowSelectCenterSpeed = 56;
-    public const int HasSelections = 57;
-    public const int MoveToAfterDragPositionSpeed = 58;
-    public const int MovingToAfterDragPosition = 59;
-    public const int MultipleSelectionWindow = 60;
-    public const int SavedPositionBeforeDrag = 61;
-    public const int Selectable = 62;
-    public const int SelectCenterPosition = 63;
-    public const int SelectCenterRadius = 64;
-    public const int Selected = 65;
-    public const int SelectedEntities = 66;
-    public const int Selection = 67;
-    public const int SelectionLayerMask = 68;
-    public const int ShiftFromSelect = 69;
-    public const int StoppedWaitingMouseDragFinish = 70;
-    public const int UnselectSelectedEntities = 71;
-    public const int WaitingMouseDragFinish = 72;
-    public const int Stall = 73;
-    public const int StallBounds = 74;
-    public const int StallIndex = 75;
+    public const int CleanupUnselectMark = 52;
+    public const int DragCanceled = 53;
+    public const int DragFinished = 54;
+    public const int Dragging = 55;
+    public const int DragStarted = 56;
+    public const int DragStopped = 57;
+    public const int EntitiesForSelectionQueue = 58;
+    public const int FollowSelectCenterSpeed = 59;
+    public const int HasSelections = 60;
+    public const int MoveToAfterDragPositionSpeed = 61;
+    public const int MovingToAfterDragPosition = 62;
+    public const int MultipleSelectionWindow = 63;
+    public const int SavedPositionBeforeDrag = 64;
+    public const int Selectable = 65;
+    public const int SelectCenterPosition = 66;
+    public const int SelectCenterRadius = 67;
+    public const int Selected = 68;
+    public const int SelectedEntities = 69;
+    public const int Selection = 70;
+    public const int SelectionLayerMask = 71;
+    public const int ShiftFromSelect = 72;
+    public const int StoppedWaitingMouseDragFinish = 73;
+    public const int UnselectSelectedEntities = 74;
+    public const int WaitingMouseDragFinish = 75;
+    public const int Stall = 76;
+    public const int StallBounds = 77;
+    public const int StallIndex = 78;
 
-    public const int TotalComponents = 76;
+    public const int TotalComponents = 79;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -140,9 +143,12 @@ public static class GameComponentsLookup {
         "WaitingForMoving",
         "WaitingForNextReplicationUp",
         "AfterDragPosition",
+        "CleanupUnselectMark",
         "DragCanceled",
         "DragFinished",
         "Dragging",
+        "DragStarted",
+        "DragStopped",
         "EntitiesForSelectionQueue",
         "FollowSelectCenterSpeed",
         "HasSelections",
@@ -219,9 +225,12 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Rabbits.WaitingForMoving),
         typeof(Code.Gameplay.Features.Rabbits.WaitingForNextReplicationUp),
         typeof(Code.Gameplay.Features.Selection.AfterDragPosition),
+        typeof(Code.Gameplay.Features.Selection.CleanupUnselectMark),
         typeof(Code.Gameplay.Features.Selection.DragCanceled),
         typeof(Code.Gameplay.Features.Selection.DragFinished),
         typeof(Code.Gameplay.Features.Selection.Dragging),
+        typeof(Code.Gameplay.Features.Selection.DragStarted),
+        typeof(Code.Gameplay.Features.Selection.DragStopped),
         typeof(Code.Gameplay.Features.Selection.EntitiesForSelectionQueue),
         typeof(Code.Gameplay.Features.Selection.FollowSelectCenterSpeed),
         typeof(Code.Gameplay.Features.Selection.HasSelections),

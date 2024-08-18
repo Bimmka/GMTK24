@@ -1,5 +1,5 @@
 ﻿using Code.Gameplay.Features.Selection.SubFeatures.DragSelections.Systems;
-using Code.Gameplay.Features.Selection.SubFeatures.MoveSelected.Systems;
+using Code.Gameplay.Features.Selection.Systems;
 using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Features.Selection.SubFeatures.DragSelections
@@ -8,11 +8,10 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.DragSelections
     {
         public DragSelectionsFeature(ISystemFactory systems)
         {
-            Add(systems.Create<StartDragByLongTap>());
-            Add(systems.Create<StopDragAfterMouseUpSystem>());
+            Add(systems.Create<StartDragByClick>());
+            Add(systems.Create<StopDragAfterMouseClickSystem>());
             Add(systems.Create<CancelDraggingSystem>());
-
-            Add(systems.Create<MoveToAfterDragPositionSystem>());
+            Add(systems.Create<ClearSelectedEntitiesWhenDragStoppedSystem>());
         }
     }
 }

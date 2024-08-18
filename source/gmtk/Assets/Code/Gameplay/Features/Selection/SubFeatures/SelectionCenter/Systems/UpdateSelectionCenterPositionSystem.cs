@@ -12,13 +12,13 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.SelectionCenter.Systems
             _selections = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.SelectCenterPosition,
-                    GameMatcher.Dragging));
+                    GameMatcher.Dragging,
+                    GameMatcher.HasSelections));
 
             _inputs = inputContext.GetGroup(InputMatcher
                 .AllOf(
                     InputMatcher.Input,
-                    InputMatcher.WorldMousePosition,
-                    InputMatcher.MousePressed));
+                    InputMatcher.WorldMousePosition));
         }
 
         public void Execute()

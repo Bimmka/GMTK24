@@ -3,6 +3,7 @@ using Code.Common.Extensions;
 using Code.Gameplay.Input.Config;
 using Code.Gameplay.StaticData;
 using Entitas;
+using UnityEngine;
 
 namespace Code.Gameplay.Input.Systems
 {
@@ -23,6 +24,8 @@ namespace Code.Gameplay.Input.Systems
         .AddLastMouseDownTime(0f)
         .AddClickInterval(config.IntervalForClick)
         .AddLongTapInterval(config.IntervalForLongTap)
+        .AddWorldMousePosition(Vector2.zero)
+        .AddScreenMousePosition(Vector2.zero)
         .With(x => x.isInput = true);
     }
   }
