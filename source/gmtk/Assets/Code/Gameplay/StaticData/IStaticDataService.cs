@@ -1,4 +1,5 @@
-﻿using Code.Gameplay.Features.Level.Config;
+﻿using Code.Gameplay.Features.Infections.Configs;
+using Code.Gameplay.Features.Level.Config;
 using Code.Gameplay.Features.Rabbits.Config;
 using Code.Gameplay.Features.Rabbits.Config.Rabbits;
 using Code.Gameplay.Features.Rabbits.Config.Replication;
@@ -18,5 +19,6 @@ namespace Code.Gameplay.StaticData
     ReplicationRulesConfig GetReplicationRulesConfig();
     InputConfig GetInputConfig();
     SelectionConfig GetSelectionConfig();
+    InfectionConfig GetInfectionConfig(InfectionType infectionType);
   }
 }

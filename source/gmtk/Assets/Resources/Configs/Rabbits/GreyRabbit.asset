@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8559c2499fb471dba1e7dd81dc14503, type: 3}
   m_Name: GreyRabbit
   m_EditorClassIdentifier: 
-  ColorType: 3
+  ColorType: 6
   View: {fileID: 8808633256516987283, guid: 0237fe1c3de464c4bb2d5f263816293c, type: 3}
   IntervalBetweenMoving: 3
   MinIntervalBetweenReplication: 1

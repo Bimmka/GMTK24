@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Code.Gameplay.Features.Infections.Configs;
 using Code.Gameplay.Features.Level.Config;
 using Code.Gameplay.Features.Rabbits.Config;
 using Code.Gameplay.Features.Rabbits.Config.Rabbits;
@@ -21,6 +22,7 @@ namespace Code.Gameplay.StaticData
     private InputConfig _inputConfig;
     private SelectionConfig _selectionConfig;
     private ReplicationRulesConfig _replicationRulesConfig;
+    private Dictionary<InfectionType,InfectionConfig> _infectionConfigsByType;
 
     public void LoadAll()
     {
@@ -30,6 +32,7 @@ namespace Code.Gameplay.StaticData
       LoadInputConfig();
       LoadSelectionConfig();
       LoadReplicationRulesConfig();
+      LoadInfectionConfigs();
     }
 
     public GameObject GetWindowPrefab(WindowId id) =>
@@ -52,9 +55,14 @@ namespace Code.Gameplay.StaticData
 
     public InputConfig GetInputConfig() =>
       _inputConfig;
-    
+
     public SelectionConfig GetSelectionConfig() =>
       _selectionConfig;
+
+    public InfectionConfig GetInfectionConfig(InfectionType infectionType) =>
+      _infectionConfigsByType.TryGetValue(infectionType, out InfectionConfig config)
+        ? config
+        : throw new Exception($"Infection config with type: {infectionType} was not found");
 
     private void LoadWindows()
     {
@@ -78,9 +86,10 @@ namespace Code.Gameplay.StaticData
     private void LoadInputConfig() =>
       _inputConfig = Resources.Load<InputConfig>("Configs/Input/InputConfig");
 
-    private void LoadSelectionConfig()
-    {
+    private void LoadSelectionConfig() =>
       _selectionConfig = Resources.Load<SelectionConfig>("Configs/Selection/SelectionConfig");
-    }
+
+    private void LoadInfectionConfigs() =>
+      _infectionConfigsByType = Resources.LoadAll<InfectionConfig>("Configs/Infections").ToDictionary(x => x.InfectionSetup.Type, x => x);
   }
 }
