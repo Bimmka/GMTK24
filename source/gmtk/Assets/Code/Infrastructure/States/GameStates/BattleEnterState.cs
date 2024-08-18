@@ -6,6 +6,7 @@ using Code.Gameplay.Features.Stalls.Factory;
 using Code.Gameplay.Features.Stalls.Services;
 using Code.Gameplay.Levels;
 using Code.Gameplay.StaticData;
+using Code.Gameplay.Windows;
 using Code.Infrastructure.States.StateInfrastructure;
 using Code.Infrastructure.States.StateMachine;
 using Code.Infrastructure.Systems;
@@ -20,6 +21,7 @@ namespace Code.Infrastructure.States.GameStates
     private readonly IStaticDataService _staticDataService;
     private readonly IStallService _stallService;
     private readonly IRabbitFactory _rabbitFactory;
+    private readonly IWindowService _windowService;
     private readonly ISystemFactory _systems;
     private readonly GameContext _gameContext;
 
@@ -29,7 +31,8 @@ namespace Code.Infrastructure.States.GameStates
       IStallsFactory stallsFactory,
       IStaticDataService staticDataService,
       IStallService stallService,
-      IRabbitFactory rabbitFactory)
+      IRabbitFactory rabbitFactory,
+      IWindowService windowService)
     {
       _stateMachine = stateMachine;
       _levelDataProvider = levelDataProvider;
@@ -37,6 +40,7 @@ namespace Code.Infrastructure.States.GameStates
       _staticDataService = staticDataService;
       _stallService = stallService;
       _rabbitFactory = rabbitFactory;
+      _windowService = windowService;
     }
     
     public override void Enter()
@@ -45,6 +49,8 @@ namespace Code.Infrastructure.States.GameStates
       
       PlaceStalls(config.StallsSpawnData);
       PlaceRabbits(config.PresetupRabbits);
+      
+      _windowService.Open(WindowId.MultipleSelectionWindow);
       
       _stateMachine.Enter<BattleLoopState>();
     }

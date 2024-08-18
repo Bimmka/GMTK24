@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Code.Gameplay.Features.Selection.Visuals;
 using Entitas;
 using UnityEngine;
 
@@ -24,4 +25,6 @@ namespace Code.Gameplay.Features.Selection
     [Game] public class ShiftFromSelect : IComponent { public Vector3 Value; }
     [Game] public class SelectCenterRadius : IComponent { public float Value; }
     [Game] public class WaitingMouseDragFinish : IComponent {}
+    [Game] public class StoppedWaitingMouseDragFinish : IComponent {}
+    [Game] public class MultipleSelectionWindowComponent : IComponent { public MultipleSelectionWindow Value; }
 }

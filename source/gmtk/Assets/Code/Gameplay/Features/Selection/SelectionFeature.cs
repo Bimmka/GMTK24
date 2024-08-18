@@ -13,12 +13,16 @@ namespace Code.Gameplay.Features.Selection
             Add(systems.Create<InitializeSelectionSystem>());
             
             Add(systems.Create<MarkWaitingMouseDragFinishSystem>());
+            Add(systems.Create<DisplayMultipleSelectionAreaSystem>());
+            Add(systems.Create<HideMultipleSelectionAreaSystem>());
             Add(systems.Create<SelectByClickSystem>());
             Add(systems.Create<SelectByMouseDraggingSystem>());
             
             Add(systems.Create<ClearSelectedEntitiesWhenUnselectSystem>());
             Add(systems.Create<AddSelectedEntitiesFromQueueSystem>());
             Add(systems.Create<RefreshHasSelectedMarkSystem>());
+
+            Add(systems.Create<MarkSelectedEntitiesFromSelectionSystem>());
 
             Add(systems.Create<DragSelectionsFeature>());
             Add(systems.Create<SelectionCenterFeature>());

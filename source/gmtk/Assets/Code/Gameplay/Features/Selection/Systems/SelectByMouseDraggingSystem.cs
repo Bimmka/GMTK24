@@ -49,9 +49,10 @@ namespace Code.Gameplay.Features.Selection.Systems
                         if (IsInSelectionArea(selectable, selectionAreaCenter, halfSelectionBounds))
                         {
                             selection.EntitiesForSelectionQueue.Enqueue(selectable.Id);
-                            selectable.isSelected = true;
                         }
                     }
+
+                    selection.isUnselectSelectedEntities = true;
 
                     selection.isWaitingMouseDragFinish = false;
                 }

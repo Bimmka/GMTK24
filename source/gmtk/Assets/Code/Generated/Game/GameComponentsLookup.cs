@@ -68,22 +68,24 @@ public static class GameComponentsLookup {
     public const int HasSelections = 57;
     public const int MoveToAfterDragPositionSpeed = 58;
     public const int MovingToAfterDragPosition = 59;
-    public const int SavedPositionBeforeDrag = 60;
-    public const int Selectable = 61;
-    public const int SelectCenterPosition = 62;
-    public const int SelectCenterRadius = 63;
-    public const int Selected = 64;
-    public const int SelectedEntities = 65;
-    public const int Selection = 66;
-    public const int SelectionLayerMask = 67;
-    public const int ShiftFromSelect = 68;
-    public const int UnselectSelectedEntities = 69;
-    public const int WaitingMouseDragFinish = 70;
-    public const int Stall = 71;
-    public const int StallBounds = 72;
-    public const int StallIndex = 73;
+    public const int MultipleSelectionWindow = 60;
+    public const int SavedPositionBeforeDrag = 61;
+    public const int Selectable = 62;
+    public const int SelectCenterPosition = 63;
+    public const int SelectCenterRadius = 64;
+    public const int Selected = 65;
+    public const int SelectedEntities = 66;
+    public const int Selection = 67;
+    public const int SelectionLayerMask = 68;
+    public const int ShiftFromSelect = 69;
+    public const int StoppedWaitingMouseDragFinish = 70;
+    public const int UnselectSelectedEntities = 71;
+    public const int WaitingMouseDragFinish = 72;
+    public const int Stall = 73;
+    public const int StallBounds = 74;
+    public const int StallIndex = 75;
 
-    public const int TotalComponents = 74;
+    public const int TotalComponents = 76;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -146,6 +148,7 @@ public static class GameComponentsLookup {
         "HasSelections",
         "MoveToAfterDragPositionSpeed",
         "MovingToAfterDragPosition",
+        "MultipleSelectionWindow",
         "SavedPositionBeforeDrag",
         "Selectable",
         "SelectCenterPosition",
@@ -155,6 +158,7 @@ public static class GameComponentsLookup {
         "Selection",
         "SelectionLayerMask",
         "ShiftFromSelect",
+        "StoppedWaitingMouseDragFinish",
         "UnselectSelectedEntities",
         "WaitingMouseDragFinish",
         "Stall",
@@ -223,6 +227,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Selection.HasSelections),
         typeof(Code.Gameplay.Features.Selection.MoveToAfterDragPositionSpeed),
         typeof(Code.Gameplay.Features.Selection.MovingToAfterDragPosition),
+        typeof(Code.Gameplay.Features.Selection.MultipleSelectionWindowComponent),
         typeof(Code.Gameplay.Features.Selection.SavedPositionBeforeDrag),
         typeof(Code.Gameplay.Features.Selection.Selectable),
         typeof(Code.Gameplay.Features.Selection.SelectCenterPosition),
@@ -232,6 +237,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Selection.Selection),
         typeof(Code.Gameplay.Features.Selection.SelectionLayerMask),
         typeof(Code.Gameplay.Features.Selection.ShiftFromSelect),
+        typeof(Code.Gameplay.Features.Selection.StoppedWaitingMouseDragFinish),
         typeof(Code.Gameplay.Features.Selection.UnselectSelectedEntities),
         typeof(Code.Gameplay.Features.Selection.WaitingMouseDragFinish),
         typeof(Code.Gameplay.Features.Stalls.Stall),
