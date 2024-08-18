@@ -21,4 +21,12 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 64
     Radius: 1.5
-    EffectValue: 0.4
+    TrayLength: 2
+    TrayWidth: 1.5
+    StatInfluenceData:
+    - StatType: 1
+      EffectValue: 1.5
+      Duration: 0
+    - StatType: 3
+      EffectValue: -1.5
+      Duration: 0

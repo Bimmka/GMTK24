@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using Code.Gameplay.Common.Time;
 using Code.Gameplay.Features.Infections.Configs;
 using Code.Gameplay.Features.Infections.Factory;
 using Code.Gameplay.Features.Statuses;
@@ -9,7 +8,7 @@ using Entitas;
 
 namespace Code.Gameplay.Features.Infections.Systems
 {
-    public class InfectByLevelPoisonInfectionSystem : IExecuteSystem
+    public class InfectByLevelRabiesInfectionSystem : IExecuteSystem
     {
         private readonly IStaticDataService _staticDataService;
         private readonly IStatusApplier _statusApplier;
@@ -17,7 +16,7 @@ namespace Code.Gameplay.Features.Infections.Systems
         private readonly IGroup<GameEntity> _infections;
         private readonly IGroup<GameEntity> _rabbits;
 
-        public InfectByLevelPoisonInfectionSystem(
+        public InfectByLevelRabiesInfectionSystem(
             GameContext game,
             IStaticDataService staticDataService,
             IStatusApplier statusApplier,
@@ -28,14 +27,14 @@ namespace Code.Gameplay.Features.Infections.Systems
             _infectionFactory = infectionFactory;
             _infections = game.GetGroup(GameMatcher
                 .AllOf(
-                    GameMatcher.PoisoningInfection,
+                    GameMatcher.RabiesInfection,
                     GameMatcher.LevelInfection,
                     GameMatcher.InfectionUp,
                     GameMatcher.ValidInfection));
 
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(GameMatcher.Rabbit)
-                .NoneOf(GameMatcher.CarrierOfPoisonInfection));
+                .NoneOf(GameMatcher.CarrierOfRabiesInfection));
         }
 
         public void Execute()
@@ -46,11 +45,11 @@ namespace Code.Gameplay.Features.Infections.Systems
                 {
                     GameEntity rabbit = _rabbits.AsEnumerable().First();
 
-                    var setup = _staticDataService.GetInfectionConfig(InfectionType.PoisonInfection).InfectionSetup;
+                    var setup = _staticDataService.GetInfectionConfig(InfectionType.RabiesInfection).InfectionSetup;
 
                     _statusApplier.ApplyStatus(new StatusSetup()
                     {
-                        StatusType = StatusTypeId.Poison,
+                        StatusType = StatusTypeId.Rabies,
                         Duration = setup.TimeBeforeDeath,
                     }, rabbit.Id);
 

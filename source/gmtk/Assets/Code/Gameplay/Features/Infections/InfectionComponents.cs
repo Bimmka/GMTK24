@@ -20,5 +20,7 @@ namespace Code.Gameplay.Features.Infections
     [Game] public class LevelInfection : IComponent { }
     [Game] public class InfectionLayerMask : IComponent { public LayerMask Value; }
     [Game] public class ValidInfection : IComponent { }
+    [Game] public class InfectionTrayLength : IComponent { public float Value; }
+    [Game] public class InfectionTrayWidth : IComponent { public float Value; }
     
 }

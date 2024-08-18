@@ -54,6 +54,8 @@ namespace Code.Gameplay.Features.Infections.Factory
         private GameEntity CreateRabiesInfection(InfectionSetup setup, int carrierId)
         {
             return CreateDefaultInfection(setup, carrierId)
+                    .AddInfectionTrayLength(setup.TrayLength)
+                    .AddInfectionTrayWidth(setup.TrayWidth)
                     .With(x => x.isRabiesInfection = true)
                 ;
         }

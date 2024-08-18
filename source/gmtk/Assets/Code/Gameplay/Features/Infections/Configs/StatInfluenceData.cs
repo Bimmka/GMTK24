@@ -8,5 +8,6 @@ namespace Code.Gameplay.Features.Infections.Configs
     {
         public Stats StatType;
         public float EffectValue;
+        public float Duration;
     }
 }

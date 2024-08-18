@@ -13,7 +13,9 @@ namespace Code.Gameplay.Features.Infections.Configs
         public float InfectPeriod = 1f;
         public LayerMask InfectMask;
         public float Radius = 1f;
+        public float TrayLength = 1f;
+        public float TrayWidth = 1f;
 
-        public float EffectValue;
+        public StatInfluenceData[] StatInfluenceData;
     }
 }
