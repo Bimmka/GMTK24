@@ -57,6 +57,8 @@ namespace Code.Gameplay.Features.Rabbits.Factory
                     .AddParentTransform(_levelDataProvider.RabbitSpawnParent)
                     .AddRabbitTypesForReplicationWith(rabbitConfig.RabbitTypesForReplicationWith)
                     .AddSpeed(rabbitConfig.Speed)
+                    .AddSelectionDragMaxTime(rabbitConfig.TimeToRelease)
+                    .AddSelectionDragTimeLeft(rabbitConfig.TimeToRelease)
                     .With(x => x.isRabbit = true)
                     .With(x => x.isSaveRotationInSpawn = true)
                     .With(x => x.isTurnedAlongDirection = true)

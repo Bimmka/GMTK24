@@ -43,6 +43,7 @@ namespace Code.Gameplay.Features.Rabbits
             
             //cleanup
             Add(systems.Create<CleanupTargetReachedSystem>());
+            Add(systems.Create<CleanupDragStartedMarkSystem>());
         }
     }
 }

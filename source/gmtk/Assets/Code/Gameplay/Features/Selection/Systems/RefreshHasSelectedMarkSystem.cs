@@ -9,7 +9,9 @@ namespace Code.Gameplay.Features.Selection.Systems
         public RefreshHasSelectedMarkSystem(GameContext game)
         {
             _selections = game.GetGroup(GameMatcher
-                .AllOf(GameMatcher.Selection, GameMatcher.SelectedEntities));
+                .AllOf(
+                    GameMatcher.Selection,
+                    GameMatcher.SelectedEntities));
         }
 
         public void Execute()

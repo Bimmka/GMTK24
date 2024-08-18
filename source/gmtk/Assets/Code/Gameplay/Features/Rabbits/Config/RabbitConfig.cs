@@ -1,6 +1,5 @@
 ﻿using Code.Infrastructure.View;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Code.Gameplay.Features.Rabbits.Config
 {
@@ -19,5 +18,6 @@ namespace Code.Gameplay.Features.Rabbits.Config
         public RabbitType[] RabbitTypesForReplicationWith;
 
         public float Speed = 1f;
+        public float TimeToRelease = 4f;
     }
 }

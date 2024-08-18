@@ -32,7 +32,7 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.DragSelections.Systems
                 }
 
                 selection.isDragCanceled = false;
-                selection.SelectedEntities.Clear();
+                selection.isUnselectSelectedEntities = true;
             }
         }
     }

@@ -21,7 +21,7 @@ namespace Code.Gameplay.Input.Systems
                     InputMatcher.ScreenMousePosition,
                     InputMatcher.WorldMousePosition,
                     InputMatcher.LongTapInterval)
-                .NoneOf(InputMatcher.Draging));
+                .NoneOf(InputMatcher.Dragging));
         }
 
         public void Execute()

@@ -6,19 +6,19 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed partial class InputMatcher {
+public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<InputEntity> _matcherDraging;
+    static Entitas.IMatcher<GameEntity> _matcherDragStarted;
 
-    public static Entitas.IMatcher<InputEntity> Draging {
+    public static Entitas.IMatcher<GameEntity> DragStarted {
         get {
-            if (_matcherDraging == null) {
-                var matcher = (Entitas.Matcher<InputEntity>)Entitas.Matcher<InputEntity>.AllOf(InputComponentsLookup.Draging);
-                matcher.componentNames = InputComponentsLookup.componentNames;
-                _matcherDraging = matcher;
+            if (_matcherDragStarted == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.DragStarted);
+                matcher.componentNames = GameComponentsLookup.componentNames;
+                _matcherDragStarted = matcher;
             }
 
-            return _matcherDraging;
+            return _matcherDragStarted;
         }
     }
 }
@@ -31,20 +31,20 @@ public sealed partial class InputMatcher {
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial class InputEntity {
+public partial class GameEntity {
 
-    static readonly Code.Gameplay.Input.Draging dragingComponent = new Code.Gameplay.Input.Draging();
+    static readonly Code.Gameplay.Features.Selection.DragStarted dragStartedComponent = new Code.Gameplay.Features.Selection.DragStarted();
 
-    public bool isDraging {
-        get { return HasComponent(InputComponentsLookup.Draging); }
+    public bool isDragStarted {
+        get { return HasComponent(GameComponentsLookup.DragStarted); }
         set {
-            if (value != isDraging) {
-                var index = InputComponentsLookup.Draging;
+            if (value != isDragStarted) {
+                var index = GameComponentsLookup.DragStarted;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : dragingComponent;
+                            : dragStartedComponent;
 
                     AddComponent(index, component);
                 } else {

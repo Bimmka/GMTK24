@@ -4,22 +4,21 @@ using Entitas;
 
 namespace Code.Gameplay.Features.Selection.SubFeatures.DragSelections.Systems
 {
-    public class StopDragAfterMouseUpSystem : IExecuteSystem
+    public class StopDragAfterMouseClickSystem : IExecuteSystem
     {
         private readonly GameContext _game;
         private readonly IStallService _stallService;
-        private readonly IGroup<InputEntity> _inputs;
+        private readonly IGroup<InputEntity> _clicks;
         private readonly IGroup<GameEntity> _selections;
         private readonly List<GameEntity> _buffer = new List<GameEntity>(1);
 
-        public StopDragAfterMouseUpSystem(InputContext input, GameContext game, IStallService stallService)
+        public StopDragAfterMouseClickSystem(InputContext input, GameContext game, IStallService stallService)
         {
             _game = game;
             _stallService = stallService;
-            _inputs = input.GetGroup(InputMatcher
+            _clicks = input.GetGroup(InputMatcher
                 .AllOf(
-                    InputMatcher.Input,
-                    InputMatcher.MouseUp,
+                    InputMatcher.Click,
                     InputMatcher.WorldMousePosition));
             
             _selections = game.GetGroup(GameMatcher
@@ -27,18 +26,19 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.DragSelections.Systems
                     GameMatcher.SelectedEntities,
                     GameMatcher.HasSelections,
                     GameMatcher.Dragging,
-                    GameMatcher.SelectCenterRadius));
+                    GameMatcher.SelectCenterRadius)
+                .NoneOf(GameMatcher.DragStarted));
         }
 
         public void Execute()
         {
-            foreach (InputEntity input in _inputs)
+            foreach (InputEntity click in _clicks)
             {
                 foreach (GameEntity selection in _selections.GetEntities(_buffer))
                 {
                     selection.isDragging = false;
 
-                    int stallIndex = _stallService.GetStallIndex(input.WorldMousePosition);
+                    int stallIndex = _stallService.GetStallIndex(click.WorldMousePosition);
 
                     if (stallIndex < 0)
                     {
@@ -53,12 +53,12 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.DragSelections.Systems
                         if (selectedEntity.hasStallParentIndex)
                             selectedEntity.ReplaceStallParentIndex(stallIndex);
 
-                        selectedEntity.ReplaceAfterDragPosition(_stallService.GetRandomPositionInStall(stallIndex, input.WorldMousePosition, selection.SelectCenterRadius));
+                        selectedEntity.ReplaceAfterDragPosition(_stallService.GetRandomPositionInStall(stallIndex, click.WorldMousePosition, selection.SelectCenterRadius));
                         selectedEntity.isMovingToAfterDragPosition = true;
                         selectedEntity.isDragging = false;
                     }
-                    
-                    selection.SelectedEntities.Clear();
+
+                    selection.isUnselectSelectedEntities = true;
                 }
             }
         }

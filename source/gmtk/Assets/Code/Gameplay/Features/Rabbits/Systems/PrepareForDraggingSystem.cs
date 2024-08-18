@@ -11,7 +11,9 @@ namespace Code.Gameplay.Features.Rabbits.Systems
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Rabbit,
-                    GameMatcher.Dragging));
+                    GameMatcher.DragStarted,
+                    GameMatcher.SelectionDragMaxTime,
+                    GameMatcher.SelectionDragTimeLeft));
         }
 
         public void Execute()
@@ -27,6 +29,8 @@ namespace Code.Gameplay.Features.Rabbits.Systems
                 rabbit.isMovingPhase = false;
                 rabbit.isReplicationPhase = false;
                 rabbit.isDraggingPhase = true;
+
+                rabbit.ReplaceSelectionDragTimeLeft(rabbit.SelectionDragMaxTime);
             }
         }
     }
