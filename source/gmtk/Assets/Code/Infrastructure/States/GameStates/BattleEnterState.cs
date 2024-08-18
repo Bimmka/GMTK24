@@ -1,5 +1,6 @@
 using Code.Common.Extensions;
 using Code.Gameplay;
+using Code.Gameplay.Features.Infections.Factory;
 using Code.Gameplay.Features.Level.Config;
 using Code.Gameplay.Features.Rabbits.Factory;
 using Code.Gameplay.Features.Stalls.Factory;
@@ -22,6 +23,7 @@ namespace Code.Infrastructure.States.GameStates
     private readonly IStallService _stallService;
     private readonly IRabbitFactory _rabbitFactory;
     private readonly IWindowService _windowService;
+    private readonly IInfectionFactory _infectionFactory;
     private readonly ISystemFactory _systems;
     private readonly GameContext _gameContext;
 
@@ -32,7 +34,8 @@ namespace Code.Infrastructure.States.GameStates
       IStaticDataService staticDataService,
       IStallService stallService,
       IRabbitFactory rabbitFactory,
-      IWindowService windowService)
+      IWindowService windowService,
+      IInfectionFactory infectionFactory)
     {
       _stateMachine = stateMachine;
       _levelDataProvider = levelDataProvider;
@@ -41,6 +44,7 @@ namespace Code.Infrastructure.States.GameStates
       _stallService = stallService;
       _rabbitFactory = rabbitFactory;
       _windowService = windowService;
+      _infectionFactory = infectionFactory;
     }
     
     public override void Enter()
@@ -49,10 +53,19 @@ namespace Code.Infrastructure.States.GameStates
       
       PlaceStalls(config.StallsSpawnData);
       PlaceRabbits(config.PresetupRabbits);
+      PlaceInfections(config.Infections);
       
       _windowService.Open(WindowId.MultipleSelectionWindow);
       
       _stateMachine.Enter<BattleLoopState>();
+    }
+
+    private void PlaceInfections(InfectionForLevelData[] infections)
+    {
+      foreach (InfectionForLevelData infection in infections)
+      {
+        _infectionFactory.CreateLevelInfection(infection.Type, infection.Interval);
+      }
     }
 
     private void PlaceStalls(StallsSpawnData[] stallsSpawnData)

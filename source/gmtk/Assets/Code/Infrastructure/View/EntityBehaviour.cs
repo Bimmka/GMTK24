@@ -1,5 +1,7 @@
-﻿using Code.Gameplay.Common.Collisions;
+﻿using System;
+using Code.Gameplay.Common.Collisions;
 using Code.Infrastructure.View.Registrars;
+using UnityEditor;
 using UnityEngine;
 using Zenject;
 
@@ -38,6 +40,14 @@ namespace Code.Infrastructure.View
       
       _entity.Release(this);
       _entity = null;
+    }
+
+    private void OnDrawGizmos()
+    {
+      if (Entity.hasMoveDirection)
+      {
+        Gizmos.DrawLine(transform.position, transform.position + (Vector3)Entity.MoveDirection);
+      }
     }
   }
 }

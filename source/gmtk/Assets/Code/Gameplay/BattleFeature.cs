@@ -1,8 +1,11 @@
 ﻿using Code.Common.Destruct;
 using Code.Gameplay.Features.CharacterStats;
+using Code.Gameplay.Features.Infections;
 using Code.Gameplay.Features.Movement;
 using Code.Gameplay.Features.Rabbits;
 using Code.Gameplay.Features.Selection;
+using Code.Gameplay.Features.Statuses;
+using Code.Gameplay.Features.TargetCollection;
 using Code.Gameplay.Input;
 using Code.Infrastructure.Systems;
 using Code.Infrastructure.View;
@@ -21,6 +24,10 @@ namespace Code.Gameplay
 
       Add(systems.Create<MovementFeature>());
       Add(systems.Create<RabbitFeature>());
+      
+      Add(systems.Create<InfectionFeature>());
+      Add(systems.Create<CollectTargetsFeature>());
+      Add(systems.Create<StatusFeature>());
 
       Add(systems.Create<ProcessDestructedFeature>());
     }

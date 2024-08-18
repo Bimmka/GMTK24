@@ -2,6 +2,8 @@
 using Code.Gameplay.Features.CharacterStats;
 using Code.Gameplay.Features.CharacterStats.Indexing;
 using Code.Gameplay.Features.Rabbits.Indexing;
+using Code.Gameplay.Features.Statuses;
+using Code.Gameplay.Features.Statuses.Indexing;
 using Entitas;
 
 namespace Code.Common.EntityIndices
@@ -18,6 +20,12 @@ namespace Code.Common.EntityIndices
         {
             return ((EntityIndex<GameEntity, StatKey>) context.GetEntityIndex(GameEntityIndices.StatChanges))
                 .GetEntities(new StatKey(targetId, stat));
+        }
+        
+        public static HashSet<GameEntity> TargetStatusesOfType(this GameContext context, StatusTypeId statusTypeId, int targetId)
+        {
+            return ((EntityIndex<GameEntity, StatusKey>) context.GetEntityIndex(GameEntityIndices.StatusesOfType))
+                .GetEntities(new StatusKey(targetId, statusTypeId));
         }
     }
 }

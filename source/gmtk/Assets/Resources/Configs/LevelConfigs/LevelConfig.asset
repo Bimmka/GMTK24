@@ -27,3 +27,6 @@ MonoBehaviour:
     StallIndex: 1
   - Type: 2
     StallIndex: 1
+  Infections:
+  - Type: 2
+    Interval: 15
