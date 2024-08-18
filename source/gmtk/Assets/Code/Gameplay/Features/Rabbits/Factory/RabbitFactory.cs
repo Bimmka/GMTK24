@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using Code.Common.Entity;
 using Code.Common.Extensions;
 using Code.Gameplay.Common.Random;
+using Code.Gameplay.Features.CharacterStats;
 using Code.Gameplay.Features.Rabbits.Config;
 using Code.Gameplay.Features.Rabbits.Config.Rabbits;
 using Code.Gameplay.Features.Rabbits.StateMachine.Base;
@@ -54,6 +56,14 @@ namespace Code.Gameplay.Features.Rabbits.Factory
 
             float intervalBeforeNextReplication = _randomService.Range(rabbitConfig.MinIntervalBetweenReplication,
                 rabbitConfig.MaxIntervalBetweenReplication);
+
+            Dictionary<Stats, float> baseStats = InitStats.EmptyStatDictionary()
+                .With(x => x[Stats.Speed] = rabbitConfig.Speed)
+                .With(x => x[Stats.ReplicationDuration] = rabbitConfig.ReplicationDuration)
+                .With(x => x[Stats.MinIntervalBetweenReplications] = rabbitConfig.MinIntervalBetweenReplication)
+                .With(x => x[Stats.MaxIntervalBetweenReplications] = rabbitConfig.MaxIntervalBetweenReplication)
+                .With(x => x[Stats.DragReleaseDuration] = rabbitConfig.TimeToRelease)
+                ;
             
             rabbitEntity
                 .AddId(_identifierService.Next())
@@ -77,6 +87,8 @@ namespace Code.Gameplay.Features.Rabbits.Factory
                 .AddRabbitStateMachine(stateMachine)
                 .AddWaitReplicationDuration(rabbitConfig.WaitReplicationDuration)
                 .AddWaitReplicationTimeLeft(rabbitConfig.WaitReplicationDuration)
+                .AddBaseStats(baseStats)
+                .AddStatModifiers(InitStats.EmptyStatDictionary())
                 .With(x => x.isRabbit = true)
                 .With(x => x.isSaveRotationInSpawn = true)
                 .With(x => x.isTurnedAlongDirection = true)

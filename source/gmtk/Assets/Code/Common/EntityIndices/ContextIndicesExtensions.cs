@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Code.Gameplay.Features.CharacterStats;
+using Code.Gameplay.Features.CharacterStats.Indexing;
 using Code.Gameplay.Features.Rabbits.Indexing;
 using Entitas;
 
@@ -10,6 +12,12 @@ namespace Code.Common.EntityIndices
         {
             return ((EntityIndex<GameEntity, ReplicationTargetKey>) context.GetEntityIndex(GameEntityIndices.ReplicationTarget))
                 .GetEntities(new ReplicationTargetKey(stallIndex));
+        }
+        
+        public static HashSet<GameEntity> TargetStatChanges(this GameContext context, Stats stat, int targetId)
+        {
+            return ((EntityIndex<GameEntity, StatKey>) context.GetEntityIndex(GameEntityIndices.StatChanges))
+                .GetEntities(new StatKey(targetId, stat));
         }
     }
 }
