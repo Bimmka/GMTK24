@@ -6,7 +6,7 @@
         {
             entity.isWaitingForNextReplicationUp = false;
             entity.isCanBeChosenForReplication = false;
-            entity.isReplicationUp = false;
+            entity.isReplicationTimeUp = false;
         }
     }
 }
