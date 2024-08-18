@@ -6,13 +6,13 @@ namespace Code.Gameplay.Features.Rabbits.Behaviours.Visuals
     {
         public SpriteRenderer SpriteRenderer;
         public Color SelectedColor;
-        public Color UnselectedColor;
+        public Color DefaultColor;
         public Color ReplicationColor;
         public Color WaitingTargetColor;
         
         public void ApplySelectionStatus(bool isSelected)
         {
-            SpriteRenderer.color = isSelected ? SelectedColor : UnselectedColor;
+            SpriteRenderer.color = isSelected ? SelectedColor : DefaultColor;
         }
 
         public void SetReplicating()
@@ -22,12 +22,12 @@ namespace Code.Gameplay.Features.Rabbits.Behaviours.Visuals
 
         public void UnsetReplicating()
         {
-            SpriteRenderer.color = UnselectedColor;
+            SpriteRenderer.color = DefaultColor;
         }
 
         public void SetWaitTarget(bool isWaitingTarget)
         {
-            SpriteRenderer.color = isWaitingTarget ? WaitingTargetColor : UnselectedColor;
+            SpriteRenderer.color = isWaitingTarget ? WaitingTargetColor : DefaultColor;
         }
     }
 }

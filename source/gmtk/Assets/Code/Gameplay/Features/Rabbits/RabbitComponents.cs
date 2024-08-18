@@ -1,15 +1,14 @@
 ﻿using System;
 using Code.Gameplay.Features.Rabbits.Behaviours.Animations;
 using Code.Gameplay.Features.Rabbits.Behaviours.Visuals;
-using Code.Gameplay.Features.Rabbits.Config;
+using Code.Gameplay.Features.Rabbits.Config.Rabbits;
 using Code.Gameplay.Features.Rabbits.StateMachine.Base;
-using Code.Gameplay.Features.Rabbits.StateMachine.States;
 using Entitas;
 
 namespace Code.Gameplay.Features.Rabbits
 {
     [Game] public class Rabbit : IComponent {}
-    [Game] public class RabbitTypeComponent : IComponent { public RabbitType Value; }
+    [Game] public class RabbitColorTypeComponent : IComponent { public RabbitColorType Value; }
     [Game] public class ActivityFree : IComponent {}
     
     [Game] public class MovingInterval : IComponent { public float Value; }
@@ -44,11 +43,6 @@ namespace Code.Gameplay.Features.Rabbits
     [Game] public class NearReplicationTarget : IComponent {  }
     [Game] public class ResetReplicationProcess : IComponent {  }
     [Game] public class WaitingReplicationTarget : IComponent {  }
-    
-    [Game] public class MinRabbitsSpawnAfterReplication : IComponent { public int Value; }
-    [Game] public class MaxRabbitsSpawnAfterReplication : IComponent { public int Value; }
-    
-    [Game] public class RabbitTypesForReplicationWith : IComponent { public RabbitType[] Value; }
     
     [Game] public class StallParentIndex : IComponent { public int Value; }
     

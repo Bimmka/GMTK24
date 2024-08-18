@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Code.Gameplay.Features.Level.Config;
 using Code.Gameplay.Features.Rabbits.Config;
+using Code.Gameplay.Features.Rabbits.Config.Rabbits;
+using Code.Gameplay.Features.Rabbits.Config.Replication;
 using Code.Gameplay.Features.Selection.Config;
 using Code.Gameplay.Input.Config;
 using Code.Gameplay.Windows;
@@ -15,9 +17,10 @@ namespace Code.Gameplay.StaticData
   {
     private Dictionary<WindowId, GameObject> _windowPrefabsById;
     private Dictionary<string,LevelConfig> _levelConfigsById;
-    private Dictionary<RabbitType,RabbitConfig> _rabbitConfigsById;
+    private Dictionary<RabbitColorType,RabbitConfig> _rabbitConfigsByColor;
     private InputConfig _inputConfig;
     private SelectionConfig _selectionConfig;
+    private ReplicationRulesConfig _replicationRulesConfig;
 
     public void LoadAll()
     {
@@ -26,6 +29,7 @@ namespace Code.Gameplay.StaticData
       LoadRabbitConfigs();
       LoadInputConfig();
       LoadSelectionConfig();
+      LoadReplicationRulesConfig();
     }
 
     public GameObject GetWindowPrefab(WindowId id) =>
@@ -37,11 +41,14 @@ namespace Code.Gameplay.StaticData
       _levelConfigsById.TryGetValue(id, out LevelConfig config)
         ? config
         : throw new Exception($"Level config with id: {id} was not found");
-    
-    public RabbitConfig GetRabbitConfig(RabbitType type) =>
-      _rabbitConfigsById.TryGetValue(type, out RabbitConfig config)
+
+    public RabbitConfig GetRabbitConfig(RabbitColorType type) =>
+      _rabbitConfigsByColor.TryGetValue(type, out RabbitConfig config)
         ? config
-        : throw new Exception($"Rabbit config with type: {type} was not found");
+        : throw new Exception($"Rabbit config with color: {type} was not found");
+
+    public ReplicationRulesConfig GetReplicationRulesConfig() =>
+      _replicationRulesConfig;
 
     public InputConfig GetInputConfig() =>
       _inputConfig;
@@ -61,8 +68,13 @@ namespace Code.Gameplay.StaticData
       _levelConfigsById = Resources.LoadAll<LevelConfig>("Configs/LevelConfigs").ToDictionary(x => x.Id, x => x);
 
     private void LoadRabbitConfigs() =>
-      _rabbitConfigsById = Resources.LoadAll<RabbitConfig>("Configs/Rabbits").ToDictionary(x => x.Type, x => x);
-    
+      _rabbitConfigsByColor = Resources.LoadAll<RabbitConfig>("Configs/Rabbits").ToDictionary(x => x.ColorType, x => x);
+
+    private void LoadReplicationRulesConfig()
+    {
+      _replicationRulesConfig = Resources.Load<ReplicationRulesConfig>("Configs/ReplicationRules/ReplicationRulesConfig");
+    }
+
     private void LoadInputConfig() =>
       _inputConfig = Resources.Load<InputConfig>("Configs/Input/InputConfig");
 

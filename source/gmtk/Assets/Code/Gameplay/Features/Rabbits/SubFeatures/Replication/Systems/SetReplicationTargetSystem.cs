@@ -24,7 +24,6 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                     GameMatcher.ReplicationTimeUp,
                     GameMatcher.StallParentIndex,
                     GameMatcher.Id,
-                    GameMatcher.RabbitTypesForReplicationWith,
                     GameMatcher.CanStartReplication)
                 .AnyOf(
                     GameMatcher.IdleState,
@@ -55,7 +54,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
         private GameEntity GetReplicationTarget(GameEntity replicationUpRabbit)
         {
             GameEntity[] targets = _game
-                .ReplicationTargets(replicationUpRabbit.StallParentIndex, replicationUpRabbit.RabbitTypesForReplicationWith[0])
+                .ReplicationTargets(replicationUpRabbit.StallParentIndex)
                 .Where(x => x.Id != replicationUpRabbit.Id)
                 .ToArray();
             

@@ -24,7 +24,7 @@ namespace Code.Common.EntityIndices
           GameMatcher.Rabbit,
           GameMatcher.CanBeChosenForReplication,
           GameMatcher.StallParentIndex,
-          GameMatcher.RabbitType,
+          GameMatcher.RabbitColorType,
           GameMatcher.Id)),
         getKey: GetReplicationTargetKey,
         new ReplicationTargetKeyEqualityComparer()));
@@ -33,8 +33,7 @@ namespace Code.Common.EntityIndices
     private ReplicationTargetKey GetReplicationTargetKey(GameEntity entity, IComponent component)
     {
       return new ReplicationTargetKey(
-        (component as StallParentIndex)?.Value ?? entity.StallParentIndex,
-        (component as RabbitTypeComponent)?.Value ?? entity.RabbitType);
+        (component as StallParentIndex)?.Value ?? entity.StallParentIndex);
     }
   }
 }

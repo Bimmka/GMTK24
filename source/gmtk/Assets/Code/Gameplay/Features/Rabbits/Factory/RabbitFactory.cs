@@ -3,6 +3,7 @@ using Code.Common.Entity;
 using Code.Common.Extensions;
 using Code.Gameplay.Common.Random;
 using Code.Gameplay.Features.Rabbits.Config;
+using Code.Gameplay.Features.Rabbits.Config.Rabbits;
 using Code.Gameplay.Features.Rabbits.StateMachine.Base;
 using Code.Gameplay.Features.Rabbits.StateMachine.Factory;
 using Code.Gameplay.Features.Rabbits.StateMachine.States;
@@ -36,18 +37,11 @@ namespace Code.Gameplay.Features.Rabbits.Factory
             _randomService = randomService;
         }
 
-        public GameEntity Create(RabbitType type, Vector3 at, int stallIndex)
+        public GameEntity Create(RabbitColorType type, Vector3 at, int stallIndex)
         {
             RabbitConfig config = _staticDataService.GetRabbitConfig(type);
 
-            switch (type)
-            {
-                case RabbitType.Simple:
-                    return SimpleRabbit(config, at, stallIndex);
-                
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(type), type, $"Cannot create rabbit with type {type}");
-            }
+            return SimpleRabbit(config, at, stallIndex);
         }
 
         private GameEntity SimpleRabbit(RabbitConfig rabbitConfig, Vector3 at, int stallIndex)
@@ -63,7 +57,7 @@ namespace Code.Gameplay.Features.Rabbits.Factory
             
             rabbitEntity
                 .AddId(_identifierService.Next())
-                .AddRabbitType(rabbitConfig.Type)
+                .AddRabbitColorType(rabbitConfig.ColorType)
                 .AddDefaultReplicationDuration(rabbitConfig.ReplicationDuration)
                 .AddCurrentReplicationDuration(rabbitConfig.ReplicationDuration)
                 .AddReplicationInterval(intervalBeforeNextReplication)
@@ -71,15 +65,12 @@ namespace Code.Gameplay.Features.Rabbits.Factory
                 .AddMaxReplicationInterval(rabbitConfig.MaxIntervalBetweenReplication)
                 .AddReplicationTimeLeft(rabbitConfig.ReplicationDuration)
                 .AddTimeLeftForNextReplication(intervalBeforeNextReplication)
-                .AddMinRabbitsSpawnAfterReplication(rabbitConfig.MinRabbitsSpawnAfterReplication)
-                .AddMaxRabbitsSpawnAfterReplication(rabbitConfig.MaxRabbitsSpawnAfterReplication)
                 .AddMovingInterval(rabbitConfig.IntervalBetweenMoving)
                 .AddTimeLeftForMoving(0)
                 .AddWorldPosition(at)
                 .AddStallParentIndex(stallIndex)
                 .AddViewPrefab(rabbitConfig.View)
                 .AddParentTransform(_levelDataProvider.RabbitSpawnParent)
-                .AddRabbitTypesForReplicationWith(rabbitConfig.RabbitTypesForReplicationWith)
                 .AddSpeed(rabbitConfig.Speed)
                 .AddSelectionDragMaxTime(rabbitConfig.TimeToRelease)
                 .AddSelectionDragTimeLeft(rabbitConfig.TimeToRelease)

@@ -25,5 +25,5 @@ MonoBehaviour:
   PresetupRabbits:
   - Type: 1
     StallIndex: 1
-  - Type: 1
+  - Type: 2
     StallIndex: 1

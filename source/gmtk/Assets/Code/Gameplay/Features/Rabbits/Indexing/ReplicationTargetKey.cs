@@ -5,12 +5,10 @@ namespace Code.Gameplay.Features.Rabbits.Indexing
     public struct ReplicationTargetKey
     {
         public readonly int StallIndex;
-        public readonly RabbitType Type;
 
-        public ReplicationTargetKey(int stallIndex, RabbitType type)
+        public ReplicationTargetKey(int stallIndex)
         {
             StallIndex = stallIndex;
-            Type = type;
         }
     }
 }

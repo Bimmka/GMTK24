@@ -7,12 +7,12 @@ namespace Code.Gameplay.Features.Rabbits.Indexing
     {
         public bool Equals(ReplicationTargetKey x, ReplicationTargetKey y)
         {
-            return x.StallIndex == y.StallIndex && x.Type == y.Type;
+            return x.StallIndex == y.StallIndex;
         }
 
         public int GetHashCode(ReplicationTargetKey obj)
         {
-            return HashCode.Combine(obj.StallIndex, (int)obj.Type);
+            return HashCode.Combine(obj.StallIndex);
         }
     }
 }

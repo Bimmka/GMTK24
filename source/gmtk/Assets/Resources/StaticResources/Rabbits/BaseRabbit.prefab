@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4063518330826436246}
   - component: {fileID: 8942472079699152202}
   m_Layer: 6
-  m_Name: SimpleRabbit
+  m_Name: BaseRabbit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
