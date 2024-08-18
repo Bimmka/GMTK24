@@ -10,6 +10,7 @@ namespace Code.Gameplay.Features.Selection
     [Game] public class Selected : IComponent {}
     [Game] public class SelectedEntities : IComponent { public List<int> Value; }
     [Game] public class EntitiesForSelectionQueue : IComponent { public Queue<int> Value; }
+    [Game] public class EntitiesForReleaseQueue : IComponent { public Queue<int> Value; }
     [Game] public class SelectionLayerMask : IComponent { public LayerMask Value; }
     [Game] public class HasSelections : IComponent { }
     [Game] public class Dragging : IComponent { }
@@ -30,4 +31,7 @@ namespace Code.Gameplay.Features.Selection
     [Game] public class DragStarted : IComponent {}
     [Game] public class DragStopped : IComponent {}
     [Game] public class MultipleSelectionWindowComponent : IComponent { public MultipleSelectionWindow Value; }
+    [Game] public class SelectionDragMaxTime : IComponent { public float Value; }
+    [Game] public class SelectionDragTimeLeft : IComponent { public float Value; }
+    [Game] public class ReleaseFromDragUp : IComponent {}
 }

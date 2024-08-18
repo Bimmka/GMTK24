@@ -41,6 +41,7 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.DragSelections.Systems
                         GameEntity selectedEntity = _game.GetEntityWithId(entityId);
 
                         selectedEntity.isDragging = true;
+                        selectedEntity.isDragStarted = true;
                         selectedEntity.ReplaceSavedPositionBeforeDrag(selectedEntity.WorldPosition);
 
                         Vector2 randomPositionInUnitCircle = _randomService.InsideUnitCircle();
