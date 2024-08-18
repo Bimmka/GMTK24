@@ -29,8 +29,6 @@ namespace Code.Gameplay.Features.Selection
             Add(systems.Create<DragSelectionsFeature>());
             Add(systems.Create<SelectionCenterFeature>());
             Add(systems.Create<MoveSelectedFeature>());
-            
-            Add(systems.Create<ClearSelectedEntitiesWhenDragStoppedSystem>());
 
             Add(systems.Create<RemoveUnselectMarkFromSelectionSystem>());
             Add(systems.Create<RemoveDragMarksFromSelectionSystem>());

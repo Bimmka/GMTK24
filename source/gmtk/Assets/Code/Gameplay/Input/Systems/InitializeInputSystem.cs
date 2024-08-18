@@ -26,6 +26,7 @@ namespace Code.Gameplay.Input.Systems
         .AddLongTapInterval(config.IntervalForLongTap)
         .AddWorldMousePosition(Vector2.zero)
         .AddScreenMousePosition(Vector2.zero)
+        .AddPositionShiftForDragStart(config.PositionShiftForDragStart)
         .With(x => x.isInput = true);
     }
   }

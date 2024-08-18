@@ -7,5 +7,6 @@ namespace Code.Gameplay.Input.Config
     {
         public float IntervalForClick = 0.1f;
         public float IntervalForLongTap = 0.3f;
+        public float PositionShiftForDragStart = 1f;
     }
 }

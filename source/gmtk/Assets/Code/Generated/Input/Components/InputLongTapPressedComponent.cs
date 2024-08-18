@@ -8,17 +8,17 @@
 //------------------------------------------------------------------------------
 public sealed partial class InputMatcher {
 
-    static Entitas.IMatcher<InputEntity> _matcherDraging;
+    static Entitas.IMatcher<InputEntity> _matcherLongTapPressed;
 
-    public static Entitas.IMatcher<InputEntity> Draging {
+    public static Entitas.IMatcher<InputEntity> LongTapPressed {
         get {
-            if (_matcherDraging == null) {
-                var matcher = (Entitas.Matcher<InputEntity>)Entitas.Matcher<InputEntity>.AllOf(InputComponentsLookup.Draging);
+            if (_matcherLongTapPressed == null) {
+                var matcher = (Entitas.Matcher<InputEntity>)Entitas.Matcher<InputEntity>.AllOf(InputComponentsLookup.LongTapPressed);
                 matcher.componentNames = InputComponentsLookup.componentNames;
-                _matcherDraging = matcher;
+                _matcherLongTapPressed = matcher;
             }
 
-            return _matcherDraging;
+            return _matcherLongTapPressed;
         }
     }
 }
@@ -33,18 +33,18 @@ public sealed partial class InputMatcher {
 //------------------------------------------------------------------------------
 public partial class InputEntity {
 
-    static readonly Code.Gameplay.Input.Draging dragingComponent = new Code.Gameplay.Input.Draging();
+    static readonly Code.Gameplay.Input.LongTapPressed longTapPressedComponent = new Code.Gameplay.Input.LongTapPressed();
 
-    public bool isDraging {
-        get { return HasComponent(InputComponentsLookup.Draging); }
+    public bool isLongTapPressed {
+        get { return HasComponent(InputComponentsLookup.LongTapPressed); }
         set {
-            if (value != isDraging) {
-                var index = InputComponentsLookup.Draging;
+            if (value != isLongTapPressed) {
+                var index = InputComponentsLookup.LongTapPressed;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : dragingComponent;
+                            : longTapPressedComponent;
 
                     AddComponent(index, component);
                 } else {
