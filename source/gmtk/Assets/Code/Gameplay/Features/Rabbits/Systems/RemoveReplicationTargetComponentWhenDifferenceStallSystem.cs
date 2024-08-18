@@ -27,6 +27,7 @@ namespace Code.Gameplay.Features.Rabbits.Systems
                 if (target.hasStallParentIndex == false || target.StallParentIndex != mover.StallParentIndex)
                 {
                     mover.isInvalidReplicationTarget = true;
+                    target.isResetReplicationProcess = true;
                     mover.RemoveReplicationTarget();
                 }
             }

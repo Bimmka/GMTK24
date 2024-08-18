@@ -9,6 +9,16 @@ namespace Code.Gameplay.Input
     {
       Add(systems.Create<InitializeInputSystem>());
       Add(systems.Create<EmitInputSystem>());
+
+      Add(systems.Create<UpdateLastMouseDownTimeSystem>());
+      Add(systems.Create<SaveFirstMouseDownPositionSystem>());
+
+      Add(systems.Create<MarkDraggingSystem>());
+      Add(systems.Create<EmitLongTapSystem>());
+      Add(systems.Create<EmitClickSystem>());
+
+      Add(systems.Create<CleanupClicksSystem>());
+      Add(systems.Create<CleanupLongTapsSystem>());
     }
   }
 }

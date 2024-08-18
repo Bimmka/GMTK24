@@ -1,5 +1,6 @@
 ﻿using Code.Gameplay.Features.Movement.Systems;
 using Code.Gameplay.Features.Rabbits.Systems;
+using Code.Gameplay.Features.Rabbits.Systems.Visuals;
 using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Features.Rabbits
@@ -8,6 +9,8 @@ namespace Code.Gameplay.Features.Rabbits
     {
         public RabbitFeature(ISystemFactory systems)
         {
+            Add(systems.Create<PrepareForDraggingSystem>());
+
             Add(systems.Create<UpdateTimeForMovingSystem>());
             Add(systems.Create<UpdateTimeForReplicationSystem>());
             
@@ -29,9 +32,14 @@ namespace Code.Gameplay.Features.Rabbits
             Add(systems.Create<StartReplicationSystem>());
             Add(systems.Create<UpdateReplicationDurationSystem>());
             Add(systems.Create<SpawnRabbitsAfterReplicationFinishedSystem>());
-            Add(systems.Create<ResetAfterReplicationFinishedSystem>());
             
             Add(systems.Create<RefreshTimeForMovingForReachedTargetSystem>());
+
+            Add(systems.Create<ApplySelectedVisualSystem>());
+
+            Add(systems.Create<ResetAfterReplicationFinishedSystem>());
+            Add(systems.Create<ResetAfterDraggingSystem>());
+            Add(systems.Create<ResetReplicationProcessSystem>());
             
             //cleanup
             Add(systems.Create<CleanupTargetReachedSystem>());

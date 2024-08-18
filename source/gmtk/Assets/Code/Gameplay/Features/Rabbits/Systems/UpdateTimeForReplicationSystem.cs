@@ -25,6 +25,7 @@ namespace Code.Gameplay.Features.Rabbits.Systems
             {
                 rabbit.ReplaceTimeLeftForNextReplication(rabbit.TimeLeftForNextReplication - _time.DeltaTime);
 
+                
                 if (rabbit.TimeLeftForNextReplication <= 0)
                     rabbit.isReplicationUp = true;
             }

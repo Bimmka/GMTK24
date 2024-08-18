@@ -61,6 +61,7 @@ namespace Code.Gameplay.Features.Rabbits.Factory
                     .With(x => x.isSaveRotationInSpawn = true)
                     .With(x => x.isTurnedAlongDirection = true)
                     .With(x => x.isMovingPhase = true)
+                    .With(x => x.isSelectable = true)
                     ;
         }
     }

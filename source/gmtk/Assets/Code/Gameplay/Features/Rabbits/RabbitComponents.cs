@@ -1,4 +1,5 @@
 ﻿using Code.Gameplay.Features.Rabbits.Behaviours.Animations;
+using Code.Gameplay.Features.Rabbits.Behaviours.Visuals;
 using Code.Gameplay.Features.Rabbits.Config;
 using Entitas;
 
@@ -10,6 +11,7 @@ namespace Code.Gameplay.Features.Rabbits
     
     [Game] public class MovingPhase : IComponent {}
     [Game] public class ReplicationPhase : IComponent {}
+    [Game] public class DraggingPhase : IComponent {}
     
     [Game] public class MovingInterval : IComponent { public float Value; }
     [Game] public class TimeLeftForMoving : IComponent { public float Value; }
@@ -31,6 +33,7 @@ namespace Code.Gameplay.Features.Rabbits
     [Game] public class ChosenForReplicationBy : IComponent { public int Value; }
     [Game] public class InvalidReplicationTarget : IComponent {  }
     [Game] public class NearReplicationTarget : IComponent {  }
+    [Game] public class ResetReplicationProcess : IComponent {  }
     
     [Game] public class MinRabbitsSpawnAfterReplication : IComponent { public int Value; }
     [Game] public class MaxRabbitsSpawnAfterReplication : IComponent { public int Value; }
@@ -40,4 +43,5 @@ namespace Code.Gameplay.Features.Rabbits
     [Game] public class StallParentIndex : IComponent { public int Value; }
     
     [Game] public class RabbitAnimatorComponent : IComponent { public RabbitAnimator Value; }
+    [Game] public class RabbitVisualChangerComponent : IComponent { public RabbitVisualChanger Value; }
 }

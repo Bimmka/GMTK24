@@ -26,6 +26,8 @@ namespace Code.Gameplay.Features.Rabbits.Systems
 
                 mover.isInvalidReplicationTarget = true;
                 mover.RemoveReplicationTarget();
+                
+                target.isResetReplicationProcess = true;
             }
         }
     }

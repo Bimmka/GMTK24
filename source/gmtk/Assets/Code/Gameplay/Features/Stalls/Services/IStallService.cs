@@ -8,5 +8,7 @@ namespace Code.Gameplay.Features.Stalls.Services
         void Unregistry(int index);
         void Clear();
         Vector3 GetRandomPositionInStall(int index);
+        int GetStallIndex(Vector2 worldPosition);
+        Vector3 GetRandomPositionInStall(int index, Vector3 at, float maxGap);
     }
 }

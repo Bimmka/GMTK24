@@ -1,5 +1,7 @@
 ﻿using Code.Gameplay.Features.Level.Config;
 using Code.Gameplay.Features.Rabbits.Config;
+using Code.Gameplay.Features.Selection.Config;
+using Code.Gameplay.Input.Config;
 using Code.Gameplay.Windows;
 using UnityEngine;
 
@@ -11,5 +13,7 @@ namespace Code.Gameplay.StaticData
     GameObject GetWindowPrefab(WindowId id);
     LevelConfig GetLevelConfig(string id);
     RabbitConfig GetRabbitConfig(RabbitType type);
+    InputConfig GetInputConfig();
+    SelectionConfig GetSelectionConfig();
   }
 }

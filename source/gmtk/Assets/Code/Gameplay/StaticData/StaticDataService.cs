@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Code.Gameplay.Features.Level.Config;
 using Code.Gameplay.Features.Rabbits.Config;
+using Code.Gameplay.Features.Selection.Config;
+using Code.Gameplay.Input.Config;
 using Code.Gameplay.Windows;
 using Code.Gameplay.Windows.Configs;
 using UnityEngine;
@@ -14,12 +16,16 @@ namespace Code.Gameplay.StaticData
     private Dictionary<WindowId, GameObject> _windowPrefabsById;
     private Dictionary<string,LevelConfig> _levelConfigsById;
     private Dictionary<RabbitType,RabbitConfig> _rabbitConfigsById;
+    private InputConfig _inputConfig;
+    private SelectionConfig _selectionConfig;
 
     public void LoadAll()
     {
       LoadWindows();
       LoadLevelConfigs();
       LoadRabbitConfigs();
+      LoadInputConfig();
+      LoadSelectionConfig();
     }
 
     public GameObject GetWindowPrefab(WindowId id) =>
@@ -37,6 +43,11 @@ namespace Code.Gameplay.StaticData
         ? config
         : throw new Exception($"Rabbit config with type: {type} was not found");
 
+    public InputConfig GetInputConfig() =>
+      _inputConfig;
+    
+    public SelectionConfig GetSelectionConfig() =>
+      _selectionConfig;
 
     private void LoadWindows()
     {
@@ -51,5 +62,13 @@ namespace Code.Gameplay.StaticData
 
     private void LoadRabbitConfigs() =>
       _rabbitConfigsById = Resources.LoadAll<RabbitConfig>("Configs/Rabbits").ToDictionary(x => x.Type, x => x);
+    
+    private void LoadInputConfig() =>
+      _inputConfig = Resources.Load<InputConfig>("Configs/Input/InputConfig");
+
+    private void LoadSelectionConfig()
+    {
+      _selectionConfig = Resources.Load<SelectionConfig>("Configs/Selection/SelectionConfig");
+    }
   }
 }

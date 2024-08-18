@@ -33,12 +33,14 @@ namespace Code.Gameplay.Features.Rabbits.Systems
                 rabbit.isReplicating = true;
                 rabbit.isMovementAvailable = false;
                 rabbit.isWaitingForMoving = false;
+                rabbit.isSelectable = false;
                 
                 target.isReplicating = true;
                 target.isMovementAvailable = false;
                 target.isWaitingForMoving = false;
                 target.isReplicationPhase = true;
                 target.isMovingPhase = false;
+                target.isSelectable = false;
 
                 float replicationDuration = rabbit.DefaultReplicationDuration;
 

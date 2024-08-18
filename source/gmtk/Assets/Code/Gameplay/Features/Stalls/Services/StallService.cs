@@ -54,7 +54,58 @@ namespace Code.Gameplay.Features.Stalls.Services
             float randomY = _randomService.Range(stall.WorldPosition.y - maxShift.y, stall.WorldPosition.y + maxShift.y);
 
             return new Vector3(randomX, randomY, stall.WorldPosition.z);
+        }
 
+        public int GetStallIndex(Vector2 worldPosition)
+        {
+            foreach ((int index, GameEntity stall) in _stallsByIndex)
+            {
+                if (stall.hasWorldPosition == false)
+                    continue;
+                
+                if (stall.hasStallBounds == false)
+                    continue;
+
+                Vector2 halfStallBounds = stall.StallBounds / 2;
+                if (IsInBounds(worldPosition, stall, halfStallBounds))
+                    return index;
+            }
+
+            return -1;
+        }
+
+        public Vector3 GetRandomPositionInStall(int index, Vector3 at, float maxGap)
+        {
+            if (_stallsByIndex.TryGetValue(index, out GameEntity stall) == false)
+                return Vector3.positiveInfinity;
+
+            if (stall.hasWorldPosition == false)
+                return Vector3.positiveInfinity;
+            
+            if (stall.hasStallBounds == false)
+                return Vector3.positiveInfinity;
+
+            Vector2 maxShift = new Vector2(maxGap, maxGap);
+            Vector2 halfBounds = stall.StallBounds / 2;
+
+            float randomX = _randomService.Range(stall.WorldPosition.x - maxShift.x, stall.WorldPosition.x + maxShift.x);
+            float randomY = _randomService.Range(stall.WorldPosition.y - maxShift.y, stall.WorldPosition.y + maxShift.y);
+
+            randomX = Mathf.Min(randomX, stall.WorldPosition.x + halfBounds.x - BoarderShift);
+            randomX = Mathf.Max(randomX, stall.WorldPosition.x - halfBounds.x - BoarderShift);
+            
+            randomY = Mathf.Min(randomY, stall.WorldPosition.y + halfBounds.y - BoarderShift);
+            randomY = Mathf.Max(randomY, stall.WorldPosition.y - halfBounds.y - BoarderShift);
+
+            return new Vector3(randomX, randomY, stall.WorldPosition.z);
+        }
+
+        private bool IsInBounds(Vector2 worldPosition, GameEntity stall, Vector2 halfStallBounds)
+        {
+            return worldPosition.x >= (stall.WorldPosition.x - halfStallBounds.x)
+                   && worldPosition.x <= (stall.WorldPosition.x + halfStallBounds.x)
+                   && worldPosition.y <= stall.WorldPosition.y + halfStallBounds.y
+                   && worldPosition.y >= stall.WorldPosition.y - halfStallBounds.y;
         }
     }
 }

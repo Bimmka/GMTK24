@@ -17,10 +17,10 @@ namespace Code.Infrastructure.View
 
     private void Awake()
     {
-      // GameEntity entity = CreateEntity.Empty()
-      //   .AddId(_identifiers.Next());
+      GameEntity entity = CreateEntity.Empty()
+        .AddId(_identifiers.Next());
       
-      // EntityBehaviour.SetEntity(entity);
+      EntityBehaviour.SetEntity(entity);
     }
 
   }

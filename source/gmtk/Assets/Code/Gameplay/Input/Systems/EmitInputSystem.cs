@@ -1,6 +1,5 @@
 using Code.Gameplay.Input.Service;
 using Entitas;
-using UnityEngine;
 
 namespace Code.Gameplay.Input.Systems
 {
@@ -19,10 +18,20 @@ namespace Code.Gameplay.Input.Systems
     {
       foreach (InputEntity input in _inputs)
       {
-        if (_inputService.HasAxisInput())
-          input.ReplaceAxisInput(new Vector2(_inputService.GetHorizontalAxis(), _inputService.GetVerticalAxis()));
-        else if (input.hasAxisInput)
-          input.RemoveAxisInput();
+        input.isMouseDown = _inputService.GetLeftMouseButtonDown();
+        input.isMousePressed = _inputService.GetLeftMouseButton();
+        input.isMouseUp = _inputService.GetLeftMouseButtonUp();
+
+        if (input.isMouseDown)
+        {
+          
+        }
+
+        if (_inputService.GetLeftMouseButton())
+        {
+          input.ReplaceScreenMousePosition(_inputService.GetScreenMousePosition());
+          input.ReplaceWorldMousePosition(_inputService.GetWorldMousePosition());
+        }
       }
     }
   }
