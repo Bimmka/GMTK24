@@ -12,7 +12,6 @@
             Entity.isWaitingForMoving = true;
 
             Entity.isWaitingForNextReplicationUp = true;
-            Entity.isCanBeChosenForReplication = true;
 
             Entity.isSelectable = true;
             

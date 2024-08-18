@@ -18,6 +18,7 @@ namespace Code.Gameplay.Features.Rabbits
     [Game] public class WaitingForMoving : IComponent { }
     [Game] public class MovingFinished : IComponent { }
     [Game] public class CleanupMovingFinished : IComponent { }
+    [Game] public class CleanupResetReplicationMarkers : IComponent { }
     
     [Game] public class ReplicationInterval : IComponent { public float Value; }
     [Game] public class TimeLeftForNextReplication : IComponent { public float Value; }
@@ -26,6 +27,7 @@ namespace Code.Gameplay.Features.Rabbits
     [Game] public class ReplicationTimeLeft : IComponent { public float Value; }
     [Game] public class WaitingForNextReplicationUp : IComponent {}
     [Game] public class CanBeChosenForReplication : IComponent {}
+    [Game] public class CanStartReplication : IComponent {}
     [Game] public class ReplicationTimeUp : IComponent {}
     [Game] public class ReplicationFinished : IComponent {}
     [Game] public class Replicating : IComponent {}
@@ -48,6 +50,7 @@ namespace Code.Gameplay.Features.Rabbits
     [Game] public class RabbitVisualChangerComponent : IComponent { public RabbitVisualChanger Value; }
     [Game] public class RabbitStateMachineComponent : IComponent { public RabbitStateMachine Value; }
     [Game] public class RabbitNextSimpleState : IComponent { public Type Value; }
+    [Game] public class TransitionComplete : IComponent { }
     [Game] public class StupidMoveState : IComponent {}
     [Game] public class ReplicationState : IComponent {}
     [Game] public class DraggingState : IComponent {}

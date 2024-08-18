@@ -24,7 +24,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                     GameMatcher.MaxRabbitsSpawnAfterReplication,
                     GameMatcher.WorldPosition,
                     GameMatcher.RabbitType,
-                    GameMatcher.ReplicationState));
+                    GameMatcher.ReplicationState,
+                    GameMatcher.ReplicationTarget));
         }
 
         public void Execute()

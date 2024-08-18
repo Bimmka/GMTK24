@@ -24,14 +24,18 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                     GameMatcher.ReplicationTimeUp,
                     GameMatcher.StallParentIndex,
                     GameMatcher.Id,
-                    GameMatcher.RabbitTypesForReplicationWith));
+                    GameMatcher.RabbitTypesForReplicationWith,
+                    GameMatcher.CanStartReplication)
+                .AnyOf(
+                    GameMatcher.IdleState,
+                    GameMatcher.StupidMoveState));
         }
 
         public void Execute()
         {
             foreach (GameEntity replicationUpRabbit in _replicationUpRabbits.GetEntities(_replicationUpBuffer))
             {
-                if (replicationUpRabbit.isCanBeChosenForReplication == false)
+                if (replicationUpRabbit.isCanStartReplication == false)
                     continue;
                 
                 GameEntity chosenTarget = GetReplicationTarget(replicationUpRabbit);

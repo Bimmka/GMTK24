@@ -3,11 +3,11 @@ using Entitas;
 
 namespace Code.Gameplay.Features.Rabbits.SubFeatures.StateMachine.Systems
 {
-    public class TransitToReplicationStateSystem : IExecuteSystem
+    public class TransitToReplicationStateFromWantToReplicateSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _stateMachines;
 
-        public TransitToReplicationStateSystem(GameContext game)
+        public TransitToReplicationStateFromWantToReplicateSystem(GameContext game)
         {
             _stateMachines = game.GetGroup(GameMatcher
                 .AllOf(

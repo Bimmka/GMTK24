@@ -30,77 +30,80 @@ public static class GameComponentsLookup {
     public const int ActivityFree = 19;
     public const int AngryState = 20;
     public const int CanBeChosenForReplication = 21;
-    public const int ChosenForReplication = 22;
-    public const int ChosenForReplicationBy = 23;
-    public const int CleanupMovingFinished = 24;
-    public const int CurrentReplicationDuration = 25;
-    public const int DeadState = 26;
-    public const int DefaultReplicationDuration = 27;
-    public const int DraggingState = 28;
-    public const int IdleState = 29;
-    public const int InvalidReplicationTarget = 30;
-    public const int MaxRabbitsSpawnAfterReplication = 31;
-    public const int MinRabbitsSpawnAfterReplication = 32;
-    public const int MovingFinished = 33;
-    public const int MovingInterval = 34;
-    public const int MovingUp = 35;
-    public const int NearReplicationTarget = 36;
-    public const int Rabbit = 37;
-    public const int RabbitAnimator = 38;
-    public const int RabbitNextSimpleState = 39;
-    public const int RabbitStateMachine = 40;
-    public const int RabbitType = 41;
-    public const int RabbitTypesForReplicationWith = 42;
-    public const int RabbitVisualChanger = 43;
-    public const int Replicating = 44;
-    public const int ReplicationFinished = 45;
-    public const int ReplicationInterval = 46;
-    public const int ReplicationState = 47;
-    public const int ReplicationTarget = 48;
-    public const int ReplicationTimeLeft = 49;
-    public const int ReplicationTimeUp = 50;
-    public const int ResetReplicationProcess = 51;
-    public const int StallParentIndex = 52;
-    public const int StupidMoveState = 53;
-    public const int TimeLeftForMoving = 54;
-    public const int TimeLeftForNextReplication = 55;
-    public const int WaitingForMoving = 56;
-    public const int WaitingForNextReplicationUp = 57;
-    public const int WantToReplicate = 58;
-    public const int AfterDragPosition = 59;
-    public const int CleanupUnselectMark = 60;
-    public const int DragCanceled = 61;
-    public const int DragFinished = 62;
-    public const int Dragging = 63;
-    public const int DragStarted = 64;
-    public const int DragStopped = 65;
-    public const int EntitiesForReleaseQueue = 66;
-    public const int EntitiesForSelectionQueue = 67;
-    public const int FollowSelectCenterSpeed = 68;
-    public const int HasSelections = 69;
-    public const int MoveToAfterDragPositionSpeed = 70;
-    public const int MovingToAfterDragPosition = 71;
-    public const int MultipleSelectionWindow = 72;
-    public const int ReleaseFromDragUp = 73;
-    public const int SavedPositionBeforeDrag = 74;
-    public const int Selectable = 75;
-    public const int SelectCenterPosition = 76;
-    public const int SelectCenterRadius = 77;
-    public const int Selected = 78;
-    public const int SelectedEntities = 79;
-    public const int Selection = 80;
-    public const int SelectionDragMaxTime = 81;
-    public const int SelectionDragTimeLeft = 82;
-    public const int SelectionLayerMask = 83;
-    public const int ShiftFromSelect = 84;
-    public const int StoppedWaitingMouseDragFinish = 85;
-    public const int UnselectSelectedEntities = 86;
-    public const int WaitingMouseDragFinish = 87;
-    public const int Stall = 88;
-    public const int StallBounds = 89;
-    public const int StallIndex = 90;
+    public const int CanStartReplication = 22;
+    public const int ChosenForReplication = 23;
+    public const int ChosenForReplicationBy = 24;
+    public const int CleanupMovingFinished = 25;
+    public const int CleanupResetReplicationMarkers = 26;
+    public const int CurrentReplicationDuration = 27;
+    public const int DeadState = 28;
+    public const int DefaultReplicationDuration = 29;
+    public const int DraggingState = 30;
+    public const int IdleState = 31;
+    public const int InvalidReplicationTarget = 32;
+    public const int MaxRabbitsSpawnAfterReplication = 33;
+    public const int MinRabbitsSpawnAfterReplication = 34;
+    public const int MovingFinished = 35;
+    public const int MovingInterval = 36;
+    public const int MovingUp = 37;
+    public const int NearReplicationTarget = 38;
+    public const int Rabbit = 39;
+    public const int RabbitAnimator = 40;
+    public const int RabbitNextSimpleState = 41;
+    public const int RabbitStateMachine = 42;
+    public const int RabbitType = 43;
+    public const int RabbitTypesForReplicationWith = 44;
+    public const int RabbitVisualChanger = 45;
+    public const int Replicating = 46;
+    public const int ReplicationFinished = 47;
+    public const int ReplicationInterval = 48;
+    public const int ReplicationState = 49;
+    public const int ReplicationTarget = 50;
+    public const int ReplicationTimeLeft = 51;
+    public const int ReplicationTimeUp = 52;
+    public const int ResetReplicationProcess = 53;
+    public const int StallParentIndex = 54;
+    public const int StupidMoveState = 55;
+    public const int TimeLeftForMoving = 56;
+    public const int TimeLeftForNextReplication = 57;
+    public const int TransitionComplete = 58;
+    public const int WaitingForMoving = 59;
+    public const int WaitingForNextReplicationUp = 60;
+    public const int WantToReplicate = 61;
+    public const int AfterDragPosition = 62;
+    public const int CleanupUnselectMark = 63;
+    public const int DragCanceled = 64;
+    public const int DragFinished = 65;
+    public const int Dragging = 66;
+    public const int DragStarted = 67;
+    public const int DragStopped = 68;
+    public const int EntitiesForReleaseQueue = 69;
+    public const int EntitiesForSelectionQueue = 70;
+    public const int FollowSelectCenterSpeed = 71;
+    public const int HasSelections = 72;
+    public const int MoveToAfterDragPositionSpeed = 73;
+    public const int MovingToAfterDragPosition = 74;
+    public const int MultipleSelectionWindow = 75;
+    public const int ReleaseFromDragUp = 76;
+    public const int SavedPositionBeforeDrag = 77;
+    public const int Selectable = 78;
+    public const int SelectCenterPosition = 79;
+    public const int SelectCenterRadius = 80;
+    public const int Selected = 81;
+    public const int SelectedEntities = 82;
+    public const int Selection = 83;
+    public const int SelectionDragMaxTime = 84;
+    public const int SelectionDragTimeLeft = 85;
+    public const int SelectionLayerMask = 86;
+    public const int ShiftFromSelect = 87;
+    public const int StoppedWaitingMouseDragFinish = 88;
+    public const int UnselectSelectedEntities = 89;
+    public const int WaitingMouseDragFinish = 90;
+    public const int Stall = 91;
+    public const int StallBounds = 92;
+    public const int StallIndex = 93;
 
-    public const int TotalComponents = 91;
+    public const int TotalComponents = 94;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -125,9 +128,11 @@ public static class GameComponentsLookup {
         "ActivityFree",
         "AngryState",
         "CanBeChosenForReplication",
+        "CanStartReplication",
         "ChosenForReplication",
         "ChosenForReplicationBy",
         "CleanupMovingFinished",
+        "CleanupResetReplicationMarkers",
         "CurrentReplicationDuration",
         "DeadState",
         "DefaultReplicationDuration",
@@ -159,6 +164,7 @@ public static class GameComponentsLookup {
         "StupidMoveState",
         "TimeLeftForMoving",
         "TimeLeftForNextReplication",
+        "TransitionComplete",
         "WaitingForMoving",
         "WaitingForNextReplicationUp",
         "WantToReplicate",
@@ -219,9 +225,11 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Rabbits.ActivityFree),
         typeof(Code.Gameplay.Features.Rabbits.AngryState),
         typeof(Code.Gameplay.Features.Rabbits.CanBeChosenForReplication),
+        typeof(Code.Gameplay.Features.Rabbits.CanStartReplication),
         typeof(Code.Gameplay.Features.Rabbits.ChosenForReplication),
         typeof(Code.Gameplay.Features.Rabbits.ChosenForReplicationBy),
         typeof(Code.Gameplay.Features.Rabbits.CleanupMovingFinished),
+        typeof(Code.Gameplay.Features.Rabbits.CleanupResetReplicationMarkers),
         typeof(Code.Gameplay.Features.Rabbits.CurrentReplicationDuration),
         typeof(Code.Gameplay.Features.Rabbits.DeadState),
         typeof(Code.Gameplay.Features.Rabbits.DefaultReplicationDuration),
@@ -253,6 +261,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Rabbits.StupidMoveState),
         typeof(Code.Gameplay.Features.Rabbits.TimeLeftForMoving),
         typeof(Code.Gameplay.Features.Rabbits.TimeLeftForNextReplication),
+        typeof(Code.Gameplay.Features.Rabbits.TransitionComplete),
         typeof(Code.Gameplay.Features.Rabbits.WaitingForMoving),
         typeof(Code.Gameplay.Features.Rabbits.WaitingForNextReplicationUp),
         typeof(Code.Gameplay.Features.Rabbits.WantToReplicate),

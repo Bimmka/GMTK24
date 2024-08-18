@@ -11,7 +11,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.StateMachine.Systems
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.RabbitStateMachine,
-                    GameMatcher.RabbitNextSimpleState));
+                    GameMatcher.RabbitNextSimpleState,
+                    GameMatcher.TransitionComplete));
         }
         
         public void Cleanup()

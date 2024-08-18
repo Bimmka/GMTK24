@@ -1,4 +1,5 @@
 ﻿using Code.Gameplay.Features.Rabbits.StateMachine.States;
+using Code.Infrastructure.States.StateInfrastructure;
 using Entitas;
 
 namespace Code.Gameplay.Features.Rabbits.SubFeatures.StateMachine.Systems
@@ -20,14 +21,20 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.StateMachine.Systems
             foreach (GameEntity stateMachine in _stateMachines)
             {
                 if (stateMachine.RabbitNextSimpleState == typeof(RabbitDraggingState))
-                    stateMachine.RabbitStateMachine.Enter<RabbitDraggingState>();
+                    EnterNewState<RabbitDraggingState>(stateMachine);
                 else if (stateMachine.RabbitNextSimpleState == typeof(RabbitIdleState))
-                    stateMachine.RabbitStateMachine.Enter<RabbitIdleState>();
+                    EnterNewState<RabbitIdleState>(stateMachine);
                 else if (stateMachine.RabbitNextSimpleState == typeof(RabbitReplicationState))
-                    stateMachine.RabbitStateMachine.Enter<RabbitReplicationState>();
+                    EnterNewState<RabbitReplicationState>(stateMachine);
                 else if (stateMachine.RabbitNextSimpleState == typeof(RabbitStupidMoveState))
-                    stateMachine.RabbitStateMachine.Enter<RabbitStupidMoveState>();
+                    EnterNewState<RabbitStupidMoveState>(stateMachine);
             }
+        }
+
+        private void EnterNewState<TState>(GameEntity entity) where TState : class, IState
+        {
+            entity.RabbitStateMachine.Enter<TState>();
+            entity.isTransitionComplete = true;
         }
     }
 }

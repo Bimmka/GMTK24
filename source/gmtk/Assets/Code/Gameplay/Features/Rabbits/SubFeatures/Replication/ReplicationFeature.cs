@@ -7,11 +7,17 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication
     {
         public ReplicationFeature(ISystemFactory systems)
         {
+            Add(systems.Create<UpdateTimeForReplicationSystem>());
+
             Add(systems.Create<SetReplicationTargetSystem>());
+
+            Add(systems.Create<MarkWantToReplicateSystem>());
             
             //Add(systems.Create<PrepareToMoveToReplicationTargetSystem>());
             Add(systems.Create<RemoveReplicationTargetComponentWithoutPositionSystem>());
             Add(systems.Create<RemoveReplicationTargetComponentWhenDifferenceStallSystem>());
+            
+            Add(systems.Create<ResetReplicationProcessMarkersForTargetsSystem>());
 
             Add(systems.Create<MarkNearReplicationTargetSystem>());
             
@@ -20,9 +26,13 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication
             Add(systems.Create<StartReplicationSystem>());
             Add(systems.Create<UpdateReplicationDurationSystem>());
             Add(systems.Create<SpawnRabbitsAfterReplicationFinishedSystem>());
+            Add(systems.Create<MarkCanBeChosenForReplicationWhenReplicationFinishedSystem>());
             
-            Add(systems.Create<ResetAfterReplicationFinishedSystem>());
-            Add(systems.Create<ResetReplicationProcessSystem>());
+            Add(systems.Create<ApplyReplicatingVisualSystem>());
+            Add(systems.Create<UnapplyReplicatingVisualSystem>());
+
+            Add(systems.Create<CleanupStartReplicationMarksSystem>());
+            Add(systems.Create<CleanupResetReplicationProcessMarkersSystem>());
         }
     }
 }

@@ -3,36 +3,33 @@ using Entitas;
 
 namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
 {
-    public class ResetReplicationProcessSystem : IExecuteSystem
+    public class ResetReplicationProcessMarkersForTargetsSystem : ICleanupSystem
     {
         private readonly IGroup<GameEntity> _rabbits;
         private readonly List<GameEntity> _buffer = new List<GameEntity>(32);
 
-        public ResetReplicationProcessSystem(GameContext game)
+        public ResetReplicationProcessMarkersForTargetsSystem(GameContext game)
         {
             _rabbits = game.GetGroup(GameMatcher
+                .AllOf(
+                    GameMatcher.ChosenForReplicationBy,
+                    GameMatcher.Rabbit)
                 .AnyOf(
                     GameMatcher.InvalidReplicationTarget,
                     GameMatcher.ResetReplicationProcess));
         }
 
-        public void Execute()
+        public void Cleanup()
         {
             foreach (GameEntity rabbit in _rabbits.GetEntities(_buffer))
             {
-                rabbit.isWaitingForMoving = true;
                 rabbit.isCanBeChosenForReplication = true;
+                rabbit.isCanStartReplication = true;
                 rabbit.isWaitingForNextReplicationUp = true;
                 rabbit.isChosenForReplication = false;
-                rabbit.isInvalidReplicationTarget = false;
-                rabbit.isResetReplicationProcess = false;
-                rabbit.isNearReplicationTarget = false;
+                rabbit.RemoveChosenForReplicationBy();
 
-                if (rabbit.hasChosenForReplicationBy)
-                    rabbit.RemoveChosenForReplicationBy();
-
-                // rabbit.isReplicationPhase = false;
-                // rabbit.isMovingPhase = true;
+                rabbit.isCleanupResetReplicationMarkers = true;
             }
         }
     }

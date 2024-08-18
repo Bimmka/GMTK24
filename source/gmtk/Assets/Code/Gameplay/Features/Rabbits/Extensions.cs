@@ -6,7 +6,15 @@
         {
             entity.isWaitingForNextReplicationUp = false;
             entity.isCanBeChosenForReplication = false;
-            entity.isReplicationTimeUp = false;
+            entity.isCanStartReplication = false;
+        }
+        
+        public static void ChangeComponentsForStartReplication(this GameEntity entity)
+        {
+            entity.isReplicating = true;
+            entity.isMovementAvailable = false;
+            entity.isWaitingForMoving = false;
+            entity.isSelectable = false;
         }
     }
 }

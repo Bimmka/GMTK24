@@ -10,6 +10,7 @@
             
             Entity.isWaitingForMoving = false;
             Entity.isMovingUp = false;
+            Entity.isMoving = false;
             Entity.isWaitingForNextReplicationUp = false;
         }
 
@@ -20,7 +21,10 @@
             Entity.isReplicating = false;
             Entity.isReplicationFinished = false;
             Entity.isNearReplicationTarget = false;
-            Entity.isWantToReplicate = false;
+            Entity.isCanBeChosenForReplication = true;
+            Entity.isWaitingForNextReplicationUp = true;
+            Entity.isCanStartReplication = true;
+            Entity.isReplicationTimeUp = false;
 
             Entity.ReplaceTimeLeftForNextReplication(Entity.ReplicationInterval);
             

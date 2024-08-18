@@ -24,6 +24,6 @@ MonoBehaviour:
     Bounds: {x: 16.1, y: 7.31}
   PresetupRabbits:
   - Type: 1
-    StallIndex: 0
+    StallIndex: 1
   - Type: 1
     StallIndex: 1

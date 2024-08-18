@@ -76,6 +76,7 @@ namespace Code.Gameplay.Features.Rabbits.Factory
                 .With(x => x.isTurnedAlongDirection = true)
                 .With(x => x.isIdleState = true)
                 .With(x => x.isSelectable = true)
+                .With(x => x.isCanStartReplication = true)
                 ;
             
             stateMachine.Enter<RabbitIdleState>();

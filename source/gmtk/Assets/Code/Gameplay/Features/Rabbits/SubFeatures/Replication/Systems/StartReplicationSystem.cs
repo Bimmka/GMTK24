@@ -1,4 +1,5 @@
-﻿using Entitas;
+﻿using System.Collections.Generic;
+using Entitas;
 
 namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
 {
@@ -6,6 +7,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
     {
         private readonly GameContext _game;
         private readonly IGroup<GameEntity> _rabbits;
+        private readonly List<GameEntity> _buffer = new List<GameEntity>(32);
 
         public StartReplicationSystem(GameContext game)
         {
@@ -17,30 +19,22 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                     GameMatcher.ReplicationTarget,
                     GameMatcher.NearReplicationTarget,
                     GameMatcher.DefaultReplicationDuration,
-                    GameMatcher.ActivityFree,
-                    GameMatcher.ReplicationState));
+                    GameMatcher.CurrentReplicationDuration,
+                    GameMatcher.ReplicationState)
+                .NoneOf(GameMatcher.Replicating));
         }
 
         public void Execute()
         {
-            foreach (GameEntity rabbit in _rabbits)
+            foreach (GameEntity rabbit in _rabbits.GetEntities(_buffer))
             {
                 GameEntity target = _game.GetEntityWithId(rabbit.ReplicationTarget);
                 
                 if (target.isStupidMoveState == false && target.isIdleState == false)
                     continue;
 
-                rabbit.isReplicating = true;
-                rabbit.isMovementAvailable = false;
-                rabbit.isWaitingForMoving = false;
-                rabbit.isSelectable = false;
-                
-                target.isReplicating = true;
-                target.isMovementAvailable = false;
-                target.isWaitingForMoving = false;
-                // target.isReplicationPhase = true;
-                // target.isMovingPhase = false;
-                target.isSelectable = false;
+                rabbit.ChangeComponentsForStartReplication();
+                target.ChangeComponentsForStartReplication();
 
                 float replicationDuration = rabbit.DefaultReplicationDuration;
 
