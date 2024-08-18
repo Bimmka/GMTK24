@@ -5,6 +5,7 @@ using Code.Gameplay.Common.Physics;
 using Code.Gameplay.Common.Random;
 using Code.Gameplay.Common.Time;
 using Code.Gameplay.Features.Rabbits.Factory;
+using Code.Gameplay.Features.Rabbits.StateMachine.States;
 using Code.Gameplay.Features.Stalls.Factory;
 using Code.Gameplay.Features.Stalls.Services;
 using Code.Gameplay.Input.Service;
@@ -46,6 +47,7 @@ namespace Code.Infrastructure.Installers
       BindStateMachine();
       BindStateFactory();
       BindGameStates();
+      BindRabbitStates();
       BindProgressServices();
     }
 
@@ -70,6 +72,14 @@ namespace Code.Infrastructure.Installers
       Container.BindInterfacesAndSelfTo<BattleEnterState>().AsSingle();
       Container.BindInterfacesAndSelfTo<BattleLoopState>().AsSingle();
       Container.BindInterfacesAndSelfTo<GameOverState>().AsSingle();
+    }
+    
+    private void BindRabbitStates()
+    {
+      Container.BindInterfacesAndSelfTo<RabbitIdleState>().AsTransient();
+      Container.BindInterfacesAndSelfTo<RabbitStupidMoveState>().AsTransient();
+      Container.BindInterfacesAndSelfTo<RabbitReplicationState>().AsTransient();
+      Container.BindInterfacesAndSelfTo<RabbitDraggingState>().AsTransient();
     }
 
     private void BindContexts()

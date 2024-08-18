@@ -143,6 +143,8 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 1387650854986374518}
   SelectedColor: {r: 0.3824134, g: 1, b: 0, a: 1}
   UnselectedColor: {r: 1, g: 0, b: 0, a: 1}
+  ReplicationColor: {r: 1, g: 0.6744842, b: 0, a: 1}
+  WaitingTargetColor: {r: 0, g: 0.07410216, b: 1, a: 1}
 --- !u!114 &8942472079699152202
 MonoBehaviour:
   m_ObjectHideFlags: 0

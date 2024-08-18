@@ -13,7 +13,8 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.ReleaseByTime
                 .AllOf(
                     GameMatcher.ReleaseFromDragUp,
                     GameMatcher.Dragging,
-                    GameMatcher.Id));
+                    GameMatcher.Id,
+                    GameMatcher.DraggingState));
 
             _selections = game.GetGroup(GameMatcher
                 .AllOf(

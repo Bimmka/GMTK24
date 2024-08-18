@@ -16,7 +16,8 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.ReleaseByTime
                     GameMatcher.Selected,
                     GameMatcher.ReleaseFromDragUp,
                     GameMatcher.SavedPositionBeforeDrag,
-                    GameMatcher.Dragging));
+                    GameMatcher.Dragging,
+                    GameMatcher.DraggingState));
         }
 
         public void Execute()

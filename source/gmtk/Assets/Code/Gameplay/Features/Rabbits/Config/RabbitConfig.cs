@@ -11,8 +11,10 @@ namespace Code.Gameplay.Features.Rabbits.Config
 
         public float IntervalBetweenMoving = 1f;
 
-        public float IntervalBetweenReplication = 1f;
+        public float MinIntervalBetweenReplication = 1f;
+        public float MaxIntervalBetweenReplication = 2f;
         public float ReplicationDuration = 1f;
+        public float WaitReplicationDuration = 5f;
         public int MinRabbitsSpawnAfterReplication = 1;
         public int MaxRabbitsSpawnAfterReplication = 1;
         public RabbitType[] RabbitTypesForReplicationWith;

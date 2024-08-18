@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Code.Gameplay.Common.Random;
-using Code.Gameplay.Common.Time;
 using Entitas;
 using UnityEngine;
 
@@ -10,16 +9,14 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.DragSelections.Systems
     {
         private readonly GameContext _game;
         private readonly IRandomService _randomService;
-        private readonly ITimeService _time;
         private readonly IGroup<InputEntity> _clicks;
         private readonly IGroup<GameEntity> _selections;
         private readonly List<GameEntity> _buffer = new List<GameEntity>(1);
 
-        public StartDragByClick(InputContext input, GameContext game, IRandomService randomService, ITimeService time)
+        public StartDragByClick(InputContext input, GameContext game, IRandomService randomService)
         {
             _game = game;
             _randomService = randomService;
-            _time = time;
 
             _clicks = input.GetGroup(InputMatcher
                 .AllOf(
