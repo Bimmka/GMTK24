@@ -11,10 +11,15 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.StateMachine
 
             Add(systems.Create<TransitToReplicationStateFromWantToReplicateSystem>());
             Add(systems.Create<TransitToReplicationStateFromReplicatingSystem>());
+            
             Add(systems.Create<TransitToStupidMoveStateStateSystem>());
+            
             Add(systems.Create<TransitToIdleStateWhenMovingFinishedSystem>());
             Add(systems.Create<TransitToIdleStateWhenReplicationFinishedSystem>());
             Add(systems.Create<TransitToIdleStateWhenReplicationInvalidSystem>());
+            Add(systems.Create<TransitToIdleStateWhenDragFinishedSystem>());
+
+            Add(systems.Create<TransitToDraggingStateSystem>());
 
             Add(systems.Create<TransitToNewStateSystem>());
 

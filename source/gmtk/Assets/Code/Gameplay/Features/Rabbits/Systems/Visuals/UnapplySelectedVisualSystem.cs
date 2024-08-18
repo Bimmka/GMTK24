@@ -1,17 +1,17 @@
 ﻿using Entitas;
 
-namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
+namespace Code.Gameplay.Features.Rabbits.Systems.Visuals
 {
-    public class UnapplyReplicatingVisualSystem : IExecuteSystem
+    public class UnapplySelectedVisualSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _rabbits;
 
-        public UnapplyReplicatingVisualSystem(GameContext game)
+        public UnapplySelectedVisualSystem(GameContext game)
         {
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Rabbit,
-                    GameMatcher.ReplicationFinished,
+                    GameMatcher.DragFinished,
                     GameMatcher.RabbitVisualChanger));
         }
 
@@ -19,7 +19,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
         {
             foreach (GameEntity rabbit in _rabbits)
             {
-                rabbit.RabbitVisualChanger.UnsetReplicating();
+                rabbit.RabbitVisualChanger.ApplySelectionStatus(rabbit.isSelected);
             }
         }
     }

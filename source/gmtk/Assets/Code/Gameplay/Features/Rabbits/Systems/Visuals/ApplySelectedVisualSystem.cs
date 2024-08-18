@@ -11,6 +11,7 @@ namespace Code.Gameplay.Features.Rabbits.Systems.Visuals
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Rabbit,
+                    GameMatcher.Selected,
                     GameMatcher.RabbitVisualChanger));
         }
 

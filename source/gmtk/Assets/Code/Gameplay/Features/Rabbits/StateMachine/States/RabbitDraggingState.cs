@@ -25,6 +25,8 @@
             Entity.isDragFinished = false;
             Entity.isSelected = false;
             Entity.isSelectable = true;
+            Entity.isWaitingForNextReplicationUp = true;
+            Entity.isCanBeChosenForReplication = true;
             
             if (Entity.hasAfterDragPosition)
                 Entity.RemoveAfterDragPosition();

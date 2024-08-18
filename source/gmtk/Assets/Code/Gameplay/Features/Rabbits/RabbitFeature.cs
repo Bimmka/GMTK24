@@ -37,13 +37,11 @@ namespace Code.Gameplay.Features.Rabbits
             //
             // Add(systems.Create<RefreshTimeForMovingForReachedTargetSystem>());
             //
-            // Add(systems.Create<ApplySelectedVisualSystem>());
+            // 
             //
             //
             // Add(systems.Create<ResetAfterDraggingSystem>());
             //
-
-            Add(systems.Create<RabbitStateMachineFeature>());
 
             Add(systems.Create<UpdateMovingMarkSystem>());
 
@@ -54,8 +52,7 @@ namespace Code.Gameplay.Features.Rabbits
             Add(systems.Create<DraggingFeature>());
             Add(systems.Create<DeadFeature>());
             
-            //cleanup
-            //Add(systems.Create<CleanupDragStartedMarkSystem>());
+            Add(systems.Create<RabbitStateMachineFeature>());
         }
     }
 }
