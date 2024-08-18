@@ -6,18 +6,18 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
     public class RemoveReplicationTargetComponentWithoutPositionSystem : IExecuteSystem
     {
         private readonly GameContext _game;
-        private readonly IGroup<GameEntity> _movers;
+        private readonly IGroup<GameEntity> _replicators;
         private readonly List<GameEntity> _buffer = new List<GameEntity>(32);
 
         public RemoveReplicationTargetComponentWithoutPositionSystem(GameContext game)
         {
             _game = game;
-            _movers = game.GetGroup(GameMatcher.ReplicationTarget);
+            _replicators = game.GetGroup(GameMatcher.ReplicationTarget);
         }
 
         public void Execute()
         {
-            foreach (GameEntity mover in _movers.GetEntities(_buffer))
+            foreach (GameEntity mover in _replicators.GetEntities(_buffer))
             {
                 GameEntity target = _game.GetEntityWithId(mover.ReplicationTarget);
                 

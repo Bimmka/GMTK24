@@ -6,13 +6,13 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
     public class RemoveReplicationTargetComponentWhenDifferenceStallSystem : IExecuteSystem
     {
         private readonly GameContext _game;
-        private readonly IGroup<GameEntity> _movers;
+        private readonly IGroup<GameEntity> _replicators;
         private readonly List<GameEntity> _buffer = new List<GameEntity>(32);
 
         public RemoveReplicationTargetComponentWhenDifferenceStallSystem(GameContext game)
         {
             _game = game;
-            _movers = game.GetGroup(GameMatcher
+            _replicators = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.ReplicationTarget,
                     GameMatcher.StallParentIndex));
@@ -20,15 +20,15 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
 
         public void Execute()
         {
-            foreach (GameEntity mover in _movers.GetEntities(_buffer))
+            foreach (GameEntity replicator in _replicators.GetEntities(_buffer))
             {
-                GameEntity target = _game.GetEntityWithId(mover.ReplicationTarget);
+                GameEntity target = _game.GetEntityWithId(replicator.ReplicationTarget);
 
-                if (target.hasStallParentIndex == false || target.StallParentIndex != mover.StallParentIndex)
+                if (target.hasStallParentIndex == false || target.StallParentIndex != replicator.StallParentIndex)
                 {
-                    mover.isInvalidReplicationTarget = true;
+                    replicator.isInvalidReplicationTarget = true;
                     target.isResetReplicationProcess = true;
-                    mover.RemoveReplicationTarget();
+                    replicator.RemoveReplicationTarget();
                 }
             }
         }

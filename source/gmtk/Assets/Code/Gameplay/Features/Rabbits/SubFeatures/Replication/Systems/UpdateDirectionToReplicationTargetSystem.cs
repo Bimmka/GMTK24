@@ -1,4 +1,5 @@
 using Entitas;
+using UnityEngine;
 
 namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
 {
@@ -25,7 +26,10 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
             {
                 GameEntity target = _game.GetEntityWithId(mover.ReplicationTarget);
 
-                mover.ReplaceMoveDirection((target.WorldPosition - mover.WorldPosition).normalized);
+                if (mover.isWaitingReplicationTarget) 
+                    mover.ReplaceMoveDirection(Vector2.zero);
+                else
+                    mover.ReplaceMoveDirection((target.WorldPosition - mover.WorldPosition).normalized);
             }
         }
     }

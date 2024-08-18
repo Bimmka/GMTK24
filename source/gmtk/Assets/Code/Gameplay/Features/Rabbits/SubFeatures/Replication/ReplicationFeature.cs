@@ -13,11 +13,22 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication
 
             Add(systems.Create<MarkWantToReplicateSystem>());
             
+            Add(systems.Create<UpdateWaitReplicationTimeSystem>());
+            Add(systems.Create<MarkReplicationExpiredTimeSystem>());
+            
             //Add(systems.Create<PrepareToMoveToReplicationTargetSystem>());
             Add(systems.Create<RemoveReplicationTargetComponentWithoutPositionSystem>());
             Add(systems.Create<RemoveReplicationTargetComponentWhenDifferenceStallSystem>());
+            Add(systems.Create<RemoveReplicationTargetComponentWhenWaitingExpiredSystem>());
+
+            Add(systems.Create<ValidateReplicationNonDraggingTargetSystem>());
+            Add(systems.Create<ValidateReplicationDraggingTargetSystem>());
             
             Add(systems.Create<ResetReplicationProcessMarkersForTargetsSystem>());
+
+            Add(systems.Create<SetWaitingReplicationTargetSystem>());
+            
+            Add(systems.Create<ApplyWaitingTargetVisualSystem>());
 
             Add(systems.Create<MarkNearReplicationTargetSystem>());
             
@@ -33,6 +44,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication
 
             Add(systems.Create<CleanupStartReplicationMarksSystem>());
             Add(systems.Create<CleanupResetReplicationProcessMarkersSystem>());
+            Add(systems.Create<CleanupReplicationExpireMarkersSystem>());
         }
     }
 }

@@ -23,11 +23,19 @@
             
             Entity.isDragging = false;
             Entity.isDragFinished = false;
+            Entity.isDragStarted = false;
+
             Entity.isSelected = false;
             Entity.isSelectable = true;
-            Entity.isWaitingForNextReplicationUp = true;
-            Entity.isCanBeChosenForReplication = true;
-            
+
+            bool isChosenForReplicationBy = Entity.hasChosenForReplicationBy;
+            if (isChosenForReplicationBy == false)
+            {
+                Entity.isWaitingForNextReplicationUp = true;
+                Entity.isCanBeChosenForReplication = true;
+                Entity.isCanStartReplication = true;
+            }
+
             if (Entity.hasAfterDragPosition)
                 Entity.RemoveAfterDragPosition();
 

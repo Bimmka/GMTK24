@@ -21,6 +21,10 @@ namespace Code.Gameplay.Features.Rabbits
     [Game] public class CleanupResetReplicationMarkers : IComponent { }
     
     [Game] public class ReplicationInterval : IComponent { public float Value; }
+    [Game] public class MinReplicationInterval : IComponent { public float Value; }
+    [Game] public class MaxReplicationInterval : IComponent { public float Value; }
+    [Game] public class WaitReplicationDuration : IComponent { public float Value; }
+    [Game] public class WaitReplicationTimeLeft : IComponent { public float Value; }
     [Game] public class TimeLeftForNextReplication : IComponent { public float Value; }
     [Game] public class DefaultReplicationDuration : IComponent { public float Value; }
     [Game] public class CurrentReplicationDuration : IComponent { public float Value; }
@@ -32,12 +36,14 @@ namespace Code.Gameplay.Features.Rabbits
     [Game] public class ReplicationFinished : IComponent {}
     [Game] public class Replicating : IComponent {}
     [Game] public class WantToReplicate : IComponent {}
+    [Game] public class ReplicationExpired : IComponent {}
     [Game] public class ReplicationTarget : IComponent { public int Value; }
     [Game] public class ChosenForReplication : IComponent {  }
     [Game] public class ChosenForReplicationBy : IComponent { public int Value; }
     [Game] public class InvalidReplicationTarget : IComponent {  }
     [Game] public class NearReplicationTarget : IComponent {  }
     [Game] public class ResetReplicationProcess : IComponent {  }
+    [Game] public class WaitingReplicationTarget : IComponent {  }
     
     [Game] public class MinRabbitsSpawnAfterReplication : IComponent { public int Value; }
     [Game] public class MaxRabbitsSpawnAfterReplication : IComponent { public int Value; }

@@ -1,6 +1,7 @@
 ﻿using System;
 using Code.Common.Entity;
 using Code.Common.Extensions;
+using Code.Gameplay.Common.Random;
 using Code.Gameplay.Features.Rabbits.Config;
 using Code.Gameplay.Features.Rabbits.StateMachine.Base;
 using Code.Gameplay.Features.Rabbits.StateMachine.Factory;
@@ -19,13 +20,20 @@ namespace Code.Gameplay.Features.Rabbits.Factory
         private readonly IStaticDataService _staticDataService;
         private readonly ILevelDataProvider _levelDataProvider;
         private readonly IIdentifierService _identifierService;
+        private readonly IRandomService _randomService;
 
-        public RabbitFactory(DiContainer container, IStaticDataService staticDataService, ILevelDataProvider levelDataProvider, IIdentifierService identifierService)
+        public RabbitFactory(
+            DiContainer container,
+            IStaticDataService staticDataService,
+            ILevelDataProvider levelDataProvider,
+            IIdentifierService identifierService,
+            IRandomService randomService)
         {
             _container = container;
             _staticDataService = staticDataService;
             _levelDataProvider = levelDataProvider;
             _identifierService = identifierService;
+            _randomService = randomService;
         }
 
         public GameEntity Create(RabbitType type, Vector3 at, int stallIndex)
@@ -49,15 +57,20 @@ namespace Code.Gameplay.Features.Rabbits.Factory
             
             IRabbitStateFactory stateFactory = new RabbitStateFactory(_container, rabbitEntity);
             RabbitStateMachine stateMachine = new RabbitStateMachine(stateFactory);
+
+            float intervalBeforeNextReplication = _randomService.Range(rabbitConfig.MinIntervalBetweenReplication,
+                rabbitConfig.MaxIntervalBetweenReplication);
             
             rabbitEntity
                 .AddId(_identifierService.Next())
                 .AddRabbitType(rabbitConfig.Type)
                 .AddDefaultReplicationDuration(rabbitConfig.ReplicationDuration)
                 .AddCurrentReplicationDuration(rabbitConfig.ReplicationDuration)
-                .AddReplicationInterval(rabbitConfig.IntervalBetweenReplication)
+                .AddReplicationInterval(intervalBeforeNextReplication)
+                .AddMinReplicationInterval(rabbitConfig.MinIntervalBetweenReplication)
+                .AddMaxReplicationInterval(rabbitConfig.MaxIntervalBetweenReplication)
                 .AddReplicationTimeLeft(rabbitConfig.ReplicationDuration)
-                .AddTimeLeftForNextReplication(rabbitConfig.IntervalBetweenReplication)
+                .AddTimeLeftForNextReplication(intervalBeforeNextReplication)
                 .AddMinRabbitsSpawnAfterReplication(rabbitConfig.MinRabbitsSpawnAfterReplication)
                 .AddMaxRabbitsSpawnAfterReplication(rabbitConfig.MaxRabbitsSpawnAfterReplication)
                 .AddMovingInterval(rabbitConfig.IntervalBetweenMoving)
@@ -71,6 +84,8 @@ namespace Code.Gameplay.Features.Rabbits.Factory
                 .AddSelectionDragMaxTime(rabbitConfig.TimeToRelease)
                 .AddSelectionDragTimeLeft(rabbitConfig.TimeToRelease)
                 .AddRabbitStateMachine(stateMachine)
+                .AddWaitReplicationDuration(rabbitConfig.WaitReplicationDuration)
+                .AddWaitReplicationTimeLeft(rabbitConfig.WaitReplicationDuration)
                 .With(x => x.isRabbit = true)
                 .With(x => x.isSaveRotationInSpawn = true)
                 .With(x => x.isTurnedAlongDirection = true)
