@@ -1,0 +1,97 @@
+
+Fox.png
+size: 1080,189
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Body
+  rotate: false
+  xy: 2, 70
+  size: 322, 118
+  orig: 322, 119
+  offset: 0, 1
+  index: -1
+Eye_L_3
+  rotate: false
+  xy: 489, 13
+  size: 79, 79
+  orig: 79, 79
+  offset: 0, 0
+  index: -1
+Eye_R_3
+  rotate: true
+  xy: 958, 20
+  size: 79, 78
+  orig: 79, 78
+  offset: 0, 0
+  index: -1
+Eyes
+  rotate: true
+  xy: 1038, 48
+  size: 86, 39
+  orig: 86, 39
+  offset: 0, 0
+  index: -1
+Hand
+  rotate: true
+  xy: 326, 30
+  size: 157, 161
+  orig: 157, 161
+  offset: 0, 0
+  index: -1
+Hand_L
+  rotate: true
+  xy: 2, 9
+  size: 65, 97
+  orig: 65, 98
+  offset: 0, 1
+  index: -1
+Hand_R
+  rotate: 270
+  xy: 194, 9
+  size: 81, 130
+  orig: 81, 131
+  offset: 0, 1
+  index: -1
+Head
+  rotate: false
+  xy: 489, 17
+  size: 251, 170
+  orig: 251, 170
+  offset: 0, 0
+  index: -1
+Jaw
+  rotate: true
+  xy: 877, 17
+  size: 150, 95
+  orig: 150, 95
+  offset: 0, 0
+  index: -1
+Leg_L
+  rotate: 180
+  xy: 800, 27
+  size: 120, 131
+  orig: 120, 131
+  offset: 0, 0
+  index: -1
+Leg_R
+  rotate: 270
+  xy: 85, 3
+  size: 62, 107
+  orig: 62, 108
+  offset: 0, 1
+  index: -1
+Tail
+  rotate: true
+  xy: 721, 16
+  size: 171, 96
+  orig: 171, 96
+  offset: 0, 0
+  index: -1
+Tongue
+  rotate: false
+  xy: 950, 136
+  size: 123, 52
+  orig: 123, 52
+  offset: 0, 0
+  index: -1
