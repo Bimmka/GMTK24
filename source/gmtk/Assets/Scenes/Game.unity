@@ -421,6 +421,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2429881175205093923, guid: 8c637a35ac502864e83d9dab89742433, type: 3}
   m_PrefabInstance: {fileID: 1289276354}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1290714012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1290714013}
+  m_Layer: 0
+  m_Name: FoxesSpawnParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1290714013
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290714012}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1415627731
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,6 +519,7 @@ MonoBehaviour:
   StartPoint: {fileID: 1415627732}
   StallSpawnParent: {fileID: 1551983434}
   RabbitSpawnParent: {fileID: 425819316}
+  FoxesSpawnParent: {fileID: 1290714013}
 --- !u!114 &1447920994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -880,3 +912,4 @@ SceneRoots:
   - {fileID: 1415627732}
   - {fileID: 1551983434}
   - {fileID: 425819316}
+  - {fileID: 1290714013}

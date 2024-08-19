@@ -63,7 +63,7 @@ namespace Code.Gameplay.Features.Rabbits.Factory
             float randomIntervalBetweenMoving = _randomService.Range(rabbitConfig.MinIntervalBetweenMoving, rabbitConfig.MaxIntervalBetweenMoving);
             float randomWaitReplicationDuration = _randomService.Range(rabbitConfig.MinWaitReplicationDuration, rabbitConfig.MaxWaitReplicationDuration);
 
-            Dictionary<Stats, float> baseStats = InitStats.EmptyStatDictionary()
+            Dictionary<Stats, float> baseStats = InitStats.EmptyRabbitStatDictionary()
                 .With(x => x[Stats.Speed] = randomSpeed)
                 .With(x => x[Stats.ReplicationDuration] = randomReplicationDuration)
                 .With(x => x[Stats.DragReleaseDuration] = randomDragReleaseDuration)
@@ -91,7 +91,7 @@ namespace Code.Gameplay.Features.Rabbits.Factory
                 .AddWaitReplicationDuration(randomWaitReplicationDuration)
                 .AddWaitReplicationTimeLeft(randomWaitReplicationDuration)
                 .AddBaseStats(baseStats)
-                .AddStatModifiers(InitStats.EmptyStatDictionary())
+                .AddStatModifiers(InitStats.EmptyRabbitStatDictionary())
                 .With(x => x.isRabbit = true)
                 .With(x => x.isSaveRotationInSpawn = true)
                 .With(x => x.isTurnedAlongDirection = true)

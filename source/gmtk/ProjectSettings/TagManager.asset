@@ -13,7 +13,7 @@ TagManager:
   - UI
   - Rabbit
   - Stall
-  - 
+  - Fox
   - 
   - 
   - 
@@ -46,4 +46,7 @@ TagManager:
     locked: 0
   - name: Rabbit
     uniqueID: 2604813159
+    locked: 0
+  - name: Fox
+    uniqueID: 856221583
     locked: 0

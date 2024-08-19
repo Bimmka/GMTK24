@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Code.Gameplay.Features.Foxes.Config;
 using Code.Gameplay.Features.Infections.Configs;
 using Code.Gameplay.Features.Level.Config;
 using Code.Gameplay.Features.Rabbits.Config;
@@ -23,6 +24,7 @@ namespace Code.Gameplay.StaticData
     private SelectionConfig _selectionConfig;
     private ReplicationRulesConfig _replicationRulesConfig;
     private Dictionary<InfectionType,InfectionConfig> _infectionConfigsByType;
+    private FoxConfig _foxConfig;
 
     public void LoadAll()
     {
@@ -33,8 +35,10 @@ namespace Code.Gameplay.StaticData
       LoadSelectionConfig();
       LoadReplicationRulesConfig();
       LoadInfectionConfigs();
+      LoadFoxConfig();
     }
 
+    
     public GameObject GetWindowPrefab(WindowId id) =>
       _windowPrefabsById.TryGetValue(id, out GameObject prefab)
         ? prefab
@@ -64,6 +68,9 @@ namespace Code.Gameplay.StaticData
         ? config
         : throw new Exception($"Infection config with type: {infectionType} was not found");
 
+    public FoxConfig GetFoxConfig() =>
+      _foxConfig;
+
     private void LoadWindows()
     {
       _windowPrefabsById = Resources
@@ -91,5 +98,8 @@ namespace Code.Gameplay.StaticData
 
     private void LoadInfectionConfigs() =>
       _infectionConfigsByType = Resources.LoadAll<InfectionConfig>("Configs/Infections").ToDictionary(x => x.InfectionSetup.Type, x => x);
+    
+    private void LoadFoxConfig() =>
+      _foxConfig = Resources.Load<FoxConfig>("Configs/Foxes/FoxConfig");
   }
 }

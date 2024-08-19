@@ -1,5 +1,6 @@
 ﻿using Code.Common.Destruct;
 using Code.Gameplay.Features.CharacterStats;
+using Code.Gameplay.Features.Foxes;
 using Code.Gameplay.Features.Infections;
 using Code.Gameplay.Features.Movement;
 using Code.Gameplay.Features.Rabbits;
@@ -23,6 +24,8 @@ namespace Code.Gameplay
       Add(systems.Create<SelectionFeature>());
 
       Add(systems.Create<MovementFeature>());
+
+      Add(systems.Create<FoxFeature>());
       Add(systems.Create<RabbitFeature>());
       
       Add(systems.Create<InfectionFeature>());

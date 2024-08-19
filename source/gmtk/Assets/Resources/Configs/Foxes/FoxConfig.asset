@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57442d74ac0f43be98ab41bef1634909, type: 3}
+  m_Name: FoxConfig
+  m_EditorClassIdentifier: 
+  View: {fileID: 4009292927787154922, guid: 110484247836b3949b57f3956ebfa97c, type: 3}
+  MaxSpeed: 1
+  MinSpeed: 2
+  MinHuntDuration: 5
+  MaxHuntDuration: 8
+  MinBeforeNextHuntInterval: 4
+  MaxBeforeNextHuntInterval: 6
+  MinRabbitsToGetEnough: 3
+  MaxRabbitsToGetEnough: 5
+  MinIntervalBetweenMoving: 3
+  MaxIntervalBetweenMoving: 5
+  MinDragReleaseDuration: 1
+  MaxDragReleaseDuration: 2
+  EatingTime: 0.5
