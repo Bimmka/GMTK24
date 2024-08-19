@@ -8,6 +8,9 @@
             
             Entity.ChangeStateToDragging();
             
+            if (Entity.hasRabbitAnimator)
+                Entity.RabbitAnimator.PlayDragging();
+            
             Entity.isWaitingForMoving = false;
             Entity.isWaitingForNextReplicationUp = false;
             Entity.isMovementAvailable = false;

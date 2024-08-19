@@ -21,6 +21,7 @@ using Code.Gameplay.StaticData;
 using Code.Gameplay.Windows;
 using Code.Gameplay.Windows.Factory;
 using Code.Gameplay.Windows.Service;
+using Code.Gameplay.Windows.Windows.Game.Factory;
 using Code.Gameplay.Windows.Windows.HomeScreen.Factory;
 using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Identifiers;
@@ -178,6 +179,7 @@ namespace Code.Infrastructure.Installers
     {
       Container.Bind<IWindowFactory>().To<WindowFactory>().AsSingle();
       Container.Bind<IUIGameLevelViewFactory>().To<UIGameLevelViewFactory>().AsSingle();
+      Container.Bind<IUITaskFactory>().To<UITaskFactory>().AsSingle();
     }
     
     public void Initialize()
