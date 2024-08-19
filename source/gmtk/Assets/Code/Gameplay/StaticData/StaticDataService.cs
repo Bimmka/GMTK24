@@ -7,6 +7,7 @@ using Code.Gameplay.Features.Level.Config;
 using Code.Gameplay.Features.Rabbits.Config;
 using Code.Gameplay.Features.Rabbits.Config.Rabbits;
 using Code.Gameplay.Features.Rabbits.Config.Replication;
+using Code.Gameplay.Features.Rabbits.Config.UI;
 using Code.Gameplay.Features.Selection.Config;
 using Code.Gameplay.Input.Config;
 using Code.Gameplay.Windows;
@@ -26,6 +27,7 @@ namespace Code.Gameplay.StaticData
     private ReplicationRulesConfig _replicationRulesConfig;
     private Dictionary<InfectionType,InfectionConfig> _infectionConfigsByType;
     private FoxConfig _foxConfig;
+    private RabbitUIConfig _rabbitUIConfig;
 
     public void LoadAll()
     {
@@ -37,6 +39,7 @@ namespace Code.Gameplay.StaticData
       LoadReplicationRulesConfig();
       LoadInfectionConfigs();
       LoadFoxConfig();
+      LoadUIRabbitConfig();
     }
 
     
@@ -52,7 +55,12 @@ namespace Code.Gameplay.StaticData
     
     public List<LevelConfig> GetLevelConfigs() =>
       _levelConfigsById.Values.ToList();
-      
+
+    public SpriteByRabbitColor GetRabbitSpriteByColor(RabbitColorType colorType)
+    {
+      return _rabbitUIConfig.SpritesByColor.FirstOrDefault(x => x.Color == colorType);
+    }
+
     public RabbitConfig GetRabbitConfig(RabbitColorType type) =>
       _rabbitConfigsByColor.TryGetValue(type, out RabbitConfig config)
         ? config
@@ -105,5 +113,8 @@ namespace Code.Gameplay.StaticData
     
     private void LoadFoxConfig() =>
       _foxConfig = Resources.Load<FoxConfig>("Configs/Foxes/FoxConfig");
+    
+    private void LoadUIRabbitConfig() =>
+      _rabbitUIConfig = Resources.Load<RabbitUIConfig>("Configs/Rabbits/RabbitUIConfig");
   }
 }

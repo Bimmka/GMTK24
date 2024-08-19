@@ -33,8 +33,6 @@ namespace Code.Gameplay.Features.LevelTasks
             Add(systems.Create<MarkTaskFailedWhenTimeExpiredSystem>());
             Add(systems.Create<EmitWinSystem>());
             Add(systems.Create<MarkTaskCompletedSystem>());
-            
-            Add(systems.Create<UpdateTaskService>());
         }
     }
 }

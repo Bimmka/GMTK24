@@ -97,7 +97,7 @@ namespace Code.Gameplay.Features.LevelTasks.Factory
                     }
                     break;
                 case LevelTaskType.CommonRabbitAmount:
-                    task.isLevelTaskMinAmountType = true;
+                    task.isLevelTaskCommonRabbitAmount = true;
                     switch (config.AmountCondition)
                     {
                         case LevelTaskAmountConditionType.MinAmount:

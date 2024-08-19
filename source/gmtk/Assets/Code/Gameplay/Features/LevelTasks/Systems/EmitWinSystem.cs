@@ -8,7 +8,6 @@ namespace Code.Gameplay.Features.LevelTasks.Systems
     public class EmitWinSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _tasks;
-        private List<GameEntity> _buffer = new List<GameEntity>(1);
 
         public EmitWinSystem(GameContext game)
         {
@@ -22,7 +21,7 @@ namespace Code.Gameplay.Features.LevelTasks.Systems
 
         public void Execute()
         {
-            foreach (GameEntity task in _tasks.GetEntities(_buffer))
+            foreach (GameEntity task in _tasks)
             {
                 CreateEntity.Empty().With(x => x.isWin = true);
             }
