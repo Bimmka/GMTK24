@@ -20,8 +20,8 @@ MonoBehaviour:
   MaxIntervalBetweenReplication: 20
   MinReplicationDuration: 1.5
   MaxReplicationDuration: 1.5
-  MinWaitReplicationDuration: 0.5
-  MaxWaitReplicationDuration: 1.5
+  MinWaitReplicationDuration: 1
+  MaxWaitReplicationDuration: 2
   MinSpeed: 1
   MaxSpeed: 1.5
   MinTimeToReleaseFromDrag: 1

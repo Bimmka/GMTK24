@@ -20,10 +20,13 @@ MonoBehaviour:
     InfectMask:
       serializedVersion: 2
       m_Bits: 64
-    Radius: 1.5
+    Radius: 1.25
     TrayLength: 0
     TrayWidth: 0
     StatInfluenceData:
     - StatType: 1
       EffectValue: -0.5
-      Duration: 0
+      Duration: 15
+    - StatType: 2
+      EffectValue: -3
+      Duration: 15

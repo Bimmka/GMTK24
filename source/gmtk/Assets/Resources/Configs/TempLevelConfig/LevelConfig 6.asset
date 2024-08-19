@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68f567ce7f584441b3ddb1efea1dc946, type: 3}
-  m_Name: LevelConfig
+  m_Name: LevelConfig 6
   m_EditorClassIdentifier: 
   Id: 
   TaskConfig:
@@ -56,26 +56,4 @@ MonoBehaviour:
   - Type: 1
     Interval: 20
   PresetupFoxesData: []
-  PresetupHoleData:
-  - At: {x: 1.18, y: -5.8, z: 0}
-    StallIndex: 2
-    Setup:
-      View: {fileID: 4009292927787154922, guid: a725d92d884f1c449bf522c2c7b84859, type: 3}
-      MinSpawnInterval: 5
-      MaxSpawnInterval: 10
-      HoleEntityConfigSpawnData:
-      - SpawnType: 0
-        RabbitColorTypes: 01000000
-        MinChance: 1
-        MaxChance: 1
-  - At: {x: 5.63, y: 2.85, z: 0}
-    StallIndex: 1
-    Setup:
-      View: {fileID: 4009292927787154922, guid: a725d92d884f1c449bf522c2c7b84859, type: 3}
-      MinSpawnInterval: 5
-      MaxSpawnInterval: 10
-      HoleEntityConfigSpawnData:
-      - SpawnType: 1
-        RabbitColorTypes: 
-        MinChance: 1
-        MaxChance: 1
+  PresetupHoleData: []
