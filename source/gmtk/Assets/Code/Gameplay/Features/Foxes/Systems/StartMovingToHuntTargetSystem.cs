@@ -18,7 +18,8 @@ namespace Code.Gameplay.Features.Foxes.Systems
                     GameMatcher.HuntTarget,
                     GameMatcher.HuntStarted,
                     GameMatcher.ValidHuntTarget,
-                    GameMatcher.MovementAvailable)
+                    GameMatcher.MovementAvailable,
+                    GameMatcher.FoxAnimator)
                 .NoneOf(GameMatcher.MovingToHuntTarget));
         }
 
@@ -29,6 +30,8 @@ namespace Code.Gameplay.Features.Foxes.Systems
                 fox.isMovingToHuntTarget = true;
                 fox.isMoving = true;
                 fox.isWaitingHunt = false;
+                
+                fox.FoxAnimator.PlayHunt();
             }
         }
     }

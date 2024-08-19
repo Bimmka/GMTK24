@@ -17,6 +17,9 @@ namespace Code.Gameplay.Features.Rabbits.StateMachine.States
             
             Entity.ChangeStateToReplication();
             
+            if (Entity.hasRabbitAnimator)
+                Entity.RabbitAnimator.PlayMoveToReplication();
+            
             Entity.isWaitingForMoving = false;
             Entity.isMovingUp = false;
             Entity.isMoving = false;
@@ -46,8 +49,9 @@ namespace Code.Gameplay.Features.Rabbits.StateMachine.States
             Entity.ReplaceTimeLeftForNextReplication(Entity.ReplicationInterval);
             Entity.ReplaceWaitReplicationTimeLeft(Entity.WaitReplicationDuration);
             
-            Entity.RabbitVisualChanger.SetWaitTarget(Entity.isWaitingReplicationTarget);
-            
+            if (Entity.hasRabbitVisualChanger)
+                Entity.RabbitVisualChanger.SetWaitTarget(Entity.isWaitingReplicationTarget);
+                
             if (Entity.hasReplicationTarget)
                 Entity.RemoveReplicationTarget();
 
