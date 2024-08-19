@@ -7,6 +7,7 @@ namespace Code.Gameplay.Features.Movement
     {
         public MovementFeature(ISystemFactory systems)
         {
+            Add(systems.Create<UpdateDirectionToRandomPointSystem>());
             Add(systems.Create<DirectionalDeltaMoveSystem>());
             Add(systems.Create<MarkTargetPointReachedSystem>());
             Add(systems.Create<TurnAlongDirectionSystem>());

@@ -1,8 +1,14 @@
-﻿using Code.Gameplay.Features.Level.Config;
+﻿using System.Collections.Generic;
+using Code.Gameplay.Features.Foxes.Config;
+using Code.Gameplay.Features.Infections.Configs;
+using Code.Gameplay.Features.Level.Config;
 using Code.Gameplay.Features.Rabbits.Config;
+using Code.Gameplay.Features.Rabbits.Config.Rabbits;
+using Code.Gameplay.Features.Rabbits.Config.Replication;
 using Code.Gameplay.Features.Selection.Config;
 using Code.Gameplay.Input.Config;
 using Code.Gameplay.Windows;
+using Code.Gameplay.Windows.Base;
 using UnityEngine;
 
 namespace Code.Gameplay.StaticData
@@ -12,8 +18,12 @@ namespace Code.Gameplay.StaticData
     void LoadAll();
     GameObject GetWindowPrefab(WindowId id);
     LevelConfig GetLevelConfig(string id);
-    RabbitConfig GetRabbitConfig(RabbitType type);
+    RabbitConfig GetRabbitConfig(RabbitColorType type);
+    ReplicationRulesConfig GetReplicationRulesConfig();
     InputConfig GetInputConfig();
     SelectionConfig GetSelectionConfig();
+    InfectionConfig GetInfectionConfig(InfectionType infectionType);
+    FoxConfig GetFoxConfig();
+    List<LevelConfig> GetLevelConfigs();
   }
 }

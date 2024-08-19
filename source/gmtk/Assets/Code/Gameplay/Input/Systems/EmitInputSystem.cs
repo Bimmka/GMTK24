@@ -21,17 +21,6 @@ namespace Code.Gameplay.Input.Systems
         input.isMouseDown = _inputService.GetLeftMouseButtonDown();
         input.isMousePressed = _inputService.GetLeftMouseButton();
         input.isMouseUp = _inputService.GetLeftMouseButtonUp();
-
-        if (input.isMouseDown)
-        {
-          
-        }
-
-        if (_inputService.GetLeftMouseButton())
-        {
-          input.ReplaceScreenMousePosition(_inputService.GetScreenMousePosition());
-          input.ReplaceWorldMousePosition(_inputService.GetWorldMousePosition());
-        }
       }
     }
   }

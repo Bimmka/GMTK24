@@ -20,17 +20,14 @@ namespace Code.Gameplay.Features.Selection.Systems
         {
             foreach (GameEntity selection in _selections)
             {
-                if (selection.isHasSelections)
+                foreach (int entityId in selection.SelectedEntities)
                 {
-                    foreach (int entityId in selection.SelectedEntities)
-                    {
-                        GameEntity selectedEntity = _game.GetEntityWithId(entityId);
-                        selectedEntity.isSelected = false;
-                    }
-
-                    selection.SelectedEntities.Clear();
-                    selection.isHasSelections = false;
+                    GameEntity selectedEntity = _game.GetEntityWithId(entityId);
+                    selectedEntity.isSelected = false;
                 }
+
+                selection.SelectedEntities.Clear();
+                selection.isCleanupUnselectMark = true;
             }
         }
     }

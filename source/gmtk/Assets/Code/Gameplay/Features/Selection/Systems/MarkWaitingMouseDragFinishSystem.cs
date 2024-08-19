@@ -10,12 +10,13 @@ namespace Code.Gameplay.Features.Selection.Systems
         public MarkWaitingMouseDragFinishSystem(GameContext game, InputContext input)
         {
             _selections = game.GetGroup(GameMatcher
-                .AllOf(GameMatcher.Selection));
+                .AllOf(GameMatcher.Selection)
+                .NoneOf(GameMatcher.Dragging));
 
             _inputs = input.GetGroup(InputMatcher
                 .AllOf(
                     InputMatcher.Input,
-                    InputMatcher.Draging));
+                    InputMatcher.Dragging));
         }
 
         public void Execute()

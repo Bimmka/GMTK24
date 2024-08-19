@@ -4,13 +4,24 @@ using Code.Gameplay.Common.Collisions;
 using Code.Gameplay.Common.Physics;
 using Code.Gameplay.Common.Random;
 using Code.Gameplay.Common.Time;
+using Code.Gameplay.Features.Foxes.Factory;
+using Code.Gameplay.Features.Holes.Factory;
+using Code.Gameplay.Features.Infections.Factory;
+using Code.Gameplay.Features.Level.Service;
+using Code.Gameplay.Features.LevelTasks.Factory;
 using Code.Gameplay.Features.Rabbits.Factory;
+using Code.Gameplay.Features.Rabbits.StateMachine.States;
 using Code.Gameplay.Features.Stalls.Factory;
 using Code.Gameplay.Features.Stalls.Services;
+using Code.Gameplay.Features.Statuses.Applier;
+using Code.Gameplay.Features.Statuses.Factory;
 using Code.Gameplay.Input.Service;
 using Code.Gameplay.Levels;
 using Code.Gameplay.StaticData;
 using Code.Gameplay.Windows;
+using Code.Gameplay.Windows.Factory;
+using Code.Gameplay.Windows.Service;
+using Code.Gameplay.Windows.Windows.HomeScreen.Factory;
 using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Identifiers;
 using Code.Infrastructure.Loading;
@@ -46,6 +57,7 @@ namespace Code.Infrastructure.Installers
       BindStateMachine();
       BindStateFactory();
       BindGameStates();
+      BindRabbitStates();
       BindProgressServices();
     }
 
@@ -70,6 +82,15 @@ namespace Code.Infrastructure.Installers
       Container.BindInterfacesAndSelfTo<BattleEnterState>().AsSingle();
       Container.BindInterfacesAndSelfTo<BattleLoopState>().AsSingle();
       Container.BindInterfacesAndSelfTo<GameOverState>().AsSingle();
+    }
+    
+    private void BindRabbitStates()
+    {
+      Container.BindInterfacesAndSelfTo<RabbitIdleState>().AsTransient();
+      Container.BindInterfacesAndSelfTo<RabbitStupidMoveState>().AsTransient();
+      Container.BindInterfacesAndSelfTo<RabbitReplicationState>().AsTransient();
+      Container.BindInterfacesAndSelfTo<RabbitDraggingState>().AsTransient();
+      Container.BindInterfacesAndSelfTo<RabbitDeadState>().AsTransient();
     }
 
     private void BindContexts()
@@ -97,6 +118,8 @@ namespace Code.Infrastructure.Installers
       Container.Bind<IStaticDataService>().To<StaticDataService>().AsSingle();
       Container.Bind<ILevelDataProvider>().To<LevelDataProvider>().AsSingle();
       Container.Bind<IStallService>().To<StallService>().AsSingle();
+      Container.Bind<IStatusApplier>().To<StatusApplier>().AsSingle();
+      Container.Bind<ITaskService>().To<TaskService>().AsSingle();
     }
 
     private void BindGameplayFactories()
@@ -104,6 +127,11 @@ namespace Code.Infrastructure.Installers
       Container.Bind<IEntityViewFactory>().To<EntityViewFactory>().AsSingle();
       Container.Bind<IStallsFactory>().To<StallsFactory>().AsSingle();
       Container.Bind<IRabbitFactory>().To<RabbitFactory>().AsSingle();
+      Container.Bind<IStatusFactory>().To<StatusFactory>().AsSingle();
+      Container.Bind<IInfectionFactory>().To<InfectionFactory>().AsSingle();
+      Container.Bind<IFoxFactory>().To<FoxFactory>().AsSingle();
+      Container.Bind<IHoleFactory>().To<HoleFactory>().AsSingle();
+      Container.Bind<ITaskFactory>().To<TaskFactory>().AsSingle();
     }
 
     private void BindEntityIndices()
@@ -149,6 +177,7 @@ namespace Code.Infrastructure.Installers
     private void BindUIFactories()
     {
       Container.Bind<IWindowFactory>().To<WindowFactory>().AsSingle();
+      Container.Bind<IUIGameLevelViewFactory>().To<UIGameLevelViewFactory>().AsSingle();
     }
     
     public void Initialize()

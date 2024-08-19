@@ -8,11 +8,14 @@ namespace Code.Gameplay.Input
     public InputFeature(ISystemFactory systems)
     {
       Add(systems.Create<InitializeInputSystem>());
+        
+      Add(systems.Create<UpdateMousePositionSystem>());
       Add(systems.Create<EmitInputSystem>());
 
       Add(systems.Create<UpdateLastMouseDownTimeSystem>());
       Add(systems.Create<SaveFirstMouseDownPositionSystem>());
 
+      Add(systems.Create<MarkWasDraggingSystem>());
       Add(systems.Create<MarkDraggingSystem>());
       Add(systems.Create<EmitLongTapSystem>());
       Add(systems.Create<EmitClickSystem>());

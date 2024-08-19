@@ -33,6 +33,46 @@ namespace Code.Gameplay.Common.Physics
         yield return entity;
       }
     }
+    
+    public IEnumerable<GameEntity> RaycastAll(Vector2 worldPosition, Vector2 direction, int layerMask, float distance)
+    {
+      int hitCount = Physics2D.RaycastNonAlloc(worldPosition, direction, Hits, distance, layerMask);
+
+      for (int i = 0; i < hitCount; i++)
+      {
+        RaycastHit2D hit = Hits[i];
+        if (hit.collider == null)
+          continue;
+
+        GameEntity entity = _collisionRegistry.Get<GameEntity>(hit.collider.GetInstanceID());
+        if (entity == null)
+          continue;
+
+        yield return entity;
+      }
+    }
+    
+    public IEnumerable<GameEntity> BoxCast(Vector2 worldPosition, Vector2 size, float angle, Vector2 direction, float distance, int layerMask)
+    {
+      int hitCount = Physics2D.BoxCastNonAlloc(worldPosition, size, angle, direction, Hits, distance, layerMask);
+      
+#if UNITY_EDITOR
+      BoxCastDrawer.BoxCastAndDraw(worldPosition, size, angle, direction, distance, layerMask);
+#endif
+
+      for (int i = 0; i < hitCount; i++)
+      {
+        RaycastHit2D hit = Hits[i];
+        if (hit.collider == null)
+          continue;
+
+        GameEntity entity = _collisionRegistry.Get<GameEntity>(hit.collider.GetInstanceID());
+        if (entity == null)
+          continue;
+
+        yield return entity;
+      }
+    }
 
     public GameEntity Raycast(Vector2 worldPosition, Vector2 direction, int layerMask)
     {
@@ -138,6 +178,12 @@ namespace Code.Gameplay.Common.Physics
       Debug.DrawRay(worldPos, radius * Vector3.down, color, seconds);
       Debug.DrawRay(worldPos, radius * Vector3.left, color, seconds);
       Debug.DrawRay(worldPos, radius * Vector3.right, color, seconds);
+    }
+    
+    private static void DrawDebug(Vector2 worldPos, Vector2 size, Vector2 direction, float seconds, Color color)
+    {
+      Debug.DrawLine(worldPos + Vector2.up * size.y, (worldPos + Vector2.up * size.y) + direction, color, seconds);
+      Debug.DrawRay(worldPos - Vector2.up * size.y, (worldPos - Vector2.up * size.y) + direction, color, seconds);
     }
   }
 }

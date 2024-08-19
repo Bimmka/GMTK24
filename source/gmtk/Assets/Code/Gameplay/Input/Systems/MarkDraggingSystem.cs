@@ -1,4 +1,5 @@
 ﻿using Entitas;
+using UnityEngine;
 
 namespace Code.Gameplay.Input.Systems
 {
@@ -12,7 +13,8 @@ namespace Code.Gameplay.Input.Systems
                 .AllOf(
                     InputMatcher.Input,
                     InputMatcher.WorldMousePosition,
-                    InputMatcher.StartMouseDownWorldPosition));
+                    InputMatcher.StartMouseDownWorldPosition,
+                    InputMatcher.PositionShiftForDragStart));
         }
 
         public void Execute()
@@ -20,9 +22,9 @@ namespace Code.Gameplay.Input.Systems
             foreach (InputEntity input in _inputs)
             {
                 if (input.isMousePressed)
-                    input.isDraging = input.WorldMousePosition != input.StartMouseDownWorldPosition;
+                    input.isDragging = Vector3.SqrMagnitude(input.WorldMousePosition - input.StartMouseDownWorldPosition) >= input.PositionShiftForDragStart;
                 else
-                    input.isDraging = false;
+                    input.isDragging = false;
             }
         }
     }

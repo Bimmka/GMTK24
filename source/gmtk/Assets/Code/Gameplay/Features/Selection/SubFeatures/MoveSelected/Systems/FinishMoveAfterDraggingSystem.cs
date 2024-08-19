@@ -13,7 +13,8 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.MoveSelected.Systems
             _selected = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.WorldPosition,
-                    GameMatcher.AfterDragPosition));
+                    GameMatcher.AfterDragPosition,
+                    GameMatcher.Alive));
         }
 
         public void Execute()

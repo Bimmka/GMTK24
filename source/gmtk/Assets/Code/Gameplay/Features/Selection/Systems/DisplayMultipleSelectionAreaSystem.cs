@@ -23,7 +23,8 @@ namespace Code.Gameplay.Features.Selection.Systems
                     InputMatcher.Input,
                     InputMatcher.MousePressed,
                     InputMatcher.StartMouseDownWorldPosition,
-                    InputMatcher.WorldMousePosition));
+                    InputMatcher.WorldMousePosition,
+                    InputMatcher.Dragging));
         }
 
         public void Execute()

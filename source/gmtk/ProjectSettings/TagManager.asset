@@ -13,8 +13,8 @@ TagManager:
   - UI
   - Rabbit
   - Stall
-  - 
-  - 
+  - Fox
+  - Hole
   - 
   - 
   - 
@@ -44,6 +44,12 @@ TagManager:
   - name: Background
     uniqueID: 1208412249
     locked: 0
+  - name: Hole
+    uniqueID: 1270456167
+    locked: 0
   - name: Rabbit
     uniqueID: 2604813159
+    locked: 0
+  - name: Fox
+    uniqueID: 856221583
     locked: 0

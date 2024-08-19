@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Code.Gameplay.Features.LevelTasks.Config;
+using UnityEngine;
 
 namespace Code.Gameplay.Features.Level.Config
 {
@@ -7,7 +8,12 @@ namespace Code.Gameplay.Features.Level.Config
     {
         public string Id;
 
+        public LevelTaskConfig TaskConfig;
+
         public StallsSpawnData[] StallsSpawnData;
         public PresetupRabbitData[] PresetupRabbits;
+        public InfectionForLevelData[] Infections;
+        public PresetupFoxesData[] PresetupFoxesData;
+        public PresetupHoleData[] PresetupHoleData;
     }
 }

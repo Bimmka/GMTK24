@@ -6,7 +6,6 @@ namespace Code.Gameplay.Features.Selection.Systems
 {
     public class SelectByMouseDraggingSystem : IExecuteSystem
     {
-        private readonly GameContext _game;
         private readonly IGroup<GameEntity> _selections;
         private readonly IGroup<InputEntity> _inputs;
         private readonly IGroup<GameEntity> _selectables;
@@ -14,7 +13,6 @@ namespace Code.Gameplay.Features.Selection.Systems
 
         public SelectByMouseDraggingSystem(GameContext game, InputContext input)
         {
-            _game = game;
             _selections = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Selection,
@@ -25,12 +23,14 @@ namespace Code.Gameplay.Features.Selection.Systems
                     InputMatcher.Input,
                     InputMatcher.MouseUp,
                     InputMatcher.StartMouseDownWorldPosition,
-                    InputMatcher.WorldMousePosition));
+                    InputMatcher.WorldMousePosition,
+                    InputMatcher.WasDragging));
 
             _selectables = game.GetGroup(GameMatcher
                 .AllOf(
                 GameMatcher.Selectable,
-                GameMatcher.WorldPosition));
+                GameMatcher.WorldPosition,
+                GameMatcher.Alive));
         }
 
         public void Execute()

@@ -3,7 +3,12 @@ using System.Linq;
 using System.Text;
 using Code.Common.Entity.ToStrings;
 using Code.Common.Extensions;
+using Code.Gameplay.Features.Foxes;
+using Code.Gameplay.Features.Holes;
+using Code.Gameplay.Features.Infections;
+using Code.Gameplay.Features.LevelTasks;
 using Code.Gameplay.Features.Rabbits;
+using Code.Gameplay.Features.Statuses;
 using Entitas;
 using UnityEngine;
 
@@ -35,9 +40,18 @@ public sealed partial class GameEntity : INamedEntity
         {
           case nameof(Rabbit):
             return PrintRabbit();
-          //
-          // case nameof(Enemy):
-          //   return PrintEnemy();
+          case nameof(Code.Gameplay.Features.CharacterStats.StatChange):
+            return PrintStatChange();
+          case nameof(Infection):
+            return PrintInfection();
+          case nameof(Status):
+            return PrintStatus();
+          case nameof(Fox):
+            return PrintFox();
+          case nameof(Hole):
+            return PrintHole();
+          case nameof(LevelTask):
+            return PrintLevelTask();
         }
       }
     }
@@ -56,10 +70,49 @@ public sealed partial class GameEntity : INamedEntity
       .ToString();
   }
   
-  private string PrintEnemy() =>
-    new StringBuilder($"Enemy ")
-      .With(s => s.Append($"Id:{Id}"), when: hasId)
+  private string PrintStatChange()
+  {
+    return new StringBuilder($"State Change ")
+      .With(s => s.Append($"To:{TargetId}"), when: hasTargetId)
       .ToString();
+  }
+  
+  private string PrintInfection()
+  {
+    return new StringBuilder($"Infection ")
+      .With(s => s.Append($"By Level"), when: isLevelInfection)
+      .With(s => s.Append($"By: {CarrierOfInfectionId}"), when: hasCarrierOfInfectionId)
+      .ToString();
+  }
+  
+  private string PrintStatus()
+  {
+    return new StringBuilder($"Status ")
+      .With(s => s.Append($"Type {StatusTypeId}"), when: hasStatusTypeId)
+      .With(s => s.Append($"To: {TargetId}"), when: hasTargetId)
+      .ToString();
+  }
+  
+  private string PrintFox()
+  {
+    return new StringBuilder($"Fox ")
+      .With(s => s.Append($"Id: {Id}"), when: hasId)
+      .ToString();
+  }
+  
+  private string PrintHole()
+  {
+    return new StringBuilder($"Hole ")
+      .With(s => s.Append($"Id: {Id}"), when: hasId)
+      .ToString();
+  }
+  
+  private string PrintLevelTask()
+  {
+    return new StringBuilder($"Level Task ")
+      .With(s => s.Append($"Type: {LevelTaskType}"), when: hasLevelTaskType)
+      .ToString();
+  }
   
   public string BaseToString() => base.ToString();
 }

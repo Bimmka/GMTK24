@@ -1,4 +1,5 @@
 ﻿using System;
+using Code.Gameplay.Windows.Base;
 using UnityEngine;
 
 namespace Code.Gameplay.Windows.Configs
