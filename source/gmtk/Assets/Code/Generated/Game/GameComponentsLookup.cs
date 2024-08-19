@@ -77,144 +77,154 @@ public static class GameComponentsLookup {
     public const int RabiesInfection = 66;
     public const int TimeLeftBeforeInfection = 67;
     public const int ValidInfection = 68;
-    public const int Completed = 69;
-    public const int ConditionsCompleted = 70;
-    public const int ConditionsUncompleted = 71;
-    public const int CurrentAmount = 72;
-    public const int Failed = 73;
-    public const int HoldAmountForPeriodOfTimeTask = 74;
+    public const int AmountConditionCompleted = 69;
+    public const int AmountConditionUncompleted = 70;
+    public const int Completed = 71;
+    public const int ConditionsCompleted = 72;
+    public const int ConditionsUncompleted = 73;
+    public const int Failed = 74;
     public const int LevelTask = 75;
-    public const int LevelTaskDuration = 76;
-    public const int LevelTaskDurationTimeLeft = 77;
-    public const int LevelTaskForTime = 78;
-    public const int LevelTaskHoldDuration = 79;
-    public const int LevelTaskHoldDurationTask = 80;
-    public const int LevelTaskHoldDurationTime = 81;
-    public const int LevelTaskTimeExpired = 82;
-    public const int LevelTaskType = 83;
-    public const int MaxRabbitAmount = 84;
-    public const int MinConcreteRabbitAmountTask = 85;
-    public const int MinConcreteRabbitsAmountTaskType = 86;
-    public const int MinRabbitAmount = 87;
-    public const int MinRabbitsAmountForTimeTask = 88;
-    public const int MinSumRabbitAmountTask = 89;
-    public const int RabbitColorsForTask = 90;
-    public const int RemoveAllRabbitsForTimeTask = 91;
-    public const int Uncompleted = 92;
-    public const int WaitingHoldTime = 93;
-    public const int MoveDirection = 94;
-    public const int MovementAvailable = 95;
-    public const int Moving = 96;
-    public const int Speed = 97;
-    public const int TargetPoint = 98;
-    public const int TargetPointReached = 99;
-    public const int TurnedAlongDirection = 100;
-    public const int ActivityFree = 101;
-    public const int Alive = 102;
-    public const int AngryState = 103;
-    public const int CanBeChosenForReplication = 104;
-    public const int CanStartReplication = 105;
-    public const int ChosenForReplication = 106;
-    public const int ChosenForReplicationBy = 107;
-    public const int CleanupMovingFinished = 108;
-    public const int CleanupResetReplicationMarkers = 109;
-    public const int CurrentReplicationDuration = 110;
-    public const int Dead = 111;
-    public const int DeadByInfection = 112;
-    public const int DeadState = 113;
-    public const int DefaultReplicationDuration = 114;
-    public const int DraggingState = 115;
-    public const int IdleState = 116;
-    public const int InvalidReplicationTarget = 117;
-    public const int MovingFinished = 118;
-    public const int MovingInterval = 119;
-    public const int MovingUp = 120;
-    public const int NearReplicationTarget = 121;
-    public const int ProcessingDeath = 122;
-    public const int Rabbit = 123;
-    public const int RabbitAnimator = 124;
-    public const int RabbitColorType = 125;
-    public const int RabbitNextSimpleState = 126;
-    public const int RabbitStateMachine = 127;
-    public const int RabbitVisualChanger = 128;
-    public const int Replicating = 129;
-    public const int ReplicationAvailable = 130;
-    public const int ReplicationBlocked = 131;
-    public const int ReplicationExpired = 132;
-    public const int ReplicationFinished = 133;
-    public const int ReplicationInterval = 134;
-    public const int ReplicationState = 135;
-    public const int ReplicationTarget = 136;
-    public const int ReplicationTimeLeft = 137;
-    public const int ReplicationTimeUp = 138;
-    public const int ResetReplicationProcess = 139;
-    public const int StallParentIndex = 140;
-    public const int StupidMoveState = 141;
-    public const int TimeLeftForMoving = 142;
-    public const int TimeLeftForNextReplication = 143;
-    public const int TransitionComplete = 144;
-    public const int WaitingForMoving = 145;
-    public const int WaitingForNextReplicationUp = 146;
-    public const int WaitingReplicationTarget = 147;
-    public const int WaitReplicationDuration = 148;
-    public const int WaitReplicationTimeLeft = 149;
-    public const int WantToReplicate = 150;
-    public const int AfterDragPosition = 151;
-    public const int CleanupUnselectMark = 152;
-    public const int DragCanceled = 153;
-    public const int DragFinished = 154;
-    public const int Dragging = 155;
-    public const int DragStarted = 156;
-    public const int DragStopped = 157;
-    public const int EntitiesForReleaseQueue = 158;
-    public const int EntitiesForSelectionQueue = 159;
-    public const int FollowSelectCenterSpeed = 160;
-    public const int HasSelections = 161;
-    public const int MoveToAfterDragPositionSpeed = 162;
-    public const int MovingToAfterDragPosition = 163;
-    public const int MultipleSelectionWindow = 164;
-    public const int ReleaseFromDragUp = 165;
-    public const int SavedPositionBeforeDrag = 166;
-    public const int Selectable = 167;
-    public const int SelectCenterPosition = 168;
-    public const int SelectCenterRadius = 169;
-    public const int Selected = 170;
-    public const int SelectedEntities = 171;
-    public const int Selection = 172;
-    public const int SelectionDragMaxTime = 173;
-    public const int SelectionDragTimeLeft = 174;
-    public const int SelectionLayerMask = 175;
-    public const int ShiftFromSelect = 176;
-    public const int StoppedWaitingMouseDragFinish = 177;
-    public const int UnselectSelectedEntities = 178;
-    public const int WaitingMouseDragFinish = 179;
-    public const int Stall = 180;
-    public const int StallBounds = 181;
-    public const int StallIndex = 182;
-    public const int Affected = 183;
-    public const int Applied = 184;
-    public const int ApplierStatusLink = 185;
-    public const int Duration = 186;
-    public const int Period = 187;
-    public const int PoisonStatus = 188;
-    public const int RabiesStatus = 189;
-    public const int Status = 190;
-    public const int StatusTypeId = 191;
-    public const int TimeLeft = 192;
-    public const int TimeSinceLastTick = 193;
-    public const int Unapplied = 194;
-    public const int ValidStatus = 195;
-    public const int CollectingTargetsContinuously = 196;
-    public const int CollectTargetsInterval = 197;
-    public const int CollectTargetsTimer = 198;
-    public const int LayerMask = 199;
-    public const int ProcessedTargets = 200;
-    public const int Reached = 201;
-    public const int ReadyToCollectTargets = 202;
-    public const int TargetBuffer = 203;
-    public const int TargetLimit = 204;
+    public const int LevelTaskAmountConditionType = 76;
+    public const int LevelTaskCommonRabbitAmount = 77;
+    public const int LevelTaskConcreteRabbitAmount = 78;
+    public const int LevelTaskCurrentCommonAmount = 79;
+    public const int LevelTaskCurrentConcreteRabbitsAmount = 80;
+    public const int LevelTaskDurationBeforeExpired = 81;
+    public const int LevelTaskDurationBeforeExpiredTimeLeft = 82;
+    public const int LevelTaskDurationLimitations = 83;
+    public const int LevelTaskGoalForConcreteRabbits = 84;
+    public const int LevelTaskMaxRabbitAmount = 85;
+    public const int LevelTaskMinAmountType = 86;
+    public const int LevelTaskMinRabbitAmount = 87;
+    public const int LevelTaskRangeAmountType = 88;
+    public const int LevelTaskRemoveAllRabbits = 89;
+    public const int LevelTaskTargetHoldDuration = 90;
+    public const int LevelTaskTargetHoldDurationTime = 91;
+    public const int LevelTaskTimeExpired = 92;
+    public const int LevelTaskType = 93;
+    public const int LevelTaskWithHoldDuration = 94;
+    public const int LevelTaskWithTimeForFail = 95;
+    public const int TimeConditionCompleted = 96;
+    public const int TimeConditionUncompleted = 97;
+    public const int TimeDurationConditionCompleted = 98;
+    public const int TimeDurationConditionFailed = 99;
+    public const int TimeHoldConditionCompleted = 100;
+    public const int TimeHoldConditionUncompleted = 101;
+    public const int Uncompleted = 102;
+    public const int WaitingHoldTime = 103;
+    public const int MoveDirection = 104;
+    public const int MovementAvailable = 105;
+    public const int Moving = 106;
+    public const int Speed = 107;
+    public const int TargetPoint = 108;
+    public const int TargetPointReached = 109;
+    public const int TurnedAlongDirection = 110;
+    public const int ActivityFree = 111;
+    public const int Alive = 112;
+    public const int AngryState = 113;
+    public const int CanBeChosenForReplication = 114;
+    public const int CanStartReplication = 115;
+    public const int ChosenForReplication = 116;
+    public const int ChosenForReplicationBy = 117;
+    public const int CleanupMovingFinished = 118;
+    public const int CleanupResetReplicationMarkers = 119;
+    public const int CurrentReplicationDuration = 120;
+    public const int Dead = 121;
+    public const int DeadByInfection = 122;
+    public const int DeadState = 123;
+    public const int DefaultReplicationDuration = 124;
+    public const int DraggingState = 125;
+    public const int IdleState = 126;
+    public const int InvalidReplicationTarget = 127;
+    public const int MovingFinished = 128;
+    public const int MovingInterval = 129;
+    public const int MovingUp = 130;
+    public const int NearReplicationTarget = 131;
+    public const int ProcessingDeath = 132;
+    public const int Rabbit = 133;
+    public const int RabbitAnimator = 134;
+    public const int RabbitColorType = 135;
+    public const int RabbitNextSimpleState = 136;
+    public const int RabbitStateMachine = 137;
+    public const int RabbitVisualChanger = 138;
+    public const int Replicating = 139;
+    public const int ReplicationAvailable = 140;
+    public const int ReplicationBlocked = 141;
+    public const int ReplicationExpired = 142;
+    public const int ReplicationFinished = 143;
+    public const int ReplicationInterval = 144;
+    public const int ReplicationState = 145;
+    public const int ReplicationTarget = 146;
+    public const int ReplicationTimeLeft = 147;
+    public const int ReplicationTimeUp = 148;
+    public const int ResetReplicationProcess = 149;
+    public const int StallParentIndex = 150;
+    public const int StupidMoveState = 151;
+    public const int TimeLeftForMoving = 152;
+    public const int TimeLeftForNextReplication = 153;
+    public const int TransitionComplete = 154;
+    public const int WaitingForMoving = 155;
+    public const int WaitingForNextReplicationUp = 156;
+    public const int WaitingReplicationTarget = 157;
+    public const int WaitReplicationDuration = 158;
+    public const int WaitReplicationTimeLeft = 159;
+    public const int WantToReplicate = 160;
+    public const int AfterDragPosition = 161;
+    public const int CleanupUnselectMark = 162;
+    public const int DragCanceled = 163;
+    public const int DragFinished = 164;
+    public const int Dragging = 165;
+    public const int DragStarted = 166;
+    public const int DragStopped = 167;
+    public const int EntitiesForReleaseQueue = 168;
+    public const int EntitiesForSelectionQueue = 169;
+    public const int FollowSelectCenterSpeed = 170;
+    public const int HasSelections = 171;
+    public const int MoveToAfterDragPositionSpeed = 172;
+    public const int MovingToAfterDragPosition = 173;
+    public const int MultipleSelectionWindow = 174;
+    public const int ReleaseFromDragUp = 175;
+    public const int SavedPositionBeforeDrag = 176;
+    public const int Selectable = 177;
+    public const int SelectCenterPosition = 178;
+    public const int SelectCenterRadius = 179;
+    public const int Selected = 180;
+    public const int SelectedEntities = 181;
+    public const int Selection = 182;
+    public const int SelectionDragMaxTime = 183;
+    public const int SelectionDragTimeLeft = 184;
+    public const int SelectionLayerMask = 185;
+    public const int ShiftFromSelect = 186;
+    public const int StoppedWaitingMouseDragFinish = 187;
+    public const int UnselectSelectedEntities = 188;
+    public const int WaitingMouseDragFinish = 189;
+    public const int Stall = 190;
+    public const int StallBounds = 191;
+    public const int StallIndex = 192;
+    public const int Affected = 193;
+    public const int Applied = 194;
+    public const int ApplierStatusLink = 195;
+    public const int Duration = 196;
+    public const int Period = 197;
+    public const int PoisonStatus = 198;
+    public const int RabiesStatus = 199;
+    public const int Status = 200;
+    public const int StatusTypeId = 201;
+    public const int TimeLeft = 202;
+    public const int TimeSinceLastTick = 203;
+    public const int Unapplied = 204;
+    public const int ValidStatus = 205;
+    public const int CollectingTargetsContinuously = 206;
+    public const int CollectTargetsInterval = 207;
+    public const int CollectTargetsTimer = 208;
+    public const int LayerMask = 209;
+    public const int ProcessedTargets = 210;
+    public const int Reached = 211;
+    public const int ReadyToCollectTargets = 212;
+    public const int TargetBuffer = 213;
+    public const int TargetLimit = 214;
 
-    public const int TotalComponents = 205;
+    public const int TotalComponents = 215;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -286,29 +296,39 @@ public static class GameComponentsLookup {
         "RabiesInfection",
         "TimeLeftBeforeInfection",
         "ValidInfection",
+        "AmountConditionCompleted",
+        "AmountConditionUncompleted",
         "Completed",
         "ConditionsCompleted",
         "ConditionsUncompleted",
-        "CurrentAmount",
         "Failed",
-        "HoldAmountForPeriodOfTimeTask",
         "LevelTask",
-        "LevelTaskDuration",
-        "LevelTaskDurationTimeLeft",
-        "LevelTaskForTime",
-        "LevelTaskHoldDuration",
-        "LevelTaskHoldDurationTask",
-        "LevelTaskHoldDurationTime",
+        "LevelTaskAmountConditionType",
+        "LevelTaskCommonRabbitAmount",
+        "LevelTaskConcreteRabbitAmount",
+        "LevelTaskCurrentCommonAmount",
+        "LevelTaskCurrentConcreteRabbitsAmount",
+        "LevelTaskDurationBeforeExpired",
+        "LevelTaskDurationBeforeExpiredTimeLeft",
+        "LevelTaskDurationLimitations",
+        "LevelTaskGoalForConcreteRabbits",
+        "LevelTaskMaxRabbitAmount",
+        "LevelTaskMinAmountType",
+        "LevelTaskMinRabbitAmount",
+        "LevelTaskRangeAmountType",
+        "LevelTaskRemoveAllRabbits",
+        "LevelTaskTargetHoldDuration",
+        "LevelTaskTargetHoldDurationTime",
         "LevelTaskTimeExpired",
         "LevelTaskType",
-        "MaxRabbitAmount",
-        "MinConcreteRabbitAmountTask",
-        "MinConcreteRabbitsAmountTaskType",
-        "MinRabbitAmount",
-        "MinRabbitsAmountForTimeTask",
-        "MinSumRabbitAmountTask",
-        "RabbitColorsForTask",
-        "RemoveAllRabbitsForTimeTask",
+        "LevelTaskWithHoldDuration",
+        "LevelTaskWithTimeForFail",
+        "TimeConditionCompleted",
+        "TimeConditionUncompleted",
+        "TimeDurationConditionCompleted",
+        "TimeDurationConditionFailed",
+        "TimeHoldConditionCompleted",
+        "TimeHoldConditionUncompleted",
         "Uncompleted",
         "WaitingHoldTime",
         "MoveDirection",
@@ -494,29 +514,39 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Infections.RabiesInfection),
         typeof(Code.Gameplay.Features.Infections.TimeLeftBeforeInfection),
         typeof(Code.Gameplay.Features.Infections.ValidInfection),
+        typeof(Code.Gameplay.Features.LevelTasks.AmountConditionCompleted),
+        typeof(Code.Gameplay.Features.LevelTasks.AmountConditionUncompleted),
         typeof(Code.Gameplay.Features.LevelTasks.Completed),
         typeof(Code.Gameplay.Features.LevelTasks.ConditionsCompleted),
         typeof(Code.Gameplay.Features.LevelTasks.ConditionsUncompleted),
-        typeof(Code.Gameplay.Features.LevelTasks.CurrentAmount),
         typeof(Code.Gameplay.Features.LevelTasks.Failed),
-        typeof(Code.Gameplay.Features.LevelTasks.HoldAmountForPeriodOfTimeTask),
         typeof(Code.Gameplay.Features.LevelTasks.LevelTask),
-        typeof(Code.Gameplay.Features.LevelTasks.LevelTaskDuration),
-        typeof(Code.Gameplay.Features.LevelTasks.LevelTaskDurationTimeLeft),
-        typeof(Code.Gameplay.Features.LevelTasks.LevelTaskForTime),
-        typeof(Code.Gameplay.Features.LevelTasks.LevelTaskHoldDuration),
-        typeof(Code.Gameplay.Features.LevelTasks.LevelTaskHoldDurationTask),
-        typeof(Code.Gameplay.Features.LevelTasks.LevelTaskHoldDurationTime),
+        typeof(Code.Gameplay.Features.LevelTasks.LevelTaskAmountConditionTypeComponent),
+        typeof(Code.Gameplay.Features.LevelTasks.LevelTaskCommonRabbitAmount),
+        typeof(Code.Gameplay.Features.LevelTasks.LevelTaskConcreteRabbitAmount),
+        typeof(Code.Gameplay.Features.LevelTasks.LevelTaskCurrentCommonAmount),
+        typeof(Code.Gameplay.Features.LevelTasks.LevelTaskCurrentConcreteRabbitsAmount),
+        typeof(Code.Gameplay.Features.LevelTasks.LevelTaskDurationBeforeExpired),
+        typeof(Code.Gameplay.Features.LevelTasks.LevelTaskDurationBeforeExpiredTimeLeft),
+        typeof(Code.Gameplay.Features.LevelTasks.LevelTaskDurationLimitations),
+        typeof(Code.Gameplay.Features.LevelTasks.LevelTaskGoalForConcreteRabbits),
+        typeof(Code.Gameplay.Features.LevelTasks.LevelTaskMaxRabbitAmount),
+        typeof(Code.Gameplay.Features.LevelTasks.LevelTaskMinAmountType),
+        typeof(Code.Gameplay.Features.LevelTasks.LevelTaskMinRabbitAmount),
+        typeof(Code.Gameplay.Features.LevelTasks.LevelTaskRangeAmountType),
+        typeof(Code.Gameplay.Features.LevelTasks.LevelTaskRemoveAllRabbits),
+        typeof(Code.Gameplay.Features.LevelTasks.LevelTaskTargetHoldDuration),
+        typeof(Code.Gameplay.Features.LevelTasks.LevelTaskTargetHoldDurationTime),
         typeof(Code.Gameplay.Features.LevelTasks.LevelTaskTimeExpired),
         typeof(Code.Gameplay.Features.LevelTasks.LevelTaskTypeComponent),
-        typeof(Code.Gameplay.Features.LevelTasks.MaxRabbitAmount),
-        typeof(Code.Gameplay.Features.LevelTasks.MinConcreteRabbitAmountTask),
-        typeof(Code.Gameplay.Features.LevelTasks.MinConcreteRabbitsAmountTaskType),
-        typeof(Code.Gameplay.Features.LevelTasks.MinRabbitAmount),
-        typeof(Code.Gameplay.Features.LevelTasks.MinRabbitsAmountForTimeTask),
-        typeof(Code.Gameplay.Features.LevelTasks.MinSumRabbitAmountTask),
-        typeof(Code.Gameplay.Features.LevelTasks.RabbitColorsForTask),
-        typeof(Code.Gameplay.Features.LevelTasks.RemoveAllRabbitsForTimeTask),
+        typeof(Code.Gameplay.Features.LevelTasks.LevelTaskWithHoldDuration),
+        typeof(Code.Gameplay.Features.LevelTasks.LevelTaskWithTimeForFail),
+        typeof(Code.Gameplay.Features.LevelTasks.TimeConditionCompleted),
+        typeof(Code.Gameplay.Features.LevelTasks.TimeConditionUncompleted),
+        typeof(Code.Gameplay.Features.LevelTasks.TimeDurationConditionCompleted),
+        typeof(Code.Gameplay.Features.LevelTasks.TimeDurationConditionFailed),
+        typeof(Code.Gameplay.Features.LevelTasks.TimeHoldConditionCompleted),
+        typeof(Code.Gameplay.Features.LevelTasks.TimeHoldConditionUncompleted),
         typeof(Code.Gameplay.Features.LevelTasks.Uncompleted),
         typeof(Code.Gameplay.Features.LevelTasks.WaitingHoldTime),
         typeof(Code.Gameplay.Features.Movement.MoveDirection),

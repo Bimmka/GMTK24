@@ -12,7 +12,7 @@ namespace Code.Gameplay.Features.LevelTasks.Systems
         {
             _tasks = game.GetGroup(GameMatcher
                 .AllOf(
-                    GameMatcher.LevelTaskForTime,
+                    GameMatcher.LevelTaskWithTimeForFail,
                     GameMatcher.Uncompleted,
                     GameMatcher.LevelTaskTimeExpired));
         }

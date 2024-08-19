@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Code.Gameplay.Features.Rabbits.Config.Rabbits;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Code.Gameplay.Features.LevelTasks.Config
 {
@@ -15,11 +14,16 @@ namespace Code.Gameplay.Features.LevelTasks.Config
         public Sprite Icon;
         
         public LevelTaskType TaskType;
-        public TakeIntoRabbitColorType ConsiderRabbitColorType;
+        public LevelTaskDurationLimitationType[] DurationLimitation;
+        public LevelTaskAmountConditionType AmountCondition;
 
         public List<RabbitColorType> RabbitColors;
+        public List<TaskGoalByRabbitColor> TaskGoalsByRabbitColor;
+        
         public float TaskDurationTime;
+        
         public float TimeToHold;
+
         public int MinAmount;
         public int MaxAmount;
     }

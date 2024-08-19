@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Code.Common.Entity;
 using Code.Common.Extensions;
 using Code.Gameplay.Features.LevelTasks.Config;
@@ -17,56 +18,15 @@ namespace Code.Gameplay.Features.LevelTasks.Factory
         
         public GameEntity Create(LevelTaskConfig config)
         {
-            switch (config.TaskType)
-            {
-                case LevelTaskType.MinConcreteRabbitAmount:
-                    return CreateBaseTask(config.TaskType)
-                            .AddMinRabbitAmount(config.MinAmount)
-                            .AddCurrentAmount(0)
-                            .AddRabbitColorsForTask(config.RabbitColors)
-                            .With(x => x.isMinConcreteRabbitAmountTask = true)
-                            .With(x => x.isMinConcreteRabbitsAmountTaskType = true)
-                        ;
-                case LevelTaskType.MinSumRabbitAmount:
-                    return CreateBaseTask(config.TaskType)
-                            .AddMinRabbitAmount(config.MinAmount)
-                            .AddCurrentAmount(0)
-                            .With(x => x.isMinSumRabbitAmountTask = true)
-                        ;
-                case LevelTaskType.HoldAmountForPeriodOfTime:
-                    return CreateBaseTask(config.TaskType)
-                            .AddMinRabbitAmount(config.MinAmount)
-                            .AddMaxRabbitAmount(config.MaxAmount)
-                            .AddLevelTaskHoldDuration(config.TimeToHold)
-                            .AddLevelTaskHoldDurationTime(0)
-                            .AddCurrentAmount(0)
-                            .AddRabbitColorsForTask(config.RabbitColors)
-                            .With(x => x.isHoldAmountForPeriodOfTimeTask = true)
-                            .With(x => x.isLevelTaskHoldDurationTask = true)
-                        ;
-                case LevelTaskType.RemoveAllRabbitsForTime:
-                    return CreateBaseTask(config.TaskType)
-                            .AddCurrentAmount(0)
-                            .AddLevelTaskDuration(config.TaskDurationTime)
-                            .AddLevelTaskDurationTimeLeft(config.TaskDurationTime)
-                            .With(x => x.isRemoveAllRabbitsForTimeTask = true)
-                            .With(x => x.isLevelTaskForTime = true)
-                        ;
-                case LevelTaskType.MinRabbitsAmountForTime:
-                    return CreateBaseTask(config.TaskType)
-                            .AddMinRabbitAmount(config.MinAmount)
-                            .AddRabbitColorsForTask(config.RabbitColors)
-                            .AddCurrentAmount(0)
-                            .AddLevelTaskDuration(config.TaskDurationTime)
-                            .AddLevelTaskDurationTimeLeft(config.TaskDurationTime)
-                            .With(x => x.isMinRabbitsAmountForTimeTask = true)
-                            .With(x => x.isMinConcreteRabbitsAmountTaskType = true)
-                            .With(x => x.isLevelTaskForTime = true)
-                        ;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-          
+            GameEntity task = CreateBaseTask(config.TaskType);
+
+            SetupTask(task, config);
+            if (config.DurationLimitation.Length > 0)
+                AddTimeLimitations(task, config);
+            else
+                task.isTimeConditionCompleted = true;
+
+            return task;
         }
 
         private GameEntity CreateBaseTask(LevelTaskType taskType)
@@ -78,6 +38,98 @@ namespace Code.Gameplay.Features.LevelTasks.Factory
                     .With(x => x.isLevelTask = true)
                     .With(x => x.isUncompleted = true)
                 ;
+        }
+
+        private GameEntity AddTimeLimitations(GameEntity task, LevelTaskConfig config)
+        {
+            foreach (LevelTaskDurationLimitationType limitationType in config.DurationLimitation)
+            {
+                switch (limitationType)
+                {
+                    case LevelTaskDurationLimitationType.Infinity:
+                        task.isTimeConditionCompleted = true;
+                        break;
+                    case LevelTaskDurationLimitationType.TimeDuration:
+                        task
+                            .AddLevelTaskDurationBeforeExpired(config.TaskDurationTime)
+                            .AddLevelTaskDurationBeforeExpiredTimeLeft(config.TaskDurationTime)
+                            .With(x => x.isLevelTaskWithTimeForFail = true)
+                            .With(x => x.isTimeDurationConditionCompleted = true)
+                            .With(x => x.isTimeConditionUncompleted = true);
+                        break;
+                    case LevelTaskDurationLimitationType.HoldDuration:
+                        task
+                            .AddLevelTaskTargetHoldDuration(config.TimeToHold)
+                            .AddLevelTaskTargetHoldDurationTime(0)
+                            .With(x => x.isLevelTaskWithHoldDuration = true)
+                            .With(x => x.isTimeHoldConditionUncompleted = true)
+                            .With(x => x.isTimeConditionUncompleted = true);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+
+            return task;
+        }
+
+        private void SetupTask(GameEntity task, LevelTaskConfig config)
+        {
+            switch (config.TaskType)
+            {
+                case LevelTaskType.ConcreteRabbitAmount:
+                    task
+                        .AddLevelTaskGoalForConcreteRabbits(config.TaskGoalsByRabbitColor)
+                        .AddLevelTaskCurrentConcreteRabbitsAmount(config.TaskGoalsByRabbitColor.ToDictionary(x => x.ColorType, x => 0))
+                        .With(x => x.isLevelTaskConcreteRabbitAmount = true);
+                    switch (config.AmountCondition)
+                    {
+                        case LevelTaskAmountConditionType.MinAmount:
+                            task
+                                .AddLevelTaskMinRabbitAmount(config.MinAmount)
+                                .With(x => x.isAmountConditionUncompleted = true)
+                                .With(x => x.isLevelTaskMinAmountType = true)
+                                ;
+                            break;
+                        case LevelTaskAmountConditionType.RangeAmount:
+                            task
+                                .AddLevelTaskMinRabbitAmount(0)
+                                .AddLevelTaskMaxRabbitAmount(0)
+                                .With(x => x.isAmountConditionUncompleted = true)
+                                .With(x => x.isLevelTaskRangeAmountType = true)
+                                ;
+                            break;
+                    }
+                    break;
+                case LevelTaskType.CommonRabbitAmount:
+                    task.isLevelTaskMinAmountType = true;
+                    switch (config.AmountCondition)
+                    {
+                        case LevelTaskAmountConditionType.MinAmount:
+                            task
+                                .AddLevelTaskCurrentCommonAmount(0)
+                                .AddLevelTaskMinRabbitAmount(config.MinAmount)
+                                .With(x => x.isAmountConditionUncompleted = true)
+                                .With(x => x.isLevelTaskMinAmountType = true)
+                                ;
+                            break;
+                        case LevelTaskAmountConditionType.RangeAmount:
+                            task
+                                .AddLevelTaskCurrentCommonAmount(0)
+                                .AddLevelTaskMinRabbitAmount(0)
+                                .AddLevelTaskMaxRabbitAmount(0)
+                                .With(x => x.isAmountConditionUncompleted = true)
+                                .With(x => x.isLevelTaskRangeAmountType = true)
+                                ;
+                            break;
+                    }
+                    break;
+                case LevelTaskType.RemoveAllRabbits:
+                    task
+                        .AddLevelTaskCurrentCommonAmount(0)
+                        .With(x => x.isLevelTaskRemoveAllRabbits = true);
+                    break;
+            }
         }
     }
 }

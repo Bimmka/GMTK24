@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Code.Gameplay.Features.CharacterStats;
 using Code.Gameplay.Features.CharacterStats.Indexing;
+using Code.Gameplay.Features.Rabbits.Config.Rabbits;
 using Code.Gameplay.Features.Rabbits.Indexing;
 using Code.Gameplay.Features.Statuses;
 using Code.Gameplay.Features.Statuses.Indexing;
@@ -32,6 +33,12 @@ namespace Code.Common.EntityIndices
         {
             return ((EntityIndex<GameEntity, int>) context.GetEntityIndex(GameEntityIndices.RabbitsForHunt))
                 .GetEntities(stallParentIndex);
+        }
+        
+        public static HashSet<GameEntity> RabbitsByColor(this GameContext context, RabbitColorType colorType)
+        {
+            return ((EntityIndex<GameEntity, RabbitColorType>) context.GetEntityIndex(GameEntityIndices.RabbitsByColor))
+                .GetEntities(colorType);
         }
     }
 }

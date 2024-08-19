@@ -7,6 +7,7 @@ using Code.Gameplay.Common.Time;
 using Code.Gameplay.Features.Foxes.Factory;
 using Code.Gameplay.Features.Holes.Factory;
 using Code.Gameplay.Features.Infections.Factory;
+using Code.Gameplay.Features.Level.Service;
 using Code.Gameplay.Features.LevelTasks.Factory;
 using Code.Gameplay.Features.Rabbits.Factory;
 using Code.Gameplay.Features.Rabbits.StateMachine.States;
@@ -118,6 +119,7 @@ namespace Code.Infrastructure.Installers
       Container.Bind<ILevelDataProvider>().To<LevelDataProvider>().AsSingle();
       Container.Bind<IStallService>().To<StallService>().AsSingle();
       Container.Bind<IStatusApplier>().To<StatusApplier>().AsSingle();
+      Container.Bind<ITaskService>().To<TaskService>().AsSingle();
     }
 
     private void BindGameplayFactories()

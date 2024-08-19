@@ -7,23 +7,32 @@ namespace Code.Gameplay.Features.LevelTasks
     {
         public LevelTaskFeature(ISystemFactory systems)
         {
-            Add(systems.Create<UpdateMinConcreteRabbitAmountTaskTypeSystem>());
-            Add(systems.Create<UpdateMinSumRabbitAmountTaskSystem>());
-            Add(systems.Create<UpdateRemoveAllRabbitsForTimeTaskSystem>());
-            Add(systems.Create<UpdateHoldAmountForPeriodOfTimeTaskSystem>());
+            //amount condition
+            Add(systems.Create<UpdateTaskConcreteRabbitMinAmountSystem>());
+            Add(systems.Create<UpdateTaskConcreteRabbitAmountRangeSystem>());
+
+            Add(systems.Create<UpdateTaskCommonRabbitMinAmountSystem>());
+            Add(systems.Create<UpdateTaskCommonRabbitRangeAmountSystem>());
             
+            Add(systems.Create<UpdateTaskRemoveAllRabbitsSystem>());
+            
+            //time condition
             Add(systems.Create<UpdateTaskTimeLeftSystem>());
             Add(systems.Create<MarkExpiredTimeSystem>());
+            Add(systems.Create<MarkTimeDurationConditionFailedSystem>());
+
+            Add(systems.Create<UpdateLevelTaskHoldDurationTimeSystem>());
+            Add(systems.Create<ResetWaitingHoldTimeWhenAmountConditionUncompletedSystem>());
+
+            Add(systems.Create<MarkHoldDurationTimeConditionCompletedSystem>());
+
+            Add(systems.Create<MarkTimeConditionCompleted>());
             
-            
-            Add(systems.Create<MarkWaitingHoldTimeWhenConditionCompletedSystem>());
-            Add(systems.Create<RemoveWaitingHoldTimeWhenConditionUncompletedSystem>());
-            Add(systems.Create<ResetWaitingHoldTimeWhenConditionUncompletedSystem>());
-            Add(systems.Create<UpdateLevelTaskHoldDurationSystem>());
-            
-            Add(systems.Create<MarkTaskHoldDurationCompletedSystem>());
+            //finish task
             Add(systems.Create<MarkTaskFailedWhenTimeExpiredSystem>());
             Add(systems.Create<MarkTaskCompletedSystem>());
+            
+            Add(systems.Create<UpdateTaskService>());
         }
     }
 }

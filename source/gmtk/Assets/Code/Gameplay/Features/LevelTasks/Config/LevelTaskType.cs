@@ -2,10 +2,8 @@
 {
     public enum LevelTaskType
     {
-        MinConcreteRabbitAmount = 0,
-        MinSumRabbitAmount = 1,
-        HoldAmountForPeriodOfTime = 2,
-        RemoveAllRabbitsForTime = 3,
-        MinRabbitsAmountForTime = 4,
+        ConcreteRabbitAmount = 0,
+        CommonRabbitAmount = 1,
+        RemoveAllRabbits = 2,
     }
 }

@@ -11,8 +11,8 @@ namespace Code.Gameplay.Features.LevelTasks.Systems
             _tasks = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.LevelTask,
-                    GameMatcher.LevelTaskHoldDurationTask,
-                    GameMatcher.ConditionsUncompleted));
+                    GameMatcher.LevelTaskWithHoldDuration,
+                    GameMatcher.AmountConditionUncompleted));
         }
 
         public void Execute()

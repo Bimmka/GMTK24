@@ -10,16 +10,16 @@ namespace Code.Gameplay.Features.LevelTasks.Systems
         {
             _tasks = game.GetGroup(GameMatcher
                 .AllOf(
-                    GameMatcher.LevelTaskForTime,
+                    GameMatcher.LevelTaskWithTimeForFail,
                     GameMatcher.Uncompleted,
-                    GameMatcher.LevelTaskDurationTimeLeft));
+                    GameMatcher.LevelTaskDurationBeforeExpiredTimeLeft));
         }
 
         public void Execute()
         {
             foreach (GameEntity task in _tasks)
             {
-                if (task.LevelTaskDurationTimeLeft <= 0)
+                if (task.LevelTaskDurationBeforeExpiredTimeLeft <= 0)
                 {
                     task.isLevelTaskTimeExpired = true;
                 }
