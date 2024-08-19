@@ -10,6 +10,7 @@ using Code.Gameplay.Features.Rabbits.Config.Replication;
 using Code.Gameplay.Features.Selection.Config;
 using Code.Gameplay.Input.Config;
 using Code.Gameplay.Windows;
+using Code.Gameplay.Windows.Base;
 using Code.Gameplay.Windows.Configs;
 using UnityEngine;
 
@@ -48,7 +49,10 @@ namespace Code.Gameplay.StaticData
       _levelConfigsById.TryGetValue(id, out LevelConfig config)
         ? config
         : throw new Exception($"Level config with id: {id} was not found");
-
+    
+    public List<LevelConfig> GetLevelConfigs() =>
+      _levelConfigsById.Values.ToList();
+      
     public RabbitConfig GetRabbitConfig(RabbitColorType type) =>
       _rabbitConfigsByColor.TryGetValue(type, out RabbitConfig config)
         ? config

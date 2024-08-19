@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using Code.Gameplay.Windows.Base;
+using Code.Gameplay.Windows.Factory;
 using UnityEngine;
 
-namespace Code.Gameplay.Windows
+namespace Code.Gameplay.Windows.Service
 {
   public class WindowService : IWindowService
   {
@@ -12,8 +14,12 @@ namespace Code.Gameplay.Windows
     public WindowService(IWindowFactory windowFactory) =>
       _windowFactory = windowFactory;
 
-    public void Open(WindowId windowId) => 
-      _openedWindows.Add(_windowFactory.CreateWindow(windowId));
+    public BaseWindow Open(WindowId windowId)
+    {
+      BaseWindow window = _windowFactory.CreateWindow(windowId);
+      _openedWindows.Add(window);
+      return window;
+    }
 
     public void Close(WindowId windowId)
     {

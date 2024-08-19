@@ -1,4 +1,5 @@
 ﻿using Code.Gameplay.Windows;
+using Code.Gameplay.Windows.Base;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -12,7 +13,7 @@ namespace Code.Gameplay.Features.Selection.Visuals
         protected override void Initialize()
         {
             base.Initialize();
-            Id = WindowId.MultipleSelectionWindow;
+            Id = WindowId.MultipleSelection;
             Selection.gameObject.SetActive(false);
         }
 

@@ -13,5 +13,15 @@ MonoBehaviour:
   m_Name: WindowConfig
   m_EditorClassIdentifier: 
   WindowConfigs:
+  - Id: 1
+    Prefab: {fileID: 3105316591642644338, guid: 08591e94755872f4db44f0c98a6f3b5f, type: 3}
   - Id: 0
+    Prefab: {fileID: 236993716991501161, guid: d667813cdde64df44980e5bb8647f551, type: 3}
+  - Id: 2
+    Prefab: {fileID: 104163895612402042, guid: 729395b76fc1b37458487266dd658d5a, type: 3}
+  - Id: 3
+    Prefab: {fileID: 6480700532714405577, guid: 553453700ecdf614194412ea086e25bb, type: 3}
+  - Id: 4
+    Prefab: {fileID: 6534739143927868224, guid: 5b11a1232b03a0648a7bb4cb3fcd6f3f, type: 3}
+  - Id: 5
     Prefab: {fileID: 3105316591642644338, guid: 08591e94755872f4db44f0c98a6f3b5f, type: 3}

@@ -9,6 +9,8 @@ using Code.Gameplay.Features.Stalls.Services;
 using Code.Gameplay.Levels;
 using Code.Gameplay.StaticData;
 using Code.Gameplay.Windows;
+using Code.Gameplay.Windows.Base;
+using Code.Gameplay.Windows.Service;
 using Code.Infrastructure.States.StateInfrastructure;
 using Code.Infrastructure.States.StateMachine;
 using Code.Infrastructure.Systems;
@@ -60,7 +62,7 @@ namespace Code.Infrastructure.States.GameStates
       PlaceLevelInfections(config.Infections);
       PlaceFoxes(config.PresetupFoxesData);
       
-      _windowService.Open(WindowId.MultipleSelectionWindow);
+      _windowService.Open(WindowId.MultipleSelection);
       
       _stateMachine.Enter<BattleLoopState>();
     }
