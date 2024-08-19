@@ -14,20 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpritesByColor:
   - Color: 1
-    Sprite: {fileID: 0}
+    Sprite: {fileID: -99584249, guid: 1e233a2bb2d734a41bf6e21bdf9b0fac, type: 3}
   - Color: 2
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 498842090, guid: 1e233a2bb2d734a41bf6e21bdf9b0fac, type: 3}
   - Color: 3
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 1213725345, guid: 1e233a2bb2d734a41bf6e21bdf9b0fac, type: 3}
   - Color: 4
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 1498161170, guid: 1e233a2bb2d734a41bf6e21bdf9b0fac, type: 3}
   - Color: 5
-    Sprite: {fileID: 0}
+    Sprite: {fileID: -1358132801, guid: 1e233a2bb2d734a41bf6e21bdf9b0fac, type: 3}
   - Color: 6
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 687877220, guid: 1e233a2bb2d734a41bf6e21bdf9b0fac, type: 3}
   - Color: 7
-    Sprite: {fileID: 0}
+    Sprite: {fileID: -1422527259, guid: 1e233a2bb2d734a41bf6e21bdf9b0fac, type: 3}
   - Color: 8
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 1389119296, guid: 1e233a2bb2d734a41bf6e21bdf9b0fac, type: 3}
   - Color: 9
-    Sprite: {fileID: 0}
+    Sprite: {fileID: -1564429460, guid: 1e233a2bb2d734a41bf6e21bdf9b0fac, type: 3}
