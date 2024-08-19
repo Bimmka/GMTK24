@@ -1,5 +1,6 @@
 using Code.Common.Extensions;
 using Code.Gameplay;
+using Code.Gameplay.Features.Foxes.Factory;
 using Code.Gameplay.Features.Infections.Factory;
 using Code.Gameplay.Features.Level.Config;
 using Code.Gameplay.Features.Rabbits.Factory;
@@ -24,6 +25,7 @@ namespace Code.Infrastructure.States.GameStates
     private readonly IRabbitFactory _rabbitFactory;
     private readonly IWindowService _windowService;
     private readonly IInfectionFactory _infectionFactory;
+    private readonly IFoxFactory _foxFactory;
     private readonly ISystemFactory _systems;
     private readonly GameContext _gameContext;
 
@@ -35,7 +37,8 @@ namespace Code.Infrastructure.States.GameStates
       IStallService stallService,
       IRabbitFactory rabbitFactory,
       IWindowService windowService,
-      IInfectionFactory infectionFactory)
+      IInfectionFactory infectionFactory,
+      IFoxFactory foxFactory)
     {
       _stateMachine = stateMachine;
       _levelDataProvider = levelDataProvider;
@@ -45,6 +48,7 @@ namespace Code.Infrastructure.States.GameStates
       _rabbitFactory = rabbitFactory;
       _windowService = windowService;
       _infectionFactory = infectionFactory;
+      _foxFactory = foxFactory;
     }
     
     public override void Enter()
@@ -53,19 +57,12 @@ namespace Code.Infrastructure.States.GameStates
       
       PlaceStalls(config.StallsSpawnData);
       PlaceRabbits(config.PresetupRabbits);
-      PlaceInfections(config.Infections);
+      PlaceLevelInfections(config.Infections);
+      PlaceFoxes(config.PresetupFoxesData);
       
       _windowService.Open(WindowId.MultipleSelectionWindow);
       
       _stateMachine.Enter<BattleLoopState>();
-    }
-
-    private void PlaceInfections(InfectionForLevelData[] infections)
-    {
-      foreach (InfectionForLevelData infection in infections)
-      {
-        _infectionFactory.CreateLevelInfection(infection.Type, infection.Interval);
-      }
     }
 
     private void PlaceStalls(StallsSpawnData[] stallsSpawnData)
@@ -88,6 +85,22 @@ namespace Code.Infrastructure.States.GameStates
           .With(x => x.isCanBeChosenForReplication = true)
           .With(x => x.isWaitingForNextReplicationUp = true)
           ;
+      }
+    }
+
+    private void PlaceLevelInfections(InfectionForLevelData[] infections)
+    {
+      foreach (InfectionForLevelData infection in infections)
+      {
+        _infectionFactory.CreateLevelInfection(infection.Type, infection.Interval);
+      }
+    }
+    
+    private void PlaceFoxes(PresetupFoxesData[] foxes)
+    {
+      foreach (PresetupFoxesData fox in foxes)
+      {
+        _foxFactory.Create(_stallService.GetRandomPositionInStall(fox.StallIndex), fox.StallIndex);
       }
     }
   }

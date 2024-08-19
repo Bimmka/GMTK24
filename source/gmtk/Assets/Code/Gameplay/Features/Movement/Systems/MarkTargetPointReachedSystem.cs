@@ -5,6 +5,8 @@ namespace Code.Gameplay.Features.Movement.Systems
 {
     public class MarkTargetPointReachedSystem : IExecuteSystem
     {
+        private const float DistanceError = 1.5f;
+
         private readonly IGroup<GameEntity> _movers;
 
         public MarkTargetPointReachedSystem(GameContext game)
@@ -12,14 +14,15 @@ namespace Code.Gameplay.Features.Movement.Systems
             _movers = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.TargetPoint,
-                    GameMatcher.WorldPosition));
+                    GameMatcher.WorldPosition,
+                    GameMatcher.MovementAvailable));
         }
 
         public void Execute()
         {
             foreach (GameEntity mover in _movers)
             {
-                if (Vector3.SqrMagnitude(mover.TargetPoint - mover.WorldPosition) <= 0.5f)
+                if (Vector3.Distance(mover.TargetPoint, mover.WorldPosition) <= DistanceError)
                     mover.isTargetPointReached = true;
             }
         }

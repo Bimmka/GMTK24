@@ -1,4 +1,5 @@
-﻿using Code.Gameplay.Features.Infections.Configs;
+﻿using Code.Gameplay.Features.Foxes.Config;
+using Code.Gameplay.Features.Infections.Configs;
 using Code.Gameplay.Features.Level.Config;
 using Code.Gameplay.Features.Rabbits.Config;
 using Code.Gameplay.Features.Rabbits.Config.Rabbits;
@@ -20,5 +21,6 @@ namespace Code.Gameplay.StaticData
     InputConfig GetInputConfig();
     SelectionConfig GetSelectionConfig();
     InfectionConfig GetInfectionConfig(InfectionType infectionType);
+    FoxConfig GetFoxConfig();
   }
 }

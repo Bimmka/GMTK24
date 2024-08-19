@@ -20,7 +20,7 @@ namespace Code.Gameplay.Features.CharacterStats.Systems
         {
             foreach (GameEntity statOwner in _statOwners)
             {
-                statOwner.ReplaceSpeed(MovingInterval(statOwner).ZeroIfNegative());
+                statOwner.ReplaceMovingInterval(MovingInterval(statOwner).ZeroIfNegative());
             }
         }
 

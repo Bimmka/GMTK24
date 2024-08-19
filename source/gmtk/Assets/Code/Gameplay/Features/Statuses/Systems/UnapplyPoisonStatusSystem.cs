@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using Code.Common.Entity;
-using Code.Gameplay.Features.CharacterStats;
-using Entitas;
+﻿using Entitas;
 
 namespace Code.Gameplay.Features.Statuses.Systems
 {
@@ -17,7 +14,8 @@ namespace Code.Gameplay.Features.Statuses.Systems
                 .AllOf(
                     GameMatcher.PoisonStatus,
                     GameMatcher.TargetId,
-                    GameMatcher.Unapplied));
+                    GameMatcher.Unapplied,
+                    GameMatcher.ValidStatus));
         }
 
         public void Execute()

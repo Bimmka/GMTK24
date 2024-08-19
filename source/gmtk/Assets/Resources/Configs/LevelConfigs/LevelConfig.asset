@@ -29,4 +29,7 @@ MonoBehaviour:
     StallIndex: 1
   Infections:
   - Type: 2
-    Interval: 15
+    Interval: 5
+  PresetupFoxesData:
+  - StallIndex: 0
+  - StallIndex: 1

@@ -14,7 +14,8 @@ namespace Code.Gameplay.Features.Statuses.Systems
                 .AllOf(
                     GameMatcher.RabiesStatus,
                     GameMatcher.TargetId,
-                    GameMatcher.Unapplied));
+                    GameMatcher.Unapplied,
+                    GameMatcher.ValidStatus));
         }
 
         public void Execute()

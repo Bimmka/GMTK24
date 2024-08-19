@@ -8,6 +8,7 @@ namespace Code.Gameplay.Levels
     public Transform StallSpawnParent { get; private set; }
     public string CurrentId { get; private set; } = "first";
     public Transform RabbitSpawnParent { get; private set; }
+    public Transform FoxSpawnParent { get; private set; }
 
     public void SetStartPoint(Vector3 startPoint)
     {
@@ -22,6 +23,11 @@ namespace Code.Gameplay.Levels
     public void SetRabbitSpawnParent(Transform rabbitSpawnParent)
     {
       RabbitSpawnParent = rabbitSpawnParent;
+    }
+
+    public void SetFoxSpawnParent(Transform foxSpawnParent)
+    {
+      FoxSpawnParent = foxSpawnParent;
     }
 
     public void SetCurrentId(string id)

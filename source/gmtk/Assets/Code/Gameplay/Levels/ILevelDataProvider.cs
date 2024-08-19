@@ -8,10 +8,12 @@ namespace Code.Gameplay.Levels
     Transform StallSpawnParent { get; }
     string CurrentId { get; }
     Transform RabbitSpawnParent { get; }
+    Transform FoxSpawnParent { get; }
 
     void SetStartPoint(Vector3 startPoint);
     void SetStallSpawnParent(Transform stallSpawnParent);
     void SetRabbitSpawnParent(Transform rabbitSpawnParent);
+    void SetFoxSpawnParent(Transform foxSpawnParent);
     void SetCurrentId(string id);
   }
 }

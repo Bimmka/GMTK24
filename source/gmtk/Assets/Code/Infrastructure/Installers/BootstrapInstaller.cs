@@ -4,6 +4,7 @@ using Code.Gameplay.Common.Collisions;
 using Code.Gameplay.Common.Physics;
 using Code.Gameplay.Common.Random;
 using Code.Gameplay.Common.Time;
+using Code.Gameplay.Features.Foxes.Factory;
 using Code.Gameplay.Features.Infections.Factory;
 using Code.Gameplay.Features.Rabbits.Factory;
 using Code.Gameplay.Features.Rabbits.StateMachine.States;
@@ -121,6 +122,7 @@ namespace Code.Infrastructure.Installers
       Container.Bind<IRabbitFactory>().To<RabbitFactory>().AsSingle();
       Container.Bind<IStatusFactory>().To<StatusFactory>().AsSingle();
       Container.Bind<IInfectionFactory>().To<InfectionFactory>().AsSingle();
+      Container.Bind<IFoxFactory>().To<FoxFactory>().AsSingle();
     }
 
     private void BindEntityIndices()

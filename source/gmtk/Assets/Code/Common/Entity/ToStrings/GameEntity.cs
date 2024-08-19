@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text;
 using Code.Common.Entity.ToStrings;
 using Code.Common.Extensions;
+using Code.Gameplay.Features.Foxes;
 using Code.Gameplay.Features.Infections;
 using Code.Gameplay.Features.Rabbits;
 using Code.Gameplay.Features.Statuses;
@@ -43,6 +44,8 @@ public sealed partial class GameEntity : INamedEntity
             return PrintInfection();
           case nameof(Status):
             return PrintStatus();
+          case nameof(Fox):
+            return PrintFox();
         }
       }
     }
@@ -81,6 +84,13 @@ public sealed partial class GameEntity : INamedEntity
     return new StringBuilder($"Status ")
       .With(s => s.Append($"Type {StatusTypeId}"), when: hasStatusTypeId)
       .With(s => s.Append($"To: {TargetId}"), when: hasTargetId)
+      .ToString();
+  }
+  
+  private string PrintFox()
+  {
+    return new StringBuilder($"Fox ")
+      .With(s => s.Append($"Id: {Id}"), when: hasId)
       .ToString();
   }
   

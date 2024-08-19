@@ -7,8 +7,11 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dead
     {
         public DeadFeature(ISystemFactory systems)
         {
-            Add(systems.Create<MarkDeadSystem>());
-            Add(systems.Create<DestructInfectionForDeadSystem>());
+            Add(systems.Create<MarkDeadByInfectionDeadSystem>());
+            Add(systems.Create<MarkDeadWhenEatenSystem>());
+
+            Add(systems.Create<MarkDestructedInfectionForDeadSystem>());
+            Add(systems.Create<RemoveStatusesForDeadSystem>());
         }
     }
 }

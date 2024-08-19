@@ -18,6 +18,7 @@ namespace Code.Gameplay.Features.Statuses
       //Add(systems.Create<StatusVisualsFeature>());
       
       Add(systems.Create<CleanupUnappliedStatusLinkedChanges>());
+      Add(systems.Create<CleanupInvalidStatusLinkedChanges>());
       Add(systems.Create<CleanupUnappliedStatuses>());
     }
   }
