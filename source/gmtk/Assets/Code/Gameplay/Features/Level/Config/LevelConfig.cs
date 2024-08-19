@@ -1,4 +1,4 @@
-﻿using Code.Gameplay.Features.Stalls;
+﻿using Code.Gameplay.Features.LevelTasks.Config;
 using UnityEngine;
 
 namespace Code.Gameplay.Features.Level.Config
@@ -7,6 +7,8 @@ namespace Code.Gameplay.Features.Level.Config
     public class LevelConfig : ScriptableObject
     {
         public string Id;
+
+        public LevelTaskConfig TaskConfig;
 
         public StallsSpawnData[] StallsSpawnData;
         public PresetupRabbitData[] PresetupRabbits;

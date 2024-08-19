@@ -4,7 +4,9 @@ using System.Text;
 using Code.Common.Entity.ToStrings;
 using Code.Common.Extensions;
 using Code.Gameplay.Features.Foxes;
+using Code.Gameplay.Features.Holes;
 using Code.Gameplay.Features.Infections;
+using Code.Gameplay.Features.LevelTasks;
 using Code.Gameplay.Features.Rabbits;
 using Code.Gameplay.Features.Statuses;
 using Entitas;
@@ -46,6 +48,10 @@ public sealed partial class GameEntity : INamedEntity
             return PrintStatus();
           case nameof(Fox):
             return PrintFox();
+          case nameof(Hole):
+            return PrintHole();
+          case nameof(LevelTask):
+            return PrintLevelTask();
         }
       }
     }
@@ -91,6 +97,20 @@ public sealed partial class GameEntity : INamedEntity
   {
     return new StringBuilder($"Fox ")
       .With(s => s.Append($"Id: {Id}"), when: hasId)
+      .ToString();
+  }
+  
+  private string PrintHole()
+  {
+    return new StringBuilder($"Hole ")
+      .With(s => s.Append($"Id: {Id}"), when: hasId)
+      .ToString();
+  }
+  
+  private string PrintLevelTask()
+  {
+    return new StringBuilder($"Level Task ")
+      .With(s => s.Append($"Type: {LevelTaskType}"), when: hasLevelTaskType)
       .ToString();
   }
   

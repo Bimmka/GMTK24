@@ -1,6 +1,7 @@
 ﻿using Code.Gameplay.Features.CharacterStats;
 using Code.Gameplay.Features.CharacterStats.Indexing;
 using Code.Gameplay.Features.Rabbits;
+using Code.Gameplay.Features.Rabbits.Config.Rabbits;
 using Code.Gameplay.Features.Rabbits.Indexing;
 using Code.Gameplay.Features.Statuses;
 using Code.Gameplay.Features.Statuses.Indexing;
@@ -17,6 +18,7 @@ namespace Code.Common.EntityIndices
     public const string StatChanges = "StatChanges";  
     public const string StatusesOfType = "StatusesOfType";   
     public const string RabbitsForHunt = "RabbitsForHunt";   
+    public const string RabbitsByColor = "RabbitByColor";   
       
     public GameEntityIndices(GameContext game)
     {
@@ -68,6 +70,16 @@ namespace Code.Common.EntityIndices
             GameMatcher.Replicating,
             GameMatcher.Dragging)),
         getKey: (entity, component) => (component as StallParentIndex)?.Value ?? entity.StallParentIndex));
+      
+      _game.AddEntityIndex(new EntityIndex<GameEntity, RabbitColorType>(
+        name: RabbitsByColor,
+        _game.GetGroup(
+          GameMatcher.AllOf(
+              GameMatcher.Rabbit,
+              GameMatcher.Id,
+              GameMatcher.Alive,
+              GameMatcher.RabbitColorType)),
+        getKey: (entity, component) => (component as RabbitColorTypeComponent)?.Value ?? entity.RabbitColorType));
     }
     
     private ReplicationTargetKey GetReplicationTargetKey(GameEntity entity, IComponent component)

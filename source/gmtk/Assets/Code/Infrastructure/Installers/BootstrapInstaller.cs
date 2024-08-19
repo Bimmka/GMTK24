@@ -7,6 +7,8 @@ using Code.Gameplay.Common.Time;
 using Code.Gameplay.Features.Foxes.Factory;
 using Code.Gameplay.Features.Holes.Factory;
 using Code.Gameplay.Features.Infections.Factory;
+using Code.Gameplay.Features.Level.Service;
+using Code.Gameplay.Features.LevelTasks.Factory;
 using Code.Gameplay.Features.Rabbits.Factory;
 using Code.Gameplay.Features.Rabbits.StateMachine.States;
 using Code.Gameplay.Features.Stalls.Factory;
@@ -117,6 +119,7 @@ namespace Code.Infrastructure.Installers
       Container.Bind<ILevelDataProvider>().To<LevelDataProvider>().AsSingle();
       Container.Bind<IStallService>().To<StallService>().AsSingle();
       Container.Bind<IStatusApplier>().To<StatusApplier>().AsSingle();
+      Container.Bind<ITaskService>().To<TaskService>().AsSingle();
     }
 
     private void BindGameplayFactories()
@@ -128,6 +131,7 @@ namespace Code.Infrastructure.Installers
       Container.Bind<IInfectionFactory>().To<InfectionFactory>().AsSingle();
       Container.Bind<IFoxFactory>().To<FoxFactory>().AsSingle();
       Container.Bind<IHoleFactory>().To<HoleFactory>().AsSingle();
+      Container.Bind<ITaskFactory>().To<TaskFactory>().AsSingle();
     }
 
     private void BindEntityIndices()

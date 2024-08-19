@@ -3,6 +3,8 @@ using Code.Gameplay.Features.CharacterStats;
 using Code.Gameplay.Features.Foxes;
 using Code.Gameplay.Features.Holes;
 using Code.Gameplay.Features.Infections;
+using Code.Gameplay.Features.LevelFinish;
+using Code.Gameplay.Features.LevelTasks;
 using Code.Gameplay.Features.Movement;
 using Code.Gameplay.Features.Rabbits;
 using Code.Gameplay.Features.Selection;
@@ -20,6 +22,8 @@ namespace Code.Gameplay
     {
       Add(systems.Create<InputFeature>());
       Add(systems.Create<BindViewFeature>());
+      
+      Add(systems.Create<LevelTaskFeature>());
 
       Add(systems.Create<HoleFeature>());
 
@@ -34,6 +38,8 @@ namespace Code.Gameplay
       Add(systems.Create<InfectionFeature>());
       Add(systems.Create<CollectTargetsFeature>());
       Add(systems.Create<StatusFeature>());
+      
+      Add(systems.Create<LevelFinishFeature>());
 
       Add(systems.Create<ProcessDestructedFeature>());
     }
