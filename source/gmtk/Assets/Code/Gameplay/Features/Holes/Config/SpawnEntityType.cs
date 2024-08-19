@@ -2,7 +2,8 @@
 {
     public enum SpawnEntityType
     {
-        Rabbit = 0,
-        Fox = 1,
+        None = 0,
+        Rabbit = 1,
+        Fox = 2,
     }
 }

@@ -38,21 +38,28 @@ namespace Code.Gameplay.Features.Holes.Systems
         {
             foreach (GameEntity spawner in _spawners)
             {
+                SpawnEntityType firstSpawnType = SpawnEntityType.None;
+
                 foreach (HoleEntitySpawnData spawnData in spawner.HoleEntitySpawnData)
                 {
+                    if (firstSpawnType != SpawnEntityType.None && firstSpawnType != spawnData.SpawnType)
+                        continue;
+                    
                     float chance = _randomService.Range(0, 1f);
                     
                     if (chance > spawnData.Chance)
                         continue;
-
+                    
                     Vector3 shift = _randomService.InsideUnitCircle();
                     switch (spawnData.SpawnType)
                     {
                         case SpawnEntityType.Rabbit:
                             _rabbitFactory.Create(spawnData.RabbitColorTypes[_randomService.Range(0, spawnData.RabbitColorTypes.Length)], spawner.WorldPosition + shift, spawner.StallParentIndex);
+                            firstSpawnType = SpawnEntityType.Rabbit;
                             break;
                         case SpawnEntityType.Fox:
                             _foxFactory.Create(spawner.WorldPosition + shift, spawner.StallParentIndex);
+                            firstSpawnType = SpawnEntityType.Fox;
                             break;
                     }
                 }

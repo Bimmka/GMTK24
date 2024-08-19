@@ -20,9 +20,15 @@ namespace Code.Editor.CustomEditors
         {
             base.OnInspectorGUI();
 
-            if (GUILayout.Button("Collect Data"))
+            if (GUILayout.Button("Collect Stall Data"))
             {
                 CollectStallsSpawnData();
+                EditorUtility.SetDirty(config);
+                AssetDatabase.SaveAssets();
+            }
+            
+            if (GUILayout.Button("Collect Holes Data"))
+            {
                 CollectHolesSpawnData();
                 EditorUtility.SetDirty(config);
                 AssetDatabase.SaveAssets();
@@ -59,7 +65,7 @@ namespace Code.Editor.CustomEditors
             {
                 config.PresetupHoleData[i] = new PresetupHoleData()
                 {
-                    StallIndex = spawnMarkers[i].Index,
+                    StallIndex = spawnMarkers[i].StallIndex,
                     At = spawnMarkers[i].transform.position,
                     Setup = spawnMarkers[i].Setup
                 };

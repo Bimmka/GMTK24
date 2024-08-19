@@ -6,7 +6,7 @@ namespace Code.Gameplay.Utils.Holes
     public class HoleSpawnMarker : MonoBehaviour
     {
         public HoleSetup Setup;
-        public int Index;
+        public int StallIndex;
         public Color DisplayColor = Color.red;
 
         public void OnDrawGizmos()
