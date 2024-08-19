@@ -24,13 +24,14 @@ namespace Code.Gameplay.Windows.Windows.Game
         public TextMeshProUGUI CommonAmountText;
 
         public RectTransform ConcreteRabbitAmountSpawnParent;
-        
+
+        private readonly List<ConcreteRabbitAmountView> _concreteRabbitAmountViews = new List<ConcreteRabbitAmountView>();
+
         private IStaticDataService _staticDataService;
         private ILevelDataProvider _levelDataProvider;
         private IUITaskFactory _factory;
-
+        
         private bool _wasInitialized = false;
-        private List<ConcreteRabbitAmountView> _concreteRabbitAmountViews = new List<ConcreteRabbitAmountView>();
 
         [Inject]
         private void Construct(IStaticDataService staticDataService, ILevelDataProvider levelDataProvider, IUITaskFactory factory)
@@ -50,7 +51,7 @@ namespace Code.Gameplay.Windows.Windows.Game
                 {
                     ConcreteRabbitAmountView view = _factory.CreateConcreteRabbitAmountView(ConcreteRabbitAmountSpawnParent);
 
-                    view.Initialize(goalByRabbitColor.ColorType, taskConfig.AmountCondition, 0, goalByRabbitColor.MinAmount, goalByRabbitColor.MaxAmount);
+                    view.Initialize(goalByRabbitColor.ColorType, 0);
                     
                     _concreteRabbitAmountViews.Add(view);
                 }
@@ -98,7 +99,7 @@ namespace Code.Gameplay.Windows.Windows.Game
                     {
                         if (amountView.Color == color)
                         {
-                            amountView.DisplayOnlyCurrentAmount(amount);
+                            amountView.DisplayAmount(amount);
                             continue;
                         }
                     }

@@ -6,7 +6,7 @@ namespace Code.Gameplay.Windows.Windows.Game.Factory
 {
     public class UITaskFactory : IUITaskFactory
     {
-        private const string ConcreteRabbitAmountViewPath = "";
+        private const string ConcreteRabbitAmountViewPath = "UI/ConcreteRabbitAmounView";
         
         private readonly IInstantiator _instantiator;
         private readonly IAssetProvider _assetProvider;
