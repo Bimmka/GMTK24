@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: YellowRabbit
   m_EditorClassIdentifier: 
   ColorType: 3
-  View: {fileID: 8808633256516987283, guid: eb28bdcf139319543851fd34e04dba1f, type: 3}
+  View: {fileID: 2658883369037870289, guid: a56431de97c6f4a4aa298c5c7df76806, type: 3}
   MinIntervalBetweenMoving: 1
   MaxIntervalBetweenMoving: 2
   MinIntervalBetweenReplication: 9

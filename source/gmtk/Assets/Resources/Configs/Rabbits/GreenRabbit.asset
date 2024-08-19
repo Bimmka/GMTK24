@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GreenRabbit
   m_EditorClassIdentifier: 
   ColorType: 7
-  View: {fileID: 8808633256516987283, guid: 946d8bb0cd90829468f5b030f646be80, type: 3}
+  View: {fileID: 2658883369037870289, guid: a56431de97c6f4a4aa298c5c7df76806, type: 3}
   MinIntervalBetweenMoving: 1.5
   MaxIntervalBetweenMoving: 3.5
   MinIntervalBetweenReplication: 13
