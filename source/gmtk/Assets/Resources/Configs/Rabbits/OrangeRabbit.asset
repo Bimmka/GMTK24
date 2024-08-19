@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8559c2499fb471dba1e7dd81dc14503, type: 3}
+  m_Name: OrangeRabbit
+  m_EditorClassIdentifier: 
+  ColorType: 3
+  View: {fileID: 8808633256516987283, guid: 113a78e11fa983440a00983f193e5977, type: 3}
+  MinIntervalBetweenMoving: 1
+  MaxIntervalBetweenMoving: 1
+  MinIntervalBetweenReplication: 1
+  MaxIntervalBetweenReplication: 2
+  MinReplicationDuration: 1
+  MaxReplicationDuration: 1
+  MinWaitReplicationDuration: 5
+  MaxWaitReplicationDuration: 5
+  MinSpeed: 1
+  MaxSpeed: 1
+  MinTimeToReleaseFromDrag: 4
+  MaxTimeToReleaseFromDrag: 4

@@ -15,23 +15,23 @@ MonoBehaviour:
   ReplicateRabbitAmount: 1
   ColorWeights:
   - ColorType: 1
-    Weight: 350
+    Weight: 375
   - ColorType: 2
-    Weight: 350
+    Weight: 375
   - ColorType: 3
-    Weight: 350
+    Weight: 375
   - ColorType: 4
-    Weight: 350
+    Weight: 375
   - ColorType: 5
-    Weight: 350
+    Weight: 375
   - ColorType: 6
-    Weight: 950
+    Weight: 125
   - ColorType: 7
-    Weight: 950
+    Weight: 125
   - ColorType: 8
-    Weight: 950
+    Weight: 125
   - ColorType: 9
-    Weight: 950
+    Weight: 125
   ColorMixings:
   - FirstColorType: 1
     SecondColorType: 2
@@ -45,4 +45,4 @@ MonoBehaviour:
   - FirstColorType: 5
     SecondColorType: 4
     ResultColorType: 9
-  RecessiveColorMixingWeight: 950
+  RecessiveColorMixingWeight: 250
