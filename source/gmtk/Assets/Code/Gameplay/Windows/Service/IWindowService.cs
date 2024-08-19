@@ -6,5 +6,6 @@ namespace Code.Gameplay.Windows.Service
   {
     BaseWindow Open(WindowId windowId);
     void Close(WindowId windowId);
+    void CloseAll();
   }
 }

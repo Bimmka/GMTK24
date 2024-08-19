@@ -431,7 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efee75dcc7604011ac3e033429bda0cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIRoot: {fileID: 0}
+  UIRoot: {fileID: 1721565941}
 --- !u!114 &1447920995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -716,6 +716,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d4f6b8ea5d4e0e418784c759bf64674, type: 3}
+--- !u!224 &1721565941 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3731595466480632914, guid: 7d4f6b8ea5d4e0e418784c759bf64674, type: 3}
+  m_PrefabInstance: {fileID: 1615317098}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2080236788
 GameObject:
   m_ObjectHideFlags: 0

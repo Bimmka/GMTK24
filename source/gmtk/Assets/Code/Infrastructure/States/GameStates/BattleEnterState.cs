@@ -55,6 +55,10 @@ namespace Code.Infrastructure.States.GameStates
     
     public override void Enter()
     {
+      _windowService.CloseAll();
+
+      _windowService.Open(WindowId.LevelHUD);
+      
       LevelConfig config = _staticDataService.GetLevelConfig(_levelDataProvider.CurrentId);
       
       PlaceStalls(config.StallsSpawnData);

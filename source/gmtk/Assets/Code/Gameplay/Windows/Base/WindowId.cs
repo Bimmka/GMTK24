@@ -10,6 +10,8 @@
     HomeScreenControlHints = 5,
     LevelInfo = 6,
     LevelHUD = 7,
-    PauseMenu = 8
+    PauseMenu = 8,
+    Win = 9,
+    Lose = 10,
   }
 }

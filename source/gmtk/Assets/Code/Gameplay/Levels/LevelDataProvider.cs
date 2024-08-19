@@ -6,7 +6,7 @@ namespace Code.Gameplay.Levels
   {
     public Vector3 StartPoint { get; private set; }
     public Transform StallSpawnParent { get; private set; }
-    public string CurrentId { get; private set; } = "first";
+    public string CurrentId { get; private set; }
     public Transform RabbitSpawnParent { get; private set; }
     public Transform FoxSpawnParent { get; private set; }
 

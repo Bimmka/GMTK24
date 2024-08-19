@@ -29,5 +29,16 @@ namespace Code.Gameplay.Windows.Service
       
       GameObject.Destroy(window.gameObject);
     }
+    
+    public void CloseAll()
+    {
+      foreach (BaseWindow baseWindow in _openedWindows)
+      {
+        if (baseWindow != null)
+          GameObject.Destroy(baseWindow.gameObject);
+      }
+      
+      _openedWindows.Clear();
+    }
   }
 }
