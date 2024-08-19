@@ -53,137 +53,143 @@ public static class GameComponentsLookup {
     public const int ValidHuntTarget = 42;
     public const int WaitingHunt = 43;
     public const int WaitingNextHuntTarget = 44;
-    public const int CarrierOfInfection = 45;
-    public const int CarrierOfInfectionId = 46;
-    public const int CarrierOfPoisonInfection = 47;
-    public const int CarrierOfRabiesInfection = 48;
-    public const int ChanceToInfect = 49;
-    public const int Infection = 50;
-    public const int InfectionInterval = 51;
-    public const int InfectionLayerMask = 52;
-    public const int InfectionRadius = 53;
-    public const int InfectionTrayLength = 54;
-    public const int InfectionTrayWidth = 55;
-    public const int InfectionType = 56;
-    public const int InfectionUp = 57;
-    public const int LevelInfection = 58;
-    public const int PoisoningInfection = 59;
-    public const int RabiesInfection = 60;
-    public const int TimeLeftBeforeInfection = 61;
-    public const int ValidInfection = 62;
-    public const int MoveDirection = 63;
-    public const int MovementAvailable = 64;
-    public const int Moving = 65;
-    public const int Speed = 66;
-    public const int TargetPoint = 67;
-    public const int TargetPointReached = 68;
-    public const int TurnedAlongDirection = 69;
-    public const int ActivityFree = 70;
-    public const int Alive = 71;
-    public const int AngryState = 72;
-    public const int CanBeChosenForReplication = 73;
-    public const int CanStartReplication = 74;
-    public const int ChosenForReplication = 75;
-    public const int ChosenForReplicationBy = 76;
-    public const int CleanupMovingFinished = 77;
-    public const int CleanupResetReplicationMarkers = 78;
-    public const int CurrentReplicationDuration = 79;
-    public const int Dead = 80;
-    public const int DeadByInfection = 81;
-    public const int DeadState = 82;
-    public const int DefaultReplicationDuration = 83;
-    public const int DraggingState = 84;
-    public const int IdleState = 85;
-    public const int InvalidReplicationTarget = 86;
-    public const int MovingFinished = 87;
-    public const int MovingInterval = 88;
-    public const int MovingUp = 89;
-    public const int NearReplicationTarget = 90;
-    public const int ProcessingDeath = 91;
-    public const int Rabbit = 92;
-    public const int RabbitAnimator = 93;
-    public const int RabbitColorType = 94;
-    public const int RabbitNextSimpleState = 95;
-    public const int RabbitStateMachine = 96;
-    public const int RabbitVisualChanger = 97;
-    public const int Replicating = 98;
-    public const int ReplicationAvailable = 99;
-    public const int ReplicationBlocked = 100;
-    public const int ReplicationExpired = 101;
-    public const int ReplicationFinished = 102;
-    public const int ReplicationInterval = 103;
-    public const int ReplicationState = 104;
-    public const int ReplicationTarget = 105;
-    public const int ReplicationTimeLeft = 106;
-    public const int ReplicationTimeUp = 107;
-    public const int ResetReplicationProcess = 108;
-    public const int StallParentIndex = 109;
-    public const int StupidMoveState = 110;
-    public const int TimeLeftForMoving = 111;
-    public const int TimeLeftForNextReplication = 112;
-    public const int TransitionComplete = 113;
-    public const int WaitingForMoving = 114;
-    public const int WaitingForNextReplicationUp = 115;
-    public const int WaitingReplicationTarget = 116;
-    public const int WaitReplicationDuration = 117;
-    public const int WaitReplicationTimeLeft = 118;
-    public const int WantToReplicate = 119;
-    public const int AfterDragPosition = 120;
-    public const int CleanupUnselectMark = 121;
-    public const int DragCanceled = 122;
-    public const int DragFinished = 123;
-    public const int Dragging = 124;
-    public const int DragStarted = 125;
-    public const int DragStopped = 126;
-    public const int EntitiesForReleaseQueue = 127;
-    public const int EntitiesForSelectionQueue = 128;
-    public const int FollowSelectCenterSpeed = 129;
-    public const int HasSelections = 130;
-    public const int MoveToAfterDragPositionSpeed = 131;
-    public const int MovingToAfterDragPosition = 132;
-    public const int MultipleSelectionWindow = 133;
-    public const int ReleaseFromDragUp = 134;
-    public const int SavedPositionBeforeDrag = 135;
-    public const int Selectable = 136;
-    public const int SelectCenterPosition = 137;
-    public const int SelectCenterRadius = 138;
-    public const int Selected = 139;
-    public const int SelectedEntities = 140;
-    public const int Selection = 141;
-    public const int SelectionDragMaxTime = 142;
-    public const int SelectionDragTimeLeft = 143;
-    public const int SelectionLayerMask = 144;
-    public const int ShiftFromSelect = 145;
-    public const int StoppedWaitingMouseDragFinish = 146;
-    public const int UnselectSelectedEntities = 147;
-    public const int WaitingMouseDragFinish = 148;
-    public const int Stall = 149;
-    public const int StallBounds = 150;
-    public const int StallIndex = 151;
-    public const int Affected = 152;
-    public const int Applied = 153;
-    public const int ApplierStatusLink = 154;
-    public const int Duration = 155;
-    public const int Period = 156;
-    public const int PoisonStatus = 157;
-    public const int RabiesStatus = 158;
-    public const int Status = 159;
-    public const int StatusTypeId = 160;
-    public const int TimeLeft = 161;
-    public const int TimeSinceLastTick = 162;
-    public const int Unapplied = 163;
-    public const int ValidStatus = 164;
-    public const int CollectingTargetsContinuously = 165;
-    public const int CollectTargetsInterval = 166;
-    public const int CollectTargetsTimer = 167;
-    public const int LayerMask = 168;
-    public const int ProcessedTargets = 169;
-    public const int Reached = 170;
-    public const int ReadyToCollectTargets = 171;
-    public const int TargetBuffer = 172;
-    public const int TargetLimit = 173;
+    public const int Hole = 45;
+    public const int HoleEntitySpawnData = 46;
+    public const int SpawnAmount = 47;
+    public const int SpawnInterval = 48;
+    public const int SpawnTimeLeft = 49;
+    public const int SpawnUp = 50;
+    public const int CarrierOfInfection = 51;
+    public const int CarrierOfInfectionId = 52;
+    public const int CarrierOfPoisonInfection = 53;
+    public const int CarrierOfRabiesInfection = 54;
+    public const int ChanceToInfect = 55;
+    public const int Infection = 56;
+    public const int InfectionInterval = 57;
+    public const int InfectionLayerMask = 58;
+    public const int InfectionRadius = 59;
+    public const int InfectionTrayLength = 60;
+    public const int InfectionTrayWidth = 61;
+    public const int InfectionType = 62;
+    public const int InfectionUp = 63;
+    public const int LevelInfection = 64;
+    public const int PoisoningInfection = 65;
+    public const int RabiesInfection = 66;
+    public const int TimeLeftBeforeInfection = 67;
+    public const int ValidInfection = 68;
+    public const int MoveDirection = 69;
+    public const int MovementAvailable = 70;
+    public const int Moving = 71;
+    public const int Speed = 72;
+    public const int TargetPoint = 73;
+    public const int TargetPointReached = 74;
+    public const int TurnedAlongDirection = 75;
+    public const int ActivityFree = 76;
+    public const int Alive = 77;
+    public const int AngryState = 78;
+    public const int CanBeChosenForReplication = 79;
+    public const int CanStartReplication = 80;
+    public const int ChosenForReplication = 81;
+    public const int ChosenForReplicationBy = 82;
+    public const int CleanupMovingFinished = 83;
+    public const int CleanupResetReplicationMarkers = 84;
+    public const int CurrentReplicationDuration = 85;
+    public const int Dead = 86;
+    public const int DeadByInfection = 87;
+    public const int DeadState = 88;
+    public const int DefaultReplicationDuration = 89;
+    public const int DraggingState = 90;
+    public const int IdleState = 91;
+    public const int InvalidReplicationTarget = 92;
+    public const int MovingFinished = 93;
+    public const int MovingInterval = 94;
+    public const int MovingUp = 95;
+    public const int NearReplicationTarget = 96;
+    public const int ProcessingDeath = 97;
+    public const int Rabbit = 98;
+    public const int RabbitAnimator = 99;
+    public const int RabbitColorType = 100;
+    public const int RabbitNextSimpleState = 101;
+    public const int RabbitStateMachine = 102;
+    public const int RabbitVisualChanger = 103;
+    public const int Replicating = 104;
+    public const int ReplicationAvailable = 105;
+    public const int ReplicationBlocked = 106;
+    public const int ReplicationExpired = 107;
+    public const int ReplicationFinished = 108;
+    public const int ReplicationInterval = 109;
+    public const int ReplicationState = 110;
+    public const int ReplicationTarget = 111;
+    public const int ReplicationTimeLeft = 112;
+    public const int ReplicationTimeUp = 113;
+    public const int ResetReplicationProcess = 114;
+    public const int StallParentIndex = 115;
+    public const int StupidMoveState = 116;
+    public const int TimeLeftForMoving = 117;
+    public const int TimeLeftForNextReplication = 118;
+    public const int TransitionComplete = 119;
+    public const int WaitingForMoving = 120;
+    public const int WaitingForNextReplicationUp = 121;
+    public const int WaitingReplicationTarget = 122;
+    public const int WaitReplicationDuration = 123;
+    public const int WaitReplicationTimeLeft = 124;
+    public const int WantToReplicate = 125;
+    public const int AfterDragPosition = 126;
+    public const int CleanupUnselectMark = 127;
+    public const int DragCanceled = 128;
+    public const int DragFinished = 129;
+    public const int Dragging = 130;
+    public const int DragStarted = 131;
+    public const int DragStopped = 132;
+    public const int EntitiesForReleaseQueue = 133;
+    public const int EntitiesForSelectionQueue = 134;
+    public const int FollowSelectCenterSpeed = 135;
+    public const int HasSelections = 136;
+    public const int MoveToAfterDragPositionSpeed = 137;
+    public const int MovingToAfterDragPosition = 138;
+    public const int MultipleSelectionWindow = 139;
+    public const int ReleaseFromDragUp = 140;
+    public const int SavedPositionBeforeDrag = 141;
+    public const int Selectable = 142;
+    public const int SelectCenterPosition = 143;
+    public const int SelectCenterRadius = 144;
+    public const int Selected = 145;
+    public const int SelectedEntities = 146;
+    public const int Selection = 147;
+    public const int SelectionDragMaxTime = 148;
+    public const int SelectionDragTimeLeft = 149;
+    public const int SelectionLayerMask = 150;
+    public const int ShiftFromSelect = 151;
+    public const int StoppedWaitingMouseDragFinish = 152;
+    public const int UnselectSelectedEntities = 153;
+    public const int WaitingMouseDragFinish = 154;
+    public const int Stall = 155;
+    public const int StallBounds = 156;
+    public const int StallIndex = 157;
+    public const int Affected = 158;
+    public const int Applied = 159;
+    public const int ApplierStatusLink = 160;
+    public const int Duration = 161;
+    public const int Period = 162;
+    public const int PoisonStatus = 163;
+    public const int RabiesStatus = 164;
+    public const int Status = 165;
+    public const int StatusTypeId = 166;
+    public const int TimeLeft = 167;
+    public const int TimeSinceLastTick = 168;
+    public const int Unapplied = 169;
+    public const int ValidStatus = 170;
+    public const int CollectingTargetsContinuously = 171;
+    public const int CollectTargetsInterval = 172;
+    public const int CollectTargetsTimer = 173;
+    public const int LayerMask = 174;
+    public const int ProcessedTargets = 175;
+    public const int Reached = 176;
+    public const int ReadyToCollectTargets = 177;
+    public const int TargetBuffer = 178;
+    public const int TargetLimit = 179;
 
-    public const int TotalComponents = 174;
+    public const int TotalComponents = 180;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -231,6 +237,12 @@ public static class GameComponentsLookup {
         "ValidHuntTarget",
         "WaitingHunt",
         "WaitingNextHuntTarget",
+        "Hole",
+        "HoleEntitySpawnData",
+        "SpawnAmount",
+        "SpawnInterval",
+        "SpawnTimeLeft",
+        "SpawnUp",
         "CarrierOfInfection",
         "CarrierOfInfectionId",
         "CarrierOfPoisonInfection",
@@ -408,6 +420,12 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Foxes.ValidHuntTarget),
         typeof(Code.Gameplay.Features.Foxes.WaitingHunt),
         typeof(Code.Gameplay.Features.Foxes.WaitingNextHuntTarget),
+        typeof(Code.Gameplay.Features.Holes.Hole),
+        typeof(Code.Gameplay.Features.Holes.HoleEntitySpawnDataComponent),
+        typeof(Code.Gameplay.Features.Holes.SpawnAmount),
+        typeof(Code.Gameplay.Features.Holes.SpawnInterval),
+        typeof(Code.Gameplay.Features.Holes.SpawnTimeLeft),
+        typeof(Code.Gameplay.Features.Holes.SpawnUp),
         typeof(Code.Gameplay.Features.Infections.CarrierOfInfection),
         typeof(Code.Gameplay.Features.Infections.CarrierOfInfectionId),
         typeof(Code.Gameplay.Features.Infections.CarrierOfPoisonInfection),

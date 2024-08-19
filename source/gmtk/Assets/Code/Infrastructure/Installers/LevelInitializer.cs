@@ -12,6 +12,7 @@ namespace Code.Infrastructure.Installers
     public Transform StallSpawnParent;
     public Transform RabbitSpawnParent;
     public Transform FoxesSpawnParent;
+    public Transform HolesSpawnParent;
 
     private ICameraProvider _cameraProvider;
     private ILevelDataProvider _levelDataProvider;
@@ -32,6 +33,7 @@ namespace Code.Infrastructure.Installers
       _levelDataProvider.SetStallSpawnParent(StallSpawnParent);
       _levelDataProvider.SetRabbitSpawnParent(RabbitSpawnParent);
       _levelDataProvider.SetFoxSpawnParent(FoxesSpawnParent);
+      _levelDataProvider.SetHoleSpawnParent(HolesSpawnParent);
 
       _cameraProvider.SetMainCamera(MainCamera);
     }

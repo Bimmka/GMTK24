@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Code.Gameplay.Features.Stalls;
+using UnityEngine;
 
 namespace Code.Gameplay.Features.Level.Config
 {
@@ -11,5 +12,6 @@ namespace Code.Gameplay.Features.Level.Config
         public PresetupRabbitData[] PresetupRabbits;
         public InfectionForLevelData[] Infections;
         public PresetupFoxesData[] PresetupFoxesData;
+        public PresetupHoleData[] PresetupHoleData;
     }
 }

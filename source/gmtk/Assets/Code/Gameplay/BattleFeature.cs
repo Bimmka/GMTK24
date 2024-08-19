@@ -1,6 +1,7 @@
 ﻿using Code.Common.Destruct;
 using Code.Gameplay.Features.CharacterStats;
 using Code.Gameplay.Features.Foxes;
+using Code.Gameplay.Features.Holes;
 using Code.Gameplay.Features.Infections;
 using Code.Gameplay.Features.Movement;
 using Code.Gameplay.Features.Rabbits;
@@ -19,6 +20,8 @@ namespace Code.Gameplay
     {
       Add(systems.Create<InputFeature>());
       Add(systems.Create<BindViewFeature>());
+
+      Add(systems.Create<HoleFeature>());
 
       Add(systems.Create<StatsFeature>());
       Add(systems.Create<SelectionFeature>());

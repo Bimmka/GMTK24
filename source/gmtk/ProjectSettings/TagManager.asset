@@ -14,7 +14,7 @@ TagManager:
   - Rabbit
   - Stall
   - Fox
-  - 
+  - Hole
   - 
   - 
   - 
@@ -43,6 +43,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 1208412249
+    locked: 0
+  - name: Hole
+    uniqueID: 1270456167
     locked: 0
   - name: Rabbit
     uniqueID: 2604813159

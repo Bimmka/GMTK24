@@ -9,6 +9,7 @@ namespace Code.Gameplay.Levels
     public string CurrentId { get; private set; }
     public Transform RabbitSpawnParent { get; private set; }
     public Transform FoxSpawnParent { get; private set; }
+    public Transform HoleSpawnParent { get; private set; }
 
     public void SetStartPoint(Vector3 startPoint)
     {
@@ -28,6 +29,11 @@ namespace Code.Gameplay.Levels
     public void SetFoxSpawnParent(Transform foxSpawnParent)
     {
       FoxSpawnParent = foxSpawnParent;
+    }
+    
+    public void SetHoleSpawnParent(Transform holeSpawnParent)
+    {
+      HoleSpawnParent = holeSpawnParent;
     }
 
     public void SetCurrentId(string id)

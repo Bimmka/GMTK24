@@ -1,6 +1,7 @@
 using Code.Common.Extensions;
 using Code.Gameplay;
 using Code.Gameplay.Features.Foxes.Factory;
+using Code.Gameplay.Features.Holes.Factory;
 using Code.Gameplay.Features.Infections.Factory;
 using Code.Gameplay.Features.Level.Config;
 using Code.Gameplay.Features.Rabbits.Factory;
@@ -28,6 +29,7 @@ namespace Code.Infrastructure.States.GameStates
     private readonly IWindowService _windowService;
     private readonly IInfectionFactory _infectionFactory;
     private readonly IFoxFactory _foxFactory;
+    private readonly IHoleFactory _holeFactory;
     private readonly ISystemFactory _systems;
     private readonly GameContext _gameContext;
 
@@ -40,7 +42,8 @@ namespace Code.Infrastructure.States.GameStates
       IRabbitFactory rabbitFactory,
       IWindowService windowService,
       IInfectionFactory infectionFactory,
-      IFoxFactory foxFactory)
+      IFoxFactory foxFactory,
+      IHoleFactory holeFactory)
     {
       _stateMachine = stateMachine;
       _levelDataProvider = levelDataProvider;
@@ -51,6 +54,7 @@ namespace Code.Infrastructure.States.GameStates
       _windowService = windowService;
       _infectionFactory = infectionFactory;
       _foxFactory = foxFactory;
+      _holeFactory = holeFactory;
     }
     
     public override void Enter()
@@ -65,6 +69,7 @@ namespace Code.Infrastructure.States.GameStates
       PlaceRabbits(config.PresetupRabbits);
       PlaceLevelInfections(config.Infections);
       PlaceFoxes(config.PresetupFoxesData);
+      PlaceHoles(config.PresetupHoleData);
       
       _windowService.Open(WindowId.MultipleSelection);
       
@@ -101,12 +106,20 @@ namespace Code.Infrastructure.States.GameStates
         _infectionFactory.CreateLevelInfection(infection.Type, infection.Interval);
       }
     }
-    
+
     private void PlaceFoxes(PresetupFoxesData[] foxes)
     {
       foreach (PresetupFoxesData fox in foxes)
       {
         _foxFactory.Create(_stallService.GetRandomPositionInStall(fox.StallIndex), fox.StallIndex);
+      }
+    }
+
+    private void PlaceHoles(PresetupHoleData[] presetupHoles)
+    {
+      foreach (PresetupHoleData holeData in presetupHoles)
+      {
+        _holeFactory.Create(holeData.Setup, holeData.At, holeData.StallIndex);
       }
     }
   }

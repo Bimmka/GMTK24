@@ -41,13 +41,5 @@ namespace Code.Infrastructure.View
       _entity.Release(this);
       _entity = null;
     }
-
-    private void OnDrawGizmos()
-    {
-      if (Entity.hasMoveDirection)
-      {
-        Gizmos.DrawLine(transform.position, transform.position + (Vector3)Entity.MoveDirection);
-      }
-    }
   }
 }

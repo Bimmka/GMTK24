@@ -1,4 +1,5 @@
 ﻿using Code.Gameplay.Features.Level.Config;
+using Code.Gameplay.Utils.Holes;
 using Code.Gameplay.Utils.Stalls;
 using UnityEditor;
 using UnityEngine;
@@ -19,9 +20,10 @@ namespace Code.Editor.CustomEditors
         {
             base.OnInspectorGUI();
 
-            if (GUILayout.Button("Collect Stalls Spawn Data"))
+            if (GUILayout.Button("Collect Data"))
             {
                 CollectStallsSpawnData();
+                CollectHolesSpawnData();
                 EditorUtility.SetDirty(config);
                 AssetDatabase.SaveAssets();
             }
@@ -42,6 +44,24 @@ namespace Code.Editor.CustomEditors
                     Index = spawnMarkers[i].Index,
                     SpawnPosition = spawnMarkers[i].transform.position,
                     View = spawnMarkers[i].View
+                };
+            }
+        }
+        
+        private void CollectHolesSpawnData()
+        {
+            HoleSpawnMarker[] spawnMarkers = FindObjectsOfType<HoleSpawnMarker>();
+
+            config.PresetupHoleData = null;
+            config.PresetupHoleData = new PresetupHoleData[spawnMarkers.Length];
+            
+            for (int i = 0; i < spawnMarkers.Length; i++)
+            {
+                config.PresetupHoleData[i] = new PresetupHoleData()
+                {
+                    StallIndex = spawnMarkers[i].Index,
+                    At = spawnMarkers[i].transform.position,
+                    Setup = spawnMarkers[i].Setup
                 };
             }
         }
