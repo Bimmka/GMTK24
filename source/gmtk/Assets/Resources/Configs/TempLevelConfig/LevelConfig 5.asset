@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68f567ce7f584441b3ddb1efea1dc946, type: 3}
-  m_Name: LevelConfig
+  m_Name: LevelConfig 5
   m_EditorClassIdentifier: 
   Id: 
   TaskConfig:
@@ -39,15 +39,11 @@ MonoBehaviour:
     Bounds: {x: 12, y: 6}
   - View: {fileID: 3863858705266743693, guid: cbd4301e14f360a4eb98718fd5ff4ce8, type: 3}
     SpawnPosition: {x: 17.69, y: -3.9999998, z: 0}
-    Index: 3
+    Index: 0
     Bounds: {x: 12, y: 6}
   - View: {fileID: 3863858705266743693, guid: cbd4301e14f360a4eb98718fd5ff4ce8, type: 3}
     SpawnPosition: {x: 3.86, y: -3.9999998, z: 0}
     Index: 2
-    Bounds: {x: 12, y: 6}
-  - View: {fileID: 3863858705266743693, guid: cbd4301e14f360a4eb98718fd5ff4ce8, type: 3}
-    SpawnPosition: {x: 17.68, y: 3.93, z: 0}
-    Index: 0
     Bounds: {x: 12, y: 6}
   PresetupRabbits:
   - Type: 3

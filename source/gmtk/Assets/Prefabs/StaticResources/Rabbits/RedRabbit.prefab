@@ -142,8 +142,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpriteRenderer: {fileID: 1387650854986374518}
   SelectedColor: {r: 0.3824134, g: 1, b: 0, a: 1}
-  UnselectedColor: {r: 1, g: 0, b: 0, a: 1}
-  ReplicationColor: {r: 1, g: 0.6744842, b: 0, a: 1}
+  DefaultColor: {r: 0.9528302, g: 0.03146139, b: 0.03146139, a: 1}
+  ReplicationColor: {r: 1, g: 0.2943648, b: 0, a: 1}
   WaitingTargetColor: {r: 0, g: 0.07410216, b: 1, a: 1}
 --- !u!114 &8942472079699152202
 MonoBehaviour:
@@ -231,7 +231,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1690154137
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}

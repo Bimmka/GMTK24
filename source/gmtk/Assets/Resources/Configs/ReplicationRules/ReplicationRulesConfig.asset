@@ -25,13 +25,13 @@ MonoBehaviour:
   - ColorType: 5
     Weight: 375
   - ColorType: 6
-    Weight: 125
+    Weight: 175
   - ColorType: 7
-    Weight: 125
+    Weight: 175
   - ColorType: 8
-    Weight: 125
+    Weight: 175
   - ColorType: 9
-    Weight: 125
+    Weight: 175
   ColorMixings:
   - FirstColorType: 1
     SecondColorType: 2
@@ -45,4 +45,4 @@ MonoBehaviour:
   - FirstColorType: 5
     SecondColorType: 4
     ResultColorType: 9
-  RecessiveColorMixingWeight: 250
+  RecessiveColorMixingWeight: 300

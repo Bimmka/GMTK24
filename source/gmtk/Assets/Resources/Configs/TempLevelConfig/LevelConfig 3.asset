@@ -10,28 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68f567ce7f584441b3ddb1efea1dc946, type: 3}
-  m_Name: LevelConfig
+  m_Name: LevelConfig 3
   m_EditorClassIdentifier: 
   Id: 
   TaskConfig:
-    Id: 5
-    Description: 5
-    Name: 5
+    Id: 3
+    Description: 3
+    Name: 3
     Icon: {fileID: 0}
-    TaskType: 0
-    DurationLimitation: 00000000
-    AmountCondition: 0
-    TaskGoalsByRabbitColor:
-    - ColorType: 8
-      MinAmount: 3
-      MaxAmount: 3
-    - ColorType: 9
-      MinAmount: 3
-      MaxAmount: 3
-    TaskDurationTime: 100
-    TimeToHold: 0
-    MinAmount: 0
-    MaxAmount: 0
+    TaskType: 1
+    DurationLimitation: 01000000
+    AmountCondition: 1
+    TaskGoalsByRabbitColor: []
+    TaskDurationTime: 0
+    TimeToHold: 30
+    MinAmount: 4
+    MaxAmount: 7
   StallsSpawnData:
   - View: {fileID: 3863858705266743693, guid: cbd4301e14f360a4eb98718fd5ff4ce8, type: 3}
     SpawnPosition: {x: 3.85, y: 3.93, z: 0}
@@ -39,23 +33,14 @@ MonoBehaviour:
     Bounds: {x: 12, y: 6}
   - View: {fileID: 3863858705266743693, guid: cbd4301e14f360a4eb98718fd5ff4ce8, type: 3}
     SpawnPosition: {x: 17.69, y: -3.9999998, z: 0}
-    Index: 3
-    Bounds: {x: 12, y: 6}
-  - View: {fileID: 3863858705266743693, guid: cbd4301e14f360a4eb98718fd5ff4ce8, type: 3}
-    SpawnPosition: {x: 3.86, y: -3.9999998, z: 0}
-    Index: 2
-    Bounds: {x: 12, y: 6}
-  - View: {fileID: 3863858705266743693, guid: cbd4301e14f360a4eb98718fd5ff4ce8, type: 3}
-    SpawnPosition: {x: 17.68, y: 3.93, z: 0}
     Index: 0
     Bounds: {x: 12, y: 6}
   PresetupRabbits:
-  - Type: 3
+  - Type: 1
     StallIndex: 0
-  - Type: 4
-    StallIndex: 1
-  - Type: 5
-    StallIndex: 2
+  - Type: 1
+    StallIndex: 0
   Infections: []
-  PresetupFoxesData: []
+  PresetupFoxesData:
+  - StallIndex: 1
   PresetupHoleData: []

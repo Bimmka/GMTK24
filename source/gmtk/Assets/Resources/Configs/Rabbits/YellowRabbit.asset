@@ -15,14 +15,14 @@ MonoBehaviour:
   ColorType: 3
   View: {fileID: 8808633256516987283, guid: eb28bdcf139319543851fd34e04dba1f, type: 3}
   MinIntervalBetweenMoving: 1
-  MaxIntervalBetweenMoving: 1
-  MinIntervalBetweenReplication: 20
-  MaxIntervalBetweenReplication: 20
-  MinReplicationDuration: 1
-  MaxReplicationDuration: 1
-  MinWaitReplicationDuration: 20
-  MaxWaitReplicationDuration: 20
-  MinSpeed: 1
-  MaxSpeed: 1
-  MinTimeToReleaseFromDrag: 4
-  MaxTimeToReleaseFromDrag: 4
+  MaxIntervalBetweenMoving: 2
+  MinIntervalBetweenReplication: 9
+  MaxIntervalBetweenReplication: 11
+  MinReplicationDuration: 0.9
+  MaxReplicationDuration: 1.2
+  MinWaitReplicationDuration: 3
+  MaxWaitReplicationDuration: 5
+  MinSpeed: 1.5
+  MaxSpeed: 2.5
+  MinTimeToReleaseFromDrag: 2.5
+  MaxTimeToReleaseFromDrag: 3.5
