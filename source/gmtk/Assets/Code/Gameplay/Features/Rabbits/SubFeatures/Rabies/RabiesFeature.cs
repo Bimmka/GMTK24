@@ -7,7 +7,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Rabies
     {
         public RabiesFeature(ISystemFactory systems)
         {
-            Add(systems.Create<MarkReplicationBlockedSystem>());
+            //Add(systems.Create<MarkReplicationBlockedSystem>());
         }
     }
 }
