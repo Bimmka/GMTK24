@@ -25,7 +25,7 @@ MonoBehaviour:
   PresetupRabbits:
   - Type: 1
     StallIndex: 1
-  - Type: 2
+  - Type: 1
     StallIndex: 1
   Infections:
   - Type: 2

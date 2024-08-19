@@ -29,7 +29,7 @@
             Entity.isSelectable = true;
 
             bool isChosenForReplicationBy = Entity.hasChosenForReplicationBy;
-            if (isChosenForReplicationBy == false)
+            if (isChosenForReplicationBy == false && Entity.isReplicationAvailable)
             {
                 Entity.isWaitingForNextReplicationUp = true;
                 Entity.isCanBeChosenForReplication = true;

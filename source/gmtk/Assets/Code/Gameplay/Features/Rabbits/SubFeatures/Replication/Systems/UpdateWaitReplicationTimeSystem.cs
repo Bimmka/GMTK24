@@ -15,7 +15,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                 .AllOf(
                     GameMatcher.Rabbit,
                     GameMatcher.ReplicationState,
-                    GameMatcher.WaitReplicationTimeLeft)
+                    GameMatcher.WaitReplicationTimeLeft,
+                    GameMatcher.ReplicationAvailable)
                 .NoneOf(GameMatcher.Replicating));
         }
 

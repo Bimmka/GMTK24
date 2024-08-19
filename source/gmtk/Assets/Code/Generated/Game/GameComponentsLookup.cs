@@ -76,81 +76,83 @@ public static class GameComponentsLookup {
     public const int RabbitStateMachine = 65;
     public const int RabbitVisualChanger = 66;
     public const int Replicating = 67;
-    public const int ReplicationExpired = 68;
-    public const int ReplicationFinished = 69;
-    public const int ReplicationInterval = 70;
-    public const int ReplicationState = 71;
-    public const int ReplicationTarget = 72;
-    public const int ReplicationTimeLeft = 73;
-    public const int ReplicationTimeUp = 74;
-    public const int ResetReplicationProcess = 75;
-    public const int StallParentIndex = 76;
-    public const int StupidMoveState = 77;
-    public const int TimeLeftForMoving = 78;
-    public const int TimeLeftForNextReplication = 79;
-    public const int TransitionComplete = 80;
-    public const int WaitingForMoving = 81;
-    public const int WaitingForNextReplicationUp = 82;
-    public const int WaitingReplicationTarget = 83;
-    public const int WaitReplicationDuration = 84;
-    public const int WaitReplicationTimeLeft = 85;
-    public const int WantToReplicate = 86;
-    public const int AfterDragPosition = 87;
-    public const int CleanupUnselectMark = 88;
-    public const int DragCanceled = 89;
-    public const int DragFinished = 90;
-    public const int Dragging = 91;
-    public const int DragStarted = 92;
-    public const int DragStopped = 93;
-    public const int EntitiesForReleaseQueue = 94;
-    public const int EntitiesForSelectionQueue = 95;
-    public const int FollowSelectCenterSpeed = 96;
-    public const int HasSelections = 97;
-    public const int MoveToAfterDragPositionSpeed = 98;
-    public const int MovingToAfterDragPosition = 99;
-    public const int MultipleSelectionWindow = 100;
-    public const int ReleaseFromDragUp = 101;
-    public const int SavedPositionBeforeDrag = 102;
-    public const int Selectable = 103;
-    public const int SelectCenterPosition = 104;
-    public const int SelectCenterRadius = 105;
-    public const int Selected = 106;
-    public const int SelectedEntities = 107;
-    public const int Selection = 108;
-    public const int SelectionDragMaxTime = 109;
-    public const int SelectionDragTimeLeft = 110;
-    public const int SelectionLayerMask = 111;
-    public const int ShiftFromSelect = 112;
-    public const int StoppedWaitingMouseDragFinish = 113;
-    public const int UnselectSelectedEntities = 114;
-    public const int WaitingMouseDragFinish = 115;
-    public const int Stall = 116;
-    public const int StallBounds = 117;
-    public const int StallIndex = 118;
-    public const int Affected = 119;
-    public const int Applied = 120;
-    public const int ApplierStatusLink = 121;
-    public const int Duration = 122;
-    public const int Period = 123;
-    public const int PoisonStatus = 124;
-    public const int RabiesStatus = 125;
-    public const int SecondEffectValue = 126;
-    public const int Status = 127;
-    public const int StatusTypeId = 128;
-    public const int TimeLeft = 129;
-    public const int TimeSinceLastTick = 130;
-    public const int Unapplied = 131;
-    public const int CollectingTargetsContinuously = 132;
-    public const int CollectTargetsInterval = 133;
-    public const int CollectTargetsTimer = 134;
-    public const int LayerMask = 135;
-    public const int ProcessedTargets = 136;
-    public const int Reached = 137;
-    public const int ReadyToCollectTargets = 138;
-    public const int TargetBuffer = 139;
-    public const int TargetLimit = 140;
+    public const int ReplicationAvailable = 68;
+    public const int ReplicationBlocked = 69;
+    public const int ReplicationExpired = 70;
+    public const int ReplicationFinished = 71;
+    public const int ReplicationInterval = 72;
+    public const int ReplicationState = 73;
+    public const int ReplicationTarget = 74;
+    public const int ReplicationTimeLeft = 75;
+    public const int ReplicationTimeUp = 76;
+    public const int ResetReplicationProcess = 77;
+    public const int StallParentIndex = 78;
+    public const int StupidMoveState = 79;
+    public const int TimeLeftForMoving = 80;
+    public const int TimeLeftForNextReplication = 81;
+    public const int TransitionComplete = 82;
+    public const int WaitingForMoving = 83;
+    public const int WaitingForNextReplicationUp = 84;
+    public const int WaitingReplicationTarget = 85;
+    public const int WaitReplicationDuration = 86;
+    public const int WaitReplicationTimeLeft = 87;
+    public const int WantToReplicate = 88;
+    public const int AfterDragPosition = 89;
+    public const int CleanupUnselectMark = 90;
+    public const int DragCanceled = 91;
+    public const int DragFinished = 92;
+    public const int Dragging = 93;
+    public const int DragStarted = 94;
+    public const int DragStopped = 95;
+    public const int EntitiesForReleaseQueue = 96;
+    public const int EntitiesForSelectionQueue = 97;
+    public const int FollowSelectCenterSpeed = 98;
+    public const int HasSelections = 99;
+    public const int MoveToAfterDragPositionSpeed = 100;
+    public const int MovingToAfterDragPosition = 101;
+    public const int MultipleSelectionWindow = 102;
+    public const int ReleaseFromDragUp = 103;
+    public const int SavedPositionBeforeDrag = 104;
+    public const int Selectable = 105;
+    public const int SelectCenterPosition = 106;
+    public const int SelectCenterRadius = 107;
+    public const int Selected = 108;
+    public const int SelectedEntities = 109;
+    public const int Selection = 110;
+    public const int SelectionDragMaxTime = 111;
+    public const int SelectionDragTimeLeft = 112;
+    public const int SelectionLayerMask = 113;
+    public const int ShiftFromSelect = 114;
+    public const int StoppedWaitingMouseDragFinish = 115;
+    public const int UnselectSelectedEntities = 116;
+    public const int WaitingMouseDragFinish = 117;
+    public const int Stall = 118;
+    public const int StallBounds = 119;
+    public const int StallIndex = 120;
+    public const int Affected = 121;
+    public const int Applied = 122;
+    public const int ApplierStatusLink = 123;
+    public const int Duration = 124;
+    public const int Period = 125;
+    public const int PoisonStatus = 126;
+    public const int RabiesStatus = 127;
+    public const int SecondEffectValue = 128;
+    public const int Status = 129;
+    public const int StatusTypeId = 130;
+    public const int TimeLeft = 131;
+    public const int TimeSinceLastTick = 132;
+    public const int Unapplied = 133;
+    public const int CollectingTargetsContinuously = 134;
+    public const int CollectTargetsInterval = 135;
+    public const int CollectTargetsTimer = 136;
+    public const int LayerMask = 137;
+    public const int ProcessedTargets = 138;
+    public const int Reached = 139;
+    public const int ReadyToCollectTargets = 140;
+    public const int TargetBuffer = 141;
+    public const int TargetLimit = 142;
 
-    public const int TotalComponents = 141;
+    public const int TotalComponents = 143;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -221,6 +223,8 @@ public static class GameComponentsLookup {
         "RabbitStateMachine",
         "RabbitVisualChanger",
         "Replicating",
+        "ReplicationAvailable",
+        "ReplicationBlocked",
         "ReplicationExpired",
         "ReplicationFinished",
         "ReplicationInterval",
@@ -365,6 +369,8 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Rabbits.RabbitStateMachineComponent),
         typeof(Code.Gameplay.Features.Rabbits.RabbitVisualChangerComponent),
         typeof(Code.Gameplay.Features.Rabbits.Replicating),
+        typeof(Code.Gameplay.Features.Rabbits.ReplicationAvailable),
+        typeof(Code.Gameplay.Features.Rabbits.ReplicationBlocked),
         typeof(Code.Gameplay.Features.Rabbits.ReplicationExpired),
         typeof(Code.Gameplay.Features.Rabbits.ReplicationFinished),
         typeof(Code.Gameplay.Features.Rabbits.ReplicationInterval),

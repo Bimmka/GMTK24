@@ -32,9 +32,14 @@ namespace Code.Gameplay.Features.Rabbits.StateMachine.States
             Entity.isReplicating = false;
             Entity.isReplicationFinished = false;
             Entity.isNearReplicationTarget = false;
-            Entity.isCanBeChosenForReplication = true;
-            Entity.isWaitingForNextReplicationUp = true;
-            Entity.isCanStartReplication = true;
+
+            if (Entity.isReplicationAvailable)
+            {
+                Entity.isCanBeChosenForReplication = true;
+                Entity.isWaitingForNextReplicationUp = true;
+                Entity.isCanStartReplication = true;
+            }
+           
             Entity.isReplicationTimeUp = false;
             Entity.isWaitingReplicationTarget = false;
 

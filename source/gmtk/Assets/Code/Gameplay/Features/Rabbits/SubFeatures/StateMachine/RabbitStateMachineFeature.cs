@@ -19,6 +19,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.StateMachine
             Add(systems.Create<TransitToIdleStateWhenReplicationInvalidSystem>());
             Add(systems.Create<TransitToIdleStateWhenDragFinishedSystem>());
             Add(systems.Create<TransitToIdleStateWhenReplicationExpiredSystem>());
+            Add(systems.Create<TransitToIdleStateWhenReplicationBlockedSystem>());
 
             Add(systems.Create<TransitToDraggingStateSystem>());
 

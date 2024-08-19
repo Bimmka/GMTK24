@@ -16,7 +16,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                     GameMatcher.ChosenForReplicationBy,
                     GameMatcher.ChosenForReplication,
                     GameMatcher.Rabbit,
-                    GameMatcher.Id)
+                    GameMatcher.Id,
+                    GameMatcher.ReplicationAvailable)
                 .AnyOf(
                     GameMatcher.IdleState,
                     GameMatcher.StupidMoveState)

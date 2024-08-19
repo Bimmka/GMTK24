@@ -3,28 +3,26 @@ using Entitas;
 
 namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
 {
-    public class RemoveReplicationTargetComponentWhenWaitingExpiredSystem : IExecuteSystem
+    public class ApplyReplicationBlockSystem : IExecuteSystem
     {
-        private readonly GameContext _game;
         private readonly IGroup<GameEntity> _rabbits;
         private readonly List<GameEntity> _buffer = new List<GameEntity>(32);
 
-        public RemoveReplicationTargetComponentWhenWaitingExpiredSystem(GameContext game)
+        public ApplyReplicationBlockSystem(GameContext game)
         {
-            _game = game;
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(
-                    GameMatcher.ReplicationTarget,
-                    GameMatcher.ReplicationExpired,
-                    GameMatcher.ReplicationAvailable));
+                    GameMatcher.Rabbit,
+                    GameMatcher.ReplicationBlocked,
+                    GameMatcher.ReplicationAvailable)
+                .NoneOf(GameMatcher.Replicating));
         }
 
         public void Execute()
         {
             foreach (GameEntity rabbit in _rabbits.GetEntities(_buffer))
             {
-                rabbit.isInvalidReplicationTarget = true;
-                rabbit.RemoveReplicationTarget();
+                rabbit.isReplicationAvailable = false;
             }
         }
     }

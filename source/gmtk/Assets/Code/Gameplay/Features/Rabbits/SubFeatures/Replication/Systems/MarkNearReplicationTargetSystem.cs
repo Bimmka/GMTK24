@@ -16,7 +16,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                     GameMatcher.Rabbit,
                     GameMatcher.ReplicationTarget,
                     GameMatcher.WorldPosition,
-                    GameMatcher.ReplicationState)
+                    GameMatcher.ReplicationState,
+                    GameMatcher.ReplicationAvailable)
                 .NoneOf(GameMatcher.InvalidReplicationTarget));
         }
 

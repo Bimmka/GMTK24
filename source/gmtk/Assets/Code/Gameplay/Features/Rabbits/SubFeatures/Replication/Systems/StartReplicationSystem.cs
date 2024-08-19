@@ -20,7 +20,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                     GameMatcher.NearReplicationTarget,
                     GameMatcher.DefaultReplicationDuration,
                     GameMatcher.CurrentReplicationDuration,
-                    GameMatcher.ReplicationState)
+                    GameMatcher.ReplicationState,
+                    GameMatcher.ReplicationAvailable)
                 .NoneOf(GameMatcher.Replicating));
         }
 

@@ -15,7 +15,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
             _replicators = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.ReplicationTarget,
-                    GameMatcher.StallParentIndex));
+                    GameMatcher.StallParentIndex,
+                    GameMatcher.ReplicationAvailable));
         }
 
         public void Execute()

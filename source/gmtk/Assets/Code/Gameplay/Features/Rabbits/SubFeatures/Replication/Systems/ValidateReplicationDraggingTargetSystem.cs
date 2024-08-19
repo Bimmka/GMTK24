@@ -17,7 +17,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                     GameMatcher.ChosenForReplication,
                     GameMatcher.Rabbit,
                     GameMatcher.Id,
-                    GameMatcher.DraggingState));
+                    GameMatcher.DraggingState,
+                    GameMatcher.ReplicationAvailable));
             
             _replicators = game.GetGroup(GameMatcher
                 .AllOf(
