@@ -12,7 +12,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                 .AllOf(
                     GameMatcher.Rabbit,
                     GameMatcher.ReplicationTimeUp,
-                    GameMatcher.ReplicationTarget)
+                    GameMatcher.ReplicationTarget,
+                    GameMatcher.ReplicationAvailable)
                 .AnyOf(
                     GameMatcher.IdleState,
                     GameMatcher.StupidMoveState));

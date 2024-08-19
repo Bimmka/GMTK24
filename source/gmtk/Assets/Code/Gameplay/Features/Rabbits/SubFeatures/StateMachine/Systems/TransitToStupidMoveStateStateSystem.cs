@@ -12,7 +12,9 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.StateMachine.Systems
             _stateMachines = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.RabbitStateMachine,
-                    GameMatcher.MovingUp)
+                    GameMatcher.MovingUp,
+                    GameMatcher.Rabbit,
+                    GameMatcher.Alive)
                 .AnyOf(
                     GameMatcher.IdleState,
                     GameMatcher.StupidMoveState));

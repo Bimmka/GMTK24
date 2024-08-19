@@ -12,7 +12,8 @@ namespace Code.Gameplay.Features.Rabbits.Systems.Visuals
                 .AllOf(
                     GameMatcher.Rabbit,
                     GameMatcher.DragFinished,
-                    GameMatcher.RabbitVisualChanger));
+                    GameMatcher.RabbitVisualChanger,
+                    GameMatcher.Alive));
         }
 
         public void Execute()

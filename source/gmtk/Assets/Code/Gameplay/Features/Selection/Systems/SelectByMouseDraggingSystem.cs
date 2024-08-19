@@ -29,7 +29,8 @@ namespace Code.Gameplay.Features.Selection.Systems
             _selectables = game.GetGroup(GameMatcher
                 .AllOf(
                 GameMatcher.Selectable,
-                GameMatcher.WorldPosition));
+                GameMatcher.WorldPosition,
+                GameMatcher.Alive));
         }
 
         public void Execute()

@@ -1,9 +1,9 @@
 ﻿using Code.Gameplay.Features.Movement.Systems;
-using Code.Gameplay.Features.Rabbits.SubFeatures.Angry;
 using Code.Gameplay.Features.Rabbits.SubFeatures.Dead;
 using Code.Gameplay.Features.Rabbits.SubFeatures.Dragging;
 using Code.Gameplay.Features.Rabbits.SubFeatures.Dragging.Systems;
 using Code.Gameplay.Features.Rabbits.SubFeatures.Idle;
+using Code.Gameplay.Features.Rabbits.SubFeatures.Rabies;
 using Code.Gameplay.Features.Rabbits.SubFeatures.Replication;
 using Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems;
 using Code.Gameplay.Features.Rabbits.SubFeatures.StateMachine;
@@ -46,7 +46,7 @@ namespace Code.Gameplay.Features.Rabbits
             Add(systems.Create<UpdateMovingMarkSystem>());
 
             Add(systems.Create<IdleFeature>());
-            Add(systems.Create<AngryFeature>());
+            Add(systems.Create<RabiesFeature>());
             Add(systems.Create<StupidMovingFeature>());
             Add(systems.Create<ReplicationFeature>());
             Add(systems.Create<DraggingFeature>());

@@ -12,7 +12,9 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.StateMachine.Systems
             _stateMachines = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.ReplicationState,
-                    GameMatcher.RabbitStateMachine)
+                    GameMatcher.RabbitStateMachine,
+                    GameMatcher.Rabbit,
+                    GameMatcher.Alive)
                 .AnyOf(
                     GameMatcher.InvalidReplicationTarget,
                     GameMatcher.ResetReplicationProcess));

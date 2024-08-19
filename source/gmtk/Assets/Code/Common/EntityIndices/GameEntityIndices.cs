@@ -31,7 +31,8 @@ namespace Code.Common.EntityIndices
           GameMatcher.CanBeChosenForReplication,
           GameMatcher.StallParentIndex,
           GameMatcher.RabbitColorType,
-          GameMatcher.Id)),
+          GameMatcher.Id,
+          GameMatcher.ReplicationAvailable)),
         getKey: GetReplicationTargetKey,
         new ReplicationTargetKeyEqualityComparer()));
       

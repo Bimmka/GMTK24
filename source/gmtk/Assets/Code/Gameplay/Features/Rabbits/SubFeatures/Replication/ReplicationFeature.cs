@@ -7,6 +7,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication
     {
         public ReplicationFeature(ISystemFactory systems)
         {
+            Add(systems.Create<ApplyReplicationBlockSystem>());
+            
             Add(systems.Create<UpdateTimeForReplicationSystem>());
 
             Add(systems.Create<SetReplicationTargetSystem>());
@@ -20,6 +22,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication
             Add(systems.Create<RemoveReplicationTargetComponentWithoutPositionSystem>());
             Add(systems.Create<RemoveReplicationTargetComponentWhenDifferenceStallSystem>());
             Add(systems.Create<RemoveReplicationTargetComponentWhenWaitingExpiredSystem>());
+            Add(systems.Create<RemoveReplicationTargetComponentWhenReplicationBlockedSystem>());
 
             Add(systems.Create<ValidateReplicationNonDraggingTargetSystem>());
             Add(systems.Create<ValidateReplicationDraggingTargetSystem>());

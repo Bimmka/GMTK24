@@ -12,7 +12,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                 .AllOf(
                     GameMatcher.Rabbit,
                     GameMatcher.ReplicationState,
-                    GameMatcher.RabbitVisualChanger)
+                    GameMatcher.RabbitVisualChanger,
+                    GameMatcher.Alive)
                 .NoneOf(GameMatcher.Replicating));
         }
 

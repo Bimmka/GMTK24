@@ -24,7 +24,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                     GameMatcher.ReplicationTimeUp,
                     GameMatcher.StallParentIndex,
                     GameMatcher.Id,
-                    GameMatcher.CanStartReplication)
+                    GameMatcher.CanStartReplication,
+                    GameMatcher.ReplicationAvailable)
                 .AnyOf(
                     GameMatcher.IdleState,
                     GameMatcher.StupidMoveState));

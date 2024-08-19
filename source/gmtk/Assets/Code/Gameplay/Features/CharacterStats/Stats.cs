@@ -6,5 +6,6 @@
     Speed = 1,
     ReplicationDuration = 2,
     DragReleaseDuration = 3,
+    MovingInterval = 4,
   }
 }

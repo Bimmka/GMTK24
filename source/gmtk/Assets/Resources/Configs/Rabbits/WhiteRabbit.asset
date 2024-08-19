@@ -14,10 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ColorType: 1
   View: {fileID: 8808633256516987283, guid: bb4c300d57325794b8413add24b481e7, type: 3}
-  IntervalBetweenMoving: 3
+  MinIntervalBetweenMoving: 1
+  MaxIntervalBetweenMoving: 1
   MinIntervalBetweenReplication: 1
   MaxIntervalBetweenReplication: 2
-  ReplicationDuration: 2
-  WaitReplicationDuration: 5
-  Speed: 1
-  TimeToRelease: 7
+  MinReplicationDuration: 1
+  MaxReplicationDuration: 1
+  MinWaitReplicationDuration: 5
+  MaxWaitReplicationDuration: 5
+  MinSpeed: 1
+  MaxSpeed: 2
+  MinTimeToReleaseFromDrag: 4
+  MaxTimeToReleaseFromDrag: 4

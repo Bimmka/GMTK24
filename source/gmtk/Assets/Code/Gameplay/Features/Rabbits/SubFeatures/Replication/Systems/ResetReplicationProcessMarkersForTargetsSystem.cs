@@ -13,7 +13,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.ChosenForReplicationBy,
-                    GameMatcher.Rabbit)
+                    GameMatcher.Rabbit,
+                    GameMatcher.ReplicationAvailable)
                 .AnyOf(
                     GameMatcher.InvalidReplicationTarget,
                     GameMatcher.ResetReplicationProcess));

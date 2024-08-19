@@ -34,6 +34,10 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.MoveSelected.Systems
                 foreach (int entityId in center.SelectedEntities)
                 {
                     GameEntity selectedEntity = _game.GetEntityWithId(entityId);
+                    
+                    if (selectedEntity.isDead)
+                        continue;
+                    
                     Vector3 finishPosition = center.SelectCenterPosition + selectedEntity.ShiftFromSelect;
                     
                     if (Vector3.SqrMagnitude(finishPosition - selectedEntity.WorldPosition) < DistanceError)

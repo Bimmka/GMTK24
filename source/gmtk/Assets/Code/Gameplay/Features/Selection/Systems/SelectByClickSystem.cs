@@ -6,14 +6,12 @@ namespace Code.Gameplay.Features.Selection.Systems
 {
     public class SelectByClickSystem : IExecuteSystem
     {
-        private readonly GameContext _game;
         private readonly IPhysicsService _physicsService;
         private readonly IGroup<InputEntity> _clicks;
         private readonly IGroup<GameEntity> _selections;
 
         public SelectByClickSystem(InputContext input, GameContext game, IPhysicsService physicsService)
         {
-            _game = game;
             _physicsService = physicsService;
             _clicks = input.GetGroup(InputMatcher.AllOf(InputMatcher.Click));
             _selections = game.GetGroup(GameMatcher

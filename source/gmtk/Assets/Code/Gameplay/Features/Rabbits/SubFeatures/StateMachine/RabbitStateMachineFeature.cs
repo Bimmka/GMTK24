@@ -9,6 +9,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.StateMachine
         {
             Add(systems.Create<UpdateStateMachineStateSystem>());
 
+            Add(systems.Create<TransitToDeadStateSystem>());
+
             Add(systems.Create<TransitToReplicationStateFromWantToReplicateSystem>());
             Add(systems.Create<TransitToReplicationStateFromReplicatingSystem>());
             
@@ -19,7 +21,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.StateMachine
             Add(systems.Create<TransitToIdleStateWhenReplicationInvalidSystem>());
             Add(systems.Create<TransitToIdleStateWhenDragFinishedSystem>());
             Add(systems.Create<TransitToIdleStateWhenReplicationExpiredSystem>());
-
+            Add(systems.Create<TransitToIdleStateWhenReplicationBlockedSystem>());
+            
             Add(systems.Create<TransitToDraggingStateSystem>());
 
             Add(systems.Create<TransitToNewStateSystem>());

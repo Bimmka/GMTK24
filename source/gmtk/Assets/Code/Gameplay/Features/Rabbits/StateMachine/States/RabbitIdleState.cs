@@ -11,7 +11,8 @@
             Entity.isMovementAvailable = true;
             Entity.isWaitingForMoving = true;
 
-            Entity.isWaitingForNextReplicationUp = true;
+            if (Entity.isReplicationAvailable)
+                Entity.isWaitingForNextReplicationUp = true;
 
             Entity.isSelectable = true;
             

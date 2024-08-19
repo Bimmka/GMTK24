@@ -57,4 +57,9 @@ namespace Code.Gameplay.Features.Rabbits
     [Game] public class AngryState : IComponent {}
     
     [Game] public class DeadByInfection : IComponent {}
+    [Game] public class Alive : IComponent {}
+    [Game] public class Dead : IComponent {}
+    [Game] public class ProcessingDeath : IComponent {}
+    [Game] public class ReplicationBlocked : IComponent {}
+    [Game] public class ReplicationAvailable : IComponent {}
 }

@@ -16,7 +16,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                 .AllOf(
                     GameMatcher.Rabbit,
                     GameMatcher.ReplicationFinished,
-                    GameMatcher.ReplicationState)
+                    GameMatcher.ReplicationState,
+                    GameMatcher.ReplicationAvailable)
                 .NoneOf(GameMatcher.Replicating));
         }
 

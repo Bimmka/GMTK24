@@ -20,8 +20,7 @@
         protected override void Exit()
         {
             base.Exit();
-            
-            Entity.isDragging = false;
+
             Entity.isDragFinished = false;
             Entity.isDragStarted = false;
 
@@ -29,7 +28,7 @@
             Entity.isSelectable = true;
 
             bool isChosenForReplicationBy = Entity.hasChosenForReplicationBy;
-            if (isChosenForReplicationBy == false)
+            if (isChosenForReplicationBy == false && Entity.isReplicationAvailable && Entity.isAlive)
             {
                 Entity.isWaitingForNextReplicationUp = true;
                 Entity.isCanBeChosenForReplication = true;

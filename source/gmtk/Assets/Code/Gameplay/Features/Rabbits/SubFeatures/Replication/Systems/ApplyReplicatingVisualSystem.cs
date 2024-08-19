@@ -13,7 +13,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                 .AllOf(
                     GameMatcher.Rabbit,
                     GameMatcher.Replicating,
-                    GameMatcher.RabbitVisualChanger));
+                    GameMatcher.RabbitVisualChanger,
+                    GameMatcher.Alive));
         }
 
         public void Execute()

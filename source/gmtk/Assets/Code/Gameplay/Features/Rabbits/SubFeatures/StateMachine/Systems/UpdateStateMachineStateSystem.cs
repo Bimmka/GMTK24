@@ -9,7 +9,9 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.StateMachine.Systems
       public UpdateStateMachineStateSystem(GameContext game)
       {
          _stateMachines = game.GetGroup(GameMatcher
-            .AllOf(GameMatcher.RabbitStateMachine));
+            .AllOf(GameMatcher.RabbitStateMachine,
+               GameMatcher.Rabbit,
+               GameMatcher.Alive));
       }
 
       public void Execute()
