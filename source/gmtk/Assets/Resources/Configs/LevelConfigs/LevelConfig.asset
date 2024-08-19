@@ -13,6 +13,19 @@ MonoBehaviour:
   m_Name: LevelConfig
   m_EditorClassIdentifier: 
   Id: first
+  TaskConfig:
+    Id: 
+    Description: 
+    Name: 
+    Icon: {fileID: 0}
+    TaskType: 1
+    DurationLimitation: 0000000001000000
+    AmountCondition: 1
+    TaskGoalsByRabbitColor: []
+    TaskDurationTime: 30
+    TimeToHold: 10
+    MinAmount: 2
+    MaxAmount: 20
   StallsSpawnData:
   - View: {fileID: 3863858705266743693, guid: cbd4301e14f360a4eb98718fd5ff4ce8, type: 3}
     SpawnPosition: {x: 0, y: 3.93, z: 0}

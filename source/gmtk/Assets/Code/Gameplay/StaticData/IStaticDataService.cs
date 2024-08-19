@@ -5,6 +5,7 @@ using Code.Gameplay.Features.Level.Config;
 using Code.Gameplay.Features.Rabbits.Config;
 using Code.Gameplay.Features.Rabbits.Config.Rabbits;
 using Code.Gameplay.Features.Rabbits.Config.Replication;
+using Code.Gameplay.Features.Rabbits.Config.UI;
 using Code.Gameplay.Features.Selection.Config;
 using Code.Gameplay.Input.Config;
 using Code.Gameplay.Windows;
@@ -25,5 +26,6 @@ namespace Code.Gameplay.StaticData
     InfectionConfig GetInfectionConfig(InfectionType infectionType);
     FoxConfig GetFoxConfig();
     List<LevelConfig> GetLevelConfigs();
+    SpriteByRabbitColor GetRabbitSpriteByColor(RabbitColorType colorType);
   }
 }

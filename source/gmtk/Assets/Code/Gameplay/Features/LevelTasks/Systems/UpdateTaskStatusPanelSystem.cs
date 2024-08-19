@@ -1,29 +1,32 @@
-﻿using System.Collections.Generic;
-using Code.Common.Entity;
+﻿using Code.Common.Entity;
 using Code.Common.Extensions;
 using Entitas;
 
 namespace Code.Gameplay.Features.LevelTasks.Systems
 {
-    public class EmitWinSystem : IExecuteSystem
+    public class UpdateTaskStatusPanelSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _tasks;
+        private readonly IGroup<GameEntity> _statusPanels;
 
-        public EmitWinSystem(GameContext game)
+        public UpdateTaskStatusPanelSystem(GameContext game)
         {
             _tasks = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.LevelTask,
-                    GameMatcher.AmountConditionCompleted,
-                    GameMatcher.TimeConditionCompleted,
                     GameMatcher.Uncompleted));
+
+            _statusPanels = game.GetGroup(GameMatcher.GameTaskStatusPanel);
         }
 
         public void Execute()
         {
             foreach (GameEntity task in _tasks)
             {
-                CreateEntity.Empty().With(x => x.isWin = true);
+                foreach (GameEntity statusPanel in _statusPanels)
+                {
+                    statusPanel.GameTaskStatusPanel.UpdateByEntity(task);
+                }
             }
         }
     }

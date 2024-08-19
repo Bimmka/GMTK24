@@ -10,6 +10,7 @@ namespace Code.Gameplay.Windows.Windows.Game
     public class LevelHUDWindow : BaseWindow
     {
         public Button MenuButton;
+        public GameTaskStatusPanel TaskStatusPanel;
         
         private ILevelDataProvider _levelDataProvider;
         private IStaticDataService _staticDataService;
@@ -30,6 +31,8 @@ namespace Code.Gameplay.Windows.Windows.Game
         {
             base.Initialize();
             Id = WindowId.LevelHUD;
+
+            TaskStatusPanel.Initialize();
         }
         
         protected override void SubscribeUpdates()
