@@ -11,6 +11,6 @@
         Grey = 6,
         Green = 7,
         Orange = 8,
-        Magenta = 9,
+        Violet = 9,
     }
 }

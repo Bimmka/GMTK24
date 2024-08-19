@@ -10,6 +10,7 @@ namespace Code.Gameplay.Features.Rabbits.Registrars
         public override void RegisterComponents()
         {
             Entity.AddRabbitAnimator(RabbitAnimator);
+            RabbitAnimator.Initialize(Entity.RabbitColorType);
         }
 
         public override void UnregisterComponents()

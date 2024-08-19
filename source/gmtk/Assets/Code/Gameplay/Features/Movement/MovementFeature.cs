@@ -11,6 +11,7 @@ namespace Code.Gameplay.Features.Movement
             Add(systems.Create<DirectionalDeltaMoveSystem>());
             Add(systems.Create<MarkTargetPointReachedSystem>());
             Add(systems.Create<TurnAlongDirectionSystem>());
+            Add(systems.Create<TurnTransformAlongDirectionSystem>());
             Add(systems.Create<UpdateTransformPositionSystem>());
         }
     }
