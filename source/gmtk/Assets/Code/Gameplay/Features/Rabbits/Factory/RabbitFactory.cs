@@ -79,7 +79,7 @@ namespace Code.Gameplay.Features.Rabbits.Factory
                 .AddReplicationTimeLeft(randomReplicationDuration)
                 .AddTimeLeftForNextReplication(intervalBeforeNextReplication)
                 .AddMovingInterval(randomIntervalBetweenMoving)
-                .AddTimeLeftForMoving(0)
+                .AddTimeLeftForMoving(0.01f)
                 .AddWorldPosition(at)
                 .AddStallParentIndex(stallIndex)
                 .AddViewPrefab(rabbitConfig.View)
