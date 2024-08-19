@@ -28,7 +28,7 @@ MonoBehaviour:
     - ColorType: 9
       MinAmount: 3
       MaxAmount: 3
-    TaskDurationTime: 100
+    TaskDurationTime: 120
     TimeToHold: 0
     MinAmount: 0
     MaxAmount: 0
