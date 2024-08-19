@@ -2,8 +2,7 @@
 {
     public enum LevelTaskDurationLimitationType
     {
-        Infinity = 0,
-        TimeDuration = 1,
-        HoldDuration = 2,
+        TimeDuration = 0,
+        HoldDuration = 1,
     }
 }

@@ -50,6 +50,7 @@ namespace Code.Gameplay.Features.LevelTasks
     [Game] public class Completed : IComponent {}
     [Game] public class Uncompleted : IComponent {}
     [Game] public class Failed : IComponent {}
+    [Game] public class NoChances : IComponent {}
     
     
     

@@ -46,9 +46,6 @@ namespace Code.Gameplay.Features.LevelTasks.Factory
             {
                 switch (limitationType)
                 {
-                    case LevelTaskDurationLimitationType.Infinity:
-                        task.isTimeConditionCompleted = true;
-                        break;
                     case LevelTaskDurationLimitationType.TimeDuration:
                         task
                             .AddLevelTaskDurationBeforeExpired(config.TaskDurationTime)
@@ -65,8 +62,6 @@ namespace Code.Gameplay.Features.LevelTasks.Factory
                             .With(x => x.isTimeHoldConditionUncompleted = true)
                             .With(x => x.isTimeConditionUncompleted = true);
                         break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
                 }
             }
 
