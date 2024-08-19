@@ -4,6 +4,8 @@ using Code.Gameplay.Features.Foxes.Factory;
 using Code.Gameplay.Features.Holes.Factory;
 using Code.Gameplay.Features.Infections.Factory;
 using Code.Gameplay.Features.Level.Config;
+using Code.Gameplay.Features.LevelTasks.Config;
+using Code.Gameplay.Features.LevelTasks.Factory;
 using Code.Gameplay.Features.Rabbits.Factory;
 using Code.Gameplay.Features.Stalls.Factory;
 using Code.Gameplay.Features.Stalls.Services;
@@ -32,6 +34,7 @@ namespace Code.Infrastructure.States.GameStates
     private readonly IHoleFactory _holeFactory;
     private readonly ISystemFactory _systems;
     private readonly GameContext _gameContext;
+    private readonly ITaskFactory _levelTaskFactory;
 
     public BattleEnterState(
       IGameStateMachine stateMachine, 
@@ -43,7 +46,8 @@ namespace Code.Infrastructure.States.GameStates
       IWindowService windowService,
       IInfectionFactory infectionFactory,
       IFoxFactory foxFactory,
-      IHoleFactory holeFactory)
+      IHoleFactory holeFactory,
+      ITaskFactory levelTaskFactory)
     {
       _stateMachine = stateMachine;
       _levelDataProvider = levelDataProvider;
@@ -55,6 +59,7 @@ namespace Code.Infrastructure.States.GameStates
       _infectionFactory = infectionFactory;
       _foxFactory = foxFactory;
       _holeFactory = holeFactory;
+      _levelTaskFactory = levelTaskFactory;
     }
     
     public override void Enter()
@@ -70,6 +75,7 @@ namespace Code.Infrastructure.States.GameStates
       PlaceLevelInfections(config.Infections);
       PlaceFoxes(config.PresetupFoxesData);
       PlaceHoles(config.PresetupHoleData);
+      CreateLevelTask(config.TaskConfig);
       
       _windowService.Open(WindowId.MultipleSelection);
       
@@ -121,6 +127,11 @@ namespace Code.Infrastructure.States.GameStates
       {
         _holeFactory.Create(holeData.Setup, holeData.At, holeData.StallIndex);
       }
+    }
+    
+    private void CreateLevelTask(LevelTaskConfig taskConfig)
+    {
+      _levelTaskFactory.Create(taskConfig);
     }
   }
 }

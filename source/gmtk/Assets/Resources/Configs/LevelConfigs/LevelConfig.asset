@@ -40,7 +40,11 @@ MonoBehaviour:
       MaxSpawnInterval: 10
       HoleEntityConfigSpawnData:
       - SpawnType: 1
-        RabbitColorTypes: 
+        RabbitColorTypes: 02000000
+        MinChance: 1
+        MaxChance: 1
+      - SpawnType: 1
+        RabbitColorTypes: 06000000
         MinChance: 1
         MaxChance: 1
   - At: {x: -5.79, y: -5.8, z: 0}
@@ -50,7 +54,11 @@ MonoBehaviour:
       MinSpawnInterval: 5
       MaxSpawnInterval: 10
       HoleEntityConfigSpawnData:
-      - SpawnType: 0
+      - SpawnType: 2
+        RabbitColorTypes: 01000000
+        MinChance: 0.5
+        MaxChance: 1
+      - SpawnType: 1
         RabbitColorTypes: 01000000
         MinChance: 1
         MaxChance: 1
