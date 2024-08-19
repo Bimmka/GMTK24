@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Code.Common.Entity;
-using Code.Gameplay.Features.CharacterStats;
 using Code.Gameplay.Features.Infections.Configs;
 using Code.Gameplay.StaticData;
 using Entitas;
@@ -24,7 +23,8 @@ namespace Code.Gameplay.Features.Statuses.Systems
           GameMatcher.Status,
           GameMatcher.PoisonStatus,
           GameMatcher.TargetId,
-          GameMatcher.EffectValue)
+          GameMatcher.EffectValue,
+          GameMatcher.ValidStatus)
         .NoneOf(GameMatcher.Affected));
     }
 

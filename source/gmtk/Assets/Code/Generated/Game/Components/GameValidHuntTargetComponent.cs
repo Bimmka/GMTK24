@@ -8,17 +8,17 @@
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherWaitNextTarget;
+    static Entitas.IMatcher<GameEntity> _matcherValidHuntTarget;
 
-    public static Entitas.IMatcher<GameEntity> WaitNextTarget {
+    public static Entitas.IMatcher<GameEntity> ValidHuntTarget {
         get {
-            if (_matcherWaitNextTarget == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.WaitNextTarget);
+            if (_matcherValidHuntTarget == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.ValidHuntTarget);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherWaitNextTarget = matcher;
+                _matcherValidHuntTarget = matcher;
             }
 
-            return _matcherWaitNextTarget;
+            return _matcherValidHuntTarget;
         }
     }
 }
@@ -33,18 +33,18 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Gameplay.Features.Foxes.WaitNextTarget waitNextTargetComponent = new Code.Gameplay.Features.Foxes.WaitNextTarget();
+    static readonly Code.Gameplay.Features.Foxes.ValidHuntTarget validHuntTargetComponent = new Code.Gameplay.Features.Foxes.ValidHuntTarget();
 
-    public bool isWaitNextTarget {
-        get { return HasComponent(GameComponentsLookup.WaitNextTarget); }
+    public bool isValidHuntTarget {
+        get { return HasComponent(GameComponentsLookup.ValidHuntTarget); }
         set {
-            if (value != isWaitNextTarget) {
-                var index = GameComponentsLookup.WaitNextTarget;
+            if (value != isValidHuntTarget) {
+                var index = GameComponentsLookup.ValidHuntTarget;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : waitNextTargetComponent;
+                            : validHuntTargetComponent;
 
                     AddComponent(index, component);
                 } else {

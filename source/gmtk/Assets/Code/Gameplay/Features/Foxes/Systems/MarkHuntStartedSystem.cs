@@ -11,16 +11,17 @@ namespace Code.Gameplay.Features.Foxes.Systems
             _foxes = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Fox,
-                    GameMatcher.BeforeNextHuntTimeLeft,
-                    GameMatcher.Alive));
+                    GameMatcher.Hungry,
+                    GameMatcher.Alive,
+                    GameMatcher.HuntTarget)
+                .NoneOf(GameMatcher.MovingToHuntTarget));
         }
 
         public void Execute()
         {
             foreach (GameEntity fox in _foxes)
             {
-                if (fox.BeforeNextHuntTimeLeft <= 0)
-                    fox.isHungry = true;
+                fox.isHuntStarted = true;
             }
         }
     }

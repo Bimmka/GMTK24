@@ -6,7 +6,6 @@ namespace Code.Gameplay.Features.Statuses.Systems
   public class CleanupUnappliedStatusLinkedChanges : ICleanupSystem
   {
     private readonly IGroup<GameEntity> _statuses;
-    private readonly List<GameEntity> _buffer = new(32);
     private readonly GameContext _game;
 
     public CleanupUnappliedStatusLinkedChanges(GameContext game)
@@ -16,12 +15,13 @@ namespace Code.Gameplay.Features.Statuses.Systems
         .AllOf(
           GameMatcher.Id,
           GameMatcher.Status,
-          GameMatcher.Unapplied));
+          GameMatcher.Unapplied,
+          GameMatcher.ValidStatus));
     }
 
     public void Cleanup()
     {
-      foreach (GameEntity status in _statuses.GetEntities(_buffer))
+      foreach (GameEntity status in _statuses)
       foreach (GameEntity entity in _game.GetEntitiesWithApplierStatusLink(status.Id))
       {
         entity.isDestructed = true;

@@ -14,26 +14,43 @@ namespace Code.Gameplay.Features.Foxes
             Add(systems.Create<MarkMovingUpSystem>());
             Add(systems.Create<StartMovingToRandomPointSystem>());
             Add(systems.Create<StopMovingToReachedTargetPointSystem>());
+
+            Add(systems.Create<ValidateHuntTargetSystem>());
+
+            Add(systems.Create<SetHuntTargetSystem>());
+            Add(systems.Create<MarkHuntStartedSystem>());
+
+            Add(systems.Create<StartMovingToHuntTargetSystem>());
+            Add(systems.Create<StopMovingToRandomPointAtHuntStartSystem>());
+
+            Add(systems.Create<UpdateDirectionToHuntTargetSystem>());
+            Add(systems.Create<MarkNearHuntTargetSystem>());
+
+            Add(systems.Create<MarkStartEatingSystem>());
+            Add(systems.Create<MarkEatingSystem>());
+            Add(systems.Create<StartEatingSystem>());
+            Add(systems.Create<UpdateEatingTimeLeftSystem>());
+            Add(systems.Create<MarkFinishEatingSystem>());
+            Add(systems.Create<StopEatingSystem>());
+            Add(systems.Create<MarkGotEnoughSystem>());
+            Add(systems.Create<RemoveMarkEatingSystem>());
+            Add(systems.Create<RefreshEatingTimeSystem>());
+
+            Add(systems.Create<UpdateHuntTimeLeftSystem>());
+
+            Add(systems.Create<MarkHuntFinishedByHuntTimeLeftSystem>());
+            Add(systems.Create<MarkHuntFinishedByNoValidTargetsSystem>());
+            Add(systems.Create<MarkHuntFinishedWhenGotEnoughSystem>());
             
-            // Add(systems.Create<SetHuntTargetSystem>());
-            // Add(systems.Create<MarkHuntStartedSystem>());
-            // Add(systems.Create<StopMovingToRandomPointAtHuntStartSystem>());
-            //
-            // Add(systems.Create<StartMovingToRabbitSystem>());
-            // Add(systems.Create<MarkNearRabbitSystem>());
-            //
-            // Add(systems.Create<MarkStartEatingSystem>());
-            // Add(systems.Create<UpdateEatingTimeLeftSystem>());
-            // Add(systems.Create<MarkFinishEatingSystem>());
-            // Add(systems.Create<RefreshEatingTimeSystem>());
-            //
-            // Add(systems.Create<UpdateHuntTimeLeftSystem>());
-            //
-            // Add(systems.Create<MarkHuntFinishedSystem>());
-            // Add(systems.Create<MarkWaitingHuntSystem>());
-            //Add(systems.Create<RemoveMarkWaitingNextMovingSystem>());
+            Add(systems.Create<RemoveMarkHungryWhenHuntFinishedSystem>());
+            
+            Add(systems.Create<StopHuntSystem>());
+            
+            Add(systems.Create<RemoveMarkInvalidTargetSystem>());
             Add(systems.Create<RemoveMarkMovingUpSystem>());
             Add(systems.Create<RemoveMarkTargetPointReachedSystem>());
+            Add(systems.Create<RemoveMarkHuntSystem>());
+            Add(systems.Create<RemoveEatingMarksSystem>());
         }
     }
 }

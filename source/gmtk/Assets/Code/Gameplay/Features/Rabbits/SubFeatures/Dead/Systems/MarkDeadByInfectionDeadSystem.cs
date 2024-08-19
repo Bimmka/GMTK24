@@ -3,12 +3,12 @@ using Entitas;
 
 namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dead.Systems
 {
-    public class MarkDeadSystem : IExecuteSystem
+    public class MarkDeadByInfectionDeadSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _rabbits;
         private readonly List<GameEntity> _buffer = new List<GameEntity>(32);
 
-        public MarkDeadSystem(GameContext game)
+        public MarkDeadByInfectionDeadSystem(GameContext game)
         {
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(

@@ -27,5 +27,11 @@ namespace Code.Common.EntityIndices
             return ((EntityIndex<GameEntity, StatusKey>) context.GetEntityIndex(GameEntityIndices.StatusesOfType))
                 .GetEntities(new StatusKey(targetId, statusTypeId));
         }
+        
+        public static HashSet<GameEntity> RabbitsForHunt(this GameContext context, int stallParentIndex)
+        {
+            return ((EntityIndex<GameEntity, int>) context.GetEntityIndex(GameEntityIndices.RabbitsForHunt))
+                .GetEntities(stallParentIndex);
+        }
     }
 }

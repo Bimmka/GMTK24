@@ -78,6 +78,7 @@ namespace Code.Gameplay.Features.Foxes.Factory
                 .With(x => x.isAlive = true)
                 .With(x => x.isWaitingForMoving = true)
                 .With(x => x.isWaitingHunt = true)
+                .With(x => x.isWaitingNextHuntTarget = true)
                 ;
         }
     }

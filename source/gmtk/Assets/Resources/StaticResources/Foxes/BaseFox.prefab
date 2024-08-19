@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1266035060700740089}
   - component: {fileID: 7511309287075627422}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 5150833511526680737}
   - component: {fileID: 6291947793582874909}
   - component: {fileID: 132381520365321233}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: BaseFox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

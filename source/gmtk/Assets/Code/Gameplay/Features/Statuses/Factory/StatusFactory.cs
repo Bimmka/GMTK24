@@ -46,6 +46,7 @@ namespace Code.Gameplay.Features.Statuses.Factory
         .AddTargetId(targetId)
         .With(x => x.isStatus = true)
         .With(x => x.isPoisonStatus = true)
+        .With(x => x.isValidStatus = true)
         ;
     }
 
@@ -58,6 +59,7 @@ namespace Code.Gameplay.Features.Statuses.Factory
         .AddTargetId(targetId)
         .With(x => x.isStatus = true)
         .With(x => x.isRabiesStatus = true)
+        .With(x => x.isValidStatus = true)
         ;
     }
   }

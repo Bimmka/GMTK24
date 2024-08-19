@@ -19,5 +19,5 @@ namespace Code.Gameplay.Features.Statuses
   
   [Game] public class PoisonStatus : IComponent { }
   [Game] public class RabiesStatus : IComponent { }
-  [Game] public class SecondEffectValue : IComponent { public float Value; }
+  [Game] public class ValidStatus : IComponent {}
 }

@@ -15,5 +15,15 @@ namespace Code.Gameplay.Features.Foxes.Behaviours.Animations
         {
             
         }
+
+        public void PlayIdle()
+        {
+            
+        }
+
+        public void PlayEating()
+        {
+            
+        }
     }
 }

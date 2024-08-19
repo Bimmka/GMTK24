@@ -2,12 +2,12 @@
 
 namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dead.Systems
 {
-    public class DestructInfectionForDeadSystem : IExecuteSystem
+    public class MarkDestructedInfectionForDeadSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _rabbits;
         private readonly IGroup<GameEntity> _infections;
 
-        public DestructInfectionForDeadSystem(GameContext game)
+        public MarkDestructedInfectionForDeadSystem(GameContext game)
         {
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(
