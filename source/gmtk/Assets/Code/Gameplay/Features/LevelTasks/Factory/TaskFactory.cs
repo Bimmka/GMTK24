@@ -88,8 +88,8 @@ namespace Code.Gameplay.Features.LevelTasks.Factory
                             break;
                         case LevelTaskAmountConditionType.RangeAmount:
                             task
-                                .AddLevelTaskMinRabbitAmount(0)
-                                .AddLevelTaskMaxRabbitAmount(0)
+                                .AddLevelTaskMinRabbitAmount(config.MinAmount)
+                                .AddLevelTaskMaxRabbitAmount(config.MaxAmount)
                                 .With(x => x.isAmountConditionUncompleted = true)
                                 .With(x => x.isLevelTaskRangeAmountType = true)
                                 ;
@@ -111,8 +111,8 @@ namespace Code.Gameplay.Features.LevelTasks.Factory
                         case LevelTaskAmountConditionType.RangeAmount:
                             task
                                 .AddLevelTaskCurrentCommonAmount(0)
-                                .AddLevelTaskMinRabbitAmount(0)
-                                .AddLevelTaskMaxRabbitAmount(0)
+                                .AddLevelTaskMinRabbitAmount(config.MinAmount)
+                                .AddLevelTaskMaxRabbitAmount(config.MaxAmount)
                                 .With(x => x.isAmountConditionUncompleted = true)
                                 .With(x => x.isLevelTaskRangeAmountType = true)
                                 ;
