@@ -1,8 +1,9 @@
 ﻿using Code.Gameplay.StaticData;
+using Code.Gameplay.Windows.Base;
 using UnityEngine;
 using Zenject;
 
-namespace Code.Gameplay.Windows
+namespace Code.Gameplay.Windows.Factory
 {
   public class WindowFactory : IWindowFactory
   {

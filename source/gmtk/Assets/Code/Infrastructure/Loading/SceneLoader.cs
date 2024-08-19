@@ -21,6 +21,7 @@ namespace Code.Infrastructure.Loading
     {
       if (SceneManager.GetActiveScene().name == nextScene)
       {
+        yield return null;
         onLoaded?.Invoke();
         yield break;
       }

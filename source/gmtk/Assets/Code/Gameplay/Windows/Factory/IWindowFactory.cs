@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Code.Gameplay.Windows.Base;
+using UnityEngine;
 
-namespace Code.Gameplay.Windows
+namespace Code.Gameplay.Windows.Factory
 {
   public interface IWindowFactory
   {
