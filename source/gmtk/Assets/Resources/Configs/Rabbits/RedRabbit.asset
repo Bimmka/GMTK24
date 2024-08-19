@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8559c2499fb471dba1e7dd81dc14503, type: 3}
   m_Name: RedRabbit
   m_EditorClassIdentifier: 
-  ColorType: 3
+  ColorType: 5
   View: {fileID: 2658883369037870289, guid: a56431de97c6f4a4aa298c5c7df76806, type: 3}
   MinIntervalBetweenMoving: 1
   MaxIntervalBetweenMoving: 1
-  MinIntervalBetweenReplication: 1
-  MaxIntervalBetweenReplication: 2
+  MinIntervalBetweenReplication: 20
+  MaxIntervalBetweenReplication: 20
   MinReplicationDuration: 1
   MaxReplicationDuration: 1
-  MinWaitReplicationDuration: 5
-  MaxWaitReplicationDuration: 5
+  MinWaitReplicationDuration: 20
+  MaxWaitReplicationDuration: 20
   MinSpeed: 1
   MaxSpeed: 1
   MinTimeToReleaseFromDrag: 4
