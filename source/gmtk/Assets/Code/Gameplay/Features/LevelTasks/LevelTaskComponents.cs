@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Code.Gameplay.Features.LevelTasks.Config;
 using Code.Gameplay.Features.Rabbits.Config.Rabbits;
+using Code.Gameplay.Windows.Windows.Game;
 using Entitas;
 
 namespace Code.Gameplay.Features.LevelTasks
@@ -45,14 +46,10 @@ namespace Code.Gameplay.Features.LevelTasks
     [Game] public class AmountConditionUncompleted : IComponent {}
     
     
-   
-    
     [Game] public class Completed : IComponent {}
     [Game] public class Uncompleted : IComponent {}
     [Game] public class Failed : IComponent {}
     [Game] public class NoChances : IComponent {}
-    
-    
     
     //hold time
     [Game] public class LevelTaskTargetHoldDuration : IComponent { public float Value; }
@@ -66,4 +63,5 @@ namespace Code.Gameplay.Features.LevelTasks
     [Game] public class LevelTaskDurationBeforeExpired : IComponent { public float Value; }
     [Game] public class LevelTaskDurationBeforeExpiredTimeLeft : IComponent { public float Value; }
     [Game] public class LevelTaskTimeExpired : IComponent { }
+    [Game] public class GameTaskStatusPanelComponent : IComponent { public GameTaskStatusPanel Value; }
 }
