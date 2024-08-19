@@ -12,7 +12,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.StateMachine.Systems
                 .AllOf(
                     GameMatcher.RabbitStateMachine,
                     GameMatcher.RabbitNextSimpleState,
-                    GameMatcher.TransitionComplete));
+                    GameMatcher.TransitionComplete,
+                    GameMatcher.Rabbit));
         }
         
         public void Cleanup()

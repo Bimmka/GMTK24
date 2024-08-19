@@ -1,6 +1,6 @@
 ﻿using Code.Gameplay.Features.Selection.SubFeatures.DragSelections;
 using Code.Gameplay.Features.Selection.SubFeatures.MoveSelected;
-using Code.Gameplay.Features.Selection.SubFeatures.ReleaseByTime;
+using Code.Gameplay.Features.Selection.SubFeatures.Release;
 using Code.Gameplay.Features.Selection.SubFeatures.SelectionCenter;
 using Code.Gameplay.Features.Selection.Systems;
 using Code.Infrastructure.Systems;

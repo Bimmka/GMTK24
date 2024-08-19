@@ -1,6 +1,6 @@
 ﻿using Entitas;
 
-namespace Code.Gameplay.Features.Selection.SubFeatures.ReleaseByTime
+namespace Code.Gameplay.Features.Selection.SubFeatures.Release.Systems
 {
     public class RemoveReleaseUpMarkSystem : IExecuteSystem
     {

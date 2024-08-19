@@ -3,27 +3,25 @@ using Entitas;
 
 namespace Code.Gameplay.Features.Rabbits.SubFeatures.StateMachine.Systems
 {
-    public class TransitToIdleStateWhenReplicationBlockedSystem : IExecuteSystem
+    public class TransitToDeadStateSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _stateMachines;
 
-        public TransitToIdleStateWhenReplicationBlockedSystem(GameContext game)
+        public TransitToDeadStateSystem(GameContext game)
         {
             _stateMachines = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.RabbitStateMachine,
-                    GameMatcher.ReplicationBlocked,
-                    GameMatcher.ReplicationState,
-                    GameMatcher.Rabbit,
-                    GameMatcher.Alive)
-                .NoneOf(GameMatcher.Replicating));
+                    GameMatcher.Dead,
+                    GameMatcher.Rabbit)
+                .NoneOf(GameMatcher.DeadState));
         }
 
         public void Execute()
         {
             foreach (GameEntity stateMachine in _stateMachines)
             {
-                stateMachine.ReplaceRabbitNextSimpleState(typeof(RabbitIdleState));
+                stateMachine.ReplaceRabbitNextSimpleState(typeof(RabbitDeadState));
             }
         }
     }

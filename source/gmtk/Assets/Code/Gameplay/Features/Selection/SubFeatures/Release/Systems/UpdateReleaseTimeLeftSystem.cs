@@ -1,7 +1,7 @@
 ﻿using Code.Gameplay.Common.Time;
 using Entitas;
 
-namespace Code.Gameplay.Features.Selection.SubFeatures.ReleaseByTime
+namespace Code.Gameplay.Features.Selection.SubFeatures.Release.Systems
 {
     public class UpdateReleaseTimeLeftSystem : IExecuteSystem
     {
@@ -17,7 +17,8 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.ReleaseByTime
                     GameMatcher.Selected,
                     GameMatcher.SelectionDragTimeLeft,
                     GameMatcher.Dragging,
-                    GameMatcher.DraggingState));
+                    GameMatcher.DraggingState,
+                    GameMatcher.Alive));
         }
 
         public void Execute()

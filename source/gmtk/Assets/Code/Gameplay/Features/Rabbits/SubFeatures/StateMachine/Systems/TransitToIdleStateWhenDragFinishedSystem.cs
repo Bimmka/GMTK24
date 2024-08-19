@@ -13,7 +13,9 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.StateMachine.Systems
                 .AllOf(
                     GameMatcher.DragFinished,
                     GameMatcher.Rabbit,
-                    GameMatcher.DraggingState));
+                    GameMatcher.DraggingState,
+                    GameMatcher.RabbitStateMachine,
+                    GameMatcher.Alive));
         }
 
         public void Execute()

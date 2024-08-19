@@ -1,20 +1,18 @@
 ﻿using System.Collections.Generic;
 using Entitas;
 
-namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
+namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dead.Systems
 {
-    public class ApplyReplicationBlockSystem : IExecuteSystem
+    public class MarkDeadSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _rabbits;
         private readonly List<GameEntity> _buffer = new List<GameEntity>(32);
 
-        public ApplyReplicationBlockSystem(GameContext game)
+        public MarkDeadSystem(GameContext game)
         {
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(
-                    GameMatcher.Rabbit,
-                    GameMatcher.ReplicationBlocked,
-                    GameMatcher.ReplicationAvailable,
+                    GameMatcher.DeadByInfection,
                     GameMatcher.Alive)
                 .NoneOf(GameMatcher.Replicating));
         }
@@ -23,7 +21,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
         {
             foreach (GameEntity rabbit in _rabbits.GetEntities(_buffer))
             {
-                rabbit.isReplicationAvailable = false;
+                rabbit.isDead = true;
+                rabbit.isAlive = false;
             }
         }
     }

@@ -13,7 +13,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.StateMachine.Systems
             _stateMachines = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.RabbitNextSimpleState,
-                    GameMatcher.RabbitStateMachine));
+                    GameMatcher.RabbitStateMachine,
+                    GameMatcher.Rabbit));
         }
 
         public void Execute()
@@ -28,6 +29,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.StateMachine.Systems
                     EnterNewState<RabbitReplicationState>(stateMachine);
                 else if (stateMachine.RabbitNextSimpleState == typeof(RabbitStupidMoveState))
                     EnterNewState<RabbitStupidMoveState>(stateMachine);
+                else if (stateMachine.RabbitNextSimpleState == typeof(RabbitDeadState))
+                    EnterNewState<RabbitDeadState>(stateMachine);
             }
         }
 

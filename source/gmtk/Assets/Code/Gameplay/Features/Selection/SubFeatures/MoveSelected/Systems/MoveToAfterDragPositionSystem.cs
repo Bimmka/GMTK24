@@ -17,7 +17,8 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.MoveSelected.Systems
                 .AllOf(
                     GameMatcher.MovingToAfterDragPosition,
                     GameMatcher.AfterDragPosition,
-                    GameMatcher.WorldPosition));
+                    GameMatcher.WorldPosition,
+                    GameMatcher.Alive));
 
             _speeds = game.GetGroup(GameMatcher.MoveToAfterDragPositionSpeed);
         }

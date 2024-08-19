@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using Code.Gameplay.Common.Time;
 using Entitas;
 
-namespace Code.Gameplay.Features.Selection.SubFeatures.ReleaseByTime
+namespace Code.Gameplay.Features.Selection.SubFeatures.Release.Systems
 {
     public class ReleaseSelectedSystem : IExecuteSystem
     {

@@ -12,7 +12,10 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.StateMachine.Systems
             _stateMachines = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Dragging,
-                    GameMatcher.Selected)
+                    GameMatcher.Selected,
+                    GameMatcher.Rabbit,
+                    GameMatcher.RabbitStateMachine,
+                    GameMatcher.Alive)
                 .NoneOf(GameMatcher.DraggingState));
         }
 

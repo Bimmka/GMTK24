@@ -99,6 +99,7 @@ namespace Code.Gameplay.Features.Rabbits.Factory
                 .With(x => x.isSelectable = true)
                 .With(x => x.isCanStartReplication = true)
                 .With(x => x.isReplicationAvailable = true)
+                .With(x => x.isAlive = true)
                 ;
             
             stateMachine.Enter<RabbitIdleState>();

@@ -1,4 +1,5 @@
-﻿using Code.Infrastructure.Systems;
+﻿using Code.Gameplay.Features.Rabbits.SubFeatures.Dead.Systems;
+using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dead
 {
@@ -6,7 +7,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dead
     {
         public DeadFeature(ISystemFactory systems)
         {
-            
+            Add(systems.Create<MarkDeadSystem>());
         }
     }
 }
