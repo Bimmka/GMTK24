@@ -4,14 +4,14 @@ namespace Code.Gameplay.Levels
 {
   public interface ILevelDataProvider
   {
-    Vector3 StartPoint { get; }
+    Transform StartPointParent { get; }
     Transform StallSpawnParent { get; }
     string CurrentId { get; }
     Transform RabbitSpawnParent { get; }
     Transform FoxSpawnParent { get; }
     Transform HoleSpawnParent { get; }
 
-    void SetStartPoint(Vector3 startPoint);
+    void SetStartPoint(Transform startPoint);
     void SetStallSpawnParent(Transform stallSpawnParent);
     void SetRabbitSpawnParent(Transform rabbitSpawnParent);
     void SetFoxSpawnParent(Transform foxSpawnParent);

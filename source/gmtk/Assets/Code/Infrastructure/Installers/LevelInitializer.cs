@@ -29,7 +29,7 @@ namespace Code.Infrastructure.Installers
     
     public void Initialize()
     {
-      _levelDataProvider.SetStartPoint(StartPoint.position);
+      _levelDataProvider.SetStartPoint(StartPoint);
       _levelDataProvider.SetStallSpawnParent(StallSpawnParent);
       _levelDataProvider.SetRabbitSpawnParent(RabbitSpawnParent);
       _levelDataProvider.SetFoxSpawnParent(FoxesSpawnParent);

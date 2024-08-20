@@ -13,9 +13,7 @@ namespace Code.Gameplay.Features.Stalls.Factory
                 .Empty()
                 .AddStallIndex(spawnData.Index)
                 .AddStallBounds(spawnData.Bounds)
-                .AddViewPrefab(spawnData.View)
                 .AddWorldPosition(spawnData.SpawnPosition)
-                .AddParentTransform(parent)
                 .With(x => x.isStall = true)
                 .With(x => x.isSaveRotationInSpawn = true)
                 ;

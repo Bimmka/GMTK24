@@ -48,8 +48,7 @@ namespace Code.Editor.CustomEditors
                 {
                     Bounds = spawnMarkers[i].Bounds,
                     Index = spawnMarkers[i].Index,
-                    SpawnPosition = spawnMarkers[i].transform.position,
-                    View = spawnMarkers[i].View
+                    SpawnPosition = spawnMarkers[i].transform.position
                 };
             }
         }

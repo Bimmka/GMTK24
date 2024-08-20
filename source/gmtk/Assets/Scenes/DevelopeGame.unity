@@ -893,7 +893,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.82
+  orthographic size: 12.29
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1218,13 +1218,25 @@ PrefabInstance:
       propertyPath: Bounds.y
       value: 7.31
       objectReference: {fileID: 0}
+    - target: {fileID: 756527492659823667, guid: 8c637a35ac502864e83d9dab89742433, type: 3}
+      propertyPath: DisplayColor.b
+      value: 0.98589355
+      objectReference: {fileID: 0}
+    - target: {fileID: 756527492659823667, guid: 8c637a35ac502864e83d9dab89742433, type: 3}
+      propertyPath: DisplayColor.g
+      value: 0.98589355
+      objectReference: {fileID: 0}
+    - target: {fileID: 756527492659823667, guid: 8c637a35ac502864e83d9dab89742433, type: 3}
+      propertyPath: DisplayColor.r
+      value: 0.990566
+      objectReference: {fileID: 0}
     - target: {fileID: 1017912638471477642, guid: 8c637a35ac502864e83d9dab89742433, type: 3}
       propertyPath: m_Name
       value: StallSpawnMarker
       objectReference: {fileID: 0}
     - target: {fileID: 1017912638471477642, guid: 8c637a35ac502864e83d9dab89742433, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2429881175205093923, guid: 8c637a35ac502864e83d9dab89742433, type: 3}
       propertyPath: m_LocalScale.x
@@ -1240,7 +1252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2429881175205093923, guid: 8c637a35ac502864e83d9dab89742433, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.93
+      value: 4.51
       objectReference: {fileID: 0}
     - target: {fileID: 2429881175205093923, guid: 8c637a35ac502864e83d9dab89742433, type: 3}
       propertyPath: m_LocalPosition.z

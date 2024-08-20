@@ -8,6 +8,8 @@ namespace Code.Gameplay.Features.Level.Config
     {
         public string Id;
 
+        public GameObject LevelPrefab;
+
         public LevelTaskConfig TaskConfig;
 
         public StallsSpawnData[] StallsSpawnData;
