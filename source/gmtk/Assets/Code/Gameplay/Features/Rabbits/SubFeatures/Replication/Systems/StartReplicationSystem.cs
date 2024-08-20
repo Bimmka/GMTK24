@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Code.Gameplay.VFX.Config;
+using Code.Gameplay.VFX.Service;
 using Entitas;
 
 namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
@@ -6,13 +8,15 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
     public class StartReplicationSystem : IExecuteSystem
     {
         private readonly GameContext _game;
+        private readonly IVFXService _vfxService;
         private readonly IGroup<GameEntity> _rabbits;
         private readonly List<GameEntity> _buffer = new List<GameEntity>(32);
 
-        public StartReplicationSystem(GameContext game)
+        public StartReplicationSystem(GameContext game, IVFXService vfxService)
         {
             _game = game;
-            
+            _vfxService = vfxService;
+
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Rabbit,
@@ -50,6 +54,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
 
                 rabbit.ReplaceCurrentReplicationDuration(replicationDuration);
                 rabbit.ReplaceReplicationTimeLeft(replicationDuration);
+                
+                _vfxService.Spawn(VFXType.Replicate, rabbit.WorldPosition, rabbit.CurrentReplicationDuration);
             }
         }
     }

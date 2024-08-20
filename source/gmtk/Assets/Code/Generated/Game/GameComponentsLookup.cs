@@ -219,17 +219,8 @@ public static class GameComponentsLookup {
     public const int TimeSinceLastTick = 208;
     public const int Unapplied = 209;
     public const int ValidStatus = 210;
-    public const int CollectingTargetsContinuously = 211;
-    public const int CollectTargetsInterval = 212;
-    public const int CollectTargetsTimer = 213;
-    public const int LayerMask = 214;
-    public const int ProcessedTargets = 215;
-    public const int Reached = 216;
-    public const int ReadyToCollectTargets = 217;
-    public const int TargetBuffer = 218;
-    public const int TargetLimit = 219;
 
-    public const int TotalComponents = 220;
+    public const int TotalComponents = 211;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -442,16 +433,7 @@ public static class GameComponentsLookup {
         "TimeLeft",
         "TimeSinceLastTick",
         "Unapplied",
-        "ValidStatus",
-        "CollectingTargetsContinuously",
-        "CollectTargetsInterval",
-        "CollectTargetsTimer",
-        "LayerMask",
-        "ProcessedTargets",
-        "Reached",
-        "ReadyToCollectTargets",
-        "TargetBuffer",
-        "TargetLimit"
+        "ValidStatus"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -665,15 +647,6 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Statuses.TimeLeft),
         typeof(Code.Gameplay.Features.Statuses.TimeSinceLastTick),
         typeof(Code.Gameplay.Features.Statuses.Unapplied),
-        typeof(Code.Gameplay.Features.Statuses.ValidStatus),
-        typeof(Code.Gameplay.Features.TargetCollection.CollectingTargetsContinuously),
-        typeof(Code.Gameplay.Features.TargetCollection.CollectTargetsInterval),
-        typeof(Code.Gameplay.Features.TargetCollection.CollectTargetsTimer),
-        typeof(Code.Gameplay.Features.TargetCollection.LayerMask),
-        typeof(Code.Gameplay.Features.TargetCollection.ProcessedTargets),
-        typeof(Code.Gameplay.Features.TargetCollection.Reached),
-        typeof(Code.Gameplay.Features.TargetCollection.ReadyToCollectTargets),
-        typeof(Code.Gameplay.Features.TargetCollection.TargetBuffer),
-        typeof(Code.Gameplay.Features.TargetCollection.TargetLimit)
+        typeof(Code.Gameplay.Features.Statuses.ValidStatus)
     };
 }

@@ -47,6 +47,9 @@ namespace Code.Gameplay.Features.Statuses.Systems
                 targetEntity.isCarrierOfRabiesInfection = true;
         
                 status.isAffected = true;
+                
+                if (targetEntity.hasRabbitVisualChanger)
+                    targetEntity.RabbitVisualChanger.SetRabies();
             }
         }
     }

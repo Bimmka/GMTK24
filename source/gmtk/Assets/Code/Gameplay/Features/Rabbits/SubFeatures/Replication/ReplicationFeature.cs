@@ -31,8 +31,6 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication
 
             Add(systems.Create<SetWaitingReplicationTargetSystem>());
             
-            Add(systems.Create<ApplyWaitingTargetVisualSystem>());
-
             Add(systems.Create<MarkNearReplicationTargetSystem>());
             
             Add(systems.Create<UpdateDirectionToReplicationTargetSystem>());
@@ -41,9 +39,6 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication
             Add(systems.Create<UpdateReplicationDurationSystem>());
             Add(systems.Create<SpawnRabbitsAfterReplicationFinishedSystem>());
             Add(systems.Create<MarkCanBeChosenForReplicationWhenReplicationFinishedSystem>());
-            
-            Add(systems.Create<ApplyReplicatingVisualSystem>());
-            Add(systems.Create<UnapplyReplicatingVisualSystem>());
 
             Add(systems.Create<CleanupStartReplicationMarksSystem>());
             Add(systems.Create<CleanupResetReplicationProcessMarkersSystem>());

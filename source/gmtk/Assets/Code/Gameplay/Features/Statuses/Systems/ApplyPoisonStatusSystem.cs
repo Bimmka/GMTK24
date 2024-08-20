@@ -48,6 +48,9 @@ namespace Code.Gameplay.Features.Statuses.Systems
         targetEntity.isCarrierOfPoisonInfection = true;
         
         status.isAffected = true;
+        
+        if (targetEntity.hasRabbitVisualChanger)
+          targetEntity.RabbitVisualChanger.SetSick();
       }
     }
   }

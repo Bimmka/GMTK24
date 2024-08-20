@@ -1,7 +1,17 @@
-﻿namespace Code.Gameplay.Features.Rabbits.StateMachine.States
+﻿using Code.Gameplay.VFX.Config;
+using Code.Gameplay.VFX.Service;
+
+namespace Code.Gameplay.Features.Rabbits.StateMachine.States
 {
     public class RabbitDeadState : EntitySimpleState
     {
+        private readonly IVFXService _vfxService;
+
+        public RabbitDeadState(IVFXService vfxService)
+        {
+            _vfxService = vfxService;
+        }
+        
         public override void Enter()
         {
             base.Enter();
@@ -19,10 +29,13 @@
             if (Entity.hasRabbitAnimator)
                 Entity.RabbitAnimator.PlayDead();
             
-            if (Entity.hasRabbitVisualChanger)
-                Entity.RabbitVisualChanger.ApplySelectionStatus(false);
+            if (Entity.isCarrierOfInfection)
+                _vfxService.Spawn(VFXType.SickDeath, Entity.WorldPosition);
+            
+            if (Entity.isEaten)
+                _vfxService.Spawn(VFXType.EatenDeath, Entity.WorldPosition);
 
-            Entity.AddSelfDestructTimer(1f);
+            Entity.AddSelfDestructTimer(0.01f);
         }
     }
 }

@@ -23,7 +23,6 @@ namespace Code.Infrastructure.States.GameStates
     {
       _windowService.CloseAll();
 
-      _windowService.Open(WindowId.HomeScreenBackground);
       _windowService.Open(WindowId.HomeScreenMenu);
 
       if (string.IsNullOrEmpty(_levelDataProvider.CurrentId) == false)

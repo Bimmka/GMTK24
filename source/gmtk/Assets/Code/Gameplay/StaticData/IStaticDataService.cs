@@ -8,6 +8,7 @@ using Code.Gameplay.Features.Rabbits.Config.Replication;
 using Code.Gameplay.Features.Rabbits.Config.UI;
 using Code.Gameplay.Features.Selection.Config;
 using Code.Gameplay.Input.Config;
+using Code.Gameplay.VFX.Config;
 using Code.Gameplay.Windows;
 using Code.Gameplay.Windows.Base;
 using UnityEngine;
@@ -27,5 +28,6 @@ namespace Code.Gameplay.StaticData
     FoxConfig GetFoxConfig();
     List<LevelConfig> GetLevelConfigs();
     SpriteByRabbitColor GetRabbitSpriteByColor(RabbitColorType colorType);
+    VFXContainer GetVFXContainer(VFXType type);
   }
 }
