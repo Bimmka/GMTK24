@@ -23,7 +23,6 @@ MonoBehaviour:
     TimeToHold: 30
     MinAmount: 4
     MaxAmount: 7
-    Description: 
   StallsSpawnData:
   - SpawnPosition: {x: 17.92, y: -0.81, z: 0}
     Index: 1
@@ -40,3 +39,4 @@ MonoBehaviour:
   PresetupFoxesData:
   - StallIndex: 1
   PresetupHoleData: []
+  Hint: Foxes kill rabbits. Prevent over-reproduction!

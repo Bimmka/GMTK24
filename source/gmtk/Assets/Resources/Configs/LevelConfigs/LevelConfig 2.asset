@@ -26,7 +26,6 @@ MonoBehaviour:
     TimeToHold: 0
     MinAmount: 0
     MaxAmount: 0
-    Description: 
   StallsSpawnData:
   - SpawnPosition: {x: 17.3, y: -0.81, z: 0}
     Index: 0
@@ -42,3 +41,4 @@ MonoBehaviour:
   Infections: []
   PresetupFoxesData: []
   PresetupHoleData: []
+  Hint: Crossbreeding rabbits of different colors can create a new color of rabbit.

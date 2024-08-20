@@ -23,7 +23,6 @@ MonoBehaviour:
     TimeToHold: 30
     MinAmount: 8
     MaxAmount: 16
-    Description: 
   StallsSpawnData:
   - SpawnPosition: {x: 10.22, y: -0.81, z: 0}
     Index: 2
@@ -77,3 +76,4 @@ MonoBehaviour:
         RabbitColorTypes: 01000000
         MinChance: 1
         MaxChance: 1
+  Hint: The holes create rabbits and sometimes foxes.

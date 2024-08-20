@@ -419,7 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef7373600394309bf98530db110c632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationContent: {fileID: 5574100413602902311}
+  AnimationContent: {fileID: 4012115605679665076}
   ScaleInDuration: 1
   ScaleOutDuration: 0.5
   MainVolumeSlider: {fileID: 3406471073291662243}

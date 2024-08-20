@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f38e25dc4e9478fb9c94e88c37cafcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationContent: {fileID: 7190115500761967794}
+  AnimationContent: {fileID: 1107439000119078310}
   ScaleInDuration: 1
   ScaleOutDuration: 0.5
   CloseButton: {fileID: 4073909667546705776}

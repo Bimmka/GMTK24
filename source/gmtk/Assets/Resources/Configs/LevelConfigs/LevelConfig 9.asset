@@ -23,7 +23,6 @@ MonoBehaviour:
     TimeToHold: 0
     MinAmount: 0
     MaxAmount: 0
-    Description: 
   StallsSpawnData:
   - SpawnPosition: {x: 4.14, y: 2.8, z: 0}
     Index: 1
@@ -59,3 +58,4 @@ MonoBehaviour:
   - StallIndex: 1
   - StallIndex: 2
   PresetupHoleData: []
+  Hint: Sometimes you have to sacrifice all the rabbits.

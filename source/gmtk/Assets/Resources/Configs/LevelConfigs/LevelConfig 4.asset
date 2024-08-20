@@ -23,7 +23,6 @@ MonoBehaviour:
     TimeToHold: 35
     MinAmount: 5
     MaxAmount: 9
-    Description: 
   StallsSpawnData:
   - SpawnPosition: {x: 10.22, y: -0.81, z: 0}
     Index: 2
@@ -44,3 +43,4 @@ MonoBehaviour:
   Infections: []
   PresetupFoxesData: []
   PresetupHoleData: []
+  Hint: If you hold a rabbit in your hand, it will not be able to reproduce.

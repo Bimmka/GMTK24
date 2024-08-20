@@ -29,7 +29,6 @@ MonoBehaviour:
     TimeToHold: 0
     MinAmount: 0
     MaxAmount: 0
-    Description: 
   StallsSpawnData:
   - SpawnPosition: {x: 10.22, y: -0.81, z: 0}
     Index: 2
@@ -50,3 +49,4 @@ MonoBehaviour:
   Infections: []
   PresetupFoxesData: []
   PresetupHoleData: []
+  Hint: Sometimes you need to complete a task within a limited time.

@@ -2,6 +2,7 @@
 using Code.Gameplay.Features.Rabbits.Config.Rabbits;
 using Code.Gameplay.Features.Rabbits.Config.UI;
 using Code.Gameplay.StaticData;
+using Code.Gameplay.Windows.Windows.HomeScreen;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -78,7 +79,7 @@ namespace Code.Gameplay.Windows.Windows.Game
         public void DisplayDescription(string levelId)
         {
             Description.gameObject.SetActive(true);
-            Description.text = _staticDataService.GetLevelConfig(levelId).TaskConfig.Description;
+            Description.text = _staticDataService.GetLevelConfig(levelId).TaskConfig.TaskType.Localize();
         }
     }
 }

@@ -23,7 +23,6 @@ MonoBehaviour:
     TimeToHold: 30
     MinAmount: 7
     MaxAmount: 12
-    Description: 
   StallsSpawnData:
   - SpawnPosition: {x: 17.36, y: -4.41, z: 0}
     Index: 2
@@ -48,3 +47,4 @@ MonoBehaviour:
     Interval: 14
   PresetupFoxesData: []
   PresetupHoleData: []
+  Hint: Rabid rabbits are dangerous, deadly and fast. Fear RABIES.
