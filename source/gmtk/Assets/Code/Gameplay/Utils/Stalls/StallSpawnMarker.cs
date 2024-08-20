@@ -1,12 +1,9 @@
-﻿using System;
-using Code.Infrastructure.View;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Code.Gameplay.Utils.Stalls
 {
     public class StallSpawnMarker : MonoBehaviour
     {
-        public EntityBehaviour View;
         public Vector2 Bounds;
         public int Index;
         public Color DisplayColor = Color.red;

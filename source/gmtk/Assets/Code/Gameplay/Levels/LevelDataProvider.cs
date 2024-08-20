@@ -4,16 +4,16 @@ namespace Code.Gameplay.Levels
 {
   public class LevelDataProvider : ILevelDataProvider
   {
-    public Vector3 StartPoint { get; private set; }
+    public Transform StartPointParent{ get; private set; }
     public Transform StallSpawnParent { get; private set; }
     public string CurrentId { get; private set; }
     public Transform RabbitSpawnParent { get; private set; }
     public Transform FoxSpawnParent { get; private set; }
     public Transform HoleSpawnParent { get; private set; }
 
-    public void SetStartPoint(Vector3 startPoint)
+    public void SetStartPoint(Transform startPoint)
     {
-      StartPoint = startPoint;
+      StartPointParent = startPoint;
     }
 
     public void SetStallSpawnParent(Transform stallSpawnParent)

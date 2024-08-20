@@ -7,11 +7,6 @@ namespace Code.Gameplay.Features.LevelTasks.Config
     [Serializable]
     public class LevelTaskConfig
     {
-        public string Id;
-        public string Description;
-        public string Name;
-        public Sprite Icon;
-        
         public LevelTaskType TaskType;
         public LevelTaskDurationLimitationType[] DurationLimitation;
         public LevelTaskAmountConditionType AmountCondition;

@@ -11,12 +11,12 @@ using Code.Gameplay.Features.Stalls.Factory;
 using Code.Gameplay.Features.Stalls.Services;
 using Code.Gameplay.Levels;
 using Code.Gameplay.StaticData;
-using Code.Gameplay.Windows;
 using Code.Gameplay.Windows.Base;
 using Code.Gameplay.Windows.Service;
 using Code.Infrastructure.States.StateInfrastructure;
 using Code.Infrastructure.States.StateMachine;
 using Code.Infrastructure.Systems;
+using UnityEngine;
 
 namespace Code.Infrastructure.States.GameStates
 {
@@ -69,7 +69,8 @@ namespace Code.Infrastructure.States.GameStates
       _windowService.Open(WindowId.LevelHUD);
       
       LevelConfig config = _staticDataService.GetLevelConfig(_levelDataProvider.CurrentId);
-      
+
+      PlaceVisual(config.LevelPrefab);
       PlaceStalls(config.StallsSpawnData);
       PlaceRabbits(config.PresetupRabbits);
       PlaceLevelInfections(config.Infections);
@@ -80,6 +81,11 @@ namespace Code.Infrastructure.States.GameStates
       _windowService.Open(WindowId.MultipleSelection);
       
       _stateMachine.Enter<BattleLoopState>();
+    }
+
+    private void PlaceVisual(GameObject view)
+    {
+      Object.Instantiate(view);
     }
 
     private void PlaceStalls(StallsSpawnData[] stallsSpawnData)
