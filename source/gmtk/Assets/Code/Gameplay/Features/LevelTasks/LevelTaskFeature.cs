@@ -32,6 +32,7 @@ namespace Code.Gameplay.Features.LevelTasks
             Add(systems.Create<UpdateTaskStatusPanelSystem>());
             Add(systems.Create<EmitLoseSystem>());
             Add(systems.Create<MarkTaskFailedWhenTimeExpiredSystem>());
+            Add(systems.Create<MarkTaskFailedWhenNoChancesSystem>());
             Add(systems.Create<EmitWinSystem>());
             Add(systems.Create<MarkTaskCompletedSystem>());
         }
