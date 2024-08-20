@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68f567ce7f584441b3ddb1efea1dc946, type: 3}
+  m_Name: LevelConfig 9
+  m_EditorClassIdentifier: 
+  Id: 
+  LevelPrefab: {fileID: 2154241555597689125, guid: 19a030d65b4a5bd4eba1aad804393d76, type: 3}
+  TaskConfig:
+    TaskType: 2
+    DurationLimitation: 00000000
+    AmountCondition: 0
+    TaskGoalsByRabbitColor: []
+    TaskDurationTime: 45
+    TimeToHold: 0
+    MinAmount: 0
+    MaxAmount: 0
+  StallsSpawnData:
+  - SpawnPosition: {x: 4.14, y: 2.8, z: 0}
+    Index: 1
+    Bounds: {x: 8.33, y: 3.25}
+  - SpawnPosition: {x: 17.36, y: -4.41, z: 0}
+    Index: 2
+    Bounds: {x: 10.5, y: 3.13}
+  - SpawnPosition: {x: 17.3, y: 2.82, z: 0}
+    Index: 0
+    Bounds: {x: 10.5, y: 3.13}
+  - SpawnPosition: {x: 4.72, y: -4.25, z: 0}
+    Index: 3
+    Bounds: {x: 7.14, y: 3.28}
+  PresetupRabbits:
+  - Type: 5
+    StallIndex: 0
+  - Type: 5
+    StallIndex: 1
+  - Type: 5
+    StallIndex: 2
+  - Type: 5
+    StallIndex: 3
+  - Type: 5
+    StallIndex: 2
+  - Type: 5
+    StallIndex: 1
+  - Type: 5
+    StallIndex: 0
+  - Type: 5
+    StallIndex: 3
+  Infections: []
+  PresetupFoxesData:
+  - StallIndex: 1
+  - StallIndex: 2
+  PresetupHoleData: []

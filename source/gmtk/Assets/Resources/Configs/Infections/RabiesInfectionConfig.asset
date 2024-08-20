@@ -15,18 +15,21 @@ MonoBehaviour:
   InfectionSetup:
     Type: 2
     ChanceToInfect: 0.5
-    TimeBeforeDeath: 10
-    InfectPeriod: 1
+    TimeBeforeDeath: 13
+    InfectPeriod: 3
     InfectMask:
       serializedVersion: 2
       m_Bits: 64
-    Radius: 1.5
+    Radius: 1.1
     TrayLength: 2
     TrayWidth: 1.5
     StatInfluenceData:
     - StatType: 1
       EffectValue: 1.5
-      Duration: 0
+      Duration: 12
     - StatType: 3
       EffectValue: -1.5
-      Duration: 0
+      Duration: 12
+    - StatType: 2
+      EffectValue: 4
+      Duration: 12
