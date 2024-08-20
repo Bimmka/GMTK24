@@ -13,7 +13,9 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
         public string LevelId;
         public bool Completed;
         public bool Unlocked;
-        public GameObject BlockedShadow;
+        public Image[] ObjectToLock;
+        public float LockedAlpha;
+        public float DefaultAlpha;
 
         private Action<string, bool> _savedClickCallback;
 
@@ -37,8 +39,16 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
 
         private void UpdateVisual()
         {
-            LevelText.text = $"Level {Index}";
-            BlockedShadow.SetActive(Unlocked == false);
+            LevelText.text = $"Level {Index + 1}";
+
+            foreach (Image objectToLock in ObjectToLock)
+            {
+                Color color = objectToLock.color;
+                color.a = Unlocked ? DefaultAlpha : LockedAlpha;
+                objectToLock.color = color;
+            }
+
+            ClickButton.enabled = Unlocked;
         }
 
         private void InvokeSavedCallback()

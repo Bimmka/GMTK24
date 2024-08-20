@@ -2947,6 +2947,7 @@ GameObject:
   - component: {fileID: 1579266852}
   - component: {fileID: 1579266851}
   - component: {fileID: 1579266850}
+  - component: {fileID: 1579266854}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -2981,6 +2982,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Initializers:
   - {fileID: 1579266850}
+  - {fileID: 1579266854}
 --- !u!114 &1579266852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3028,6 +3030,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1579266854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579266849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fec6d391ae7f477c832acce5015006c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectsToHide:
+  - {fileID: 604242433}
+  - {fileID: 1398186146}
+  - {fileID: 1026757156}
 --- !u!1 &1749143094
 GameObject:
   m_ObjectHideFlags: 0

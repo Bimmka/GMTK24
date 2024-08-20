@@ -10,33 +10,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68f567ce7f584441b3ddb1efea1dc946, type: 3}
-  m_Name: LevelConfig 2
+  m_Name: LevelConfig 1
   m_EditorClassIdentifier: 
-  Id: 
-  LevelPrefab: {fileID: 7239083468505109449, guid: 4cde3b2c48919f64f9e9f72216782378, type: 3}
+  Id: 1
+  LevelPrefab: {fileID: 245291918180634409, guid: 8fe5b7e7ef530c7459644e477a02da32, type: 3}
   TaskConfig:
     TaskType: 0
     DurationLimitation: 
     AmountCondition: 0
     TaskGoalsByRabbitColor:
-    - ColorType: 6
+    - ColorType: 1
       MinAmount: 5
       MaxAmount: 5
     TaskDurationTime: 0
     TimeToHold: 0
     MinAmount: 0
     MaxAmount: 0
+    Description: 
   StallsSpawnData:
-  - SpawnPosition: {x: 17.3, y: -0.81, z: 0}
+  - SpawnPosition: {x: 17.92, y: -0.81, z: 0}
     Index: 0
-    Bounds: {x: 10.83, y: 10.4}
-  - SpawnPosition: {x: 4.15, y: -0.81, z: 0}
+    Bounds: {x: 9.31, y: 10.4}
+  - SpawnPosition: {x: 3.57, y: -0.81, z: 0}
     Index: 1
-    Bounds: {x: 10.83, y: 10.4}
+    Bounds: {x: 9.31, y: 10.4}
   PresetupRabbits:
   - Type: 1
     StallIndex: 0
-  - Type: 2
+  - Type: 1
     StallIndex: 1
   Infections: []
   PresetupFoxesData: []

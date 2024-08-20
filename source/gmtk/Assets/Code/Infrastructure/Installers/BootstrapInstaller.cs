@@ -131,6 +131,7 @@ namespace Code.Infrastructure.Installers
     {
       Container.Bind<IStaticDataService>().To<StaticDataService>().AsSingle();
       Container.Bind<ILevelDataProvider>().To<LevelDataProvider>().AsSingle();
+      Container.Bind<IMenuDataProvider>().To<MenuDataProvider>().AsSingle();
       Container.Bind<IStallService>().To<StallService>().AsSingle();
       Container.Bind<IStatusApplier>().To<StatusApplier>().AsSingle();
       Container.Bind<ITaskService>().To<TaskService>().AsSingle();

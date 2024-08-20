@@ -12,14 +12,21 @@ namespace Code.Infrastructure.States.GameStates
     private readonly GameContext _gameContext;
     private readonly IVFXService _vfxService;
     private readonly IStallService _stallService;
+    private readonly InputContext _inputContext;
+    
     private BattleFeature _battleFeature;
 
-    public BattleLoopState(ISystemFactory systems, GameContext gameContext, IVFXService vfxService, IStallService stallService)
+    public BattleLoopState(ISystemFactory systems,
+      GameContext gameContext,
+      IVFXService vfxService,
+      IStallService stallService,
+      InputContext inputContext)
     {
       _systems = systems;
       _gameContext = gameContext;
       _vfxService = vfxService;
       _stallService = stallService;
+      _inputContext = inputContext;
     }
     
     public override void Enter()
@@ -55,6 +62,8 @@ namespace Code.Infrastructure.States.GameStates
     {
       foreach (GameEntity entity in _gameContext.GetEntities()) 
         entity.isDestructed = true;
+      
+      _inputContext.DestroyAllEntities();
     }
   }
 }
