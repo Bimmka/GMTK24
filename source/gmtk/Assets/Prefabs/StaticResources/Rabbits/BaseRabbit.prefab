@@ -308,7 +308,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1690154137
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &2198125128378132176
@@ -407,8 +407,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 380237180039331170, guid: 8b1bee3af7687a24a87e32fe6a4039d6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 928463080895953593}
   m_SourcePrefab: {fileID: 100100000, guid: 8b1bee3af7687a24a87e32fe6a4039d6, type: 3}
+--- !u!1 &1446736991720468627 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 380237180039331170, guid: 8b1bee3af7687a24a87e32fe6a4039d6, type: 3}
+  m_PrefabInstance: {fileID: 1248913352118865393}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &928463080895953593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446736991720468627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da5ab720b52f499399a93e7839c52c5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkeletonAnimation: {fileID: 2198125128378132176}
+  Id: Mouth
 --- !u!198 &2338885104570488277 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 3539947573066979364, guid: 8b1bee3af7687a24a87e32fe6a4039d6, type: 3}
