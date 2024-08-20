@@ -158,7 +158,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game name
+  m_text: bunnyflow
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e4534073e88229445b7edc741d36dacb, type: 2}
   m_sharedMaterial: {fileID: 3995520999480248138, guid: e4534073e88229445b7edc741d36dacb, type: 2}

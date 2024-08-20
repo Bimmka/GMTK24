@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68f567ce7f584441b3ddb1efea1dc946, type: 3}
   m_Name: LevelConfig 7
   m_EditorClassIdentifier: 
-  Id: 
+  Id: 7
   LevelPrefab: {fileID: 1332082653969756024, guid: 82f9b182e9143fe4ab543e1e67ab056c, type: 3}
   TaskConfig:
     TaskType: 1
@@ -23,6 +23,7 @@ MonoBehaviour:
     TimeToHold: 30
     MinAmount: 8
     MaxAmount: 16
+    Description: 
   StallsSpawnData:
   - SpawnPosition: {x: 10.22, y: -0.81, z: 0}
     Index: 2
