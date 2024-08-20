@@ -41,10 +41,13 @@ namespace Code.Gameplay.VFX.Service
                 VFXContainer container = _staticDataService.GetVFXContainer(type);
                 element = CreateNew(container.Particle, at, _levelDataProvider.RabbitSpawnParent);
             }
-            
-            element.transform.position = at;
-            element.Initialize(type, duration);
-            element.Show();
+
+            if (element != null)
+            {
+                element.transform.position = at;
+                element.Initialize(type, duration);
+                element.Show();
+            }
         }
 
         public void Return(VFXType type, VFXElement element)
