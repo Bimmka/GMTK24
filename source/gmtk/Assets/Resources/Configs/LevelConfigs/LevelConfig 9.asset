@@ -53,6 +53,10 @@ MonoBehaviour:
     StallIndex: 0
   - Type: 5
     StallIndex: 3
+  - Type: 5
+    StallIndex: 3
+  - Type: 5
+    StallIndex: 2
   Infections: []
   PresetupFoxesData:
   - StallIndex: 1
