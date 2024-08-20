@@ -19,77 +19,109 @@ MonoBehaviour:
     Duration: 0.1
     DefaultVolume: 1
     IsLoop: 0
-    IsBackground: 0
+    IsInfinite: 0
     IsIgnoreTimeScale: 1
   - Type: 1
     Clip: {fileID: 8300000, guid: 4f5df9161159a584bbd09f2a897c1ce4, type: 3}
-    MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
+    MixerGroup: {fileID: 8211097604056377041, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
     Duration: 0
     DefaultVolume: 1
     IsLoop: 1
-    IsBackground: 1
+    IsInfinite: 1
     IsIgnoreTimeScale: 1
   - Type: 2
     Clip: {fileID: 8300000, guid: 4f5df9161159a584bbd09f2a897c1ce4, type: 3}
-    MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
+    MixerGroup: {fileID: 8211097604056377041, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
     Duration: 0
     DefaultVolume: 1
     IsLoop: 1
-    IsBackground: 1
+    IsInfinite: 1
     IsIgnoreTimeScale: 1
   - Type: 3
     Clip: {fileID: 8300000, guid: 4f5df9161159a584bbd09f2a897c1ce4, type: 3}
-    MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
-    Duration: 0.1
+    MixerGroup: {fileID: 8211097604056377041, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
+    Duration: 2
     DefaultVolume: 1
     IsLoop: 0
-    IsBackground: 0
-    IsIgnoreTimeScale: 0
+    IsInfinite: 0
+    IsIgnoreTimeScale: 1
   - Type: 4
     Clip: {fileID: 8300000, guid: 4f5df9161159a584bbd09f2a897c1ce4, type: 3}
-    MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
-    Duration: 0.1
+    MixerGroup: {fileID: 8211097604056377041, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
+    Duration: 2
     DefaultVolume: 1
     IsLoop: 0
-    IsBackground: 0
-    IsIgnoreTimeScale: 0
+    IsInfinite: 0
+    IsIgnoreTimeScale: 1
   - Type: 5
     Clip: {fileID: 8300000, guid: 4f5df9161159a584bbd09f2a897c1ce4, type: 3}
     MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
-    Duration: 0.1
+    Duration: 0.5
     DefaultVolume: 1
     IsLoop: 0
-    IsBackground: 0
+    IsInfinite: 0
     IsIgnoreTimeScale: 0
   - Type: 6
     Clip: {fileID: 8300000, guid: 4f5df9161159a584bbd09f2a897c1ce4, type: 3}
     MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
-    Duration: 0.1
+    Duration: 0.5
     DefaultVolume: 1
     IsLoop: 0
-    IsBackground: 0
+    IsInfinite: 0
     IsIgnoreTimeScale: 0
   - Type: 7
     Clip: {fileID: 8300000, guid: 4f5df9161159a584bbd09f2a897c1ce4, type: 3}
     MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
-    Duration: 0.1
+    Duration: 1
     DefaultVolume: 1
     IsLoop: 0
-    IsBackground: 0
+    IsInfinite: 0
     IsIgnoreTimeScale: 0
   - Type: 8
     Clip: {fileID: 8300000, guid: 4f5df9161159a584bbd09f2a897c1ce4, type: 3}
     MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
-    Duration: 0.1
+    Duration: 1
     DefaultVolume: 1
-    IsLoop: 0
-    IsBackground: 0
+    IsLoop: 1
+    IsInfinite: 0
     IsIgnoreTimeScale: 0
   - Type: 9
     Clip: {fileID: 8300000, guid: 4f5df9161159a584bbd09f2a897c1ce4, type: 3}
     MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
+    Duration: 1
+    DefaultVolume: 1
+    IsLoop: 1
+    IsInfinite: 1
+    IsIgnoreTimeScale: 0
+  - Type: 10
+    Clip: {fileID: 8300000, guid: 4f5df9161159a584bbd09f2a897c1ce4, type: 3}
+    MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
     Duration: 0.1
     DefaultVolume: 1
+    IsLoop: 1
+    IsInfinite: 1
+    IsIgnoreTimeScale: 0
+  - Type: 11
+    Clip: {fileID: 8300000, guid: 4f5df9161159a584bbd09f2a897c1ce4, type: 3}
+    MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
+    Duration: 1
+    DefaultVolume: 1
     IsLoop: 0
-    IsBackground: 0
+    IsInfinite: 0
+    IsIgnoreTimeScale: 0
+  - Type: 12
+    Clip: {fileID: 8300000, guid: 4f5df9161159a584bbd09f2a897c1ce4, type: 3}
+    MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
+    Duration: 1
+    DefaultVolume: 1
+    IsLoop: 1
+    IsInfinite: 1
+    IsIgnoreTimeScale: 0
+  - Type: 13
+    Clip: {fileID: 8300000, guid: 4f5df9161159a584bbd09f2a897c1ce4, type: 3}
+    MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
+    Duration: 0.5
+    DefaultVolume: 1
+    IsLoop: 0
+    IsInfinite: 0
     IsIgnoreTimeScale: 0

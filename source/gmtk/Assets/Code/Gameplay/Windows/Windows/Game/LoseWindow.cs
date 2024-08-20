@@ -46,7 +46,6 @@ namespace Code.Gameplay.Windows.Windows.Game
             base.Initialize();
             Id = WindowId.Lose;
             
-            _timeService.StopTime();
             _audioService.PlayAudio(SoundType.Lose);
         }
         

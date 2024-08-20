@@ -1,15 +1,19 @@
 ﻿using System.Collections.Generic;
+using Code.Gameplay.Sounds.Config;
+using Code.Gameplay.Sounds.Service;
 using Entitas;
 
 namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dragging.Systems
 {
-    public class ResetAfterDraggingSystem : IExecuteSystem
+    public class PlaySoundAfterDragFinishedSystem : IExecuteSystem
     {
+        private readonly IAudioService _audioService;
         private readonly IGroup<GameEntity> _rabbits;
         private readonly List<GameEntity> _buffer = new List<GameEntity>(32);
 
-        public ResetAfterDraggingSystem(GameContext game)
+        public PlaySoundAfterDragFinishedSystem(GameContext game, IAudioService audioService)
         {
+            _audioService = audioService;
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Rabbit,
@@ -20,14 +24,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dragging.Systems
         {
             foreach (GameEntity rabbit in _rabbits.GetEntities(_buffer))
             {
-                rabbit.isWaitingForMoving = true;
-                rabbit.isWaitingForNextReplicationUp = true;
-                rabbit.isMovementAvailable = true;
-                rabbit.isCanBeChosenForReplication = true;
-               
-                
-                // rabbit.isDraggingPhase = false;
-                // rabbit.isMovingPhase = true;
+                _audioService.PlayAudio(SoundType.RabbitLand);
             }
         }
     }

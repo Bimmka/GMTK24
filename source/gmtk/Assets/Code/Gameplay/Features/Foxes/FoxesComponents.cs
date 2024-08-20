@@ -1,4 +1,5 @@
 ﻿using Code.Gameplay.Features.Foxes.Behaviours.Animations;
+using Code.Gameplay.Sounds.Behaviours;
 using Entitas;
 
 namespace Code.Gameplay.Features.Foxes
@@ -34,4 +35,5 @@ namespace Code.Gameplay.Features.Foxes
     [Game] public class TargetAmountGot : IComponent { public int Value; }
     [Game] public class GotEnough : IComponent { }
     [Game] public class FoxAnimatorComponent : IComponent { public FoxAnimator Value; }
+    [Game] public class HuntSoundElement : IComponent { public SoundElement Value; }
 }

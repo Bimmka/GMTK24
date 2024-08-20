@@ -7,7 +7,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dragging
     {
         public DraggingFeature(ISystemFactory systems)
         {
-            
+            Add(systems.Create<PlaySoundAfterDragFinishedSystem>());
+
             Add(systems.Create<CleanupDragStartedMarkSystem>());
         }
     }

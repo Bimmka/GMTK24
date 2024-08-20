@@ -16,7 +16,6 @@ namespace Code.Gameplay.Sounds.Service
         private const string MainVolumeMixerParameter = "MasterVolume";
         private const string EffectsVolumeMixerParameter = "EffectsVolume";
         private const string SoundsVolumeMixerParameter = "SoundsVolume";
-        private const float VolumeTransitionCoefficient = 100f;
 
         private readonly IStaticDataService _staticDataService;
         private readonly IAudioFactory _audioFactory;
@@ -38,7 +37,7 @@ namespace Code.Gameplay.Sounds.Service
             LoadPreferences();
         }
 
-        public void PlayAudio(SoundType type)
+        public SoundElement PlayAudio(SoundType type)
         {
             SoundContainer container = _staticDataService.GetSoundData(type);
             
@@ -52,7 +51,8 @@ namespace Code.Gameplay.Sounds.Service
                 element = _audioFactory.Create(_mainThemeSoundsContainer.transform);
             }
             
-            element.Initialize(type, container.Clip, container.MixerGroup, 1f, container.Duration, container.IsLoop, container.IsIgnoreTimeScale);
+            element.Initialize(type, container.Clip, container.MixerGroup, 1f, container.Duration, container.IsLoop, container.IsIgnoreTimeScale, container.IsInfinite);
+            return element;
         }
 
         public void PlayMainTheme(SoundType type)

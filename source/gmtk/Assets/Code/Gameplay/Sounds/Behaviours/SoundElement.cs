@@ -30,7 +30,8 @@ namespace Code.Gameplay.Sounds.Behaviours
             float volume,
             float duration,
             bool isLoop,
-            bool isIgnoreTimeScale, bool isInfinite = false)
+            bool isIgnoreTimeScale,
+            bool isInfinite)
         {
             gameObject.SetActive(true);
             _type = type;
@@ -47,6 +48,12 @@ namespace Code.Gameplay.Sounds.Behaviours
             Source.Play();
         }
 
+        public void Reset()
+        {
+            Source.Stop();
+            Return();
+        }
+
 
         private void Update()
         {
@@ -61,17 +68,16 @@ namespace Code.Gameplay.Sounds.Behaviours
                 {
                     _timeLeft -= _timeService.DeltaTime;
 
-                    if (_timeLeft <= 0)
-                        Return();
+                    
                 }
             }
             else if (_isInfinite == false)
             {
                 _timeLeft -= Time.deltaTime;
-
-                if (_timeLeft <= 0)
-                    Return();
             }
+            
+            if (_timeLeft <= 0)
+                Return();
         }
 
         private void Return()

@@ -44,8 +44,7 @@ namespace Code.Gameplay.Windows.Windows.Game
             sequence.Play();
             base.Initialize();
             Id = WindowId.Win;
-            
-            _timeService.StopTime();
+
             _audioService.PlayAudio(SoundType.Win);
         }
         

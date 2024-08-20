@@ -36,7 +36,10 @@ namespace Code.Gameplay.Features.Rabbits.StateMachine.States
             if (Entity.isCarrierOfInfection)
             {
                 _vfxService.Spawn(VFXType.SickDeath, Entity.WorldPosition);
-                _audioService.PlayAudio(SoundType.DeadByInfection);
+                if (Entity.isCarrierOfPoisonInfection)
+                    _audioService.PlayAudio(SoundType.DeadByPoison);
+                else if (Entity.isCarrierOfRabiesInfection)
+                    _audioService.PlayAudio(SoundType.DeadByRabies);
             }
 
             if (Entity.isEaten)

@@ -39,6 +39,12 @@ namespace Code.Gameplay.Features.Foxes.Systems
 
                 fox.RemoveHuntTarget();
                 fox.isValidHuntTarget = false;
+
+                if (fox.hasHuntSoundElement)
+                {
+                    fox.HuntSoundElement.Reset();
+                    fox.RemoveHuntSoundElement();
+                }
             }
         }
     }
