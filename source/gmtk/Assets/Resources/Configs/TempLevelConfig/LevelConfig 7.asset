@@ -43,8 +43,8 @@ MonoBehaviour:
   Infections: []
   PresetupFoxesData: []
   PresetupHoleData:
-  - At: {x: 19.49, y: 3.64, z: 0}
-    StallIndex: 0
+  - At: {x: 9.92, y: -1.07, z: 0}
+    StallIndex: 2
     Setup:
       View: {fileID: 4009292927787154922, guid: a725d92d884f1c449bf522c2c7b84859, type: 3}
       MinSpawnInterval: 5
@@ -54,8 +54,8 @@ MonoBehaviour:
         RabbitColorTypes: 01000000
         MinChance: 1
         MaxChance: 1
-  - At: {x: 4.51, y: 3.85, z: 0}
-    StallIndex: 1
+  - At: {x: 18.02, y: 2.24, z: 0}
+    StallIndex: 0
     Setup:
       View: {fileID: 4009292927787154922, guid: a725d92d884f1c449bf522c2c7b84859, type: 3}
       MinSpawnInterval: 5
@@ -65,14 +65,14 @@ MonoBehaviour:
         RabbitColorTypes: 01000000
         MinChance: 1
         MaxChance: 2
-  - At: {x: 5.69, y: -3.59, z: 0}
-    StallIndex: 2
+  - At: {x: 2.49, y: -3.89, z: 0}
+    StallIndex: 1
     Setup:
       View: {fileID: 4009292927787154922, guid: a725d92d884f1c449bf522c2c7b84859, type: 3}
       MinSpawnInterval: 5
       MaxSpawnInterval: 10
       HoleEntityConfigSpawnData:
       - SpawnType: 2
-        RabbitColorTypes: 
+        RabbitColorTypes: 01000000
         MinChance: 1
         MaxChance: 1

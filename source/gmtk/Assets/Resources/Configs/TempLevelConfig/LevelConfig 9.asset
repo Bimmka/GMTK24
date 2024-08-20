@@ -13,11 +13,8 @@ MonoBehaviour:
   m_Name: LevelConfig 9
   m_EditorClassIdentifier: 
   Id: 
+  LevelPrefab: {fileID: 2154241555597689125, guid: 19a030d65b4a5bd4eba1aad804393d76, type: 3}
   TaskConfig:
-    Id: 9
-    Description: 9
-    Name: 9
-    Icon: {fileID: 0}
     TaskType: 2
     DurationLimitation: 00000000
     AmountCondition: 0
@@ -27,22 +24,18 @@ MonoBehaviour:
     MinAmount: 0
     MaxAmount: 0
   StallsSpawnData:
-  - View: {fileID: 3863858705266743693, guid: cbd4301e14f360a4eb98718fd5ff4ce8, type: 3}
-    SpawnPosition: {x: 17.69, y: -3.9999998, z: 0}
-    Index: 3
-    Bounds: {x: 12, y: 6}
-  - View: {fileID: 3863858705266743693, guid: cbd4301e14f360a4eb98718fd5ff4ce8, type: 3}
-    SpawnPosition: {x: 3.86, y: -3.9999998, z: 0}
-    Index: 2
-    Bounds: {x: 12, y: 6}
-  - View: {fileID: 3863858705266743693, guid: cbd4301e14f360a4eb98718fd5ff4ce8, type: 3}
-    SpawnPosition: {x: 3.85, y: 3.93, z: 0}
+  - SpawnPosition: {x: 4.14, y: 2.8, z: 0}
     Index: 1
-    Bounds: {x: 12, y: 6}
-  - View: {fileID: 3863858705266743693, guid: cbd4301e14f360a4eb98718fd5ff4ce8, type: 3}
-    SpawnPosition: {x: 17.68, y: 3.93, z: 0}
+    Bounds: {x: 8.33, y: 3.25}
+  - SpawnPosition: {x: 17.36, y: -4.41, z: 0}
+    Index: 2
+    Bounds: {x: 10.5, y: 3.13}
+  - SpawnPosition: {x: 17.3, y: 2.82, z: 0}
     Index: 0
-    Bounds: {x: 12, y: 6}
+    Bounds: {x: 10.5, y: 3.13}
+  - SpawnPosition: {x: 4.72, y: -4.25, z: 0}
+    Index: 3
+    Bounds: {x: 7.14, y: 3.28}
   PresetupRabbits:
   - Type: 5
     StallIndex: 0
