@@ -276,9 +276,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f38e25dc4e9478fb9c94e88c37cafcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimationContent: {fileID: 7190115500761967794}
+  ScaleInDuration: 1
+  ScaleOutDuration: 0.5
   CloseButton: {fileID: 4073909667546705776}
   RestartLevelButton: {fileID: 8392358574900934909}
   SettingsButton: {fileID: 1673999987803218577}
+  HintText: {fileID: 539003948086478617}
   LevelId: 
 --- !u!1 &4194436237534927321
 GameObject:

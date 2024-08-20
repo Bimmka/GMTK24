@@ -92,6 +92,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e39d0ab69dfa45f29bfacdd91681a839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimationContent: {fileID: 3034994628242510354}
+  ScaleInDuration: 1
+  ScaleOutDuration: 0.5
   CloseButton: {fileID: 7288488305207968559}
 --- !u!1 &1768533269057608251
 GameObject:
@@ -233,35 +236,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'GameTips
-
-
-
-    GameTips
-
-
-
-    GameTips
-
-
-
-    GameTips
-
-
-
-    GameTips
-
-
-
-    GameTips
-
-
-
-    GameTips
-
-
-
-'
+  m_text: "Controls:\r\nYou need only mouse for playing. \r\n\r\nJust click LMB on
+    rabbits or foxes and drag&drop them between farmlands.\r\nAlso you can select
+    area for picking up multiple rabbits at once"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9222eceafb9985046a2a7195fd66585e, type: 2}
   m_sharedMaterial: {fileID: 4775319749594695957, guid: 9222eceafb9985046a2a7195fd66585e, type: 2}
@@ -748,11 +725,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1456807974211603378, guid: eb663586ca09ba74e963e2309f4b9155, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 50
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 1456807974211603378, guid: eb663586ca09ba74e963e2309f4b9155, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 28
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 1456807974211603378, guid: eb663586ca09ba74e963e2309f4b9155, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

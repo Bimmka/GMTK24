@@ -2,6 +2,8 @@
 using Code.Gameplay.Sounds.Service;
 using Code.Gameplay.Windows.Base;
 using Code.Gameplay.Windows.Service;
+using DG.Tweening;
+using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
@@ -9,6 +11,10 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
 {
     public class SettingsWindow : BaseWindow
     {
+        public Transform AnimationContent;
+        public float ScaleInDuration = 1f;
+        public float ScaleOutDuration = 0.5f;
+        
         public Slider MainVolumeSlider;
         public Slider EffectsVolumeSlider;
         public Slider SoundsVolumeSlider;
@@ -33,6 +39,9 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
             
             base.Initialize();
             Id = WindowId.Settings;
+            
+            AnimationContent.localScale = Vector3.zero;
+            AnimationContent.DOScale(Vector3.one, ScaleInDuration).SetEase(Ease.InOutSine);
         }
 
         protected override void SubscribeUpdates()
@@ -70,6 +79,8 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
             _audioService.PlayAudio(SoundType.UIClick);
             _audioService.SavePreferences();
             _windowService.Close(Id);
+            
+            AnimationContent.DOScale(Vector3.zero, ScaleOutDuration).SetEase(Ease.InOutSine);
         }
     }
 }

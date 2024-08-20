@@ -9,6 +9,7 @@ using Code.Gameplay.Windows.Service;
 using Code.Gameplay.Windows.Windows.HomeScreen.Factory;
 using Code.Infrastructure.States.StateMachine;
 using Code.Progress.Provider;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -17,6 +18,9 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
 {
     public class GameLevelsWindow : BaseWindow
     {
+        public Transform AnimationContent;
+        public float ScaleInDuration = 1f;
+        
         public Button CloseButton;
         public Button SettingsButton;
         public Button ControlHintsButton;
@@ -51,6 +55,9 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
             base.Initialize();
             Id = WindowId.GameLevels;
             SpawnGameLevels();
+            
+            AnimationContent.localScale = Vector3.zero;
+            AnimationContent.DOScale(Vector3.one, ScaleInDuration).SetEase(Ease.InOutSine);
         }
 
         protected override void SubscribeUpdates()

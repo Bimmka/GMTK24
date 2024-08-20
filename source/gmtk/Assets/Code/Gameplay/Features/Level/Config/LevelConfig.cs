@@ -17,5 +17,8 @@ namespace Code.Gameplay.Features.Level.Config
         public InfectionForLevelData[] Infections;
         public PresetupFoxesData[] PresetupFoxesData;
         public PresetupHoleData[] PresetupHoleData;
+
+        [TextArea(0,10)]
+        public string Hint;
     }
 }

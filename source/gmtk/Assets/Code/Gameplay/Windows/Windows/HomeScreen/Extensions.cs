@@ -3,9 +3,9 @@
     public static class Extensions
     {
         public static string FinishIn(this float value) =>
-            $"Finish in: {value:#}s";
+            $"Finish in: {value:#} sec";
 
         public static string HoldAmount(this float value) =>
-            $"Hold amount for {value:#}";
+            $"Hold amount for {value:#} sec";
     }
 }

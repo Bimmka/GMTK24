@@ -8,6 +8,9 @@ using Code.Gameplay.Windows.Service;
 using Code.Infrastructure.Loading;
 using Code.Infrastructure.States.GameStates;
 using Code.Infrastructure.States.StateMachine;
+using DG.Tweening;
+using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
@@ -15,9 +18,13 @@ namespace Code.Gameplay.Windows.Windows.Game
 {
     public class GamePauseMenuWindow : BaseWindow
     {
+        public Transform AnimationContent;
+        public float ScaleInDuration = 1f;
+        public float ScaleOutDuration = 0.5f;
         public Button CloseButton;
         public Button RestartLevelButton;
         public Button SettingsButton;
+        public TextMeshProUGUI HintText;
 
         public string LevelId;
 
@@ -49,8 +56,12 @@ namespace Code.Gameplay.Windows.Windows.Game
         {
             base.Initialize();
             Id = WindowId.PauseMenu;
+            
+            AnimationContent.localScale = Vector3.zero;
+            AnimationContent.DOScale(Vector3.one, ScaleInDuration).SetEase(Ease.InOutSine);
 
             LevelId = _levelDataProvider.CurrentId;
+            HintText.text = _staticDataService.GetLevelConfig(LevelId).Hint;
             
             _timeService.StopTime();
         }
@@ -76,6 +87,8 @@ namespace Code.Gameplay.Windows.Windows.Game
         {
             _windowService.Close(Id);
             _timeService.StartTime();
+            
+            AnimationContent.DOScale(Vector3.zero, ScaleOutDuration).SetEase(Ease.InOutSine);
         }
 
         private void RestartLevel()

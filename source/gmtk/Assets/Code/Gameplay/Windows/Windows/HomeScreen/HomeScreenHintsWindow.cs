@@ -2,6 +2,8 @@
 using Code.Gameplay.Sounds.Service;
 using Code.Gameplay.Windows.Base;
 using Code.Gameplay.Windows.Service;
+using DG.Tweening;
+using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
@@ -9,6 +11,9 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
 {
     public class HomeScreenHintsWindow : BaseWindow
     {
+        public Transform AnimationContent;
+        public float ScaleInDuration = 1f;
+        public float ScaleOutDuration = 0.5f;
         public Button CloseButton;
         
         private IWindowService _windowService;
@@ -24,6 +29,8 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
         protected override void Initialize()
         {
             base.Initialize();
+            AnimationContent.localScale = Vector3.zero;
+            AnimationContent.DOScale(Vector3.one, ScaleInDuration).SetEase(Ease.InOutSine);
             Id = WindowId.HomeScreenControlHints;
         }
         
@@ -43,6 +50,7 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
         {
             _audioService.PlayAudio(SoundType.UIClick);
             _windowService.Close(Id);
+            AnimationContent.DOScale(Vector3.zero, ScaleOutDuration).SetEase(Ease.InOutSine);
         }
     }
 }

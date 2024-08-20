@@ -16,6 +16,7 @@ using Code.Infrastructure.States.GameStates;
 using Code.Infrastructure.States.StateMachine;
 using Code.Progress.Provider;
 using Code.Progress.SaveLoad;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,6 +26,10 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
 {
     public class LevelInfoWindow : BaseWindow
     {
+        public Transform AnimationContent;
+        public float ScaleInDuration = 1f;
+        public float ScaleOutDuration = 0.5f;
+        
         public Button CloseButton;
         public Button StartLevelButton;
         public Button CompleteLevelButton;
@@ -71,6 +76,9 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
         {
             base.Initialize();
             Id = WindowId.LevelInfo;
+            
+            AnimationContent.localScale = Vector3.zero;
+            AnimationContent.DOScale(Vector3.one, ScaleInDuration).SetEase(Ease.InOutSine);
         }
         
         protected override void SubscribeUpdates()
@@ -158,6 +166,8 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
         {
             _audioService.PlayAudio(SoundType.UIClick);
             _windowService.Close(Id);
+            
+            AnimationContent.DOScale(Vector3.zero, ScaleOutDuration).SetEase(Ease.InOutSine);
         }
 
         private void StartLevel()
@@ -178,6 +188,8 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
             _windowService.Open(WindowId.GameLevels);
 
             _windowService.Close(Id);
+            
+            AnimationContent.DOScale(Vector3.zero, ScaleOutDuration).SetEase(Ease.InOutSine);
         }
     }
 }
