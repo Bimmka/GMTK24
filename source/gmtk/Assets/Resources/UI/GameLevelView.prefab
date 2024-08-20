@@ -328,7 +328,10 @@ MonoBehaviour:
   LevelId: 
   Completed: 0
   Unlocked: 0
-  BlockedShadow: {fileID: 3031160130045067429}
+  ObjectToLock:
+  - {fileID: 1792147254242499694}
+  LockedAlpha: 0.5
+  DefaultAlpha: 1
 --- !u!1 &8052089230103850015
 GameObject:
   m_ObjectHideFlags: 0
