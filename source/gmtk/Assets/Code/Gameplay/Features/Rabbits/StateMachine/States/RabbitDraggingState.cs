@@ -5,7 +5,7 @@ using Code.Gameplay.Sounds.Service;
 
 namespace Code.Gameplay.Features.Rabbits.StateMachine.States
 {
-    public class RabbitDraggingState : EntitySimpleState, IDisposable
+    public class RabbitDraggingState : EntitySimpleState
     {
         private readonly IAudioService _audioService;
         private SoundElement _soundElement;
