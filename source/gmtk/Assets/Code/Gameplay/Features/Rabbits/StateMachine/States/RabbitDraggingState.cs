@@ -1,10 +1,11 @@
-﻿using Code.Gameplay.Sounds.Behaviours;
+﻿using System;
+using Code.Gameplay.Sounds.Behaviours;
 using Code.Gameplay.Sounds.Config;
 using Code.Gameplay.Sounds.Service;
 
 namespace Code.Gameplay.Features.Rabbits.StateMachine.States
 {
-    public class RabbitDraggingState : EntitySimpleState
+    public class RabbitDraggingState : EntitySimpleState, IDisposable
     {
         private readonly IAudioService _audioService;
         private SoundElement _soundElement;
@@ -61,6 +62,12 @@ namespace Code.Gameplay.Features.Rabbits.StateMachine.States
             if (Entity.hasSavedPositionBeforeDrag)
                 Entity.RemoveSavedPositionBeforeDrag();
 
+            if (_soundElement != null)
+                _soundElement.Reset();
+        }
+
+        public void Dispose()
+        {
             if (_soundElement != null)
                 _soundElement.Reset();
         }
