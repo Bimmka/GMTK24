@@ -30,7 +30,8 @@ namespace Code.Gameplay.Features.Rabbits.StateMachine.States
             Entity.isMoving = false;
             Entity.isWaitingForNextReplicationUp = false;
             
-            _audioService.PlayAudio(SoundType.GoToReplication);
+            if (Entity.isChosenForReplication == false)
+                _audioService.PlayAudio(SoundType.GoToReplication);
             
             Entity.ReplaceWaitReplicationTimeLeft(Entity.WaitReplicationDuration);
         }
