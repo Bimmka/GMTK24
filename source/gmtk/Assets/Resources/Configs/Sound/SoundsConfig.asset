@@ -16,7 +16,7 @@ MonoBehaviour:
   - Type: 0
     Clip: {fileID: 8300000, guid: 0dc8d5636b242bb4c91f92c88144fe57, type: 3}
     MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
-    Duration: 0.1
+    Duration: 0.5
     DefaultVolume: 1
     IsLoop: 0
     IsInfinite: 0
@@ -40,7 +40,7 @@ MonoBehaviour:
   - Type: 3
     Clip: {fileID: 8300000, guid: eae76ea194922e54ebb64ab6735c0ffe, type: 3}
     MixerGroup: {fileID: 8211097604056377041, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
-    Duration: 2
+    Duration: 3.5
     DefaultVolume: 1
     IsLoop: 0
     IsInfinite: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
   - Type: 4
     Clip: {fileID: 8300000, guid: 62bb9251b990e304a8b6b4910ed0de34, type: 3}
     MixerGroup: {fileID: 8211097604056377041, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
-    Duration: 2
+    Duration: 5.5
     DefaultVolume: 1
     IsLoop: 0
     IsInfinite: 0
@@ -56,7 +56,7 @@ MonoBehaviour:
   - Type: 5
     Clip: {fileID: 8300000, guid: f6144d7670a9ba24a8b2a5ffaf31b875, type: 3}
     MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
-    Duration: 0.5
+    Duration: 2.5
     DefaultVolume: 1
     IsLoop: 0
     IsInfinite: 0
@@ -64,7 +64,7 @@ MonoBehaviour:
   - Type: 6
     Clip: {fileID: 8300000, guid: acfe0f3b30f27e3459707cdb6e3000e6, type: 3}
     MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
-    Duration: 0.5
+    Duration: 1
     DefaultVolume: 1
     IsLoop: 0
     IsInfinite: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   - Type: 7
     Clip: {fileID: 8300000, guid: de6c4c5a759aa8c498d7a59707cf83ac, type: 3}
     MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
-    Duration: 1
+    Duration: 1.75
     DefaultVolume: 1
     IsLoop: 0
     IsInfinite: 0
@@ -80,7 +80,7 @@ MonoBehaviour:
   - Type: 8
     Clip: {fileID: 8300000, guid: 502ce758dda402c4aaf1f06244e1aa05, type: 3}
     MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
-    Duration: 1
+    Duration: 0.8
     DefaultVolume: 1
     IsLoop: 1
     IsInfinite: 0
@@ -88,7 +88,7 @@ MonoBehaviour:
   - Type: 9
     Clip: {fileID: 8300000, guid: 6dcbb36bb73d310468cf7981658d7a77, type: 3}
     MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
-    Duration: 1
+    Duration: 0.4
     DefaultVolume: 1
     IsLoop: 1
     IsInfinite: 1
@@ -96,15 +96,15 @@ MonoBehaviour:
   - Type: 10
     Clip: {fileID: 8300000, guid: 4bbef598934af1a43a45f6a254ca39ff, type: 3}
     MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
-    Duration: 0.1
+    Duration: 1.2
     DefaultVolume: 1
-    IsLoop: 1
-    IsInfinite: 1
+    IsLoop: 0
+    IsInfinite: 0
     IsIgnoreTimeScale: 0
   - Type: 11
     Clip: {fileID: 8300000, guid: 583b644f1a4041a4ea0c7e360c4a40cb, type: 3}
     MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
-    Duration: 1
+    Duration: 0.3
     DefaultVolume: 1
     IsLoop: 0
     IsInfinite: 0
@@ -112,7 +112,7 @@ MonoBehaviour:
   - Type: 12
     Clip: {fileID: 8300000, guid: 7dff5e6d385eda748b9a8e516161cbdc, type: 3}
     MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
-    Duration: 1
+    Duration: 3.6
     DefaultVolume: 1
     IsLoop: 1
     IsInfinite: 1
@@ -120,7 +120,7 @@ MonoBehaviour:
   - Type: 13
     Clip: {fileID: 8300000, guid: f6144d7670a9ba24a8b2a5ffaf31b875, type: 3}
     MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
-    Duration: 0.5
+    Duration: 2.5
     DefaultVolume: 1
     IsLoop: 0
     IsInfinite: 0
