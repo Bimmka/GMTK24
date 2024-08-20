@@ -13,66 +13,31 @@ MonoBehaviour:
   m_Name: LevelConfig
   m_EditorClassIdentifier: 
   Id: 
-  LevelPrefab: {fileID: 1332082653969756024, guid: 82f9b182e9143fe4ab543e1e67ab056c, type: 3}
+  LevelPrefab: {fileID: 7239083468505109449, guid: 4cde3b2c48919f64f9e9f72216782378, type: 3}
   TaskConfig:
-    TaskType: 1
-    DurationLimitation: 01000000
-    AmountCondition: 1
-    TaskGoalsByRabbitColor: []
+    TaskType: 0
+    DurationLimitation: 
+    AmountCondition: 0
+    TaskGoalsByRabbitColor:
+    - ColorType: 6
+      MinAmount: 5
+      MaxAmount: 5
     TaskDurationTime: 0
-    TimeToHold: 30
-    MinAmount: 8
-    MaxAmount: 16
+    TimeToHold: 0
+    MinAmount: 0
+    MaxAmount: 0
   StallsSpawnData:
-  - SpawnPosition: {x: 10.22, y: -0.81, z: 0}
-    Index: 2
-    Bounds: {x: 6.11, y: 10.4}
-  - SpawnPosition: {x: 19.15, y: -0.81, z: 0}
+  - SpawnPosition: {x: 17.3, y: -0.81, z: 0}
     Index: 0
-    Bounds: {x: 7.2, y: 10.4}
-  - SpawnPosition: {x: 1.72, y: -0.81, z: 0}
+    Bounds: {x: 10.83, y: 10.4}
+  - SpawnPosition: {x: 4.15, y: -0.81, z: 0}
     Index: 1
-    Bounds: {x: 6.11, y: 10.4}
+    Bounds: {x: 10.83, y: 10.4}
   PresetupRabbits:
   - Type: 1
     StallIndex: 0
-  - Type: 1
+  - Type: 2
     StallIndex: 1
-  - Type: 1
-    StallIndex: 2
   Infections: []
   PresetupFoxesData: []
-  PresetupHoleData:
-  - At: {x: 9.92, y: -1.07, z: 0}
-    StallIndex: 2
-    Setup:
-      View: {fileID: 4009292927787154922, guid: a725d92d884f1c449bf522c2c7b84859, type: 3}
-      MinSpawnInterval: 5
-      MaxSpawnInterval: 10
-      HoleEntityConfigSpawnData:
-      - SpawnType: 1
-        RabbitColorTypes: 01000000
-        MinChance: 1
-        MaxChance: 1
-  - At: {x: 18.02, y: 2.24, z: 0}
-    StallIndex: 0
-    Setup:
-      View: {fileID: 4009292927787154922, guid: a725d92d884f1c449bf522c2c7b84859, type: 3}
-      MinSpawnInterval: 5
-      MaxSpawnInterval: 10
-      HoleEntityConfigSpawnData:
-      - SpawnType: 1
-        RabbitColorTypes: 01000000
-        MinChance: 1
-        MaxChance: 2
-  - At: {x: 2.49, y: -3.89, z: 0}
-    StallIndex: 1
-    Setup:
-      View: {fileID: 4009292927787154922, guid: a725d92d884f1c449bf522c2c7b84859, type: 3}
-      MinSpawnInterval: 5
-      MaxSpawnInterval: 10
-      HoleEntityConfigSpawnData:
-      - SpawnType: 2
-        RabbitColorTypes: 01000000
-        MinChance: 1
-        MaxChance: 1
+  PresetupHoleData: []
