@@ -7,6 +7,7 @@ namespace Code.Gameplay.Features.Level.Config
     public class LevelConfig : ScriptableObject
     {
         public string Id;
+        public int Index;
 
         public GameObject LevelPrefab;
 

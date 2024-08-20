@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: LevelConfig 6
   m_EditorClassIdentifier: 
   Id: 6
+  Index: 6
   LevelPrefab: {fileID: 8357950554801960561, guid: de6bad2ec55322345a1dbcfbd482d49c, type: 3}
   TaskConfig:
     TaskType: 1

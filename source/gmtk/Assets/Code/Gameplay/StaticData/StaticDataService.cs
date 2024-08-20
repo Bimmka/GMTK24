@@ -58,7 +58,7 @@ namespace Code.Gameplay.StaticData
         : throw new Exception($"Level config with id: {id} was not found");
 
     public List<LevelConfig> GetLevelConfigs() =>
-      _levelConfigsById.Values.ToList();
+      _levelConfigsById.Values.OrderByDescending(x => x.Index).ToList();
 
     public SpriteByRabbitColor GetRabbitSpriteByColor(RabbitColorType colorType)
     {
