@@ -6,6 +6,6 @@
             $"Finish in: {value:#}s";
 
         public static string HoldAmount(this float value) =>
-            $"Hold this amount for {value:#}";
+            $"Hold amount for {value:#}";
     }
 }
