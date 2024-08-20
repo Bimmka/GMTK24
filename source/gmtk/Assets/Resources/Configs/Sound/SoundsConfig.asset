@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundContainers:
   - Type: 0
-    Clip: {fileID: 8300000, guid: 4f5df9161159a584bbd09f2a897c1ce4, type: 3}
+    Clip: {fileID: 8300000, guid: 0dc8d5636b242bb4c91f92c88144fe57, type: 3}
     MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
     Duration: 0.1
     DefaultVolume: 1
