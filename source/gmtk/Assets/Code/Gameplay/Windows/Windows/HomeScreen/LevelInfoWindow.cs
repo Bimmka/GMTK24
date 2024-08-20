@@ -109,12 +109,12 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
                 if (limitationType == LevelTaskDurationLimitationType.TimeDuration)
                 {
                     TimeTextArea.SetActive(true);
-                    TimeText.text = $"Finish before {taskConfig.TaskDurationTime:#}";
+                    TimeText.text = taskConfig.TaskDurationTime.FinishIn();
                 }
                 else if (limitationType == LevelTaskDurationLimitationType.HoldDuration)
                 {
                     HoldTextArea.SetActive(true);
-                    HoldText.text = $"Hold this amount for {taskConfig.TimeToHold:#}";
+                    HoldText.text = taskConfig.TimeToHold.HoldAmount();
                 } 
             }
         }
@@ -129,6 +129,8 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
                     goalPartView.InitializeAsConcreteWithMinAmount(goalByRabbitColor.ColorType, goalByRabbitColor.MinAmount);
                 else
                     goalPartView.InitializeAsConcreteWithRangeAmount(goalByRabbitColor.ColorType, goalByRabbitColor.MinAmount,  goalByRabbitColor.MaxAmount);
+                
+                goalPartView.DisplayDescription(LevelId);
             }
         }
 
@@ -140,12 +142,16 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
                 goalPartView.InitializeAsCommonWithMinAmount(minAmount);
             else
                 goalPartView.InitializeAsCommonWithRangeAmount(minAmount,  maxAmount);
+            
+            goalPartView.DisplayDescription(LevelId);
         }
 
         private void DisplayRemoveAllRabbitsGoal()
         {
             RabbitTaskGoalPartView goalPartView = _taskFactory.RabbitTaskGoalPartView(RabbitGoalParent);
             goalPartView.InitializeAsKillAll();
+            
+            goalPartView.DisplayDescription(LevelId);
         }
 
         private void Close()

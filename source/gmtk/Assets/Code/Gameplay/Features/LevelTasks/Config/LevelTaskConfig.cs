@@ -23,5 +23,8 @@ namespace Code.Gameplay.Features.LevelTasks.Config
         [Header("For CommonRabbitAmount")]
         public int MinAmount;
         public int MaxAmount;
+        
+        
+        public string Description;
     }
 }

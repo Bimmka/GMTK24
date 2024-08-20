@@ -28,10 +28,10 @@ namespace Code.Infrastructure.States.GameStates
       _audioService.PlayMainThemeWithTransitDuration(SoundType.MenuMainTheme, 0.3f);
       _windowService.CloseAll();
 
-      _windowService.Open(WindowId.HomeScreenMenu);
-
       if (string.IsNullOrEmpty(_levelDataProvider.CurrentId) == false)
         _windowService.Open(WindowId.GameLevels);
+      else
+        _windowService.Open(WindowId.HomeScreenMenu);
     }
 
     protected override void OnUpdate()

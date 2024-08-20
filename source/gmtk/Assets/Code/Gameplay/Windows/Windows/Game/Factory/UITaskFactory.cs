@@ -8,6 +8,7 @@ namespace Code.Gameplay.Windows.Windows.Game.Factory
     {
         private const string ConcreteRabbitAmountViewPath = "UI/ConcreteRabbitAmounView";
         private const string RabbitTaskGoalPartViewPath = "UI/RabbitTaskGoalPartView";
+        private const string RabbitTaskGoalPartViewInGamePath = "UI/RabbitTaskGoalPartViewInGame";
         
         private readonly IInstantiator _instantiator;
         private readonly IAssetProvider _assetProvider;
@@ -31,6 +32,13 @@ namespace Code.Gameplay.Windows.Windows.Game.Factory
             RabbitTaskGoalPartView prefab = _assetProvider.LoadAsset<RabbitTaskGoalPartView>(RabbitTaskGoalPartViewPath);
 
             return _instantiator.InstantiatePrefabForComponent<RabbitTaskGoalPartView>(prefab, parent);
+        }
+
+        public RabbitTaskGoalPartViewInGame RabbitTaskGoalPartViewInGame(RectTransform parent)
+        {
+            RabbitTaskGoalPartViewInGame prefab = _assetProvider.LoadAsset<RabbitTaskGoalPartViewInGame>(RabbitTaskGoalPartViewInGamePath);
+
+            return _instantiator.InstantiatePrefabForComponent<RabbitTaskGoalPartViewInGame>(prefab, parent);
         }
     }
 }

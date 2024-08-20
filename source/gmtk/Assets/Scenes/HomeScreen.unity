@@ -3704,6 +3704,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5931263771692412269, guid: 7d4f6b8ea5d4e0e418784c759bf64674, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 8205084128868066069, guid: 7d4f6b8ea5d4e0e418784c759bf64674, type: 3}
       propertyPath: m_Name
       value: UIRoot

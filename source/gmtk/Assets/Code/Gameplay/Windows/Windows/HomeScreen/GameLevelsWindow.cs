@@ -95,7 +95,7 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
         private void Close()
         {
             _audioService.PlayAudio(SoundType.UIClick);
-            _windowService.Close(Id);
+            Application.Quit();
         }
 
         private void OpenSettingsWindow()
