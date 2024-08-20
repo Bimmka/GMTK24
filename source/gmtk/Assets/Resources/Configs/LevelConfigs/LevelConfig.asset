@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LevelConfig
   m_EditorClassIdentifier: 
   Id: 
-  LevelPrefab: {fileID: 7239083468505109449, guid: 4cde3b2c48919f64f9e9f72216782378, type: 3}
+  LevelPrefab: {fileID: 231925751823385217, guid: de6bad2ec55322345a1dbcfbd482d49c, type: 3}
   TaskConfig:
     TaskType: 2
     DurationLimitation: 00000000
@@ -24,12 +24,18 @@ MonoBehaviour:
     MinAmount: 0
     MaxAmount: 0
   StallsSpawnData:
-  - SpawnPosition: {x: 17.3, y: -0.81, z: 0}
+  - SpawnPosition: {x: 7.13, y: -0.28, z: 0}
+    Index: 3
+    Bounds: {x: 4.56, y: 9.23}
+  - SpawnPosition: {x: 13.8, y: -0.2, z: 0}
+    Index: 2
+    Bounds: {x: 3.6, y: 9.14}
+  - SpawnPosition: {x: 20.5, y: -0.21, z: 0}
     Index: 0
-    Bounds: {x: 10.83, y: 10.4}
-  - SpawnPosition: {x: 4.15, y: -0.81, z: 0}
+    Bounds: {x: 4.56, y: 9.3}
+  - SpawnPosition: {x: 0.54, y: -0.21, z: 0}
     Index: 1
-    Bounds: {x: 10.83, y: 10.4}
+    Bounds: {x: 3.6, y: 9.14}
   PresetupRabbits:
   - Type: 5
     StallIndex: 0

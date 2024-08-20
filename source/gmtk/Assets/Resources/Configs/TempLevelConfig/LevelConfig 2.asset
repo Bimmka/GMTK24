@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LevelConfig 2
   m_EditorClassIdentifier: 
   Id: 
-  LevelPrefab: {fileID: 0}
+  LevelPrefab: {fileID: 7239083468505109449, guid: 4cde3b2c48919f64f9e9f72216782378, type: 3}
   TaskConfig:
     TaskType: 0
     DurationLimitation: 
