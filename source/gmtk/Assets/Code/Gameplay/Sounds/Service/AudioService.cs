@@ -115,9 +115,9 @@ namespace Code.Gameplay.Sounds.Service
 
         private void LoadPreferences()
         {
-            MainSoundVolume = PlayerPrefs.GetFloat(MainSoundVolumeSaveKey, 1);
-            SoundsVolume = PlayerPrefs.GetFloat(SoundsVolumeSaveKey, 1);
-            EffectsVolume = PlayerPrefs.GetFloat(EffectsVolumeSaveKey, 1);
+            MainSoundVolume = PlayerPrefs.GetFloat(MainSoundVolumeSaveKey, 0.5f);
+            SoundsVolume = PlayerPrefs.GetFloat(SoundsVolumeSaveKey, 0.5f);
+            EffectsVolume = PlayerPrefs.GetFloat(EffectsVolumeSaveKey, 0.5f);
             
             ChangeMainVolume(MainSoundVolume);
             ChangeSoundsVolume(SoundsVolume);
