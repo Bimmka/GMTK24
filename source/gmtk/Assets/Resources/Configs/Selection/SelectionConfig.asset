@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aebfa63b8a0477490d9b1ccd5e9a2fd, type: 3}
   m_Name: SelectionConfig
   m_EditorClassIdentifier: 
-  FollowSelectionCenterSpeed: 18
-  MoveToAfterDragPositionSpeed: 10
+  FollowSelectionCenterSpeed: 25
+  MoveToAfterDragPositionSpeed: 15
   SelectionMask:
     serializedVersion: 2
     m_Bits: 64
