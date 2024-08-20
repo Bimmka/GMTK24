@@ -8,7 +8,7 @@ namespace Code.Gameplay.VFX.Behaviours
 {
     public class VFXElement : MonoBehaviour
     {
-        public ParticleSystem ParticleSystem;
+        public ParticleSystem[] ParticleSystems;
         
         private ITimeService _time;
 
@@ -40,14 +40,22 @@ namespace Code.Gameplay.VFX.Behaviours
 
         public void Hide()
         {
-            ParticleSystem.Stop();
+            foreach (ParticleSystem particleSystem in ParticleSystems)
+            {
+                particleSystem.Stop();
+            }
+
             gameObject.SetActive(false);
         }
 
         public void Show()
         {
             gameObject.SetActive(true);
-            ParticleSystem.Play();
+
+            foreach (ParticleSystem particleSystem in ParticleSystems)
+            {
+                particleSystem.Play();
+            }
         }
     }
 }
