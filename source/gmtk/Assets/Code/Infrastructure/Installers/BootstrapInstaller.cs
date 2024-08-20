@@ -28,6 +28,7 @@ using Code.Gameplay.Windows.Factory;
 using Code.Gameplay.Windows.Service;
 using Code.Gameplay.Windows.Windows.Game.Factory;
 using Code.Gameplay.Windows.Windows.HomeScreen.Factory;
+using Code.Gameplay.Windows.Windows.Loading;
 using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Identifiers;
 using Code.Infrastructure.Loading;
@@ -49,6 +50,7 @@ namespace Code.Infrastructure.Installers
   {
     public MainThemeSoundsContainer MainThemeSoundsContainer;
     public AudioMixer AudioMixer;
+    public LoadingCurtain LoadingCurtain;
     
     public override void InstallBindings()
     {
@@ -70,6 +72,7 @@ namespace Code.Infrastructure.Installers
       BindRabbitStates();
       BindProgressServices();
       BindSoundElements();
+      BindLevelLoadingElements();
     }
 
     private void BindStateMachine()
@@ -200,6 +203,11 @@ namespace Code.Infrastructure.Installers
     {
       Container.Bind<MainThemeSoundsContainer>().FromInstance(MainThemeSoundsContainer).AsSingle();
       Container.Bind<AudioMixer>().FromInstance(AudioMixer).AsSingle();
+    }
+
+    private void BindLevelLoadingElements()
+    {
+      Container.Bind<LoadingCurtain>().FromInstance(LoadingCurtain).AsSingle();
     }
 
     public void Initialize()
