@@ -5,7 +5,7 @@ namespace Code.Gameplay.Sounds.Service
 {
     public interface IAudioService
     {
-        void PlayAudio(SoundType type);
+        SoundElement PlayAudio(SoundType type);
         void PlayMainThemeWithTransitDuration(SoundType type, float duration);
         void Return(SoundElement element);
         float MainSoundVolume { get;}

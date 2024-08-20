@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using Code.Gameplay.Features.LevelTasks.Config;
+using Code.Gameplay.Levels;
 using Code.Gameplay.StaticData;
 using Code.Gameplay.Windows.Windows.Game.Factory;
+using Code.Gameplay.Windows.Windows.HomeScreen;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -18,10 +20,12 @@ namespace Code.Gameplay.Windows.Windows.Game
         
         private IStaticDataService _staticDataService;
         private IUITaskFactory _taskFactory;
+        private ILevelDataProvider _levelDataProvider;
 
         [Inject]
-        private void Construct(IStaticDataService staticDataService, IUITaskFactory taskFactory)
+        private void Construct(IStaticDataService staticDataService, IUITaskFactory taskFactory, ILevelDataProvider levelDataProvider)
         {
+            _levelDataProvider = levelDataProvider;
             _taskFactory = taskFactory;
             _staticDataService = staticDataService;
         }
@@ -42,12 +46,12 @@ namespace Code.Gameplay.Windows.Windows.Game
                 if (limitationType == LevelTaskDurationLimitationType.TimeDuration)
                 {
                     TimeTextArea.SetActive(true);
-                    TimeText.text = $"Finish before {taskConfig.TaskDurationTime:#}";
+                    TimeText.text = taskConfig.TaskDurationTime.FinishIn();
                 }
                 else if (limitationType == LevelTaskDurationLimitationType.HoldDuration)
                 {
                     HoldTextArea.SetActive(true);
-                    HoldText.text = $"Hold this amount for {taskConfig.TimeToHold:#}";
+                    HoldText.text = taskConfig.TimeToHold.HoldAmount();
                 } 
             }
         }
@@ -56,29 +60,34 @@ namespace Code.Gameplay.Windows.Windows.Game
         {
             foreach (TaskGoalByRabbitColor goalByRabbitColor in goals)
             {
-                RabbitTaskGoalPartView goalPartView = _taskFactory.RabbitTaskGoalPartView(RabbitGoalParent);
+                RabbitTaskGoalPartViewInGame goalPartView = _taskFactory.RabbitTaskGoalPartViewInGame(RabbitGoalParent);
                 
                 if (amountCondition == LevelTaskAmountConditionType.MinAmount)
                     goalPartView.InitializeAsConcreteWithMinAmount(goalByRabbitColor.ColorType, goalByRabbitColor.MinAmount);
                 else
                     goalPartView.InitializeAsConcreteWithRangeAmount(goalByRabbitColor.ColorType, goalByRabbitColor.MinAmount,  goalByRabbitColor.MaxAmount);
+                
+                goalPartView.DisplayDescription(_levelDataProvider.CurrentId);
             }
         }
 
         private void DisplayCommonRabbitsGoal(int minAmount, int maxAmount, LevelTaskAmountConditionType amountCondition)
         {
-            RabbitTaskGoalPartView goalPartView = _taskFactory.RabbitTaskGoalPartView(RabbitGoalParent);
+            RabbitTaskGoalPartViewInGame goalPartView = _taskFactory.RabbitTaskGoalPartViewInGame(RabbitGoalParent);
                 
             if (amountCondition == LevelTaskAmountConditionType.MinAmount)
                 goalPartView.InitializeAsCommonWithMinAmount(minAmount);
             else
                 goalPartView.InitializeAsCommonWithRangeAmount(minAmount,  maxAmount);
+            
+            goalPartView.DisplayDescription(_levelDataProvider.CurrentId);
         }
 
         private void DisplayRemoveAllRabbitsGoal()
         {
-            RabbitTaskGoalPartView goalPartView = _taskFactory.RabbitTaskGoalPartView(RabbitGoalParent);
+            RabbitTaskGoalPartViewInGame goalPartView = _taskFactory.RabbitTaskGoalPartViewInGame(RabbitGoalParent);
             goalPartView.InitializeAsKillAll();
+            goalPartView.DisplayDescription(_levelDataProvider.CurrentId);
         }
     }
 }

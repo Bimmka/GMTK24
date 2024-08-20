@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Code.Gameplay.Features.LevelTasks.Config;
+﻿using Code.Gameplay.Features.LevelTasks.Config;
 using Code.Gameplay.Features.Rabbits.Config.Rabbits;
 using Code.Gameplay.Features.Rabbits.Config.UI;
 using Code.Gameplay.StaticData;
@@ -10,7 +9,7 @@ using Zenject;
 
 namespace Code.Gameplay.Windows.Windows.Game
 {
-    public class RabbitTaskGoalPartView : MonoBehaviour
+    public class RabbitTaskGoalPartViewInGame : MonoBehaviour
     {
         public Image RabbitIcon;
         public GameObject RabbitIconParent;

@@ -10,7 +10,6 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
     public class HomeScreenMenu : BaseWindow
     {
         public Button PlayButton;
-        public Button SettingsButton;
         
         private IWindowService _windowService;
         private IAudioService _audioService;
@@ -32,26 +31,19 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
         {
             base.SubscribeUpdates();
             PlayButton.onClick.AddListener(OpenLevelsWindow);
-            SettingsButton.onClick.AddListener(OpenSettingsWindow);
         }
 
         protected override void UnsubscribeUpdates()
         {
             base.UnsubscribeUpdates();
             PlayButton.onClick.RemoveListener(OpenLevelsWindow);
-            SettingsButton.onClick.RemoveListener(OpenSettingsWindow);
         }
 
         private void OpenLevelsWindow()
         {
             _audioService.PlayAudio(SoundType.UIClick);
             _windowService.Open(WindowId.GameLevels);
-        }
-
-        private void OpenSettingsWindow()
-        {
-            _audioService.PlayAudio(SoundType.UIClick);
-            _windowService.Open(WindowId.Settings);
+            _windowService.Close(Id);
         }
     }
 }

@@ -6,5 +6,6 @@ namespace Code.Gameplay.Windows.Windows.Game.Factory
     {
         ConcreteRabbitAmountView CreateConcreteRabbitAmountView(RectTransform parent);
         RabbitTaskGoalPartView RabbitTaskGoalPartView(RectTransform parent);
+        RabbitTaskGoalPartViewInGame RabbitTaskGoalPartViewInGame(RectTransform parent);
     }
 }

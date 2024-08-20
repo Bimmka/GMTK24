@@ -21,6 +21,7 @@ namespace Code.Gameplay.Windows.Windows.Game
         public Image HoldTime;
         
         public GameObject CommonRabbitArea;
+        public GameObject KillCommonRabbitsIcon;
         public TextMeshProUGUI CommonAmountText;
 
         public RectTransform ConcreteRabbitAmountSpawnParent;
@@ -60,6 +61,8 @@ namespace Code.Gameplay.Windows.Windows.Game
             {
                 CommonRabbitArea.SetActive(true);
                 CommonAmountText.text = String.Empty;
+                
+                KillCommonRabbitsIcon.SetActive(taskConfig.TaskType == LevelTaskType.RemoveAllRabbits);
             }
 
             foreach (LevelTaskDurationLimitationType durationLimitationType in taskConfig.DurationLimitation)

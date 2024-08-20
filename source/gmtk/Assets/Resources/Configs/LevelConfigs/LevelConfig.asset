@@ -16,16 +16,17 @@ MonoBehaviour:
   LevelPrefab: {fileID: 7239083468505109449, guid: 4cde3b2c48919f64f9e9f72216782378, type: 3}
   TaskConfig:
     TaskType: 0
-    DurationLimitation: 
+    DurationLimitation: 0000000001000000
     AmountCondition: 0
     TaskGoalsByRabbitColor:
     - ColorType: 6
       MinAmount: 5
       MaxAmount: 5
-    TaskDurationTime: 0
-    TimeToHold: 0
+    TaskDurationTime: 220
+    TimeToHold: 10
     MinAmount: 0
     MaxAmount: 0
+    Description: 
   StallsSpawnData:
   - SpawnPosition: {x: 17.3, y: -0.81, z: 0}
     Index: 0

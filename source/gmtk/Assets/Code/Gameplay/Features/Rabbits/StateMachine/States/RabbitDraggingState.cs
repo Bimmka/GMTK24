@@ -1,4 +1,5 @@
-﻿using Code.Gameplay.Sounds.Config;
+﻿using Code.Gameplay.Sounds.Behaviours;
+using Code.Gameplay.Sounds.Config;
 using Code.Gameplay.Sounds.Service;
 
 namespace Code.Gameplay.Features.Rabbits.StateMachine.States
@@ -6,6 +7,7 @@ namespace Code.Gameplay.Features.Rabbits.StateMachine.States
     public class RabbitDraggingState : EntitySimpleState
     {
         private readonly IAudioService _audioService;
+        private SoundElement _soundElement;
 
         public RabbitDraggingState(IAudioService audioService)
         {
@@ -29,7 +31,7 @@ namespace Code.Gameplay.Features.Rabbits.StateMachine.States
             
             Entity.ReplaceSelectionDragTimeLeft(Entity.SelectionDragMaxTime);
             
-            _audioService.PlayAudio(SoundType.Dragging);
+            _soundElement = _audioService.PlayAudio(SoundType.Dragging);
         }
 
         protected override void Exit()
@@ -58,6 +60,9 @@ namespace Code.Gameplay.Features.Rabbits.StateMachine.States
 
             if (Entity.hasSavedPositionBeforeDrag)
                 Entity.RemoveSavedPositionBeforeDrag();
+
+            if (_soundElement != null)
+                _soundElement.Reset();
         }
     }
 }
