@@ -44,6 +44,12 @@ TagManager:
   - name: Background
     uniqueID: 1208412249
     locked: 0
+  - name: Decor
+    uniqueID: 4015274677
+    locked: 0
+  - name: FenceBack
+    uniqueID: 1071606209
+    locked: 0
   - name: Hole
     uniqueID: 1270456167
     locked: 0
@@ -52,6 +58,9 @@ TagManager:
     locked: 0
   - name: Fox
     uniqueID: 856221583
+    locked: 0
+  - name: FenceForward
+    uniqueID: 3731957325
     locked: 0
   - name: VFX
     uniqueID: 2567753301
