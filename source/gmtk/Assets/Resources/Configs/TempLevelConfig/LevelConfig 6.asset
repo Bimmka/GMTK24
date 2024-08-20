@@ -54,6 +54,6 @@ MonoBehaviour:
     StallIndex: 3
   Infections:
   - Type: 1
-    Interval: 20
+    Interval: 17
   PresetupFoxesData: []
   PresetupHoleData: []
