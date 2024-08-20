@@ -15,6 +15,7 @@ namespace Code.Gameplay.Sounds.Behaviours
         private float _timeLeft;
         private bool _isInfinite;
         private SoundType _type;
+        private bool _isIgnoreTimeScale;
 
         [Inject]
         private void Construct(ITimeService timeService, IAudioService audioService)
@@ -22,7 +23,14 @@ namespace Code.Gameplay.Sounds.Behaviours
             _timeService = timeService;
         }
 
-        public void Initialize(SoundType type, AudioClip clip, AudioMixerGroup mixerGroup, float volume, float duration, bool isLoop, bool isInfinite = false)
+        public void Initialize(
+            SoundType type,
+            AudioClip clip,
+            AudioMixerGroup mixerGroup,
+            float volume,
+            float duration,
+            bool isLoop,
+            bool isIgnoreTimeScale, bool isInfinite = false)
         {
             gameObject.SetActive(true);
             _type = type;
@@ -34,25 +42,36 @@ namespace Code.Gameplay.Sounds.Behaviours
             _timeLeft = duration;
 
             _isInfinite = isInfinite;
-            
+            _isIgnoreTimeScale = isIgnoreTimeScale;
+
             Source.Play();
         }
 
 
         private void Update()
         {
-            if (_timeService.IsPaused)
-                Source.Pause();
-            else if (Source.isPlaying == false)
-                Source.Play();
-            
-            if (_isInfinite)
-                return;
+            if (_isIgnoreTimeScale == false)
+            {
+                if (_timeService.IsPaused)
+                    Source.Pause();
+                else if (Source.isPlaying == false)
+                    Source.Play();
 
-            _timeLeft -= _timeService.DeltaTime;
+                if (Source.isPlaying && _isInfinite == false)
+                {
+                    _timeLeft -= _timeService.DeltaTime;
 
-            if (_timeLeft <= 0)
-                Return();
+                    if (_timeLeft <= 0)
+                        Return();
+                }
+            }
+            else if (_isInfinite == false)
+            {
+                _timeLeft -= Time.deltaTime;
+
+                if (_timeLeft <= 0)
+                    Return();
+            }
         }
 
         private void Return()

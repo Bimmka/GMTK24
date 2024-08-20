@@ -1,4 +1,6 @@
 ﻿using Code.Gameplay.Levels;
+using Code.Gameplay.Sounds.Config;
+using Code.Gameplay.Sounds.Service;
 using Code.Gameplay.StaticData;
 using Code.Gameplay.Windows.Base;
 using Code.Gameplay.Windows.Service;
@@ -11,19 +13,20 @@ namespace Code.Gameplay.Windows.Windows.Game
     {
         public Button MenuButton;
         public GameTaskStatusPanel TaskStatusPanel;
+        public GameTaskInfoPanel TaskInfoPanel;
         
         private ILevelDataProvider _levelDataProvider;
-        private IStaticDataService _staticDataService;
         private IWindowService _windowService;
+        private IAudioService _audioService;
 
         [Inject]
         private void Construct(
             IWindowService windowService,
-            IStaticDataService staticDataService,
-            ILevelDataProvider levelDataProvider)
+            ILevelDataProvider levelDataProvider,
+            IAudioService audioService)
         {
+            _audioService = audioService;
             _levelDataProvider = levelDataProvider;
-            _staticDataService = staticDataService;
             _windowService = windowService;
         }
         
@@ -33,6 +36,7 @@ namespace Code.Gameplay.Windows.Windows.Game
             Id = WindowId.LevelHUD;
 
             TaskStatusPanel.Initialize();
+            TaskInfoPanel.SetData(_levelDataProvider.CurrentId);
         }
         
         protected override void SubscribeUpdates()
@@ -49,6 +53,7 @@ namespace Code.Gameplay.Windows.Windows.Game
 
         private void OpenPauseMenu()
         {
+            _audioService.PlayAudio(SoundType.UIClick);
             _windowService.Open(WindowId.PauseMenu);
         }
     }

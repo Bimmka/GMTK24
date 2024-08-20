@@ -52,7 +52,7 @@ namespace Code.Gameplay.Sounds.Service
                 element = _audioFactory.Create(_mainThemeSoundsContainer.transform);
             }
             
-            element.Initialize(type, container.Clip, container.MixerGroup, 1f, container.Duration, container.IsLoop);
+            element.Initialize(type, container.Clip, container.MixerGroup, 1f, container.Duration, container.IsLoop, container.IsIgnoreTimeScale);
         }
 
         public void PlayMainTheme(SoundType type)

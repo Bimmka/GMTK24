@@ -14,5 +14,6 @@ namespace Code.Gameplay.Sounds.Config
         public float DefaultVolume;
         public bool IsLoop;
         public bool IsBackground;
+        public bool IsIgnoreTimeScale;
     }
 }
