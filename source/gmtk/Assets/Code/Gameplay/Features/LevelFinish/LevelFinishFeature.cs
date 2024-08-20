@@ -9,6 +9,9 @@ namespace Code.Gameplay.Features.LevelFinish
         {
             Add(systems.Create<OpenWinWindowSystem>());
             Add(systems.Create<OpenLoseWindowSystem>());
+
+            Add(systems.Create<SaveLevelAsCompletedSystem>());
+
             Add(systems.Create<MarkSignalsDestructedSystem>());
         }
     }

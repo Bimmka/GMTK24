@@ -20,6 +20,7 @@ MonoBehaviour:
     DefaultVolume: 1
     IsLoop: 0
     IsBackground: 0
+    IsIgnoreTimeScale: 1
   - Type: 1
     Clip: {fileID: 8300000, guid: 4f5df9161159a584bbd09f2a897c1ce4, type: 3}
     MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
@@ -27,6 +28,7 @@ MonoBehaviour:
     DefaultVolume: 1
     IsLoop: 1
     IsBackground: 1
+    IsIgnoreTimeScale: 1
   - Type: 2
     Clip: {fileID: 8300000, guid: 4f5df9161159a584bbd09f2a897c1ce4, type: 3}
     MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
@@ -34,6 +36,7 @@ MonoBehaviour:
     DefaultVolume: 1
     IsLoop: 1
     IsBackground: 1
+    IsIgnoreTimeScale: 1
   - Type: 3
     Clip: {fileID: 8300000, guid: 4f5df9161159a584bbd09f2a897c1ce4, type: 3}
     MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
@@ -41,6 +44,7 @@ MonoBehaviour:
     DefaultVolume: 1
     IsLoop: 0
     IsBackground: 0
+    IsIgnoreTimeScale: 0
   - Type: 4
     Clip: {fileID: 8300000, guid: 4f5df9161159a584bbd09f2a897c1ce4, type: 3}
     MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
@@ -48,6 +52,7 @@ MonoBehaviour:
     DefaultVolume: 1
     IsLoop: 0
     IsBackground: 0
+    IsIgnoreTimeScale: 0
   - Type: 5
     Clip: {fileID: 8300000, guid: 4f5df9161159a584bbd09f2a897c1ce4, type: 3}
     MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
@@ -55,6 +60,7 @@ MonoBehaviour:
     DefaultVolume: 1
     IsLoop: 0
     IsBackground: 0
+    IsIgnoreTimeScale: 0
   - Type: 6
     Clip: {fileID: 8300000, guid: 4f5df9161159a584bbd09f2a897c1ce4, type: 3}
     MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
@@ -62,6 +68,7 @@ MonoBehaviour:
     DefaultVolume: 1
     IsLoop: 0
     IsBackground: 0
+    IsIgnoreTimeScale: 0
   - Type: 7
     Clip: {fileID: 8300000, guid: 4f5df9161159a584bbd09f2a897c1ce4, type: 3}
     MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
@@ -69,6 +76,7 @@ MonoBehaviour:
     DefaultVolume: 1
     IsLoop: 0
     IsBackground: 0
+    IsIgnoreTimeScale: 0
   - Type: 8
     Clip: {fileID: 8300000, guid: 4f5df9161159a584bbd09f2a897c1ce4, type: 3}
     MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
@@ -76,6 +84,7 @@ MonoBehaviour:
     DefaultVolume: 1
     IsLoop: 0
     IsBackground: 0
+    IsIgnoreTimeScale: 0
   - Type: 9
     Clip: {fileID: 8300000, guid: 4f5df9161159a584bbd09f2a897c1ce4, type: 3}
     MixerGroup: {fileID: -2615998161109708110, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
@@ -83,3 +92,4 @@ MonoBehaviour:
     DefaultVolume: 1
     IsLoop: 0
     IsBackground: 0
+    IsIgnoreTimeScale: 0
