@@ -1,5 +1,7 @@
 ﻿using Code.Gameplay.Features.Level.Config;
 using Code.Gameplay.Levels;
+using Code.Gameplay.Sounds.Config;
+using Code.Gameplay.Sounds.Service;
 using Code.Gameplay.StaticData;
 using Code.Gameplay.Windows.Base;
 using Code.Gameplay.Windows.Service;
@@ -23,14 +25,17 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
         private IGameStateMachine _gameStateMachine;
         private IStaticDataService _staticDataService;
         private IWindowService _windowService;
+        private IAudioService _audioService;
 
         [Inject]
         private void Construct(
             IWindowService windowService,
             IStaticDataService staticDataService,
             IGameStateMachine gameStateMachine,
-            ILevelDataProvider levelDataProvider)
+            ILevelDataProvider levelDataProvider,
+            IAudioService audioService)
         {
+            _audioService = audioService;
             _levelDataProvider = levelDataProvider;
             _gameStateMachine = gameStateMachine;
             _staticDataService = staticDataService;
@@ -68,18 +73,20 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
 
         private void Close()
         {
+            _audioService.PlayAudio(SoundType.UIClick);
             _windowService.Close(Id);
         }
 
         private void StartLevel()
         {
+            _audioService.PlayAudio(SoundType.UIClick);
             _levelDataProvider.SetCurrentId(LevelId);
             _gameStateMachine.Enter<LoadingBattleState, string>(Scenes.GameScene);
         }
 
         private void SkipLevel()
         {
-            
+            _audioService.PlayAudio(SoundType.UIClick);
         }
     }
 }

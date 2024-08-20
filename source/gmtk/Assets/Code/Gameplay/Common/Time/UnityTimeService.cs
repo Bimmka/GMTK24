@@ -10,7 +10,8 @@ namespace Code.Gameplay.Common.Time
     public float Time => UnityEngine.Time.time;
 
     public DateTime UtcNow => DateTime.UtcNow;
-    
+    public bool IsPaused => _paused;
+
     public void StopTime() => _paused = true;
     public void StartTime() => _paused = false;
   }

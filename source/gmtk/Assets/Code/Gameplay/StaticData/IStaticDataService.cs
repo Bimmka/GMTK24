@@ -8,6 +8,7 @@ using Code.Gameplay.Features.Rabbits.Config.Replication;
 using Code.Gameplay.Features.Rabbits.Config.UI;
 using Code.Gameplay.Features.Selection.Config;
 using Code.Gameplay.Input.Config;
+using Code.Gameplay.Sounds.Config;
 using Code.Gameplay.VFX.Config;
 using Code.Gameplay.Windows;
 using Code.Gameplay.Windows.Base;
@@ -29,5 +30,6 @@ namespace Code.Gameplay.StaticData
     List<LevelConfig> GetLevelConfigs();
     SpriteByRabbitColor GetRabbitSpriteByColor(RabbitColorType colorType);
     VFXContainer GetVFXContainer(VFXType type);
+    SoundContainer GetSoundData(SoundType type);
   }
 }

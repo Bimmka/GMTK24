@@ -17,6 +17,9 @@ using Code.Gameplay.Features.Statuses.Applier;
 using Code.Gameplay.Features.Statuses.Factory;
 using Code.Gameplay.Input.Service;
 using Code.Gameplay.Levels;
+using Code.Gameplay.Sounds.Behaviours;
+using Code.Gameplay.Sounds.Factory;
+using Code.Gameplay.Sounds.Service;
 using Code.Gameplay.StaticData;
 using Code.Gameplay.VFX.Factory;
 using Code.Gameplay.VFX.Service;
@@ -37,12 +40,16 @@ using Code.Progress.Provider;
 using Code.Progress.SaveLoad;
 using RSG;
 using UnityEngine;
+using UnityEngine.Audio;
 using Zenject;
 
 namespace Code.Infrastructure.Installers
 {
   public class BootstrapInstaller : MonoInstaller, ICoroutineRunner, IInitializable
   {
+    public MainThemeSoundsContainer MainThemeSoundsContainer;
+    public AudioMixer AudioMixer;
+    
     public override void InstallBindings()
     {
       BindInputService();
@@ -62,6 +69,7 @@ namespace Code.Infrastructure.Installers
       BindGameStates();
       BindRabbitStates();
       BindProgressServices();
+      BindSoundElements();
     }
 
     private void BindStateMachine()
@@ -86,7 +94,7 @@ namespace Code.Infrastructure.Installers
       Container.BindInterfacesAndSelfTo<BattleLoopState>().AsSingle();
       Container.BindInterfacesAndSelfTo<GameOverState>().AsSingle();
     }
-    
+
     private void BindRabbitStates()
     {
       Container.BindInterfacesAndSelfTo<RabbitIdleState>().AsTransient();
@@ -123,6 +131,7 @@ namespace Code.Infrastructure.Installers
       Container.Bind<IStallService>().To<StallService>().AsSingle();
       Container.Bind<IStatusApplier>().To<StatusApplier>().AsSingle();
       Container.Bind<ITaskService>().To<TaskService>().AsSingle();
+      Container.Bind<IAudioService>().To<AudioService>().AsSingle();
     }
 
     private void BindGameplayFactories()
@@ -136,6 +145,7 @@ namespace Code.Infrastructure.Installers
       Container.Bind<IHoleFactory>().To<HoleFactory>().AsSingle();
       Container.Bind<ITaskFactory>().To<TaskFactory>().AsSingle();
       Container.Bind<IVFXFactory>().To<VFXFactory>().AsSingle();
+      Container.Bind<IAudioFactory>().To<AudioFactory>().AsSingle();
     }
 
     private void BindEntityIndices()
@@ -185,7 +195,13 @@ namespace Code.Infrastructure.Installers
       Container.Bind<IUIGameLevelViewFactory>().To<UIGameLevelViewFactory>().AsSingle();
       Container.Bind<IUITaskFactory>().To<UITaskFactory>().AsSingle();
     }
-    
+
+    private void BindSoundElements()
+    {
+      Container.Bind<MainThemeSoundsContainer>().FromInstance(MainThemeSoundsContainer).AsSingle();
+      Container.Bind<AudioMixer>().FromInstance(AudioMixer).AsSingle();
+    }
+
     public void Initialize()
     {
       Promise.UnhandledException += LogPromiseException;

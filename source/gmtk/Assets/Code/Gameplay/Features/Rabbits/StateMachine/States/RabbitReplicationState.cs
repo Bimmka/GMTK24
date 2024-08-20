@@ -1,14 +1,16 @@
 ﻿using Code.Gameplay.Common.Random;
+using Code.Gameplay.Sounds.Config;
+using Code.Gameplay.Sounds.Service;
 
 namespace Code.Gameplay.Features.Rabbits.StateMachine.States
 {
     public class RabbitReplicationState : EntitySimpleState
     {
-        private readonly IRandomService _randomService;
+        private readonly IAudioService _audioService;
 
-        public RabbitReplicationState(IRandomService randomService)
+        public RabbitReplicationState(IAudioService audioService)
         {
-            _randomService = randomService;
+            _audioService = audioService;
         }
         
         public override void Enter()
@@ -27,6 +29,8 @@ namespace Code.Gameplay.Features.Rabbits.StateMachine.States
             Entity.isMovingUp = false;
             Entity.isMoving = false;
             Entity.isWaitingForNextReplicationUp = false;
+            
+            _audioService.PlayAudio(SoundType.GoToReplication);
             
             Entity.ReplaceWaitReplicationTimeLeft(Entity.WaitReplicationDuration);
         }
