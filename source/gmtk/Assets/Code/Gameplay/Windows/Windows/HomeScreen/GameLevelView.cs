@@ -8,7 +8,7 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
     public class GameLevelView : MonoBehaviour
     {
         public Button ClickButton;
-        public TextMeshProUGUI LevelText;
+        public TextMeshProUGUI IndexText;
         public int Index;
         public string LevelId;
         public bool Completed;
@@ -16,6 +16,8 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
         public Image[] ObjectToLock;
         public float LockedAlpha;
         public float DefaultAlpha;
+        public GameObject CompleteIcon;
+        public GameObject LevelText;
 
         private Action<string, bool> _savedClickCallback;
 
@@ -39,7 +41,7 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
 
         private void UpdateVisual()
         {
-            LevelText.text = $"Level {Index + 1}";
+            IndexText.text = $"{Index + 1}";
 
             foreach (Image objectToLock in ObjectToLock)
             {
@@ -49,6 +51,9 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
             }
 
             ClickButton.enabled = Unlocked;
+            
+            CompleteIcon.SetActive(Completed);
+            LevelText.SetActive(Completed == false);
         }
 
         private void InvokeSavedCallback()
