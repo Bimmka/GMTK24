@@ -10,6 +10,8 @@ using Code.Gameplay.Features.Rabbits.Factory;
 using Code.Gameplay.Features.Stalls.Factory;
 using Code.Gameplay.Features.Stalls.Services;
 using Code.Gameplay.Levels;
+using Code.Gameplay.Sounds.Config;
+using Code.Gameplay.Sounds.Service;
 using Code.Gameplay.StaticData;
 using Code.Gameplay.Windows.Base;
 using Code.Gameplay.Windows.Service;
@@ -35,6 +37,7 @@ namespace Code.Infrastructure.States.GameStates
     private readonly ISystemFactory _systems;
     private readonly GameContext _gameContext;
     private readonly ITaskFactory _levelTaskFactory;
+    private readonly IAudioService _audioService;
 
     public BattleEnterState(
       IGameStateMachine stateMachine, 
@@ -47,7 +50,8 @@ namespace Code.Infrastructure.States.GameStates
       IInfectionFactory infectionFactory,
       IFoxFactory foxFactory,
       IHoleFactory holeFactory,
-      ITaskFactory levelTaskFactory)
+      ITaskFactory levelTaskFactory,
+      IAudioService audioService)
     {
       _stateMachine = stateMachine;
       _levelDataProvider = levelDataProvider;
@@ -60,11 +64,14 @@ namespace Code.Infrastructure.States.GameStates
       _foxFactory = foxFactory;
       _holeFactory = holeFactory;
       _levelTaskFactory = levelTaskFactory;
+      _audioService = audioService;
     }
     
     public override void Enter()
     {
       _windowService.CloseAll();
+      
+      _audioService.PlayMainThemeWithTransitDuration(SoundType.GameMainTheme, 0.3f);
 
       _windowService.Open(WindowId.LevelHUD);
       

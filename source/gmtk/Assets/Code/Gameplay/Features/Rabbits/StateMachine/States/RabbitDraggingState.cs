@@ -1,7 +1,17 @@
-﻿namespace Code.Gameplay.Features.Rabbits.StateMachine.States
+﻿using Code.Gameplay.Sounds.Config;
+using Code.Gameplay.Sounds.Service;
+
+namespace Code.Gameplay.Features.Rabbits.StateMachine.States
 {
     public class RabbitDraggingState : EntitySimpleState
     {
+        private readonly IAudioService _audioService;
+
+        public RabbitDraggingState(IAudioService audioService)
+        {
+            _audioService = audioService;
+        }
+        
         public override void Enter()
         {
             base.Enter();
@@ -18,6 +28,8 @@
             Entity.isSelectable = false;
             
             Entity.ReplaceSelectionDragTimeLeft(Entity.SelectionDragMaxTime);
+            
+            _audioService.PlayAudio(SoundType.Dragging);
         }
 
         protected override void Exit()

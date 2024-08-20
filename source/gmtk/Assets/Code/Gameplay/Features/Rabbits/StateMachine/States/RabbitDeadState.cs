@@ -1,4 +1,6 @@
-﻿using Code.Gameplay.VFX.Config;
+﻿using Code.Gameplay.Sounds.Config;
+using Code.Gameplay.Sounds.Service;
+using Code.Gameplay.VFX.Config;
 using Code.Gameplay.VFX.Service;
 
 namespace Code.Gameplay.Features.Rabbits.StateMachine.States
@@ -6,10 +8,12 @@ namespace Code.Gameplay.Features.Rabbits.StateMachine.States
     public class RabbitDeadState : EntitySimpleState
     {
         private readonly IVFXService _vfxService;
+        private readonly IAudioService _audioService;
 
-        public RabbitDeadState(IVFXService vfxService)
+        public RabbitDeadState(IVFXService vfxService, IAudioService audioService)
         {
             _vfxService = vfxService;
+            _audioService = audioService;
         }
         
         public override void Enter()
@@ -28,12 +32,18 @@ namespace Code.Gameplay.Features.Rabbits.StateMachine.States
 
             if (Entity.hasRabbitAnimator)
                 Entity.RabbitAnimator.PlayDead();
-            
+
             if (Entity.isCarrierOfInfection)
+            {
                 _vfxService.Spawn(VFXType.SickDeath, Entity.WorldPosition);
-            
+                _audioService.PlayAudio(SoundType.DeadByInfection);
+            }
+
             if (Entity.isEaten)
+            {
                 _vfxService.Spawn(VFXType.EatenDeath, Entity.WorldPosition);
+                _audioService.PlayAudio(SoundType.DeadByEat);
+            }
 
             Entity.AddSelfDestructTimer(0.01f);
         }

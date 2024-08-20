@@ -1,4 +1,6 @@
 ﻿using Code.Gameplay.Common.Time;
+using Code.Gameplay.Sounds.Config;
+using Code.Gameplay.Sounds.Service;
 using Code.Gameplay.Windows.Base;
 using Code.Infrastructure.States.GameStates;
 using Code.Infrastructure.States.StateMachine;
@@ -14,10 +16,12 @@ namespace Code.Gameplay.Windows.Windows.Game
         
         private ITimeService _timeService;
         private IGameStateMachine _gameStateMachine;
+        private IAudioService _audioService;
 
         [Inject]
-        private void Construct(IGameStateMachine gameStateMachine, ITimeService timeService)
+        private void Construct(IGameStateMachine gameStateMachine, ITimeService timeService, IAudioService audioService)
         {
+            _audioService = audioService;
             _gameStateMachine = gameStateMachine;
             _timeService = timeService;
         }
@@ -28,6 +32,7 @@ namespace Code.Gameplay.Windows.Windows.Game
             Id = WindowId.Lose;
             
             _timeService.StopTime();
+            _audioService.PlayAudio(SoundType.Lose);
         }
         
         protected override void SubscribeUpdates()
@@ -48,6 +53,7 @@ namespace Code.Gameplay.Windows.Windows.Game
         
         private void GoToMenu()
         {
+            _audioService.PlayAudio(SoundType.UIClick);
             _gameStateMachine.Enter<LoadingHomeScreenState>();
         }
     }

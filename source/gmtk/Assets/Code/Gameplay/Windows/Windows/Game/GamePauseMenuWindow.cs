@@ -1,5 +1,7 @@
 ﻿using Code.Gameplay.Common.Time;
 using Code.Gameplay.Levels;
+using Code.Gameplay.Sounds.Config;
+using Code.Gameplay.Sounds.Service;
 using Code.Gameplay.StaticData;
 using Code.Gameplay.Windows.Base;
 using Code.Gameplay.Windows.Service;
@@ -24,6 +26,7 @@ namespace Code.Gameplay.Windows.Windows.Game
         private IStaticDataService _staticDataService;
         private IWindowService _windowService;
         private ITimeService _timeService;
+        private IAudioService _audioService;
 
         [Inject]
         private void Construct(
@@ -31,8 +34,10 @@ namespace Code.Gameplay.Windows.Windows.Game
             IStaticDataService staticDataService,
             IGameStateMachine gameStateMachine,
             ILevelDataProvider levelDataProvider,
-            ITimeService timeService)
+            ITimeService timeService,
+            IAudioService audioService)
         {
+            _audioService = audioService;
             _timeService = timeService;
             _levelDataProvider = levelDataProvider;
             _gameStateMachine = gameStateMachine;
@@ -75,12 +80,14 @@ namespace Code.Gameplay.Windows.Windows.Game
 
         private void RestartLevel()
         {
+            _audioService.PlayAudio(SoundType.UIClick);
             _levelDataProvider.SetCurrentId(LevelId);
             _gameStateMachine.Enter<LoadingHomeScreenState>();
         }
 
         private void OpenSettings()
         {
+            _audioService.PlayAudio(SoundType.UIClick);
             _windowService.Open(WindowId.Settings);
         }
     }

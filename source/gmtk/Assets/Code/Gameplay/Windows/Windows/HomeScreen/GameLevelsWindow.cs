@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using Code.Gameplay.Features.Level.Config;
 using Code.Gameplay.Levels;
+using Code.Gameplay.Sounds.Config;
+using Code.Gameplay.Sounds.Service;
 using Code.Gameplay.StaticData;
 using Code.Gameplay.Windows.Base;
 using Code.Gameplay.Windows.Service;
 using Code.Gameplay.Windows.Windows.HomeScreen.Factory;
-using Code.Infrastructure.Loading;
-using Code.Infrastructure.States.GameStates;
 using Code.Infrastructure.States.StateMachine;
 using Code.Progress.Provider;
 using UnityEngine;
@@ -27,6 +27,7 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
         private IStaticDataService _staticDataService;
         private IProgressProvider _progressProvider;
         private IUIGameLevelViewFactory _factory;
+        private IAudioService _audioService;
 
         [Inject]
         private void Construct(
@@ -35,8 +36,10 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
             IProgressProvider progressProvider,
             IUIGameLevelViewFactory factory,
             IGameStateMachine gameStateMachine,
-            ILevelDataProvider levelDataProvider)
+            ILevelDataProvider levelDataProvider,
+            IAudioService audioService)
         {
+            _audioService = audioService;
             _factory = factory;
             _progressProvider = progressProvider;
             _staticDataService = staticDataService;
@@ -86,20 +89,24 @@ namespace Code.Gameplay.Windows.Windows.HomeScreen
         {
             LevelInfoWindow window = (LevelInfoWindow)_windowService.Open(WindowId.LevelInfo);
             window.SetData(levelId, isCompleted);
+            _audioService.PlayAudio(SoundType.UIClick);
         }
 
         private void Close()
         {
+            _audioService.PlayAudio(SoundType.UIClick);
             _windowService.Close(Id);
         }
 
         private void OpenSettingsWindow()
         {
+            _audioService.PlayAudio(SoundType.UIClick);
             _windowService.Open(WindowId.Settings);
         }
 
         private void OpenControlHints()
         {
+            _audioService.PlayAudio(SoundType.UIClick);
             _windowService.Open(WindowId.HomeScreenControlHints);
         }
     }

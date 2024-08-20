@@ -7,6 +7,7 @@ namespace Code.Gameplay.Common.Time
     float DeltaTime { get; }
     float Time { get; }
     DateTime UtcNow { get; }
+    bool IsPaused { get; }
     void StopTime();
     void StartTime();
   }

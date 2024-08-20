@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Code.Gameplay.Sounds.Config;
+using Code.Gameplay.Sounds.Service;
 using Code.Gameplay.VFX.Config;
 using Code.Gameplay.VFX.Service;
 using Entitas;
@@ -9,13 +11,15 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
     {
         private readonly GameContext _game;
         private readonly IVFXService _vfxService;
+        private readonly IAudioService _audioService;
         private readonly IGroup<GameEntity> _rabbits;
         private readonly List<GameEntity> _buffer = new List<GameEntity>(32);
 
-        public StartReplicationSystem(GameContext game, IVFXService vfxService)
+        public StartReplicationSystem(GameContext game, IVFXService vfxService, IAudioService audioService)
         {
             _game = game;
             _vfxService = vfxService;
+            _audioService = audioService;
 
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(
@@ -56,6 +60,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                 rabbit.ReplaceReplicationTimeLeft(replicationDuration);
                 
                 _vfxService.Spawn(VFXType.Replicate, rabbit.WorldPosition, rabbit.CurrentReplicationDuration);
+                _audioService.PlayAudio(SoundType.Replication);
             }
         }
     }

@@ -9,6 +9,7 @@ using Code.Gameplay.Features.Rabbits.Config.Replication;
 using Code.Gameplay.Features.Rabbits.Config.UI;
 using Code.Gameplay.Features.Selection.Config;
 using Code.Gameplay.Input.Config;
+using Code.Gameplay.Sounds.Config;
 using Code.Gameplay.VFX.Config;
 using Code.Gameplay.Windows.Base;
 using Code.Gameplay.Windows.Configs;
@@ -28,6 +29,7 @@ namespace Code.Gameplay.StaticData
     private FoxConfig _foxConfig;
     private RabbitUIConfig _rabbitUIConfig;
     private Dictionary<VFXType, VFXContainer> _vfxByType;
+    private Dictionary<SoundType, SoundContainer> _soundByType;
 
     public void LoadAll()
     {
@@ -41,9 +43,10 @@ namespace Code.Gameplay.StaticData
       LoadFoxConfig();
       LoadUIRabbitConfig();
       LoadVFXContainer();
+      LoadSounds();
     }
 
-    
+
     public GameObject GetWindowPrefab(WindowId id) =>
       _windowPrefabsById.TryGetValue(id, out GameObject prefab)
         ? prefab
@@ -53,7 +56,7 @@ namespace Code.Gameplay.StaticData
       _levelConfigsById.TryGetValue(id, out LevelConfig config)
         ? config
         : throw new Exception($"Level config with id: {id} was not found");
-    
+
     public List<LevelConfig> GetLevelConfigs() =>
       _levelConfigsById.Values.ToList();
 
@@ -71,6 +74,11 @@ namespace Code.Gameplay.StaticData
       _vfxByType.TryGetValue(type, out VFXContainer config)
         ? config
         : throw new Exception($"VFXContainer with type: {type} was not found");
+
+    public SoundContainer GetSoundData(SoundType type) =>
+      _soundByType.TryGetValue(type, out SoundContainer config)
+        ? config
+        : throw new Exception($"Sound container with type: {type} was not found");
 
     public ReplicationRulesConfig GetReplicationRulesConfig() =>
       _replicationRulesConfig;
@@ -116,14 +124,17 @@ namespace Code.Gameplay.StaticData
 
     private void LoadInfectionConfigs() =>
       _infectionConfigsByType = Resources.LoadAll<InfectionConfig>("Configs/Infections").ToDictionary(x => x.InfectionSetup.Type, x => x);
-    
+
     private void LoadFoxConfig() =>
       _foxConfig = Resources.Load<FoxConfig>("Configs/Foxes/FoxConfig");
-    
+
     private void LoadUIRabbitConfig() =>
       _rabbitUIConfig = Resources.Load<RabbitUIConfig>("Configs/Rabbits/RabbitUIConfig");
-    
+
     private void LoadVFXContainer() =>
       _vfxByType = Resources.Load<VFXContainerConfig>("Configs/VFX/VFXContainerConfig").VFXContainers.ToDictionary(x => x.Type, x=> x);
+
+    private void LoadSounds() =>
+      _soundByType = Resources.Load<SoundsConfig>("Configs/Sound/SoundsConfig").SoundContainers.ToDictionary(x => x.Type, x=> x);
   }
 }
