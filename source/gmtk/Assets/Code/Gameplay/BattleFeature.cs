@@ -7,6 +7,7 @@ using Code.Gameplay.Features.LevelFinish;
 using Code.Gameplay.Features.LevelTasks;
 using Code.Gameplay.Features.Movement;
 using Code.Gameplay.Features.Rabbits;
+using Code.Gameplay.Features.Rabbits.SubFeatures.Dead.Systems;
 using Code.Gameplay.Features.Selection;
 using Code.Gameplay.Features.Statuses;
 using Code.Gameplay.Input;
@@ -40,6 +41,7 @@ namespace Code.Gameplay
       Add(systems.Create<LevelFinishFeature>());
 
       Add(systems.Create<ProcessDestructedFeature>());
+      Add(systems.Create<RemoveSoundsSystem>());
     }
   }
 }

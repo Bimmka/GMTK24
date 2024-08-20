@@ -237,8 +237,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Controls:\r\nYou need only mouse for playing. \r\n\r\nJust click LMB on
-    rabbits or foxes and drag&drop them between farmlands.\r\nAlso you can select
-    area for picking up multiple rabbits at once"
+    rabbits and drag&drop them between farmlands.\r\nAlso you can select area for
+    picking up multiple rabbits at once"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9222eceafb9985046a2a7195fd66585e, type: 2}
   m_sharedMaterial: {fileID: 4775319749594695957, guid: 9222eceafb9985046a2a7195fd66585e, type: 2}
