@@ -64,6 +64,7 @@ namespace Code.Gameplay.Windows.Windows.Game
             CloseButton.onClick.RemoveListener(Close);
             RestartLevelButton.onClick.RemoveListener(RestartLevel);
             SettingsButton.onClick.RemoveListener(OpenSettings);
+            _timeService.StartTime();
         }
         
         private void Close()

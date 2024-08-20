@@ -4,30 +4,32 @@ namespace Code.Gameplay.Features.Rabbits.Behaviours.Visuals
 {
     public class RabbitVisualChanger : MonoBehaviour
     {
-        public SpriteRenderer SpriteRenderer;
-        public Color SelectedColor;
-        public Color DefaultColor;
-        public Color ReplicationColor;
-        public Color WaitingTargetColor;
+        public ParticleSystem LoveParticle;
+        public ParticleSystem RabiesParticle;
+        public ParticleSystem SickParticle;
+
+        public void SetSick()
+        {
+            SickParticle.gameObject.SetActive(true);
+            SickParticle.Play();
+        }
         
-        public void ApplySelectionStatus(bool isSelected)
+        public void SetRabies()
         {
-            SpriteRenderer.color = isSelected ? SelectedColor : DefaultColor;
+            RabiesParticle.gameObject.SetActive(true);
+            RabiesParticle.Play();
         }
 
-        public void SetReplicating()
+        public void SetLove()
         {
-            SpriteRenderer.color = ReplicationColor;
+            LoveParticle.gameObject.SetActive(true);
+            LoveParticle.Play();
         }
 
-        public void UnsetReplicating()
+        public void RemoveLove()
         {
-            SpriteRenderer.color = DefaultColor;
-        }
-
-        public void SetWaitTarget(bool isWaitingTarget)
-        {
-            SpriteRenderer.color = isWaitingTarget ? WaitingTargetColor : DefaultColor;
+            LoveParticle.Stop();
+            LoveParticle.gameObject.SetActive(true);
         }
     }
 }

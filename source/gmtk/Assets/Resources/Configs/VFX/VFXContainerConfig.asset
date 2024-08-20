@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b02bccd413451a96a49ad28b02ad3a, type: 3}
+  m_Name: VFXContainerConfig
+  m_EditorClassIdentifier: 
+  VFXContainers:
+  - Type: 0
+    Particle: {fileID: 63352968897047914, guid: 4079f8bac15b7134fa79fa7ca8c71692, type: 3}
+    DefaultDuration: 2
+  - Type: 1
+    Particle: {fileID: 8495265601087577393, guid: 5fdd473edd8faa040b4c72da8ddb9c38, type: 3}
+    DefaultDuration: 1.5
+  - Type: 2
+    Particle: {fileID: 7644530999733299779, guid: db105875ebaf0914690583866ee66c09, type: 3}
+    DefaultDuration: 2

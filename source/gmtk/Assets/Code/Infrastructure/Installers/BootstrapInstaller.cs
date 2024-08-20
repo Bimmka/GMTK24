@@ -18,6 +18,8 @@ using Code.Gameplay.Features.Statuses.Factory;
 using Code.Gameplay.Input.Service;
 using Code.Gameplay.Levels;
 using Code.Gameplay.StaticData;
+using Code.Gameplay.VFX.Factory;
+using Code.Gameplay.VFX.Service;
 using Code.Gameplay.Windows;
 using Code.Gameplay.Windows.Factory;
 using Code.Gameplay.Windows.Service;
@@ -133,6 +135,7 @@ namespace Code.Infrastructure.Installers
       Container.Bind<IFoxFactory>().To<FoxFactory>().AsSingle();
       Container.Bind<IHoleFactory>().To<HoleFactory>().AsSingle();
       Container.Bind<ITaskFactory>().To<TaskFactory>().AsSingle();
+      Container.Bind<IVFXFactory>().To<VFXFactory>().AsSingle();
     }
 
     private void BindEntityIndices()
@@ -163,6 +166,7 @@ namespace Code.Infrastructure.Installers
       Container.Bind<IPhysicsService>().To<PhysicsService>().AsSingle();
       Container.Bind<ITimeService>().To<UnityTimeService>().AsSingle();
       Container.Bind<ISceneLoader>().To<SceneLoader>().AsSingle();
+      Container.Bind<IVFXService>().To<VFXService>().AsSingle();
     }
 
     private void BindInputService()

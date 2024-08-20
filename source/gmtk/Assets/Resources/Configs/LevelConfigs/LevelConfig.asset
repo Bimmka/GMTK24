@@ -23,7 +23,7 @@ MonoBehaviour:
     AmountCondition: 1
     TaskGoalsByRabbitColor: []
     TaskDurationTime: 30
-    TimeToHold: 10
+    TimeToHold: 65.56
     MinAmount: 2
     MaxAmount: 20
   StallsSpawnData:

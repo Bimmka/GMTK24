@@ -4,13 +4,12 @@ using System.Linq;
 using Code.Gameplay.Features.Foxes.Config;
 using Code.Gameplay.Features.Infections.Configs;
 using Code.Gameplay.Features.Level.Config;
-using Code.Gameplay.Features.Rabbits.Config;
 using Code.Gameplay.Features.Rabbits.Config.Rabbits;
 using Code.Gameplay.Features.Rabbits.Config.Replication;
 using Code.Gameplay.Features.Rabbits.Config.UI;
 using Code.Gameplay.Features.Selection.Config;
 using Code.Gameplay.Input.Config;
-using Code.Gameplay.Windows;
+using Code.Gameplay.VFX.Config;
 using Code.Gameplay.Windows.Base;
 using Code.Gameplay.Windows.Configs;
 using UnityEngine;
@@ -28,6 +27,7 @@ namespace Code.Gameplay.StaticData
     private Dictionary<InfectionType,InfectionConfig> _infectionConfigsByType;
     private FoxConfig _foxConfig;
     private RabbitUIConfig _rabbitUIConfig;
+    private Dictionary<VFXType, VFXContainer> _vfxByType;
 
     public void LoadAll()
     {
@@ -40,6 +40,7 @@ namespace Code.Gameplay.StaticData
       LoadInfectionConfigs();
       LoadFoxConfig();
       LoadUIRabbitConfig();
+      LoadVFXContainer();
     }
 
     
@@ -65,6 +66,11 @@ namespace Code.Gameplay.StaticData
       _rabbitConfigsByColor.TryGetValue(type, out RabbitConfig config)
         ? config
         : throw new Exception($"Rabbit config with color: {type} was not found");
+
+    public VFXContainer GetVFXContainer(VFXType type) =>
+      _vfxByType.TryGetValue(type, out VFXContainer config)
+        ? config
+        : throw new Exception($"VFXContainer with type: {type} was not found");
 
     public ReplicationRulesConfig GetReplicationRulesConfig() =>
       _replicationRulesConfig;
@@ -116,5 +122,8 @@ namespace Code.Gameplay.StaticData
     
     private void LoadUIRabbitConfig() =>
       _rabbitUIConfig = Resources.Load<RabbitUIConfig>("Configs/Rabbits/RabbitUIConfig");
+    
+    private void LoadVFXContainer() =>
+      _vfxByType = Resources.Load<VFXContainerConfig>("Configs/VFX/VFXContainerConfig").VFXContainers.ToDictionary(x => x.Type, x=> x);
   }
 }

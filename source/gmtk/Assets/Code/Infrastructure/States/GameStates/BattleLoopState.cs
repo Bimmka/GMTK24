@@ -1,4 +1,6 @@
 using Code.Gameplay;
+using Code.Gameplay.Features.Stalls.Services;
+using Code.Gameplay.VFX.Service;
 using Code.Infrastructure.States.StateInfrastructure;
 using Code.Infrastructure.Systems;
 
@@ -8,12 +10,16 @@ namespace Code.Infrastructure.States.GameStates
   {
     private readonly ISystemFactory _systems;
     private readonly GameContext _gameContext;
+    private readonly IVFXService _vfxService;
+    private readonly IStallService _stallService;
     private BattleFeature _battleFeature;
 
-    public BattleLoopState(ISystemFactory systems, GameContext gameContext)
+    public BattleLoopState(ISystemFactory systems, GameContext gameContext, IVFXService vfxService, IStallService stallService)
     {
       _systems = systems;
       _gameContext = gameContext;
+      _vfxService = vfxService;
+      _stallService = stallService;
     }
     
     public override void Enter()
@@ -34,10 +40,15 @@ namespace Code.Infrastructure.States.GameStates
       _battleFeature.ClearReactiveSystems();
 
       DestructEntities();
-      
+
       _battleFeature.Cleanup();
       _battleFeature.TearDown();
       _battleFeature = null;
+
+      _vfxService.Clear();
+
+      _stallService.Clear();
+    
     }
 
     private void DestructEntities()
