@@ -3,18 +3,19 @@ using Entitas;
 
 namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
 {
-    public class UpdateTimeForReplicationSystem : IExecuteSystem
+    public class UpdateTimeForNextReplicationSystem : IExecuteSystem
     {
         private readonly ITimeService _time;
         private readonly IGroup<GameEntity> _rabbits;
 
-        public UpdateTimeForReplicationSystem(GameContext game, ITimeService time)
+        public UpdateTimeForNextReplicationSystem(GameContext game, ITimeService time)
         {
             _time = time;
 
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Rabbit,
+                    GameMatcher.Alive,
                     GameMatcher.TimeLeftForNextReplication,
                     GameMatcher.ReplicationAvailable,
                     GameMatcher.WaitingForNextReplicationUp));
@@ -26,7 +27,6 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
             {
                 rabbit.ReplaceTimeLeftForNextReplication(rabbit.TimeLeftForNextReplication - _time.DeltaTime);
 
-                
                 if (rabbit.TimeLeftForNextReplication <= 0)
                     rabbit.isReplicationTimeUp = true;
             }

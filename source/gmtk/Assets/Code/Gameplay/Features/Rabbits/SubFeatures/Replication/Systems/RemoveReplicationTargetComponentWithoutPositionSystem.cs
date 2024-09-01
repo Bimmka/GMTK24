@@ -12,7 +12,13 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
         public RemoveReplicationTargetComponentWithoutPositionSystem(GameContext game)
         {
             _game = game;
-            _replicators = game.GetGroup(GameMatcher.ReplicationTarget);
+            _replicators = game.GetGroup(GameMatcher
+                .AllOf(
+                    GameMatcher.ReplicationTarget,
+                    GameMatcher.WantToReplicate,
+                    GameMatcher.ReplicationAvailable,
+                    GameMatcher.Alive,
+                    GameMatcher.Rabbit));
         }
 
         public void Execute()

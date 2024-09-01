@@ -28,9 +28,11 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                     GameMatcher.NearReplicationTarget,
                     GameMatcher.DefaultReplicationDuration,
                     GameMatcher.CurrentReplicationDuration,
-                    GameMatcher.ReplicationState,
-                    GameMatcher.ReplicationAvailable)
-                .NoneOf(GameMatcher.Replicating));
+                    GameMatcher.ReplicationAvailable,
+                    GameMatcher.ValidReplicationTarget,
+                    GameMatcher.WantToReplicate,
+                    GameMatcher.MovingToReplicationTarget,
+                    GameMatcher.Alive));
         }
 
         public void Execute()

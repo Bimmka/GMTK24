@@ -15,10 +15,11 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                 .AllOf(
                     GameMatcher.WorldPosition,
                     GameMatcher.ReplicationTarget,
-                    GameMatcher.MoveDirection,
                     GameMatcher.MovementAvailable,
-                    GameMatcher.ReplicationState,
-                    GameMatcher.ReplicationAvailable));
+                    GameMatcher.WantToReplicate,
+                    GameMatcher.ReplicationAvailable,
+                    GameMatcher.ValidReplicationTarget,
+                    GameMatcher.MovingToReplicationTarget));
         }
 
         public void Execute()

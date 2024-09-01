@@ -36,8 +36,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                     GameMatcher.ReplicationFinished,
                     GameMatcher.WorldPosition,
                     GameMatcher.RabbitColorType,
-                    GameMatcher.ReplicationState,
-                    GameMatcher.ReplicationTarget));
+                    GameMatcher.ReplicationTarget,
+                    GameMatcher.ValidReplicationTarget));
         }
 
         public void Execute()

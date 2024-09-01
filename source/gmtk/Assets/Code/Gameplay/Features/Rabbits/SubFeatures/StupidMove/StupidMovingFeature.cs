@@ -9,12 +9,11 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.StupidMove
     {
         public StupidMovingFeature(ISystemFactory systems)
         {
+            Add(systems.Create<RemoveTargetPointWhenReplicationSystem>());
             Add(systems.Create<UpdateTimeForMovingSystem>());
             Add(systems.Create<StartRabbitMovingSystem>());
             Add(systems.Create<RefreshTimeForMovingForReachedTargetSystem>());
             Add(systems.Create<StopRabbitMovingSystem>());
-
-            //Add(systems.Create<UpdateActivityFreeMarkSystem>());
             
             Add(systems.Create<CleanupMovingUpMarkAtMovingToTargetPointSystem>());
         }

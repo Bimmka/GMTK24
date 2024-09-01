@@ -13,10 +13,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                     GameMatcher.Rabbit,
                     GameMatcher.ReplicationTimeUp,
                     GameMatcher.ReplicationTarget,
-                    GameMatcher.ReplicationAvailable)
-                .AnyOf(
-                    GameMatcher.IdleState,
-                    GameMatcher.StupidMoveState));
+                    GameMatcher.ReplicationAvailable,
+                    GameMatcher.ValidReplicationTarget));
         }
 
         public void Execute()

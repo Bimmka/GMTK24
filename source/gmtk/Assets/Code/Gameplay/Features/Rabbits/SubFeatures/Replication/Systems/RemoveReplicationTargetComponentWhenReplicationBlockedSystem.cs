@@ -12,7 +12,12 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
         public RemoveReplicationTargetComponentWhenReplicationBlockedSystem(GameContext game)
         {
             _game = game;
-            _replicators = game.GetGroup(GameMatcher.ReplicationTarget);
+            _replicators = game.GetGroup(GameMatcher
+                .AllOf(
+                    GameMatcher.ReplicationTarget,
+                    GameMatcher.Alive,
+                    GameMatcher.Rabbit,
+                    GameMatcher.WantToReplicate));
         }
 
         public void Execute()

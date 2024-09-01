@@ -37,6 +37,9 @@ namespace Code.Gameplay.Features.Rabbits
     [Game] public class ReplicationTarget : IComponent { public int Value; }
     [Game] public class ChosenForReplication : IComponent {  }
     [Game] public class ChosenForReplicationBy : IComponent { public int Value; }
+    
+    [Game] public class MovingToReplicationTarget : IComponent {  }
+    [Game] public class ValidReplicationTarget : IComponent {  }
     [Game] public class InvalidReplicationTarget : IComponent {  }
     [Game] public class NearReplicationTarget : IComponent {  }
     [Game] public class ResetReplicationProcess : IComponent {  }

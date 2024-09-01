@@ -16,7 +16,9 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                 .AllOf(
                     GameMatcher.ReplicationTarget,
                     GameMatcher.StallParentIndex,
-                    GameMatcher.ReplicationAvailable));
+                    GameMatcher.ReplicationAvailable,
+                    GameMatcher.Alive,
+                    GameMatcher.WantToReplicate));
         }
 
         public void Execute()

@@ -21,7 +21,7 @@ MonoBehaviour:
     AmountCondition: 0
     TaskGoalsByRabbitColor:
     - ColorType: 1
-      MinAmount: 5
+      MinAmount: 254
       MaxAmount: 5
     TaskDurationTime: 0
     TimeToHold: 0
@@ -37,6 +37,8 @@ MonoBehaviour:
   PresetupRabbits:
   - Type: 1
     StallIndex: 0
+  - Type: 1
+    StallIndex: 1
   - Type: 1
     StallIndex: 1
   Infections: []

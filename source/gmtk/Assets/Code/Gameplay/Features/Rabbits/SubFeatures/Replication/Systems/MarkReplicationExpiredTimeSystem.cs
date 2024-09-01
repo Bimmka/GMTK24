@@ -11,9 +11,11 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Rabbit,
-                    GameMatcher.ReplicationState,
+                    GameMatcher.WantToReplicate,
                     GameMatcher.WaitReplicationTimeLeft,
-                    GameMatcher.ReplicationAvailable));
+                    GameMatcher.ReplicationAvailable,
+                    GameMatcher.ValidReplicationTarget)
+                .NoneOf(GameMatcher.Replicating));
         }
 
         public void Execute()

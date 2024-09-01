@@ -9,23 +9,27 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication
         {
             Add(systems.Create<ApplyReplicationBlockSystem>());
             
-            Add(systems.Create<UpdateTimeForReplicationSystem>());
+            Add(systems.Create<UpdateTimeForNextReplicationSystem>());
 
             Add(systems.Create<SetReplicationTargetSystem>());
 
             Add(systems.Create<MarkWantToReplicateSystem>());
             
+            //Add(systems.Create<RemoveReplicationTargetComponentWithoutPositionSystem>());
+            //Add(systems.Create<RemoveReplicationTargetComponentWhenDifferenceStallSystem>());
+            
+            //Add(systems.Create<RemoveReplicationTargetComponentWhenReplicationBlockedSystem>());
+
+            //Add(systems.Create<ValidateReplicationNonDraggingTargetSystem>());
+            //Add(systems.Create<ValidateReplicationDraggingTargetSystem>());
+            
+            Add(systems.Create<PrepareToMoveToReplicationTargetSystem>());
+            Add(systems.Create<UpdateDirectionToReplicationTargetSystem>());
+            
             Add(systems.Create<UpdateWaitReplicationTimeSystem>());
             Add(systems.Create<MarkReplicationExpiredTimeSystem>());
             
-            //Add(systems.Create<PrepareToMoveToReplicationTargetSystem>());
-            Add(systems.Create<RemoveReplicationTargetComponentWithoutPositionSystem>());
-            Add(systems.Create<RemoveReplicationTargetComponentWhenDifferenceStallSystem>());
-            Add(systems.Create<RemoveReplicationTargetComponentWhenWaitingExpiredSystem>());
-            Add(systems.Create<RemoveReplicationTargetComponentWhenReplicationBlockedSystem>());
-
-            Add(systems.Create<ValidateReplicationNonDraggingTargetSystem>());
-            Add(systems.Create<ValidateReplicationDraggingTargetSystem>());
+            Add(systems.Create<StopMoveToReplicationTargetWhenWaitingExpiredSystem>());
             
             Add(systems.Create<ResetReplicationProcessMarkersForTargetsSystem>());
 
@@ -33,11 +37,14 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication
             
             Add(systems.Create<MarkNearReplicationTargetSystem>());
             
-            Add(systems.Create<UpdateDirectionToReplicationTargetSystem>());
-            
             Add(systems.Create<StartReplicationSystem>());
+
             Add(systems.Create<UpdateReplicationDurationSystem>());
+
             Add(systems.Create<SpawnRabbitsAfterReplicationFinishedSystem>());
+            Add(systems.Create<ResetAliveRabbitWhenReplicationFinishedSystem>());
+            Add(systems.Create<StopReplicationSystem>());
+
             Add(systems.Create<MarkCanBeChosenForReplicationWhenReplicationFinishedSystem>());
 
             Add(systems.Create<CleanupStartReplicationMarksSystem>());
