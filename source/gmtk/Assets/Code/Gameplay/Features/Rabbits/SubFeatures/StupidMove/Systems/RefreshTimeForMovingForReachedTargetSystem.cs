@@ -10,8 +10,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.StupidMove.Systems
         {
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(
-                    GameMatcher.Rabbit,
-                    GameMatcher.MovingFinished,
+                    GameMatcher.Alive,
+                    GameMatcher.TargetPointReached,
                     GameMatcher.TimeLeftForMoving,
                     GameMatcher.MovingInterval));
         }

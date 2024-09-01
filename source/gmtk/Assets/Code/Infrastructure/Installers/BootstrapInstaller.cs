@@ -105,6 +105,8 @@ namespace Code.Infrastructure.Installers
       Container.BindInterfacesAndSelfTo<RabbitReplicationState>().AsTransient();
       Container.BindInterfacesAndSelfTo<RabbitDraggingState>().AsTransient();
       Container.BindInterfacesAndSelfTo<RabbitDeadState>().AsTransient();
+      Container.BindInterfacesAndSelfTo<RabbitWaitReplicationTargetState>().AsTransient();
+      Container.BindInterfacesAndSelfTo<RabbitReplicatingState>().AsTransient();
     }
 
     private void BindContexts()

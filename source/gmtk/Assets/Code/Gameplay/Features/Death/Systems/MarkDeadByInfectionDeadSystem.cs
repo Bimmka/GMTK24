@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using Entitas;
 
-namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dead.Systems
+namespace Code.Gameplay.Features.Death.Systems
 {
     public class MarkDeadByInfectionDeadSystem : IExecuteSystem
     {
-        private readonly IGroup<GameEntity> _rabbits;
+        private readonly IGroup<GameEntity> _infected;
         private readonly List<GameEntity> _buffer = new List<GameEntity>(32);
 
         public MarkDeadByInfectionDeadSystem(GameContext game)
         {
-            _rabbits = game.GetGroup(GameMatcher
+            _infected = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.DeadByInfection,
                     GameMatcher.Alive)
@@ -19,10 +19,10 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dead.Systems
 
         public void Execute()
         {
-            foreach (GameEntity rabbit in _rabbits.GetEntities(_buffer))
+            foreach (GameEntity infected in _infected.GetEntities(_buffer))
             {
-                rabbit.isDead = true;
-                rabbit.isAlive = false;
+                infected.isDead = true;
+                infected.isAlive = false;
             }
         }
     }

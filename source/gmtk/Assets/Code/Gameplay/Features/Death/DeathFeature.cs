@@ -1,11 +1,11 @@
-﻿using Code.Gameplay.Features.Rabbits.SubFeatures.Dead.Systems;
+﻿using Code.Gameplay.Features.Death.Systems;
 using Code.Infrastructure.Systems;
 
-namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dead
+namespace Code.Gameplay.Features.Death
 {
-    public sealed class DeadFeature : Feature
+    public sealed class DeathFeature : Feature
     {
-        public DeadFeature(ISystemFactory systems)
+        public DeathFeature(ISystemFactory systems)
         {
             Add(systems.Create<MarkDeadByInfectionDeadSystem>());
             Add(systems.Create<MarkDeadWhenEatenSystem>());

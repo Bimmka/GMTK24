@@ -1,5 +1,7 @@
 ﻿using Code.Common.Destruct;
 using Code.Gameplay.Features.CharacterStats;
+using Code.Gameplay.Features.Death;
+using Code.Gameplay.Features.Death.Systems;
 using Code.Gameplay.Features.Foxes;
 using Code.Gameplay.Features.Holes;
 using Code.Gameplay.Features.Infections;
@@ -7,7 +9,6 @@ using Code.Gameplay.Features.LevelFinish;
 using Code.Gameplay.Features.LevelTasks;
 using Code.Gameplay.Features.Movement;
 using Code.Gameplay.Features.Rabbits;
-using Code.Gameplay.Features.Rabbits.SubFeatures.Dead.Systems;
 using Code.Gameplay.Features.Selection;
 using Code.Gameplay.Features.Statuses;
 using Code.Gameplay.Input;
@@ -37,7 +38,9 @@ namespace Code.Gameplay
       
       Add(systems.Create<InfectionFeature>());
       Add(systems.Create<StatusFeature>());
-      
+
+      Add(systems.Create<DeathFeature>());
+
       Add(systems.Create<LevelFinishFeature>());
 
       Add(systems.Create<ProcessDestructedFeature>());

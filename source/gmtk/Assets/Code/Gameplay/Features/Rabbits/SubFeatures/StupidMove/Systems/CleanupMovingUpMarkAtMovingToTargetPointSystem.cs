@@ -3,18 +3,18 @@ using Entitas;
 
 namespace Code.Gameplay.Features.Rabbits.SubFeatures.StupidMove.Systems
 {
-    public class CleanupTargetPointOnTargetReached : ICleanupSystem
+    public class CleanupMovingUpMarkAtMovingToTargetPointSystem : ICleanupSystem
     {
         private readonly IGroup<GameEntity> _rabbits;
-        private readonly List<GameEntity> _buffer = new List<GameEntity>(32);
+        private readonly List<GameEntity> _buffer = new List<GameEntity>(16);
 
-        public CleanupTargetPointOnTargetReached(GameContext game)
+        public CleanupMovingUpMarkAtMovingToTargetPointSystem(GameContext game)
         {
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(
-                    GameMatcher.Rabbit,
-                    GameMatcher.TargetPointReached,
-                    GameMatcher.MovingFinished,
+                    GameMatcher.MovingUp,
+                    GameMatcher.Alive,
+                    GameMatcher.Moving, 
                     GameMatcher.TargetPoint));
         }
 
@@ -22,7 +22,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.StupidMove.Systems
         {
             foreach (GameEntity rabbit in _rabbits.GetEntities(_buffer))
             {
-                rabbit.RemoveTargetPoint();
+                rabbit.isMovingUp = false;
             }
         }
     }

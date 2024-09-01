@@ -1,6 +1,6 @@
 ﻿using Entitas;
 
-namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dead.Systems
+namespace Code.Gameplay.Features.Death.Systems
 {
     public class RemoveSoundsSystem : ITearDownSystem
     {
