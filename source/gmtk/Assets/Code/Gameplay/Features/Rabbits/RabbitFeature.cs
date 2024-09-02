@@ -15,7 +15,7 @@ namespace Code.Gameplay.Features.Rabbits
             
             Add(systems.Create<StupidMovingFeature>());
             Add(systems.Create<ReplicationFeature>());
-            //Add(systems.Create<DraggingFeature>());
+            Add(systems.Create<DraggingFeature>());
 
             //Add(systems.Create<RabbitStateMachineFeature>());
         }

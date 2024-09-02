@@ -25,9 +25,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication
             Add(systems.Create<UpdateWaitReplicationTimeSystem>());
             Add(systems.Create<MarkReplicationExpiredTimeSystem>());
             
-            Add(systems.Create<StopMoveToReplicationTargetWhenWaitingExpiredSystem>());
-            
-            //Add(systems.Create<ResetReplicationProcessMarkersForTargetsSystem>());
+            Add(systems.Create<MarkReplicationTargetInvalidWhenWaitingExpiredSystem>());
 
             Add(systems.Create<SetWaitingReplicationTargetSystem>());
             

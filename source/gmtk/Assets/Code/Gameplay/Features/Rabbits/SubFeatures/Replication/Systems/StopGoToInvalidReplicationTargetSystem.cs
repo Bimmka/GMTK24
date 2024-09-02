@@ -27,6 +27,9 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
         {
             foreach (GameEntity replicator in _replicators.GetEntities(_buffer))
             {
+                replicator.isCanBeChosenForReplication = true;
+                replicator.isWaitingForNextReplicationUp = true;
+                replicator.isCanStartReplication = true;
                 replicator.isInvalidReplicationTarget = false;
                 replicator.isMovingToReplicationTarget = false;
                 replicator.isWantToReplicate = false;
