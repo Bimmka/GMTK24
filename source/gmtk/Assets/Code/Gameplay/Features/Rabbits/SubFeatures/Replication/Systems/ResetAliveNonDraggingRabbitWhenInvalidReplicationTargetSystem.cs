@@ -2,11 +2,11 @@
 
 namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
 {
-    public class ResetAliveRabbitWhenInvalidReplicationTargetSystem : IExecuteSystem
+    public class ResetAliveNonDraggingRabbitWhenInvalidReplicationTargetSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _rabbits;
 
-        public ResetAliveRabbitWhenInvalidReplicationTargetSystem(GameContext game)
+        public ResetAliveNonDraggingRabbitWhenInvalidReplicationTargetSystem(GameContext game)
         {
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(
@@ -14,7 +14,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                     GameMatcher.Rabbit,
                     GameMatcher.InvalidReplicationTarget,
                     GameMatcher.ReplicationTarget,
-                    GameMatcher.RabbitAnimator));
+                    GameMatcher.RabbitAnimator)
+                .NoneOf(GameMatcher.Dragging));
         }
 
         public void Execute()
@@ -24,13 +25,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                 rabbit.isCanBeChosenForReplication = true;
                 rabbit.isWaitingForNextReplicationUp = true;
                 rabbit.isCanStartReplication = true;
-                
-                rabbit.isMovementAvailable = true;
                 rabbit.isWaitingForMoving = true;
-                
-                rabbit.isWaitingForNextReplicationUp = true;
-
-                rabbit.isSelectable = true;
                 
                 rabbit.RabbitAnimator.PlayIdle();
             }

@@ -16,7 +16,6 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                 .AllOf(
                     GameMatcher.ReplicationTarget,
                     GameMatcher.ReplicationExpired,
-                    GameMatcher.ReplicationAvailable,
                     GameMatcher.ValidReplicationTarget,
                     GameMatcher.Alive,
                     GameMatcher.Rabbit,

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Code.Gameplay.Sounds.Config;
+﻿using Code.Gameplay.Sounds.Config;
 using Code.Gameplay.Sounds.Service;
 using Entitas;
 
@@ -9,7 +8,6 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dragging.Systems
     {
         private readonly IAudioService _audioService;
         private readonly IGroup<GameEntity> _rabbits;
-        private readonly List<GameEntity> _buffer = new List<GameEntity>(32);
 
         public PlaySoundAfterDragFinishedSystem(GameContext game, IAudioService audioService)
         {
@@ -22,7 +20,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dragging.Systems
 
         public void Execute()
         {
-            foreach (GameEntity rabbit in _rabbits.GetEntities(_buffer))
+            foreach (GameEntity rabbit in _rabbits)
             {
                 _audioService.PlayAudio(SoundType.RabbitLand);
             }

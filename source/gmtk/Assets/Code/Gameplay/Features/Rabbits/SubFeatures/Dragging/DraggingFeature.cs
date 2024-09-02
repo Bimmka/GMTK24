@@ -8,9 +8,13 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dragging
         public DraggingFeature(ISystemFactory systems)
         {
             Add(systems.Create<RemoveMovementAvailableAtDragStartedSystem>());
-            Add(systems.Create<MarkMovementAvailableAtDragFinishedSystem>());
+            Add(systems.Create<PlayDraggingAnimationAtDragStartedSystem>());
 
             Add(systems.Create<PlaySoundAfterDragFinishedSystem>());
+            
+            Add(systems.Create<PrepareForReplicationAliveRabbitAfterDraggingSystem>());
+            Add(systems.Create<PrepareForMovementAliveRabbitAfterDraggingSystem>());
+            Add(systems.Create<PrepareForSelectionAliveRabbitAfterDraggingSystem>());
 
             Add(systems.Create<CleanupDragStartedMarkSystem>());
             Add(systems.Create<CleanupDragFinishedMarkSystem>());

@@ -38,10 +38,11 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication
             Add(systems.Create<SpawnRabbitsAfterReplicationFinishedSystem>());
             
             Add(systems.Create<ResetAliveRabbitWhenReplicationFinishedSystem>());
-            Add(systems.Create<ResetAliveRabbitWhenInvalidReplicationTargetSystem>());
+            Add(systems.Create<ResetAliveNonDraggingRabbitWhenInvalidReplicationTargetSystem>());
             Add(systems.Create<ResetNonDraggingReplicationTargetSystem>());
             Add(systems.Create<ResetDraggingReplicationTargetSystem>());
 
+            Add(systems.Create<RefreshReplicationTimersWhenInvalidReplicationTargetSystem>());
             Add(systems.Create<StopGoToInvalidReplicationTargetSystem>());
             Add(systems.Create<StopReplicationSystem>());
             

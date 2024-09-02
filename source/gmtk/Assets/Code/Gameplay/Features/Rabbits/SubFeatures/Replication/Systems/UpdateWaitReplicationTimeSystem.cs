@@ -15,10 +15,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                 .AllOf(
                     GameMatcher.Rabbit,
                     GameMatcher.WaitReplicationTimeLeft,
-                    GameMatcher.ReplicationAvailable,
                     GameMatcher.WantToReplicate,
-                    GameMatcher.ValidReplicationTarget)
-                .NoneOf(GameMatcher.Replicating));
+                    GameMatcher.ValidReplicationTarget));
         }
 
         public void Execute()

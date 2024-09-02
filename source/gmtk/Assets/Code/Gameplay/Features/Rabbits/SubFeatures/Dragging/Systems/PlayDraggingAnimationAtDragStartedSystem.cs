@@ -2,23 +2,25 @@
 
 namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dragging.Systems
 {
-    public class MarkMovementAvailableAtDragFinishedSystem : IExecuteSystem
+    public class PlayDraggingAnimationAtDragStartedSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _rabbits;
 
-        public MarkMovementAvailableAtDragFinishedSystem(GameContext game)
+        public PlayDraggingAnimationAtDragStartedSystem(GameContext game)
         {
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Rabbit,
-                    GameMatcher.DragFinished));
+                    GameMatcher.DragStarted,
+                    GameMatcher.RabbitAnimator,
+                    GameMatcher.Alive));
         }
 
         public void Execute()
         {
             foreach (GameEntity rabbit in _rabbits)
             {
-                rabbit.isMovementAvailable = true;
+                rabbit.RabbitAnimator.PlayDragging();
             }
         }
     }

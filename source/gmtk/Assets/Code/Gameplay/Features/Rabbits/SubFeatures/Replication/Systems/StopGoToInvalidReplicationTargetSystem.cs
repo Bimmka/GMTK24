@@ -16,10 +16,6 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                     GameMatcher.InvalidReplicationTarget,
                     GameMatcher.ReplicationTarget,
                     GameMatcher.WantToReplicate,
-                    GameMatcher.TimeLeftForNextReplication,
-                    GameMatcher.ReplicationInterval,
-                    GameMatcher.WaitReplicationTimeLeft,
-                    GameMatcher.WaitReplicationDuration,
                     GameMatcher.RabbitVisualChanger));
         }
 
@@ -27,15 +23,9 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
         {
             foreach (GameEntity replicator in _replicators.GetEntities(_buffer))
             {
-                replicator.isCanBeChosenForReplication = true;
-                replicator.isWaitingForNextReplicationUp = true;
-                replicator.isCanStartReplication = true;
                 replicator.isInvalidReplicationTarget = false;
                 replicator.isMovingToReplicationTarget = false;
                 replicator.isWantToReplicate = false;
-                
-                replicator.ReplaceTimeLeftForNextReplication(replicator.ReplicationInterval);
-                replicator.ReplaceWaitReplicationTimeLeft(replicator.WaitReplicationDuration);
                 
                 replicator.RabbitVisualChanger.RemoveLove();
 

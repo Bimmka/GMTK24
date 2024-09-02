@@ -26,8 +26,6 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                 
                 rabbit.isMovementAvailable = true;
                 rabbit.isWaitingForMoving = true;
-                
-                rabbit.isWaitingForNextReplicationUp = true;
 
                 rabbit.isSelectable = true;
                 
