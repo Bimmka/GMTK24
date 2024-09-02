@@ -3,13 +3,13 @@ using Entitas;
 
 namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
 {
-    public class RemoveReplicationTargetComponentWithoutPositionSystem : IExecuteSystem
+    public class CheckReplicationTargetForValidByPositionComponentSystem : IExecuteSystem
     {
         private readonly GameContext _game;
         private readonly IGroup<GameEntity> _replicators;
         private readonly List<GameEntity> _buffer = new List<GameEntity>(32);
 
-        public RemoveReplicationTargetComponentWithoutPositionSystem(GameContext game)
+        public CheckReplicationTargetForValidByPositionComponentSystem(GameContext game)
         {
             _game = game;
             _replicators = game.GetGroup(GameMatcher
@@ -30,10 +30,11 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                 if (target.hasWorldPosition)
                     continue;
 
+                mover.isValidReplicationTarget = false;
                 mover.isInvalidReplicationTarget = true;
-                mover.RemoveReplicationTarget();
-                
-                target.isResetReplicationProcess = true;
+
+                target.isValidReplicationTarget = false;
+                target.isInvalidReplicationTarget = true;
             }
         }
     }

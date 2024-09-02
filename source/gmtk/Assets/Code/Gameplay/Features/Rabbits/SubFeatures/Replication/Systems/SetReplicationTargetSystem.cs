@@ -40,6 +40,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                 if (chosenTarget != null)
                 {
                     chosenTarget.isChosenForReplication = true;
+                    chosenTarget.isValidReplicationTarget = true;
                     chosenTarget.RemoveWaitReplicationComponent();
                     chosenTarget.ReplaceChosenForReplicationBy(replicationUpRabbit.Id);
 

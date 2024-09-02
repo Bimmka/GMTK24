@@ -5,11 +5,13 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
 {
     public class StopMoveToReplicationTargetWhenWaitingExpiredSystem : IExecuteSystem
     {
+        private readonly GameContext _game;
         private readonly IGroup<GameEntity> _rabbits;
         private readonly List<GameEntity> _buffer = new List<GameEntity>(32);
 
         public StopMoveToReplicationTargetWhenWaitingExpiredSystem(GameContext game)
         {
+            _game = game;
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.ReplicationTarget,
@@ -45,6 +47,10 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                 
                 rabbit.ReplaceTimeLeftForNextReplication(rabbit.ReplicationInterval);
                 rabbit.ReplaceWaitReplicationTimeLeft(rabbit.WaitReplicationDuration);
+
+                GameEntity target = _game.GetEntityWithId(rabbit.ReplicationTarget);
+                target.isValidReplicationTarget = false;
+                target.isInvalidReplicationTarget = true;
             }
         }
     }

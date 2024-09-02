@@ -3,13 +3,13 @@ using Entitas;
 
 namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
 {
-    public class RemoveReplicationTargetComponentWhenReplicationBlockedSystem : IExecuteSystem
+    public class CheckReplicationTargetByReplicationBlockedSystem : IExecuteSystem
     {
         private readonly GameContext _game;
         private readonly IGroup<GameEntity> _replicators;
         private readonly List<GameEntity> _buffer = new List<GameEntity>(32);
 
-        public RemoveReplicationTargetComponentWhenReplicationBlockedSystem(GameContext game)
+        public CheckReplicationTargetByReplicationBlockedSystem(GameContext game)
         {
             _game = game;
             _replicators = game.GetGroup(GameMatcher
@@ -17,22 +17,24 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                     GameMatcher.ReplicationTarget,
                     GameMatcher.Alive,
                     GameMatcher.Rabbit,
-                    GameMatcher.WantToReplicate));
+                    GameMatcher.WantToReplicate,
+                    GameMatcher.ValidReplicationTarget));
         }
 
         public void Execute()
         {
-            foreach (GameEntity mover in _replicators.GetEntities(_buffer))
+            foreach (GameEntity replicator in _replicators.GetEntities(_buffer))
             {
-                GameEntity target = _game.GetEntityWithId(mover.ReplicationTarget);
+                GameEntity target = _game.GetEntityWithId(replicator.ReplicationTarget);
                 
                 if (target.isReplicationBlocked == false)
                     continue;
 
-                mover.isInvalidReplicationTarget = true;
-                mover.RemoveReplicationTarget();
+                replicator.isInvalidReplicationTarget = true;
+                replicator.isValidReplicationTarget = false;
                 
-                target.isResetReplicationProcess = true;
+                target.isInvalidReplicationTarget = true;
+                target.isValidReplicationTarget = false;
             }
         }
     }

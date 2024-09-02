@@ -9,19 +9,15 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication
         {
             Add(systems.Create<ApplyReplicationBlockSystem>());
             
+            Add(systems.Create<CheckReplicationTargetByReplicationBlockedSystem>());
+            Add(systems.Create<CheckReplicationTargetForValidByPositionComponentSystem>());
+            Add(systems.Create<CheckReplicationTargetForValidByStallIndexSystem>());
+
             Add(systems.Create<UpdateTimeForNextReplicationSystem>());
 
             Add(systems.Create<SetReplicationTargetSystem>());
 
             Add(systems.Create<MarkWantToReplicateSystem>());
-            
-            //Add(systems.Create<RemoveReplicationTargetComponentWithoutPositionSystem>());
-            //Add(systems.Create<RemoveReplicationTargetComponentWhenDifferenceStallSystem>());
-            
-            //Add(systems.Create<RemoveReplicationTargetComponentWhenReplicationBlockedSystem>());
-
-            //Add(systems.Create<ValidateReplicationNonDraggingTargetSystem>());
-            //Add(systems.Create<ValidateReplicationDraggingTargetSystem>());
             
             Add(systems.Create<PrepareToMoveToReplicationTargetSystem>());
             Add(systems.Create<UpdateDirectionToReplicationTargetSystem>());
@@ -31,7 +27,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication
             
             Add(systems.Create<StopMoveToReplicationTargetWhenWaitingExpiredSystem>());
             
-            Add(systems.Create<ResetReplicationProcessMarkersForTargetsSystem>());
+            //Add(systems.Create<ResetReplicationProcessMarkersForTargetsSystem>());
 
             Add(systems.Create<SetWaitingReplicationTargetSystem>());
             
@@ -42,11 +38,15 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication
             Add(systems.Create<UpdateReplicationDurationSystem>());
 
             Add(systems.Create<SpawnRabbitsAfterReplicationFinishedSystem>());
+            
             Add(systems.Create<ResetAliveRabbitWhenReplicationFinishedSystem>());
+            Add(systems.Create<ResetAliveRabbitWhenInvalidReplicationTargetSystem>());
+            Add(systems.Create<ResetNonDraggingReplicationTargetSystem>());
+            Add(systems.Create<ResetDraggingReplicationTargetSystem>());
+
+            Add(systems.Create<StopGoToInvalidReplicationTargetSystem>());
             Add(systems.Create<StopReplicationSystem>());
-
-            Add(systems.Create<MarkCanBeChosenForReplicationWhenReplicationFinishedSystem>());
-
+            
             Add(systems.Create<CleanupStartReplicationMarksSystem>());
             Add(systems.Create<CleanupResetReplicationProcessMarkersSystem>());
             Add(systems.Create<CleanupReplicationExpireMarkersSystem>());

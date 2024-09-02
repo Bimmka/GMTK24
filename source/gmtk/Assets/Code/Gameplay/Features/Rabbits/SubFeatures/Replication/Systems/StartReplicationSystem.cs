@@ -41,9 +41,6 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
             {
                 GameEntity target = _game.GetEntityWithId(rabbit.ReplicationTarget);
                 
-                if (target.isStupidMoveState == false && target.isIdleState == false)
-                    continue;
-
                 rabbit.ChangeComponentsForStartReplication();
                 target.ChangeComponentsForStartReplication();
 
