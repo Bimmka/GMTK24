@@ -12,8 +12,7 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.Release.Systems
                 .AllOf(
                     GameMatcher.Selected,
                     GameMatcher.SelectionDragTimeLeft,
-                    GameMatcher.Dragging,
-                    GameMatcher.DraggingState));
+                    GameMatcher.Dragging));
         }
 
         public void Execute()
