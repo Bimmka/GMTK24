@@ -42,8 +42,6 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                 rabbit.isMovingToReplicationTarget = false;
                 
                 rabbit.RabbitVisualChanger.RemoveLove();
-
-                rabbit.RemoveReplicationTarget();
                 
                 rabbit.ReplaceTimeLeftForNextReplication(rabbit.ReplicationInterval);
                 rabbit.ReplaceWaitReplicationTimeLeft(rabbit.WaitReplicationDuration);
@@ -51,6 +49,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                 GameEntity target = _game.GetEntityWithId(rabbit.ReplicationTarget);
                 target.isValidReplicationTarget = false;
                 target.isInvalidReplicationTarget = true;
+                
+                rabbit.RemoveReplicationTarget();
             }
         }
     }
