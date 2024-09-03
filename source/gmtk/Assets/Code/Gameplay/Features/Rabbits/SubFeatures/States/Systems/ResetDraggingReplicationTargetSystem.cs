@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
 using Entitas;
 
-namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
+namespace Code.Gameplay.Features.Rabbits.SubFeatures.States.Systems
 {
-    public class ResetNonDraggingReplicationTargetSystem : IExecuteSystem
+    public class ResetDraggingReplicationTargetSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _targets;
+        private readonly IGroup<GameEntity> _replicators;
         private readonly List<GameEntity> _buffer = new List<GameEntity>(32);
 
-        public ResetNonDraggingReplicationTargetSystem(GameContext game)
+        public ResetDraggingReplicationTargetSystem(GameContext game)
         {
             _targets = game.GetGroup(GameMatcher
                 .AllOf(
@@ -16,8 +17,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                     GameMatcher.ChosenForReplication,
                     GameMatcher.Rabbit,
                     GameMatcher.Id,
-                    GameMatcher.InvalidReplicationTarget)
-                .NoneOf(GameMatcher.Dragging));
+                    GameMatcher.Dragging,
+                    GameMatcher.InvalidReplicationTarget));
         }
 
         public void Execute()
@@ -25,10 +26,6 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
             foreach (GameEntity target in _targets.GetEntities(_buffer))
             {
                 target.isChosenForReplication = false;
-                target.isCanBeChosenForReplication = true;
-                target.isWaitingForNextReplicationUp = true;
-                target.isCanStartReplication = true;
-                target.isReplicationTimeUp = false;
                 target.isInvalidReplicationTarget = false;
                 target.RemoveChosenForReplicationBy();
             }

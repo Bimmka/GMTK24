@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using Entitas;
+﻿using Entitas;
 
-namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dragging.Systems
+namespace Code.Gameplay.Features.Rabbits.SubFeatures.States.Systems
 {
     public class PrepareForReplicationAliveRabbitAfterDraggingSystem : IExecuteSystem
     {
@@ -13,8 +12,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dragging.Systems
                 .AllOf(
                     GameMatcher.Rabbit,
                     GameMatcher.DragFinished,
-                    GameMatcher.Alive,
-                    GameMatcher.RabbitAnimator));
+                    GameMatcher.Alive));
         }
 
         public void Execute()

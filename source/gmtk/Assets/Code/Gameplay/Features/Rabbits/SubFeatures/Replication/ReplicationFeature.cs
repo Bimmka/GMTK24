@@ -36,19 +36,16 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication
             Add(systems.Create<UpdateReplicationDurationSystem>());
 
             Add(systems.Create<SpawnRabbitsAfterReplicationFinishedSystem>());
-            
-            Add(systems.Create<ResetAliveRabbitWhenReplicationFinishedSystem>());
-            Add(systems.Create<ResetAliveNonDraggingRabbitWhenInvalidReplicationTargetSystem>());
-            Add(systems.Create<ResetNonDraggingReplicationTargetSystem>());
-            Add(systems.Create<ResetDraggingReplicationTargetSystem>());
 
             Add(systems.Create<RefreshReplicationTimersWhenInvalidReplicationTargetSystem>());
             Add(systems.Create<StopGoToInvalidReplicationTargetSystem>());
             Add(systems.Create<StopReplicationSystem>());
             
             Add(systems.Create<CleanupStartReplicationMarksSystem>());
-            Add(systems.Create<CleanupResetReplicationProcessMarkersSystem>());
             Add(systems.Create<CleanupReplicationExpireMarkersSystem>());
+            Add(systems.Create<CleanupInvalidReplicationTargetSystem>());
+            Add(systems.Create<CleanupInvalidReplicationTargetMarksSystem>());
+            Add(systems.Create<CleanupReplicationFinishedMarkSystem>());
         }
     }
 }

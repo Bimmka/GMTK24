@@ -1,6 +1,6 @@
 ﻿using Entitas;
 
-namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dragging.Systems
+namespace Code.Gameplay.Features.Rabbits.SubFeatures.States.Systems
 {
     public class PrepareForSelectionAliveRabbitAfterDraggingSystem : IExecuteSystem
     {

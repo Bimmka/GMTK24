@@ -23,13 +23,10 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
         {
             foreach (GameEntity replicator in _replicators.GetEntities(_buffer))
             {
-                replicator.isInvalidReplicationTarget = false;
                 replicator.isMovingToReplicationTarget = false;
                 replicator.isWantToReplicate = false;
                 
                 replicator.RabbitVisualChanger.RemoveLove();
-
-                replicator.RemoveReplicationTarget();
             }
         }
     }

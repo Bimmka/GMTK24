@@ -1,6 +1,6 @@
 ﻿using Entitas;
 
-namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
+namespace Code.Gameplay.Features.Rabbits.SubFeatures.States.Systems
 {
     public class ResetAliveNonDraggingRabbitWhenInvalidReplicationTargetSystem : IExecuteSystem
     {

@@ -27,7 +27,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
             {
                 rabbit.isChosenForReplication = false;
                 rabbit.isReplicating = false;
-                rabbit.isReplicationFinished = false;
+             
                 rabbit.isNearReplicationTarget = false;
                 rabbit.isValidReplicationTarget = false;
                 rabbit.isReplicationTimeUp = false;

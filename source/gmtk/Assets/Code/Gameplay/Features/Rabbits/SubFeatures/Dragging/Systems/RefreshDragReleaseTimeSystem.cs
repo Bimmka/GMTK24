@@ -2,16 +2,16 @@
 
 namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dragging.Systems
 {
-    public class PrepareForDraggingSystem : IExecuteSystem
+    public class RefreshDragReleaseTimeSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _rabbits;
 
-        public PrepareForDraggingSystem(GameContext game)
+        public RefreshDragReleaseTimeSystem(GameContext game)
         {
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Rabbit,
-                    GameMatcher.DragStarted,
+                    GameMatcher.DragFinished,
                     GameMatcher.SelectionDragMaxTime,
                     GameMatcher.SelectionDragTimeLeft));
         }
@@ -20,8 +20,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dragging.Systems
         {
             foreach (GameEntity rabbit in _rabbits)
             {
-                
-                
+                rabbit.ReplaceSelectionDragTimeLeft(rabbit.SelectionDragMaxTime);
             }
         }
     }
