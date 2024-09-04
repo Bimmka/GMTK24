@@ -17,7 +17,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.StupidMove.Systems
                     GameMatcher.Rabbit,
                     GameMatcher.TimeLeftForMoving,
                     GameMatcher.WaitingForMoving,
-                    GameMatcher.MovementAvailable));
+                    GameMatcher.MovementAvailable,
+                    GameMatcher.Alive));
         }
 
         public void Execute()

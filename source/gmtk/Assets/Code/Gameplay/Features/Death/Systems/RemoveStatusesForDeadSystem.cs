@@ -4,12 +4,12 @@ namespace Code.Gameplay.Features.Death.Systems
 {
     public class RemoveStatusesForDeadSystem : IExecuteSystem
     {
-        private readonly IGroup<GameEntity> _rabbits;
+        private readonly IGroup<GameEntity> _deads;
         private readonly IGroup<GameEntity> statuses;
 
         public RemoveStatusesForDeadSystem(GameContext game)
         {
-            _rabbits = game.GetGroup(GameMatcher
+            _deads = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Dead,
                     GameMatcher.Id));
@@ -24,9 +24,9 @@ namespace Code.Gameplay.Features.Death.Systems
         {
             foreach (GameEntity status in statuses)
             {
-                foreach (GameEntity rabbit in _rabbits)
+                foreach (GameEntity dead in _deads)
                 {
-                    if (status.TargetId == rabbit.Id)
+                    if (status.TargetId == dead.Id)
                     {
                         status.isDestructed = true;
                         status.isValidStatus = false;

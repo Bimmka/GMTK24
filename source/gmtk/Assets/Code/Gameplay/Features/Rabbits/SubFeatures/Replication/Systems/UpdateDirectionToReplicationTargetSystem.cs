@@ -19,7 +19,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                     GameMatcher.WantToReplicate,
                     GameMatcher.ReplicationAvailable,
                     GameMatcher.ValidReplicationTarget,
-                    GameMatcher.MovingToReplicationTarget));
+                    GameMatcher.MovingToReplicationTarget,
+                    GameMatcher.Alive));
         }
 
         public void Execute()

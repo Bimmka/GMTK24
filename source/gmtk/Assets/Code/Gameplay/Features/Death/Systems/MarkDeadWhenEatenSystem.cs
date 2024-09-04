@@ -13,8 +13,7 @@ namespace Code.Gameplay.Features.Death.Systems
             _eaten = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Eaten,
-                    GameMatcher.Alive)
-                .NoneOf(GameMatcher.Replicating));
+                    GameMatcher.Alive));
         }
 
         public void Execute()

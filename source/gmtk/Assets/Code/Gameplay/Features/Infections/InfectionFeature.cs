@@ -7,6 +7,8 @@ namespace Code.Gameplay.Features.Infections
     {
         public InfectionFeature(ISystemFactory systems)
         {
+            Add(systems.Create<ValidateInfectionByCarrierSystem>());
+
             Add(systems.Create<UpdateTimeLeftBeforeInfectionSystem>());
             Add(systems.Create<MarkInfectionUpSystem>());
             

@@ -18,7 +18,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                     GameMatcher.WorldPosition,
                     GameMatcher.WantToReplicate,
                     GameMatcher.ReplicationAvailable,
-                    GameMatcher.ValidReplicationTarget)
+                    GameMatcher.ValidReplicationTarget,
+                    GameMatcher.Alive)
                 .NoneOf(GameMatcher.Dragging));
         }
 

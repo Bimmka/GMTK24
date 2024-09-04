@@ -43,8 +43,10 @@ namespace Code.Gameplay
 
       Add(systems.Create<LevelFinishFeature>());
 
+      Add(systems.Create<CleanupSoundsFromDeadSystem>());
+      Add(systems.Create<CleanupSoundsFromDestructedSystem>());
+      
       Add(systems.Create<ProcessDestructedFeature>());
-      Add(systems.Create<RemoveSoundsSystem>());
     }
   }
 }

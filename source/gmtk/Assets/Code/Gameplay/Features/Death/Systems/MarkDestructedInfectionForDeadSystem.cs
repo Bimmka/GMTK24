@@ -4,12 +4,12 @@ namespace Code.Gameplay.Features.Death.Systems
 {
     public class MarkDestructedInfectionForDeadSystem : IExecuteSystem
     {
-        private readonly IGroup<GameEntity> _rabbits;
+        private readonly IGroup<GameEntity> _deads;
         private readonly IGroup<GameEntity> _infections;
 
         public MarkDestructedInfectionForDeadSystem(GameContext game)
         {
-            _rabbits = game.GetGroup(GameMatcher
+            _deads = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Dead,
                     GameMatcher.Id));
@@ -24,9 +24,9 @@ namespace Code.Gameplay.Features.Death.Systems
         {
             foreach (GameEntity infection in _infections)
             {
-                foreach (GameEntity rabbit in _rabbits)
+                foreach (GameEntity dead in _deads)
                 {
-                    if (infection.CarrierOfInfectionId == rabbit.Id)
+                    if (infection.CarrierOfInfectionId == dead.Id)
                     {
                         infection.isDestructed = true;
                         infection.isValidInfection = false;

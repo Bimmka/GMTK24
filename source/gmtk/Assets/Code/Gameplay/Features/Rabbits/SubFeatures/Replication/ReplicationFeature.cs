@@ -9,6 +9,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication
         {
             Add(systems.Create<ApplyReplicationBlockSystem>());
             
+            Add(systems.Create<CheckReplicationTargetForNullSystem>());
             Add(systems.Create<CheckReplicationTargetByReplicationBlockedSystem>());
             Add(systems.Create<CheckReplicationTargetForValidByPositionComponentSystem>());
             Add(systems.Create<CheckReplicationTargetForValidByStallIndexSystem>());

@@ -1,4 +1,5 @@
-﻿using Code.Gameplay.Features.Rabbits.SubFeatures.Dragging;
+﻿using Code.Gameplay.Features.Rabbits.SubFeatures.Death;
+using Code.Gameplay.Features.Rabbits.SubFeatures.Dragging;
 using Code.Gameplay.Features.Rabbits.SubFeatures.Replication;
 using Code.Gameplay.Features.Rabbits.SubFeatures.States;
 using Code.Gameplay.Features.Rabbits.SubFeatures.StupidMove;
@@ -13,6 +14,7 @@ namespace Code.Gameplay.Features.Rabbits
         {
             Add(systems.Create<UpdateMovingMarkSystem>());
             
+            Add(systems.Create<RabbitDeathFeature>());
             Add(systems.Create<StupidMovingFeature>());
             Add(systems.Create<ReplicationFeature>());
             Add(systems.Create<DraggingFeature>());
