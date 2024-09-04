@@ -22,16 +22,12 @@ namespace Code.Gameplay.Features.Selection.Systems
         {
             foreach (GameEntity selection in _selections)
             {
-                while (selection.EntitiesForReleaseQueue.Count > 0)
+                foreach (int entityId in selection.EntitiesForReleaseQueue)
                 {
-
-                    foreach (int entityId in selection.EntitiesForReleaseQueue)
-                    {
-                        GameEntity selectedEntity = _game.GetEntityWithId(entityId);
+                    GameEntity selectedEntity = _game.GetEntityWithId(entityId);
                         
-                        if (selectedEntity != null)
-                            selectedEntity.isSelected = false;
-                    }
+                    if (selectedEntity != null)
+                        selectedEntity.isSelected = false;
                 }
             }
         }
