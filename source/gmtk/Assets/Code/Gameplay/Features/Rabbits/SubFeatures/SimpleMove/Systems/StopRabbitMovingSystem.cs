@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Entitas;
 
-namespace Code.Gameplay.Features.Rabbits.SubFeatures.StupidMove.Systems
+namespace Code.Gameplay.Features.Rabbits.SubFeatures.SimpleMove.Systems
 {
     public class StopRabbitMovingSystem : IExecuteSystem
     {

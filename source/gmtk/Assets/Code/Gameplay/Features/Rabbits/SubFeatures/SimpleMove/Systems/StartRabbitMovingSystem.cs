@@ -2,7 +2,7 @@
 using Code.Gameplay.Features.Stalls.Services;
 using Entitas;
 
-namespace Code.Gameplay.Features.Rabbits.SubFeatures.StupidMove.Systems
+namespace Code.Gameplay.Features.Rabbits.SubFeatures.SimpleMove.Systems
 {
     public class StartRabbitMovingSystem : IExecuteSystem
     {

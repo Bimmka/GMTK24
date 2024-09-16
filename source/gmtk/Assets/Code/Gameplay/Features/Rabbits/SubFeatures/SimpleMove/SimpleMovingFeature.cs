@@ -1,13 +1,11 @@
-﻿
-using Code.Gameplay.Features.Rabbits.SubFeatures.StupidMove.Systems;
-
+﻿using Code.Gameplay.Features.Rabbits.SubFeatures.SimpleMove.Systems;
 using Code.Infrastructure.Systems;
 
-namespace Code.Gameplay.Features.Rabbits.SubFeatures.StupidMove
+namespace Code.Gameplay.Features.Rabbits.SubFeatures.SimpleMove
 {
-    public sealed class StupidMovingFeature : Feature
+    public sealed class SimpleMovingFeature : Feature
     {
-        public StupidMovingFeature(ISystemFactory systems)
+        public SimpleMovingFeature(ISystemFactory systems)
         {
             Add(systems.Create<RemoveTargetPointWhenReplicationSystem>());
             Add(systems.Create<UpdateTimeForMovingSystem>());

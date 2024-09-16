@@ -1,5 +1,4 @@
 ﻿using Code.Gameplay.Features.Rabbits.SubFeatures.Dragging.Systems;
-using Code.Gameplay.Features.Rabbits.SubFeatures.States.Systems;
 using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dragging
