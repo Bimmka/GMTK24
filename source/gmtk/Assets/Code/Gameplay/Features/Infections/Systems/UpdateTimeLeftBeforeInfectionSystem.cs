@@ -14,7 +14,8 @@ namespace Code.Gameplay.Features.Infections.Systems
             _infections = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Infection,
-                    GameMatcher.TimeLeftBeforeInfection));
+                    GameMatcher.TimeLeftBeforeInfection,
+                    GameMatcher.ValidInfection));
         }
 
         public void Execute()

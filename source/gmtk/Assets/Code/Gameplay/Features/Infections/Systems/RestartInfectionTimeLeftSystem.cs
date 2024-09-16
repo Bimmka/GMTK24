@@ -13,7 +13,8 @@ namespace Code.Gameplay.Features.Infections.Systems
                     GameMatcher.Infection,
                     GameMatcher.TimeLeftBeforeInfection,
                     GameMatcher.InfectionInterval,
-                    GameMatcher.InfectionUp));
+                    GameMatcher.InfectionUp,
+                    GameMatcher.ValidInfection));
         }
 
         public void Execute()

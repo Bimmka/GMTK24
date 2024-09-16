@@ -1,4 +1,5 @@
-﻿using Entitas;
+﻿using System.Collections.Generic;
+using Entitas;
 using UnityEngine;
 
 namespace Code.Gameplay.Features.Selection.SubFeatures.MoveSelected.Systems
@@ -7,6 +8,7 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.MoveSelected.Systems
     {
         private const float SquaredDistanceError = 0.2f;
         private readonly IGroup<GameEntity> _selected;
+        private List<GameEntity> _buffer = new List<GameEntity>(2);
 
         public FinishMoveAfterDraggingSystem(GameContext game)
         {
@@ -19,12 +21,13 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.MoveSelected.Systems
 
         public void Execute()
         {
-            foreach (GameEntity selected in _selected)
+            foreach (GameEntity selected in _selected.GetEntities(_buffer))
             {
                 if (Vector3.SqrMagnitude(selected.WorldPosition - selected.AfterDragPosition) <= SquaredDistanceError)
                 {
                     selected.isMovingToAfterDragPosition = false;
                     selected.isDragFinished = true;
+                    selected.RemoveAfterDragPosition();
                 }
             }
         }

@@ -17,7 +17,6 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.Release.Systems
                     GameMatcher.Selected,
                     GameMatcher.SelectionDragTimeLeft,
                     GameMatcher.Dragging,
-                    GameMatcher.DraggingState,
                     GameMatcher.Alive));
         }
 

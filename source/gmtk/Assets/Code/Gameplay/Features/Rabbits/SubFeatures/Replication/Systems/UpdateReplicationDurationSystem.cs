@@ -15,7 +15,6 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                 .AllOf(
                     GameMatcher.Rabbit,
                     GameMatcher.Replicating,
-                    GameMatcher.CurrentReplicationDuration,
                     GameMatcher.ReplicationTimeLeft));
         }
 

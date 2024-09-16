@@ -14,8 +14,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                 .AllOf(
                     GameMatcher.Rabbit,
                     GameMatcher.ReplicationTimeUp,
-                    GameMatcher.WantToReplicate,
-                    GameMatcher.ReplicationState));
+                    GameMatcher.WantToReplicate));
         }
 
         public void Execute()
@@ -23,7 +22,6 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
             foreach (GameEntity rabbit in _rabbits.GetEntities(_buffer))
             {
                 rabbit.isReplicationTimeUp = false;
-                rabbit.isWantToReplicate = false;
             }
         }
     }

@@ -28,9 +28,11 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                     GameMatcher.NearReplicationTarget,
                     GameMatcher.DefaultReplicationDuration,
                     GameMatcher.CurrentReplicationDuration,
-                    GameMatcher.ReplicationState,
-                    GameMatcher.ReplicationAvailable)
-                .NoneOf(GameMatcher.Replicating));
+                    GameMatcher.ReplicationAvailable,
+                    GameMatcher.ValidReplicationTarget,
+                    GameMatcher.WantToReplicate,
+                    GameMatcher.MovingToReplicationTarget,
+                    GameMatcher.Alive));
         }
 
         public void Execute()
@@ -39,9 +41,6 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
             {
                 GameEntity target = _game.GetEntityWithId(rabbit.ReplicationTarget);
                 
-                if (target.isStupidMoveState == false && target.isIdleState == false)
-                    continue;
-
                 rabbit.ChangeComponentsForStartReplication();
                 target.ChangeComponentsForStartReplication();
 

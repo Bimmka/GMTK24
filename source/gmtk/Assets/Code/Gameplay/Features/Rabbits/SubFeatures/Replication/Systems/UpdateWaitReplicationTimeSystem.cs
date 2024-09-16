@@ -14,10 +14,10 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Rabbit,
-                    GameMatcher.ReplicationState,
                     GameMatcher.WaitReplicationTimeLeft,
-                    GameMatcher.ReplicationAvailable)
-                .NoneOf(GameMatcher.Replicating));
+                    GameMatcher.WantToReplicate,
+                    GameMatcher.ValidReplicationTarget,
+                    GameMatcher.Alive));
         }
 
         public void Execute()

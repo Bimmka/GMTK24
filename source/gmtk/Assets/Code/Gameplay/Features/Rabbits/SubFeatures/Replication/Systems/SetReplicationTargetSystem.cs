@@ -25,10 +25,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                     GameMatcher.StallParentIndex,
                     GameMatcher.Id,
                     GameMatcher.CanStartReplication,
-                    GameMatcher.ReplicationAvailable)
-                .AnyOf(
-                    GameMatcher.IdleState,
-                    GameMatcher.StupidMoveState));
+                    GameMatcher.ReplicationAvailable,
+                    GameMatcher.Alive));
         }
 
         public void Execute()
@@ -43,11 +41,13 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                 if (chosenTarget != null)
                 {
                     chosenTarget.isChosenForReplication = true;
+                    chosenTarget.isValidReplicationTarget = true;
                     chosenTarget.RemoveWaitReplicationComponent();
                     chosenTarget.ReplaceChosenForReplicationBy(replicationUpRabbit.Id);
 
                     replicationUpRabbit.ReplaceReplicationTarget(chosenTarget.Id);
                     replicationUpRabbit.RemoveWaitReplicationComponent();
+                    replicationUpRabbit.isValidReplicationTarget = true;
                 }
             }
         }

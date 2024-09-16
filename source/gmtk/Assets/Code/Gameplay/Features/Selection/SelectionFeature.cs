@@ -21,6 +21,7 @@ namespace Code.Gameplay.Features.Selection
             Add(systems.Create<SelectByMouseDraggingSystem>());
             
             Add(systems.Create<ClearSelectedEntitiesWhenUnselectSystem>());
+            Add(systems.Create<UnselectEntitiesWhenReleaseSystem>());
             Add(systems.Create<ClearSelectedEntitiesWhenReleaseSystem>());
 
             Add(systems.Create<AddSelectedEntitiesFromQueueSystem>());

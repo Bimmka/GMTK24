@@ -4,12 +4,10 @@ namespace Code.Gameplay.Features.Selection.Systems
 {
     public class ClearSelectedEntitiesWhenReleaseSystem : IExecuteSystem
     {
-        private readonly GameContext _game;
         private readonly IGroup<GameEntity> _selections;
 
         public ClearSelectedEntitiesWhenReleaseSystem(GameContext game)
         {
-            _game = game;
             _selections = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Dragging,
@@ -25,19 +23,10 @@ namespace Code.Gameplay.Features.Selection.Systems
                 while (selection.EntitiesForReleaseQueue.Count > 0)
                 {
                     var entityId = selection.EntitiesForReleaseQueue.Dequeue();
-
-                    if (selection.SelectedEntities.Contains(entityId))
-                    {
-                        selection.SelectedEntities.Remove(entityId);
-                        
-                        GameEntity selectedEntity = _game.GetEntityWithId(entityId);
-                        selectedEntity.isSelected = false;
-                        
-                    }
+                    selection.SelectedEntities.Remove(entityId);
                 }
                 
                 selection.EntitiesForReleaseQueue.Clear();
-            
             }
         }
     }

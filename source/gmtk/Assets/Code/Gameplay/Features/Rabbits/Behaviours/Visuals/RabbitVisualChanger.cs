@@ -29,7 +29,7 @@ namespace Code.Gameplay.Features.Rabbits.Behaviours.Visuals
         public void RemoveLove()
         {
             LoveParticle.Stop();
-            LoveParticle.gameObject.SetActive(true);
+            LoveParticle.gameObject.SetActive(false);
         }
     }
 }

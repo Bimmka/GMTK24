@@ -19,8 +19,7 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.Release.Systems
                     GameMatcher.Selected,
                     GameMatcher.ReleaseFromDragUp,
                     GameMatcher.SavedPositionBeforeDrag,
-                    GameMatcher.Dragging,
-                    GameMatcher.DraggingState));
+                    GameMatcher.Dragging));
         }
 
         public void Execute()

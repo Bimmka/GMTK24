@@ -15,6 +15,8 @@
             entity.isMovementAvailable = false;
             entity.isWaitingForMoving = false;
             entity.isSelectable = false;
+            entity.isWantToReplicate = false;
+            entity.isMovingToReplicationTarget = false;
         }
     }
 }

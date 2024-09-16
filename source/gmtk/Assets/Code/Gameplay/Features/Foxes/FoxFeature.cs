@@ -48,7 +48,7 @@ namespace Code.Gameplay.Features.Foxes
             
             Add(systems.Create<RemoveMarkInvalidTargetSystem>());
             Add(systems.Create<RemoveMarkMovingUpSystem>());
-            Add(systems.Create<RemoveMarkTargetPointReachedSystem>());
+            
             Add(systems.Create<RemoveMarkHuntSystem>());
             Add(systems.Create<RemoveEatingMarksSystem>());
         }
