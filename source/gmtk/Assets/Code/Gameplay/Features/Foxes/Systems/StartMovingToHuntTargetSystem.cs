@@ -37,7 +37,7 @@ namespace Code.Gameplay.Features.Foxes.Systems
                 
                 fox.FoxAnimator.PlayHunt();
 
-                fox.ReplaceHuntSoundElement(_audioService.PlayAudio(SoundType.FoxGoToHuntTarget));
+                fox.ReplaceAttachedSound(_audioService.PlayAudio(SoundType.FoxGoToHuntTarget));
             }
         }
     }

@@ -33,7 +33,7 @@ namespace Code.Gameplay.Features.Rabbits.StateMachine.States
             Entity.ReplaceSelectionDragTimeLeft(Entity.SelectionDragMaxTime);
             
             _soundElement = _audioService.PlayAudio(SoundType.Dragging);
-            Entity.ReplaceHuntSoundElement(_soundElement);
+            Entity.ReplaceAttachedSound(_soundElement);
         }
 
         protected override void Exit()
@@ -63,10 +63,10 @@ namespace Code.Gameplay.Features.Rabbits.StateMachine.States
             if (Entity.hasSavedPositionBeforeDrag)
                 Entity.RemoveSavedPositionBeforeDrag();
 
-            if (Entity.hasHuntSoundElement && Entity.HuntSoundElement != null)
+            if (Entity.hasAttachedSound && Entity.AttachedSound != null)
             {
-                Entity.HuntSoundElement.Reset();
-                Entity.RemoveHuntSoundElement();
+                Entity.AttachedSound.Reset();
+                Entity.RemoveAttachedSound();
             }
         }
     }

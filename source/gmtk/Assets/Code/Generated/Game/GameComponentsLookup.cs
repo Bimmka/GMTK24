@@ -26,22 +26,22 @@ public static class GameComponentsLookup {
     public const int StatChange = 15;
     public const int StatModifiers = 16;
     public const int TargetId = 17;
-    public const int BeforeNextHuntInterval = 18;
-    public const int BeforeNextHuntTimeLeft = 19;
-    public const int Eaten = 20;
-    public const int Eating = 21;
-    public const int EatingDuration = 22;
-    public const int EatingFinished = 23;
-    public const int EatingStarted = 24;
-    public const int EatingTimeLeft = 25;
-    public const int Fox = 26;
-    public const int FoxAnimator = 27;
-    public const int GotEnough = 28;
-    public const int Hungry = 29;
-    public const int HuntDuration = 30;
-    public const int HuntFinished = 31;
-    public const int Hunting = 32;
-    public const int HuntSoundElement = 33;
+    public const int AttachedSound = 18;
+    public const int BeforeNextHuntInterval = 19;
+    public const int BeforeNextHuntTimeLeft = 20;
+    public const int Eaten = 21;
+    public const int Eating = 22;
+    public const int EatingDuration = 23;
+    public const int EatingFinished = 24;
+    public const int EatingStarted = 25;
+    public const int EatingTimeLeft = 26;
+    public const int Fox = 27;
+    public const int FoxAnimator = 28;
+    public const int GotEnough = 29;
+    public const int Hungry = 30;
+    public const int HuntDuration = 31;
+    public const int HuntFinished = 32;
+    public const int Hunting = 33;
     public const int HuntStarted = 34;
     public const int HuntTarget = 35;
     public const int HuntTimeLeft = 36;
@@ -244,6 +244,7 @@ public static class GameComponentsLookup {
         "StatChange",
         "StatModifiers",
         "TargetId",
+        "AttachedSound",
         "BeforeNextHuntInterval",
         "BeforeNextHuntTimeLeft",
         "Eaten",
@@ -259,7 +260,6 @@ public static class GameComponentsLookup {
         "HuntDuration",
         "HuntFinished",
         "Hunting",
-        "HuntSoundElement",
         "HuntStarted",
         "HuntTarget",
         "HuntTimeLeft",
@@ -461,6 +461,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.CharacterStats.StatChange),
         typeof(Code.Gameplay.Features.CharacterStats.StatModifiers),
         typeof(Code.Gameplay.Features.CharacterStats.TargetId),
+        typeof(Code.Gameplay.Features.Foxes.AttachedSound),
         typeof(Code.Gameplay.Features.Foxes.BeforeNextHuntInterval),
         typeof(Code.Gameplay.Features.Foxes.BeforeNextHuntTimeLeft),
         typeof(Code.Gameplay.Features.Foxes.Eaten),
@@ -476,7 +477,6 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Foxes.HuntDuration),
         typeof(Code.Gameplay.Features.Foxes.HuntFinished),
         typeof(Code.Gameplay.Features.Foxes.Hunting),
-        typeof(Code.Gameplay.Features.Foxes.HuntSoundElement),
         typeof(Code.Gameplay.Features.Foxes.HuntStarted),
         typeof(Code.Gameplay.Features.Foxes.HuntTarget),
         typeof(Code.Gameplay.Features.Foxes.HuntTimeLeft),

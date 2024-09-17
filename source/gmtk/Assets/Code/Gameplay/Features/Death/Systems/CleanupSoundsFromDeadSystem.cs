@@ -12,7 +12,7 @@ namespace Code.Gameplay.Features.Death.Systems
         {
             _sounds = game.GetGroup(GameMatcher
                 .AllOf(
-                    GameMatcher.HuntSoundElement,
+                    GameMatcher.AttachedSound,
                     GameMatcher.Dead));
         }
 
@@ -20,10 +20,10 @@ namespace Code.Gameplay.Features.Death.Systems
         {
             foreach (GameEntity sound in _sounds.GetEntities(_buffer))
             {
-                if (sound.HuntSoundElement != null)
-                    sound.HuntSoundElement.Reset();
+                if (sound.AttachedSound != null)
+                    sound.AttachedSound.Reset();
 
-                sound.RemoveHuntSoundElement();
+                sound.RemoveAttachedSound();
             }
         }
     }

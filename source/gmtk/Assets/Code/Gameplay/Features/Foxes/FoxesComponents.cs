@@ -35,5 +35,5 @@ namespace Code.Gameplay.Features.Foxes
     [Game] public class TargetAmountGot : IComponent { public int Value; }
     [Game] public class GotEnough : IComponent { }
     [Game] public class FoxAnimatorComponent : IComponent { public FoxAnimator Value; }
-    [Game] public class HuntSoundElement : IComponent { public SoundElement Value; }
+    [Game] public class AttachedSound : IComponent { public SoundElement Value; }
 }
