@@ -32,6 +32,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication
             
             Add(systems.Create<MarkNearReplicationTargetSystem>());
             
+            Add(systems.Create<StopGoNearReplicationTargetSystem>());
             Add(systems.Create<StartReplicationSystem>());
 
             Add(systems.Create<UpdateReplicationDurationSystem>());

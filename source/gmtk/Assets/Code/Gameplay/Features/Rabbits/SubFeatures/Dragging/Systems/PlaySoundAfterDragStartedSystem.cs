@@ -1,13 +1,17 @@
-﻿using Entitas;
+﻿using Code.Gameplay.Sounds.Config;
+using Code.Gameplay.Sounds.Service;
+using Entitas;
 
 namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dragging.Systems
 {
-    public class RemoveMovementAvailableAtDragStartedSystem : IExecuteSystem
+    public class PlaySoundAfterDragStartedSystem : IExecuteSystem
     {
+        private readonly IAudioService _audioService;
         private readonly IGroup<GameEntity> _rabbits;
 
-        public RemoveMovementAvailableAtDragStartedSystem(GameContext game)
+        public PlaySoundAfterDragStartedSystem(GameContext game, IAudioService audioService)
         {
+            _audioService = audioService;
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Rabbit,
@@ -18,8 +22,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dragging.Systems
         {
             foreach (GameEntity rabbit in _rabbits)
             {
-                rabbit.isMovementAvailable = false;
-             
+                rabbit.ReplaceHuntSoundElement(_audioService.PlayAudio(SoundType.Dragging));
             }
         }
     }
