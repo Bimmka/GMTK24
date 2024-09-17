@@ -44,13 +44,21 @@ namespace Code.Gameplay.Features.Foxes
             
             Add(systems.Create<RemoveMarkHungryWhenHuntFinishedSystem>());
             
+            //Add(systems.Create<RefreshWaitingMovingTimeWhenHuntFinishedSystem>());
+            Add(systems.Create<MarkWaitingForMovingAfterHuntFinishedSystem>());
+
             Add(systems.Create<StopHuntSystem>());
-            
+
             Add(systems.Create<RemoveMarkInvalidTargetSystem>());
             Add(systems.Create<RemoveMarkMovingUpSystem>());
-            
-            Add(systems.Create<RemoveMarkHuntSystem>());
+
             Add(systems.Create<RemoveEatingMarksSystem>());
+
+            Add(systems.Create<CleanupHuntHuntSoundWhenHuntFinished>());
+            Add(systems.Create<CleanupHuntTargetWhenHuntFinished>());
+            
+            Add(systems.Create<CleanupMarkHuntStartedSystem>());
+            Add(systems.Create<CleanupMarkHuntFinishedSystem>());
         }
     }
 }

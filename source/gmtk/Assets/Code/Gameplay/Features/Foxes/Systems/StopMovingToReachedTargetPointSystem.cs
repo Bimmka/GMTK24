@@ -30,9 +30,8 @@ namespace Code.Gameplay.Features.Foxes.Systems
                 fox.isMovingToRandomPoint = false;
                 fox.isWaitingForMoving = true;
                 fox.isMoving = false;
-                
+
                 fox.ReplaceTimeLeftForMoving(fox.MovingInterval);
-                fox.RemoveTargetPoint();
 
                 fox.FoxAnimator.StopMove();
             }
