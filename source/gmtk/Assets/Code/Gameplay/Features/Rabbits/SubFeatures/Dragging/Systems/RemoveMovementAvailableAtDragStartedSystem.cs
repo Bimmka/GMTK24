@@ -19,7 +19,6 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dragging.Systems
             foreach (GameEntity rabbit in _rabbits)
             {
                 rabbit.isMovementAvailable = false;
-             
             }
         }
     }
