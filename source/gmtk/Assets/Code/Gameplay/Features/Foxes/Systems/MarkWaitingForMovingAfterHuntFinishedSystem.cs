@@ -2,24 +2,26 @@
 
 namespace Code.Gameplay.Features.Foxes.Systems
 {
-    public class RemoveMarkHuntSystem : IExecuteSystem
+    public class MarkWaitingForMovingAfterHuntFinishedSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _foxes;
 
-        public RemoveMarkHuntSystem(GameContext game)
+        public MarkWaitingForMovingAfterHuntFinishedSystem(GameContext game)
         {
             _foxes = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Fox,
-                    GameMatcher.Alive));
+                    GameMatcher.Alive,
+                    GameMatcher.HuntFinished)
+                .NoneOf(GameMatcher.MovingToRandomPoint));
         }
 
         public void Execute()
         {
             foreach (GameEntity fox in _foxes)
             {
-                fox.isHuntStarted = false;
-                fox.isHuntFinished = false;
+                fox.isWaitingForMoving = true;
+                fox.isMoving = false;
             }
         }
     }

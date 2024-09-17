@@ -27,26 +27,14 @@ namespace Code.Gameplay.Features.Foxes.Systems
         {
             foreach (GameEntity fox in _foxes.GetEntities(_buffer))
             {
-                fox.isWaitingForMoving = true;
                 fox.isWaitingHunt = true;
                 fox.isWaitingNextHuntTarget = true;
-                fox.isMoving = false;
 
                 fox.ReplaceBeforeNextHuntTimeLeft(fox.BeforeNextHuntInterval);
                 fox.ReplaceHuntTimeLeft(fox.HuntDuration);
                 fox.ReplaceTargetAmountGot(0);
 
-                if (fox.hasHuntTarget)
-                {
-                    fox.RemoveHuntTarget();
-                    fox.isMovingToHuntTarget = false;
-                }
-                
-                if (fox.hasHuntSoundElement)
-                {
-                    fox.HuntSoundElement.Reset();
-                    fox.RemoveHuntSoundElement();
-                }
+                fox.isMovingToHuntTarget = false;
             }
         }
     }

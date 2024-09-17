@@ -10,6 +10,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dragging
             Add(systems.Create<RemoveMovementAvailableAtDragStartedSystem>());
             Add(systems.Create<PlayDraggingAnimationAtDragStartedSystem>());
 
+            Add(systems.Create<PlaySoundAfterDragStartedSystem>());
+            Add(systems.Create<StopPlayingDraggingSoundAtDragFinishedSystem>());
             Add(systems.Create<PlaySoundAfterDragFinishedSystem>());
             Add(systems.Create<RefreshDragReleaseTimeSystem>());
 

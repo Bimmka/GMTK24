@@ -13,6 +13,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.SimpleMove.Systems
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Alive,
+                    GameMatcher.Rabbit,
                     GameMatcher.Moving,
                     GameMatcher.TargetPoint,
                     GameMatcher.TargetPointReached,
