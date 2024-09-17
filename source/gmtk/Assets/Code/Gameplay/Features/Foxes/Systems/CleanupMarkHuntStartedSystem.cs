@@ -13,7 +13,6 @@ namespace Code.Gameplay.Features.Foxes.Systems
             _foxes = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Fox,
-                    GameMatcher.Alive,
                     GameMatcher.HuntStarted));
         }
 
