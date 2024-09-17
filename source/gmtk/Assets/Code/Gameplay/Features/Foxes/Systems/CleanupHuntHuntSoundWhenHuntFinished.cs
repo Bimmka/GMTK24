@@ -13,7 +13,7 @@ namespace Code.Gameplay.Features.Foxes.Systems
             _foxes = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Fox,
-                    GameMatcher.HuntSoundElement,
+                    GameMatcher.AttachedSound,
                     GameMatcher.HuntFinished));
         }
 
@@ -21,8 +21,8 @@ namespace Code.Gameplay.Features.Foxes.Systems
         {
             foreach (GameEntity fox in _foxes.GetEntities(_buffer))
             {
-                fox.HuntSoundElement.Reset();
-                fox.RemoveHuntSoundElement();
+                fox.AttachedSound.Reset();
+                fox.RemoveAttachedSound();
             }
         }
     }

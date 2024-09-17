@@ -22,7 +22,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dragging.Systems
         {
             foreach (GameEntity rabbit in _rabbits)
             {
-                rabbit.ReplaceHuntSoundElement(_audioService.PlayAudio(SoundType.Dragging));
+                rabbit.ReplaceAttachedSound(_audioService.PlayAudio(SoundType.Dragging));
             }
         }
     }

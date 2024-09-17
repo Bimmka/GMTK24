@@ -14,15 +14,15 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dragging.Systems
                 .AllOf(
                     GameMatcher.Rabbit,
                     GameMatcher.DragFinished,
-                    GameMatcher.HuntSoundElement));
+                    GameMatcher.AttachedSound));
         }
 
         public void Execute()
         {
             foreach (GameEntity rabbit in _rabbits.GetEntities(_buffer))
             {
-                rabbit.HuntSoundElement?.Reset();
-                rabbit.RemoveHuntSoundElement();
+                rabbit.AttachedSound?.Reset();
+                rabbit.RemoveAttachedSound();
             }
         }
     }
