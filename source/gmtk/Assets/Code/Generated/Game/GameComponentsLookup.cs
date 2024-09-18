@@ -201,29 +201,28 @@ public static class GameComponentsLookup {
     public const int Selection = 190;
     public const int SelectionDragMaxTime = 191;
     public const int SelectionDragTimeLeft = 192;
-    public const int SelectionLayerMask = 193;
-    public const int ShiftFromSelect = 194;
-    public const int StoppedWaitingMouseDragFinish = 195;
-    public const int UnselectSelectedEntities = 196;
-    public const int WaitingMouseDragFinish = 197;
-    public const int Stall = 198;
-    public const int StallBounds = 199;
-    public const int StallIndex = 200;
-    public const int Affected = 201;
-    public const int Applied = 202;
-    public const int ApplierStatusLink = 203;
-    public const int Duration = 204;
-    public const int Period = 205;
-    public const int PoisonStatus = 206;
-    public const int RabiesStatus = 207;
-    public const int Status = 208;
-    public const int StatusTypeId = 209;
-    public const int TimeLeft = 210;
-    public const int TimeSinceLastTick = 211;
-    public const int Unapplied = 212;
-    public const int ValidStatus = 213;
+    public const int ShiftFromSelect = 193;
+    public const int StoppedWaitingMouseDragFinish = 194;
+    public const int UnselectSelectedEntities = 195;
+    public const int WaitingMouseDragFinish = 196;
+    public const int Stall = 197;
+    public const int StallBounds = 198;
+    public const int StallIndex = 199;
+    public const int Affected = 200;
+    public const int Applied = 201;
+    public const int ApplierStatusLink = 202;
+    public const int Duration = 203;
+    public const int Period = 204;
+    public const int PoisonStatus = 205;
+    public const int RabiesStatus = 206;
+    public const int Status = 207;
+    public const int StatusTypeId = 208;
+    public const int TimeLeft = 209;
+    public const int TimeSinceLastTick = 210;
+    public const int Unapplied = 211;
+    public const int ValidStatus = 212;
 
-    public const int TotalComponents = 214;
+    public const int TotalComponents = 213;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -419,7 +418,6 @@ public static class GameComponentsLookup {
         "Selection",
         "SelectionDragMaxTime",
         "SelectionDragTimeLeft",
-        "SelectionLayerMask",
         "ShiftFromSelect",
         "StoppedWaitingMouseDragFinish",
         "UnselectSelectedEntities",
@@ -636,7 +634,6 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Selection.Selection),
         typeof(Code.Gameplay.Features.Selection.SelectionDragMaxTime),
         typeof(Code.Gameplay.Features.Selection.SelectionDragTimeLeft),
-        typeof(Code.Gameplay.Features.Selection.SelectionLayerMask),
         typeof(Code.Gameplay.Features.Selection.ShiftFromSelect),
         typeof(Code.Gameplay.Features.Selection.StoppedWaitingMouseDragFinish),
         typeof(Code.Gameplay.Features.Selection.UnselectSelectedEntities),

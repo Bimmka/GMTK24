@@ -27,6 +27,7 @@ namespace Code.Gameplay.Input.Systems
         .AddWorldMousePosition(Vector2.zero)
         .AddScreenMousePosition(Vector2.zero)
         .AddPositionShiftForDragStart(config.PositionShiftForDragStart)
+        .AddClickableLayerMask(config.ClickableLayerMask)
         .With(x => x.isInput = true);
     }
   }

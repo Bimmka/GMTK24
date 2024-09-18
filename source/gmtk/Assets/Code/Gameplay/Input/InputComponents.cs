@@ -21,4 +21,5 @@ namespace Code.Gameplay.Input
   [Input] public class PositionShiftForDragStart : IComponent { public float Value; }
   [Input] public class LongTapPressed : IComponent { }
   [Input] public class LongTap : IComponent { }
+  [Input] public class ClickableLayerMask : IComponent { public LayerMask Value; }
 }

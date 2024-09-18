@@ -8,30 +8,40 @@
 //------------------------------------------------------------------------------
 public static class InputComponentsLookup {
 
-    public const int AxisInput = 0;
-    public const int Click = 1;
-    public const int ClickInterval = 2;
-    public const int Dragging = 3;
-    public const int Input = 4;
-    public const int LastMouseDownTime = 5;
-    public const int LongTap = 6;
-    public const int LongTapInterval = 7;
-    public const int LongTapPressed = 8;
-    public const int MouseDown = 9;
-    public const int MousePressed = 10;
-    public const int MouseUp = 11;
-    public const int PositionShiftForDragStart = 12;
-    public const int ScreenMousePosition = 13;
-    public const int StartMouseDownScreenPosition = 14;
-    public const int StartMouseDownWorldPosition = 15;
-    public const int WasDragging = 16;
-    public const int WorldMousePosition = 17;
+    public const int ClickedEntityId = 0;
+    public const int EmptyClicked = 1;
+    public const int FoxClicked = 2;
+    public const int RabbitClicked = 3;
+    public const int AxisInput = 4;
+    public const int Click = 5;
+    public const int ClickableLayerMask = 6;
+    public const int ClickInterval = 7;
+    public const int Dragging = 8;
+    public const int Input = 9;
+    public const int LastMouseDownTime = 10;
+    public const int LongTap = 11;
+    public const int LongTapInterval = 12;
+    public const int LongTapPressed = 13;
+    public const int MouseDown = 14;
+    public const int MousePressed = 15;
+    public const int MouseUp = 16;
+    public const int PositionShiftForDragStart = 17;
+    public const int ScreenMousePosition = 18;
+    public const int StartMouseDownScreenPosition = 19;
+    public const int StartMouseDownWorldPosition = 20;
+    public const int WasDragging = 21;
+    public const int WorldMousePosition = 22;
 
-    public const int TotalComponents = 18;
+    public const int TotalComponents = 23;
 
     public static readonly string[] componentNames = {
+        "ClickedEntityId",
+        "EmptyClicked",
+        "FoxClicked",
+        "RabbitClicked",
         "AxisInput",
         "Click",
+        "ClickableLayerMask",
         "ClickInterval",
         "Dragging",
         "Input",
@@ -51,8 +61,13 @@ public static class InputComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Code.Gameplay.Features.ClickHandle.ClickedEntityId),
+        typeof(Code.Gameplay.Features.ClickHandle.EmptyClicked),
+        typeof(Code.Gameplay.Features.ClickHandle.FoxClicked),
+        typeof(Code.Gameplay.Features.ClickHandle.RabbitClicked),
         typeof(Code.Gameplay.Input.AxisInput),
         typeof(Code.Gameplay.Input.Click),
+        typeof(Code.Gameplay.Input.ClickableLayerMask),
         typeof(Code.Gameplay.Input.ClickInterval),
         typeof(Code.Gameplay.Input.Dragging),
         typeof(Code.Gameplay.Input.Input),
