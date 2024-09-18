@@ -79,6 +79,8 @@ namespace Code.Gameplay.Features.Foxes.Factory
                 .With(x => x.isWaitingForMoving = true)
                 .With(x => x.isWaitingHunt = true)
                 .With(x => x.isWaitingNextHuntTarget = true)
+                .With(x => x.isCanBeInfectedByPoison = true)
+                .With(x => x.isCanBeInfectedByRabies = true)
                 ;
         }
     }

@@ -13,6 +13,9 @@ namespace Code.Gameplay.Features.CharacterStats
       Add(systems.Create<ApplyDragReleaseDurationFromStatsSystem>());
       Add(systems.Create<ApplyReplicationDurationFromStatsSystem>());
       Add(systems.Create<ApplyMovingIntervalStatsSystem>());
+      Add(systems.Create<ApplyHuntDurationFromStatsSystem>());
+      Add(systems.Create<ApplyRabbitToGetEnoughFromStatsSystem>());
+      Add(systems.Create<ApplyBeforeNextHuntTimeFromStatsSystem>());
     }
   }
 }

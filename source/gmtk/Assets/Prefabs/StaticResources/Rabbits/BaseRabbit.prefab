@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8367802004084998050}
   - component: {fileID: 8729545381868898318}
   - component: {fileID: 5070930166869189211}
+  - component: {fileID: 317818371084590194}
   m_Layer: 6
   m_Name: BaseRabbit
   m_TagString: Untagged
@@ -169,6 +170,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8bb820b871ac4c1190c2e6338316e75c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EntityView: {fileID: 2658883369037870289}
+  VisualChanger: {fileID: 8729545381868898318}
+--- !u!114 &317818371084590194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3556678750113848877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ea46dca0b4242a983eb2352b02abf89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EntityView: {fileID: 2658883369037870289}

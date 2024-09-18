@@ -1,20 +1,21 @@
-﻿using UnityEngine;
+﻿using Code.Gameplay.Features.Foxes.Behaviours.Visuals;
+using UnityEngine;
 
 namespace Code.Gameplay.Features.Rabbits.Behaviours.Visuals
 {
-    public class RabbitVisualChanger : MonoBehaviour
+    public class RabbitVisualChanger : SickVisualChanger
     {
         public ParticleSystem LoveParticle;
         public ParticleSystem RabiesParticle;
         public ParticleSystem SickParticle;
 
-        public void SetSick()
+        public override void SetSick()
         {
             SickParticle.gameObject.SetActive(true);
             SickParticle.Play();
         }
         
-        public void SetRabies()
+        public override void SetRabies()
         {
             RabiesParticle.gameObject.SetActive(true);
             RabiesParticle.Play();
