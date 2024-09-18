@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IntervalForClick: 0.2
   IntervalForLongTap: 0.3
+  PositionShiftForDragStart: 1
+  ClickableLayerMask:
+    serializedVersion: 2
+    m_Bits: 320

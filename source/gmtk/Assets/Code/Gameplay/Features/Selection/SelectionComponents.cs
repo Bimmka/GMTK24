@@ -11,7 +11,6 @@ namespace Code.Gameplay.Features.Selection
     [Game] public class SelectedEntities : IComponent { public List<int> Value; }
     [Game] public class EntitiesForSelectionQueue : IComponent { public Queue<int> Value; }
     [Game] public class EntitiesForReleaseQueue : IComponent { public Queue<int> Value; }
-    [Game] public class SelectionLayerMask : IComponent { public LayerMask Value; }
     [Game] public class HasSelections : IComponent { }
     [Game] public class Dragging : IComponent { }
     [Game] public class DragCanceled : IComponent {}

@@ -19,7 +19,8 @@ namespace Code.Gameplay.Input.Systems
                     InputMatcher.LastMouseDownTime,
                     InputMatcher.ScreenMousePosition,
                     InputMatcher.WorldMousePosition,
-                    InputMatcher.ClickInterval)
+                    InputMatcher.ClickInterval,
+                    InputMatcher.ClickableLayerMask)
                 .NoneOf(InputMatcher.Dragging));
         }
 
@@ -33,6 +34,7 @@ namespace Code.Gameplay.Input.Systems
                         .Empty()
                         .AddScreenMousePosition(input.ScreenMousePosition)
                         .AddWorldMousePosition(input.WorldMousePosition)
+                        .AddClickableLayerMask(input.ClickableLayerMask)
                         .With(x => x.isClick = true);
                 }
             }
