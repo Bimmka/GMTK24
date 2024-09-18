@@ -20,7 +20,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Death.Systems
                 .AllOf(
                     GameMatcher.Rabbit,
                     GameMatcher.Dead,
-                    GameMatcher.Eaten));
+                    GameMatcher.Eaten,
+                    GameMatcher.WorldPosition));
         }
 
         public void Execute()

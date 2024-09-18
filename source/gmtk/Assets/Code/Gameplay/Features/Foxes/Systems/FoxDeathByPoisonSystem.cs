@@ -4,21 +4,21 @@ using Code.Gameplay.VFX.Config;
 using Code.Gameplay.VFX.Service;
 using Entitas;
 
-namespace Code.Gameplay.Features.Rabbits.SubFeatures.Death.Systems
+namespace Code.Gameplay.Features.Foxes.Systems
 {
-    public class DeathByPoisonSystem : IExecuteSystem
+    public class FoxDeathByPoisonSystem : IExecuteSystem
     {
-        private readonly IAudioService _audioService;
+        private readonly IGroup<GameEntity> _foxes;
         private readonly IVFXService _vfxService;
-        private readonly IGroup<GameEntity> _rabbits;
+        private readonly IAudioService _audioService;
 
-        public DeathByPoisonSystem(GameContext game, IAudioService audioService, IVFXService vfxService)
+        public FoxDeathByPoisonSystem(GameContext game, IAudioService audioService, IVFXService vfxService)
         {
             _audioService = audioService;
             _vfxService = vfxService;
-            _rabbits = game.GetGroup(GameMatcher
+            _foxes = game.GetGroup(GameMatcher
                 .AllOf(
-                    GameMatcher.Rabbit,
+                    GameMatcher.Fox,
                     GameMatcher.Dead,
                     GameMatcher.CarrierOfPoisonInfection,
                     GameMatcher.WorldPosition));
@@ -26,10 +26,10 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Death.Systems
 
         public void Execute()
         {
-            foreach (GameEntity rabbit in _rabbits)
+            foreach (GameEntity fox in _foxes)
             {
                 _audioService.PlayAudio(SoundType.DeadByPoison);
-                _vfxService.Spawn(VFXType.SickDeath, rabbit.WorldPosition);
+                _vfxService.Spawn(VFXType.SickDeath, fox.WorldPosition);
             }
         }
     }

@@ -25,7 +25,7 @@ namespace Code.Gameplay.StaticData
     private InputConfig _inputConfig;
     private SelectionConfig _selectionConfig;
     private ReplicationRulesConfig _replicationRulesConfig;
-    private Dictionary<InfectionType,InfectionConfig> _infectionConfigsByType;
+    private Dictionary<InfectionType, Dictionary<InfectionTargetType, InfectionConfig>> _infectionConfigsByType;
     private FoxConfig _foxConfig;
     private RabbitUIConfig _rabbitUIConfig;
     private Dictionary<VFXType, VFXContainer> _vfxByType;
@@ -89,10 +89,17 @@ namespace Code.Gameplay.StaticData
     public SelectionConfig GetSelectionConfig() =>
       _selectionConfig;
 
-    public InfectionConfig GetInfectionConfig(InfectionType infectionType) =>
-      _infectionConfigsByType.TryGetValue(infectionType, out InfectionConfig config)
-        ? config
-        : throw new Exception($"Infection config with type: {infectionType} was not found");
+    public InfectionConfig GetInfectionConfig(InfectionType infectionType, InfectionTargetType targetType)
+    {
+      if (_infectionConfigsByType.TryGetValue(infectionType, out Dictionary<InfectionTargetType, InfectionConfig> configs))
+      {
+        return configs.TryGetValue(targetType, out InfectionConfig config)
+          ? config
+          : throw new Exception($"Infection config with type: {infectionType} and target : {targetType} was not found");
+      }
+      
+      throw new Exception($"Infection config with type: {infectionType} and target : {targetType} was not found");
+    }
 
     public FoxConfig GetFoxConfig() =>
       _foxConfig;
@@ -122,8 +129,30 @@ namespace Code.Gameplay.StaticData
     private void LoadSelectionConfig() =>
       _selectionConfig = Resources.Load<SelectionConfig>("Configs/Selection/SelectionConfig");
 
-    private void LoadInfectionConfigs() =>
-      _infectionConfigsByType = Resources.LoadAll<InfectionConfig>("Configs/Infections").ToDictionary(x => x.InfectionSetup.Type, x => x);
+    private void LoadInfectionConfigs()
+    {
+      var infectionConfigs = Resources.LoadAll<InfectionConfig>("Configs/Infections");
+
+      _infectionConfigsByType = new Dictionary<InfectionType, Dictionary<InfectionTargetType, InfectionConfig>>();
+
+      foreach (InfectionConfig infectionConfig in infectionConfigs)
+      {
+        if (_infectionConfigsByType.TryGetValue(infectionConfig.InfectionSetup.Type, out Dictionary<InfectionTargetType, InfectionConfig> configs))
+        {
+          configs.TryAdd(infectionConfig.TargetType, infectionConfig);
+        }
+        else
+        {
+          _infectionConfigsByType.TryAdd(infectionConfig.InfectionSetup.Type,
+            new Dictionary<InfectionTargetType, InfectionConfig>()
+            {
+              {
+                infectionConfig.TargetType, infectionConfig
+              }
+            });
+        }
+      }
+    }
 
     private void LoadFoxConfig() =>
       _foxConfig = Resources.Load<FoxConfig>("Configs/Foxes/FoxConfig");

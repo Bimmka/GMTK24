@@ -24,7 +24,7 @@ namespace Code.Gameplay.Features.CharacterStats.Systems
       }
     }
 
-    private static float MoveSpeed(GameEntity statOwner)
+    private float MoveSpeed(GameEntity statOwner)
     {
       return statOwner.BaseStats[Stats.Speed] + statOwner.StatModifiers[Stats.Speed];
     }

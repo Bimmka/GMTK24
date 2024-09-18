@@ -29,13 +29,13 @@ namespace Code.Gameplay.Features.LevelTasks.Systems
         {
             foreach (GameEntity task in _tasks.GetEntities(_buffer))
             {
-                if (_rabbits.count <= 1 && task.LevelTaskType != LevelTaskType.RemoveAllRabbits && _holes.count == 0)
-                {
-                    task.isUncompleted = false;
-                    task.isFailed = true;
-                    
-                    CreateEntity.Empty().With(x => x.isLose = true);
-                }
+                // if (_rabbits.count <= 1 && task.LevelTaskType != LevelTaskType.RemoveAllRabbits && _holes.count == 0)
+                // {
+                //     task.isUncompleted = false;
+                //     task.isFailed = true;
+                //     
+                //     CreateEntity.Empty().With(x => x.isLose = true);
+                // }
             }
         }
     }

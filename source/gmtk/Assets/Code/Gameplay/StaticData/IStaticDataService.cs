@@ -25,7 +25,7 @@ namespace Code.Gameplay.StaticData
     ReplicationRulesConfig GetReplicationRulesConfig();
     InputConfig GetInputConfig();
     SelectionConfig GetSelectionConfig();
-    InfectionConfig GetInfectionConfig(InfectionType infectionType);
+    InfectionConfig GetInfectionConfig(InfectionType infectionType, InfectionTargetType targetType);
     FoxConfig GetFoxConfig();
     List<LevelConfig> GetLevelConfigs();
     SpriteByRabbitColor GetRabbitSpriteByColor(RabbitColorType colorType);

@@ -46,10 +46,13 @@ namespace Code.Gameplay.Features.Foxes
             
             Add(systems.Create<RemoveMarkHungryWhenHuntFinishedSystem>());
             
-            //Add(systems.Create<RefreshWaitingMovingTimeWhenHuntFinishedSystem>());
             Add(systems.Create<MarkWaitingForMovingAfterHuntFinishedSystem>());
 
             Add(systems.Create<StopHuntSystem>());
+
+            Add(systems.Create<PrepareFoxDeathSystem>());
+            Add(systems.Create<FoxDeathByPoisonSystem>());
+            Add(systems.Create<FoxDeathByRabiesSystem>());
 
             Add(systems.Create<RemoveMarkInvalidTargetSystem>());
             Add(systems.Create<RemoveMarkMovingUpSystem>());

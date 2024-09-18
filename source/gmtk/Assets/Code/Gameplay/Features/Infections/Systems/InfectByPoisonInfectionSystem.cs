@@ -53,14 +53,17 @@ namespace Code.Gameplay.Features.Infections.Systems
             {
                 GameEntity infectionCarrier = _game.GetEntityWithId(infection.CarrierOfInfectionId);
 
-                IEnumerable<GameEntity> rabbits = _physicsService.CircleCast(infectionCarrier.WorldPosition, infection.Radius, infection.InfectionLayerMask);
+                IEnumerable<GameEntity> possibleContagious = _physicsService.CircleCast(infectionCarrier.WorldPosition, infection.Radius, infection.InfectionLayerMask);
 
-                foreach (GameEntity rabbit in rabbits)
+                foreach (GameEntity contagious in possibleContagious)
                 {
-                    if (rabbit.Id == infection.CarrierOfInfectionId)
+                    if (contagious.Id == infection.CarrierOfInfectionId)
                         continue;
                     
-                    if (rabbit.isCarrierOfPoisonInfection)
+                    if (contagious.isCarrierOfPoisonInfection)
+                        continue;
+                    
+                    if (contagious.isCanBeInfectedByPoison == false)
                         continue;
 
                     float randomValue = _randomService.Range(0, 1f);
@@ -68,15 +71,15 @@ namespace Code.Gameplay.Features.Infections.Systems
                     if (randomValue > infection.ChanceToInfect)
                         continue;
 
-                    var setup = _staticDataService.GetInfectionConfig(InfectionType.PoisonInfection).InfectionSetup;
+                    var setup = _staticDataService.GetInfectionConfig(InfectionType.PoisonInfection, contagious.isRabbit ? InfectionTargetType.Rabbit : InfectionTargetType.Fox).InfectionSetup;
 
                     _statusApplier.ApplyStatus(new StatusSetup()
                     {
                         StatusType = StatusTypeId.Poison,
                         Duration = setup.TimeBeforeDeath,
-                    }, rabbit.Id);
+                    }, contagious.Id);
 
-                    _infectionFactory.CreateInfection(setup, rabbit.Id);
+                    _infectionFactory.CreateInfection(setup, contagious.Id);
                 }
             }
         }

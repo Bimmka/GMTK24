@@ -17,6 +17,8 @@ namespace Code.Gameplay.Features.Infections
     [Game] public class CarrierOfInfection : IComponent { }
     [Game] public class CarrierOfPoisonInfection : IComponent { }
     [Game] public class CarrierOfRabiesInfection : IComponent { }
+    [Game] public class CanBeInfectedByPoison : IComponent { }
+    [Game] public class CanBeInfectedByRabies : IComponent { }
     [Game] public class LevelInfection : IComponent { }
     [Game] public class InfectionLayerMask : IComponent { public LayerMask Value; }
     [Game] public class ValidInfection : IComponent { }

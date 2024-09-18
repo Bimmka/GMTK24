@@ -96,6 +96,8 @@ namespace Code.Gameplay.Features.Rabbits.Factory
                 .With(x => x.isCanStartReplication = true)
                 .With(x => x.isReplicationAvailable = true)
                 .With(x => x.isAlive = true)
+                .With(x => x.isCanBeInfectedByPoison = true)
+                .With(x => x.isCanBeInfectedByRabies = true)
                 ;
 
             return rabbitEntity;
