@@ -41,7 +41,7 @@ namespace Code.Gameplay.Features.ClickHandle.Systems
                             .AddClickedEntityId(result.Id)
                             .With(x => x.isRabbitClicked = true);
                     }
-                    else if (result is { isFox: true, hasId: true })
+                    else if (result is { isFox: true, hasId: true, isAlive: true })
                     {
                         click
                             .AddClickedEntityId(result.Id)

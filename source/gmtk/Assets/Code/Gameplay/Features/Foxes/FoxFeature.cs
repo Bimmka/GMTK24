@@ -8,6 +8,7 @@ namespace Code.Gameplay.Features.Foxes
         public FoxFeature(ISystemFactory systems)
         {
             Add(systems.Create<UpdateBeforeNextHuntTimeLeftSystem>());
+            Add(systems.Create<UpdateTimeBeforeNextHuntAfterClickSystem>());
             Add(systems.Create<MarkHungrySystem>());
 
             Add(systems.Create<UpdateNextMovingTimeLeftSystem>());
@@ -37,6 +38,7 @@ namespace Code.Gameplay.Features.Foxes
             Add(systems.Create<RefreshEatingTimeSystem>());
 
             Add(systems.Create<UpdateHuntTimeLeftSystem>());
+            Add(systems.Create<UpdateHuntTimeAfterClickSystem>());
 
             Add(systems.Create<MarkHuntFinishedByHuntTimeLeftSystem>());
             Add(systems.Create<MarkHuntFinishedByNoValidTargetsSystem>());
