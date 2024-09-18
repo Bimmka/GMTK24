@@ -11,7 +11,7 @@ namespace Code.Gameplay.Features.ClickHandle.Systems
         private readonly IGroup<GameEntity> _selections;
         private readonly IGroup<InputEntity> _clicks;
 
-        public HandleClickSystem(InputContext input, IPhysicsService physicsService)
+        public HandleClickSystem(InputContext input, GameContext game, IPhysicsService physicsService)
         {
             _physicsService = physicsService;
 
@@ -19,6 +19,8 @@ namespace Code.Gameplay.Features.ClickHandle.Systems
                 InputMatcher.Click,
                 InputMatcher.WorldMousePosition,
                 InputMatcher.ClickableLayerMask));
+
+            _selections = game.GetGroup(GameMatcher.AllOf(GameMatcher.Selection));
         }
 
         public void Execute()
@@ -27,21 +29,24 @@ namespace Code.Gameplay.Features.ClickHandle.Systems
             {
                 GameEntity result = _physicsService.Raycast(click.WorldMousePosition, Vector2.zero, click.ClickableLayerMask);
 
-                if (result is { isRabbit: true, hasId: true, isSelectable: true })
+                foreach (GameEntity selection in _selections)
                 {
-                    click
-                        .AddClickedEntityId(result.Id)
-                        .With(x => x.isRabbitClicked = true);
-                }
-                else if (result is { isFox: true, hasId: true })
-                {
-                    click
-                        .AddClickedEntityId(result.Id)
-                        .With(x => x.isFoxClicked = true);
-                }
-                else
-                {
-                    click.With(x => x.isEmptyClicked = true);
+                    if (result == null || selection.isHasSelections)
+                    {
+                        click.With(x => x.isEmptyClicked = true);
+                    }
+                    else if (result is { isRabbit: true, hasId: true, isSelectable: true })
+                    {
+                        click
+                            .AddClickedEntityId(result.Id)
+                            .With(x => x.isRabbitClicked = true);
+                    }
+                    else if (result is { isFox: true, hasId: true })
+                    {
+                        click
+                            .AddClickedEntityId(result.Id)
+                            .With(x => x.isFoxClicked = true);
+                    }
                 }
             }
         }
