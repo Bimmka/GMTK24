@@ -31,7 +31,16 @@ namespace Code.Gameplay.Features.Statuses.Systems
         {
             foreach (GameEntity status in _statuses.GetEntities(_buffer))
             {
-                StatInfluenceData[] statInfluenceData = _staticDataService.GetInfectionConfig(InfectionType.RabiesInfection).InfectionSetup.StatInfluenceData;
+                GameEntity targetEntity = _game.GetEntityWithId(status.TargetId);
+                
+                if (targetEntity == null)
+                    continue;
+                
+                StatInfluenceData[] statInfluenceData = _staticDataService
+                    .GetInfectionConfig(
+                        InfectionType.RabiesInfection,
+                        targetEntity.isRabbit ? InfectionTargetType.Rabbit : InfectionTargetType.Fox)
+                    .InfectionSetup.StatInfluenceData;
 
                 foreach (StatInfluenceData influenceData in statInfluenceData)
                 {
@@ -41,15 +50,15 @@ namespace Code.Gameplay.Features.Statuses.Systems
                         .AddEffectValue(influenceData.EffectValue)
                         .AddApplierStatusLink(status.Id);
                 }
-                
-                GameEntity targetEntity = _game.GetEntityWithId(status.TargetId);
+
                 targetEntity.isCarrierOfInfection = true;
                 targetEntity.isCarrierOfRabiesInfection = true;
+                targetEntity.isCanBeInfectedByRabies = false;
         
                 status.isAffected = true;
                 
-                if (targetEntity.hasRabbitVisualChanger)
-                    targetEntity.RabbitVisualChanger.SetRabies();
+                if (targetEntity.hasSickVisualChanger)
+                    targetEntity.SickVisualChanger.SetRabies();
             }
         }
     }

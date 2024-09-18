@@ -1,43 +1,42 @@
-﻿using Code.Gameplay.Common.Physics;
-using Entitas;
-using UnityEngine;
+﻿using Entitas;
 
 namespace Code.Gameplay.Features.Selection.Systems
 {
     public class SelectByClickSystem : IExecuteSystem
     {
-        private readonly IPhysicsService _physicsService;
-        private readonly IGroup<InputEntity> _clicks;
+        private readonly GameContext _game;
         private readonly IGroup<GameEntity> _selections;
+        private readonly IGroup<InputEntity> _rabbitClicks;
 
-        public SelectByClickSystem(InputContext input, GameContext game, IPhysicsService physicsService)
+        public SelectByClickSystem(InputContext input, GameContext game)
         {
-            _physicsService = physicsService;
-            _clicks = input.GetGroup(InputMatcher.AllOf(InputMatcher.Click));
+            _game = game;
+
+            _rabbitClicks = input.GetGroup(InputMatcher
+                .AllOf(
+                    InputMatcher.Click,
+                    InputMatcher.ClickedEntityId,
+                    InputMatcher.RabbitClicked));
+
             _selections = game.GetGroup(GameMatcher
                 .AllOf(
-                    GameMatcher.EntitiesForSelectionQueue,
-                    GameMatcher.SelectionLayerMask)
+                    GameMatcher.EntitiesForSelectionQueue)
                 .NoneOf(GameMatcher.Dragging));
         }
 
         public void Execute()
         {
-            foreach (InputEntity click in _clicks)
+            foreach (InputEntity click in _rabbitClicks)
             {
                 foreach (GameEntity selection in _selections)
                 {
-                    GameEntity result = _physicsService.Raycast(click.WorldMousePosition, Vector2.zero, selection.SelectionLayerMask);
-
-                    if (result == null)
-                    {
-                        selection.isUnselectSelectedEntities = true;
-                    }
-                    else if (result.isSelectable)
-                    {
-                        selection.EntitiesForSelectionQueue.Enqueue(result.Id);
-                        result.isSelected = true;
-                    }
+                    var clickedRabbit = _game.GetEntityWithId(click.ClickedEntityId);
+                    
+                    if (clickedRabbit == null)
+                        continue;
+                    
+                    selection.EntitiesForSelectionQueue.Enqueue(click.ClickedEntityId);
+                    clickedRabbit.isSelected = true;
                 }
             }
         }

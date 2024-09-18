@@ -15,7 +15,7 @@ namespace Code.Gameplay.Features.Infections.Systems
         private readonly IStatusApplier _statusApplier;
         private readonly IInfectionFactory _infectionFactory;
         private readonly IGroup<GameEntity> _infections;
-        private readonly IGroup<GameEntity> _rabbits;
+        private readonly IGroup<GameEntity> _contagious;
 
         public InfectByLevelPoisonInfectionSystem(
             GameContext game,
@@ -33,28 +33,29 @@ namespace Code.Gameplay.Features.Infections.Systems
                     GameMatcher.InfectionUp,
                     GameMatcher.ValidInfection));
 
-            _rabbits = game.GetGroup(GameMatcher
-                .AllOf(GameMatcher.Rabbit)
-                .NoneOf(GameMatcher.CarrierOfPoisonInfection));
+            _contagious = game.GetGroup(GameMatcher
+                .AllOf(
+                    GameMatcher.CanBeInfectedByPoison,
+                    GameMatcher.Id));
         }
 
         public void Execute()
         {
             foreach (GameEntity infection in _infections)
             {
-                if (_rabbits.count > 0)
+                if (_contagious.count > 0)
                 {
-                    GameEntity rabbit = _rabbits.AsEnumerable().First();
+                    GameEntity contagious = _contagious.AsEnumerable().First();
 
-                    var setup = _staticDataService.GetInfectionConfig(InfectionType.PoisonInfection).InfectionSetup;
+                    var setup = _staticDataService.GetInfectionConfig(InfectionType.PoisonInfection, contagious.isRabbit ? InfectionTargetType.Rabbit : InfectionTargetType.Fox).InfectionSetup;
 
                     _statusApplier.ApplyStatus(new StatusSetup()
                     {
                         StatusType = StatusTypeId.Poison,
                         Duration = setup.TimeBeforeDeath,
-                    }, rabbit.Id);
+                    }, contagious.Id);
 
-                    _infectionFactory.CreateInfection(setup, rabbit.Id);
+                    _infectionFactory.CreateInfection(setup, contagious.Id);
                 }
             }
         }

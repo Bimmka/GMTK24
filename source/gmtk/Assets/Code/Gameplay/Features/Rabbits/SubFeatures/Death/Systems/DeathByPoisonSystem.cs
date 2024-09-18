@@ -20,7 +20,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Death.Systems
                 .AllOf(
                     GameMatcher.Rabbit,
                     GameMatcher.Dead,
-                    GameMatcher.CarrierOfPoisonInfection));
+                    GameMatcher.CarrierOfPoisonInfection,
+                    GameMatcher.WorldPosition));
         }
 
         public void Execute()

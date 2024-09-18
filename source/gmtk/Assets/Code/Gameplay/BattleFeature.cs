@@ -1,5 +1,6 @@
 ﻿using Code.Common.Destruct;
 using Code.Gameplay.Features.CharacterStats;
+using Code.Gameplay.Features.ClickHandle;
 using Code.Gameplay.Features.Death;
 using Code.Gameplay.Features.Death.Systems;
 using Code.Gameplay.Features.Foxes;
@@ -22,6 +23,7 @@ namespace Code.Gameplay
     public BattleFeature(ISystemFactory systems)
     {
       Add(systems.Create<InputFeature>());
+      Add(systems.Create<ClickHandleFeature>());
       Add(systems.Create<BindViewFeature>());
       
       Add(systems.Create<LevelTaskFeature>());

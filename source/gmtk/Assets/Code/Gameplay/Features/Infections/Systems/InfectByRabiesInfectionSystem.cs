@@ -53,14 +53,14 @@ namespace Code.Gameplay.Features.Infections.Systems
             foreach (GameEntity infection in _infections)
             {
                 GameEntity infectionCarrier = _game.GetEntityWithId(infection.CarrierOfInfectionId);
-                IEnumerable<GameEntity> rabbits;
+                IEnumerable<GameEntity> possibleContagious;
 
                 Vector2 boxCastSize = new Vector2(infection.InfectionTrayWidth, infection.InfectionTrayLength) / 2;
 
                 if (infectionCarrier.isMoving)
                 {
                     float angle = Vector2.SignedAngle(infectionCarrier.MoveDirection, Vector2.right);
-                    rabbits = _physicsService.BoxCast(
+                    possibleContagious = _physicsService.BoxCast(
                         infectionCarrier.WorldPosition,
                         boxCastSize, 
                         angle, 
@@ -70,7 +70,7 @@ namespace Code.Gameplay.Features.Infections.Systems
                 }
                 else
                 {
-                    rabbits = _physicsService.BoxCast(
+                    possibleContagious = _physicsService.BoxCast(
                         infectionCarrier.WorldPosition,
                         boxCastSize, 
                         0, 
@@ -79,12 +79,15 @@ namespace Code.Gameplay.Features.Infections.Systems
                         infection.InfectionLayerMask);
                 }
 
-                foreach (GameEntity rabbit in rabbits)
+                foreach (GameEntity contagious in possibleContagious)
                 {
-                    if (rabbit.Id == infection.CarrierOfInfectionId)
+                    if (contagious.Id == infection.CarrierOfInfectionId)
                         continue;
                     
-                    if (rabbit.isCarrierOfRabiesInfection)
+                    if (contagious.isCarrierOfRabiesInfection)
+                        continue;
+                    
+                    if (contagious.isCanBeInfectedByRabies == false)
                         continue;
 
                     float randomValue = _randomService.Range(0, 1f);
@@ -92,15 +95,15 @@ namespace Code.Gameplay.Features.Infections.Systems
                     if (randomValue > infection.ChanceToInfect)
                         continue;
 
-                    var setup = _staticDataService.GetInfectionConfig(InfectionType.RabiesInfection).InfectionSetup;
+                    var setup = _staticDataService.GetInfectionConfig(InfectionType.RabiesInfection, contagious.isRabbit ? InfectionTargetType.Rabbit : InfectionTargetType.Fox).InfectionSetup;
 
                     _statusApplier.ApplyStatus(new StatusSetup()
                     {
                         StatusType = StatusTypeId.Rabies,
                         Duration = setup.TimeBeforeDeath,
-                    }, rabbit.Id);
+                    }, contagious.Id);
 
-                    _infectionFactory.CreateInfection(setup, rabbit.Id);
+                    _infectionFactory.CreateInfection(setup, contagious.Id);
                 }
             }
         }

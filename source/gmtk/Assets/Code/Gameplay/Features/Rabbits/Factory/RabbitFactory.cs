@@ -50,9 +50,6 @@ namespace Code.Gameplay.Features.Rabbits.Factory
         {
             GameEntity rabbitEntity = CreateEntity
                 .Empty();
-            
-            IRabbitStateFactory stateFactory = new RabbitStateFactory(_container, rabbitEntity);
-            RabbitStateMachine stateMachine = new RabbitStateMachine(stateFactory);
 
             float intervalBeforeNextReplication = _randomService.Range(rabbitConfig.MinIntervalBetweenReplication,
                 rabbitConfig.MaxIntervalBetweenReplication);
@@ -87,7 +84,6 @@ namespace Code.Gameplay.Features.Rabbits.Factory
                 .AddSpeed(randomSpeed)
                 .AddSelectionDragMaxTime(randomDragReleaseDuration)
                 .AddSelectionDragTimeLeft(randomDragReleaseDuration)
-                .AddRabbitStateMachine(stateMachine)
                 .AddWaitReplicationDuration(randomWaitReplicationDuration)
                 .AddWaitReplicationTimeLeft(randomWaitReplicationDuration)
                 .AddBaseStats(baseStats)
@@ -100,9 +96,9 @@ namespace Code.Gameplay.Features.Rabbits.Factory
                 .With(x => x.isCanStartReplication = true)
                 .With(x => x.isReplicationAvailable = true)
                 .With(x => x.isAlive = true)
+                .With(x => x.isCanBeInfectedByPoison = true)
+                .With(x => x.isCanBeInfectedByRabies = true)
                 ;
-            
-            stateMachine.Enter<RabbitIdleState>();
 
             return rabbitEntity;
         }

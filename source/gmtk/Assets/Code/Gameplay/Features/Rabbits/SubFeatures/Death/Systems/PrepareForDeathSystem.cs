@@ -14,7 +14,6 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Death.Systems
                 .AllOf(
                     GameMatcher.Rabbit,
                     GameMatcher.Dead,
-                    GameMatcher.DeadByInfection,
                     GameMatcher.RabbitAnimator));
         }
 
@@ -29,6 +28,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Death.Systems
                 rabbit.isReplicationAvailable = false;
                 rabbit.isReplicationBlocked = true;
                 rabbit.isSelectable = false;
+                rabbit.isCanBeChosenForReplication = false;
                 
                 rabbit.RabbitAnimator.PlayDead();
 

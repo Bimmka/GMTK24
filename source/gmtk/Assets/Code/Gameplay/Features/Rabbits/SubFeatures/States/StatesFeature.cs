@@ -7,6 +7,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.States
     {
         public StatesFeature(ISystemFactory systems)
         {
+            Add(systems.Create<PrepareForDraggingSystem>());
+           
             Add(systems.Create<PrepareForReplicationAliveRabbitAfterDraggingSystem>());
             Add(systems.Create<PrepareForMovementAliveRabbitAfterDraggingSystem>());
             Add(systems.Create<PrepareForSelectionAliveRabbitAfterDraggingSystem>());

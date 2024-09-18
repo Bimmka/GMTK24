@@ -16,7 +16,9 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                     GameMatcher.InvalidReplicationTarget,
                     GameMatcher.ReplicationTarget,
                     GameMatcher.WantToReplicate,
-                    GameMatcher.RabbitVisualChanger));
+                    GameMatcher.RabbitVisualChanger,
+                    GameMatcher.MoveDirection,
+                    GameMatcher.MovingToReplicationTarget));
         }
 
         public void Execute()
@@ -25,6 +27,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
             {
                 replicator.isMovingToReplicationTarget = false;
                 replicator.isWantToReplicate = false;
+                replicator.RemoveMoveDirection();
+                replicator.isMoving = false;
                 
                 replicator.RabbitVisualChanger.RemoveLove();
             }

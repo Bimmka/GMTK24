@@ -26,7 +26,6 @@ namespace Code.Gameplay.Features.Selection.Systems
                 .AddSelectedEntities(new List<int>())
                 .AddEntitiesForSelectionQueue(new Queue<int>())
                 .AddEntitiesForReleaseQueue(new Queue<int>())
-                .AddSelectionLayerMask(config.SelectionMask)
                 .AddSelectCenterPosition(Vector3.zero)
                 .AddSelectCenterRadius(config.SelectionRadius)
                 .AddFollowSelectCenterSpeed(config.FollowSelectionCenterSpeed)

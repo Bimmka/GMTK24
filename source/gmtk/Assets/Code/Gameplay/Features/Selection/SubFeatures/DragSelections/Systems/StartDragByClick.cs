@@ -9,8 +9,8 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.DragSelections.Systems
     {
         private readonly GameContext _game;
         private readonly IRandomService _randomService;
-        private readonly IGroup<InputEntity> _clicks;
         private readonly IGroup<GameEntity> _selections;
+        private readonly IGroup<InputEntity> _rabbitClicks;
         private readonly List<GameEntity> _buffer = new List<GameEntity>(1);
 
         public StartDragByClick(InputContext input, GameContext game, IRandomService randomService)
@@ -18,10 +18,10 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.DragSelections.Systems
             _game = game;
             _randomService = randomService;
 
-            _clicks = input.GetGroup(InputMatcher
+            _rabbitClicks = input.GetGroup(InputMatcher
                 .AllOf(
                     InputMatcher.Click,
-                    InputMatcher.WorldMousePosition));
+                    InputMatcher.RabbitClicked));
             
             _selections = game.GetGroup(GameMatcher
                 .AllOf(
@@ -31,7 +31,7 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.DragSelections.Systems
 
         public void Execute()
         {
-            foreach (InputEntity click in _clicks)
+            foreach (InputEntity click in _rabbitClicks)
             {
                 foreach (GameEntity selection in _selections.GetEntities(_buffer))
                 {

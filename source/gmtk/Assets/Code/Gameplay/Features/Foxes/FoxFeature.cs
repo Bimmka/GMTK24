@@ -8,6 +8,7 @@ namespace Code.Gameplay.Features.Foxes
         public FoxFeature(ISystemFactory systems)
         {
             Add(systems.Create<UpdateBeforeNextHuntTimeLeftSystem>());
+            Add(systems.Create<UpdateTimeBeforeNextHuntAfterClickSystem>());
             Add(systems.Create<MarkHungrySystem>());
 
             Add(systems.Create<UpdateNextMovingTimeLeftSystem>());
@@ -37,6 +38,7 @@ namespace Code.Gameplay.Features.Foxes
             Add(systems.Create<RefreshEatingTimeSystem>());
 
             Add(systems.Create<UpdateHuntTimeLeftSystem>());
+            Add(systems.Create<UpdateHuntTimeAfterClickSystem>());
 
             Add(systems.Create<MarkHuntFinishedByHuntTimeLeftSystem>());
             Add(systems.Create<MarkHuntFinishedByNoValidTargetsSystem>());
@@ -44,13 +46,24 @@ namespace Code.Gameplay.Features.Foxes
             
             Add(systems.Create<RemoveMarkHungryWhenHuntFinishedSystem>());
             
+            Add(systems.Create<MarkWaitingForMovingAfterHuntFinishedSystem>());
+
             Add(systems.Create<StopHuntSystem>());
-            
+
+            Add(systems.Create<PrepareFoxDeathSystem>());
+            Add(systems.Create<FoxDeathByPoisonSystem>());
+            Add(systems.Create<FoxDeathByRabiesSystem>());
+
             Add(systems.Create<RemoveMarkInvalidTargetSystem>());
             Add(systems.Create<RemoveMarkMovingUpSystem>());
-            
-            Add(systems.Create<RemoveMarkHuntSystem>());
+
             Add(systems.Create<RemoveEatingMarksSystem>());
+
+            Add(systems.Create<CleanupHuntHuntSoundWhenHuntFinished>());
+            Add(systems.Create<CleanupHuntTargetWhenHuntFinished>());
+            
+            Add(systems.Create<CleanupMarkHuntStartedSystem>());
+            Add(systems.Create<CleanupMarkHuntFinishedSystem>());
         }
     }
 }
