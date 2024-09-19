@@ -16,10 +16,12 @@ namespace Code.Gameplay.Sounds.Behaviours
         private bool _isInfinite;
         private SoundType _type;
         private bool _isIgnoreTimeScale;
+        private IAudioService _audioService;
 
         [Inject]
         private void Construct(ITimeService timeService, IAudioService audioService)
         {
+            _audioService = audioService;
             _timeService = timeService;
         }
 
@@ -84,6 +86,8 @@ namespace Code.Gameplay.Sounds.Behaviours
         {
             Source.Stop();
             gameObject.SetActive(false);
+            
+            _audioService.Return(this);
         }
     }
 }
