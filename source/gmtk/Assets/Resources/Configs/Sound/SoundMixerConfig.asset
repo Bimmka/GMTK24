@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd939a2c70241fcbac64a68e59dc3cd, type: 3}
   m_Name: SoundMixerConfig
   m_EditorClassIdentifier: 
-  MainMixer: {fileID: 0}
+  MainMixer: {fileID: 24100000, guid: c9395e8f0d2307b40804c3fd9c7707b6, type: 2}
   MainVolumeMixerParameter: MasterVolume
   EffectsVolumeMixerParameter: EffectsVolume
   SoundsVolumeMixerParameter: SoundsVolume
