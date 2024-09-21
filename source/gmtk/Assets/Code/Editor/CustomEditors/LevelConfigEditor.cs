@@ -1,18 +1,20 @@
 ﻿using Code.Gameplay.Features.Level.Config;
 using Code.Gameplay.Utils.Holes;
 using Code.Gameplay.Utils.Stalls;
+using Sirenix.OdinInspector.Editor;
 using UnityEditor;
 using UnityEngine;
 
 namespace Code.Editor.CustomEditors
 {
     [CustomEditor(typeof(LevelConfig))]
-    public class LevelConfigEditor : UnityEditor.Editor
+    public class LevelConfigEditor : OdinEditor
     {
         private LevelConfig config;
 
-        void OnEnable()
+        protected override void OnEnable()
         {
+            base.OnEnable();
             config = (LevelConfig)target;
         }
         
