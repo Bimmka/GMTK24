@@ -32,7 +32,6 @@ namespace Code.Infrastructure.States.GameStates
     
     public override void Enter()
     {
-      
       ActualizeProgress(_progressProvider.ProgressData);
       
       _stateMachine.Enter<LoadingHomeScreenState>();
@@ -40,7 +39,6 @@ namespace Code.Infrastructure.States.GameStates
 
     private void ActualizeProgress(ProgressData data)
     {
-        
       _saveLoadService.SaveProgress();
     }
 

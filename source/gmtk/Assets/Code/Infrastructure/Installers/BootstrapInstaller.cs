@@ -49,7 +49,6 @@ namespace Code.Infrastructure.Installers
   public class BootstrapInstaller : MonoInstaller, ICoroutineRunner, IInitializable
   {
     public MainThemeSoundsContainer MainThemeSoundsContainer;
-    public AudioMixer AudioMixer;
     public LoadingCurtain LoadingCurtain;
     
     public override void InstallBindings()
@@ -205,7 +204,6 @@ namespace Code.Infrastructure.Installers
     private void BindSoundElements()
     {
       Container.Bind<MainThemeSoundsContainer>().FromInstance(MainThemeSoundsContainer).AsSingle();
-      Container.Bind<AudioMixer>().FromInstance(AudioMixer).AsSingle();
     }
 
     private void BindLevelLoadingElements()

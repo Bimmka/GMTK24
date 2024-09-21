@@ -1,5 +1,6 @@
 ﻿using Code.Gameplay.Sounds.Behaviours;
 using Code.Gameplay.Sounds.Config;
+using Code.Progress.SaveLoad;
 
 namespace Code.Gameplay.Sounds.Service
 {
@@ -15,6 +16,6 @@ namespace Code.Gameplay.Sounds.Service
         void ChangeMainVolume(float value);
         void ChangeEffectsVolume(float value);
         void ChangeSoundsVolume(float value);
-        void UpdateParameters();
+        void RestoreParameters(SavedAudioPreferences audioPreferences);
     }
 }

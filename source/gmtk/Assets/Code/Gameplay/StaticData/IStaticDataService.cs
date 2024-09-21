@@ -31,5 +31,6 @@ namespace Code.Gameplay.StaticData
     SpriteByRabbitColor GetRabbitSpriteByColor(RabbitColorType colorType);
     VFXContainer GetVFXContainer(VFXType type);
     SoundContainer GetSoundData(SoundType type);
+    SoundMixerConfig GetSoundMixerConfig();
   }
 }
