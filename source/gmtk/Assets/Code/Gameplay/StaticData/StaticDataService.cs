@@ -30,6 +30,7 @@ namespace Code.Gameplay.StaticData
     private RabbitUIConfig _rabbitUIConfig;
     private Dictionary<VFXType, VFXContainer> _vfxByType;
     private Dictionary<SoundType, SoundContainer> _soundByType;
+    private SoundMixerConfig _soundMixerConfig;
 
     public void LoadAll()
     {
@@ -44,6 +45,7 @@ namespace Code.Gameplay.StaticData
       LoadUIRabbitConfig();
       LoadVFXContainer();
       LoadSounds();
+      LoadSoundMixerConfig();
     }
 
 
@@ -79,6 +81,8 @@ namespace Code.Gameplay.StaticData
       _soundByType.TryGetValue(type, out SoundContainer config)
         ? config
         : throw new Exception($"Sound container with type: {type} was not found");
+
+    public SoundMixerConfig GetSoundMixerConfig() => _soundMixerConfig;
 
     public ReplicationRulesConfig GetReplicationRulesConfig() =>
       _replicationRulesConfig;
@@ -165,5 +169,8 @@ namespace Code.Gameplay.StaticData
 
     private void LoadSounds() =>
       _soundByType = Resources.Load<SoundsConfig>("Configs/Sound/SoundsConfig").SoundContainers.ToDictionary(x => x.Type, x=> x);
+
+    private void LoadSoundMixerConfig() =>
+      _soundMixerConfig = Resources.Load<SoundMixerConfig>("Configs/Sound/SoundMixerConfig");
   }
 }

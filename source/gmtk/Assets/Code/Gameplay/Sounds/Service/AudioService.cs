@@ -3,23 +3,18 @@ using Code.Gameplay.Sounds.Behaviours;
 using Code.Gameplay.Sounds.Config;
 using Code.Gameplay.Sounds.Factory;
 using Code.Gameplay.StaticData;
-using UnityEngine;
+using Code.Progress.SaveLoad;
 using UnityEngine.Audio;
 
 namespace Code.Gameplay.Sounds.Service
 {
     public class AudioService : IAudioService
     {
-        private const string MainSoundVolumeSaveKey = "MainSound";
-        private const string SoundsVolumeSaveKey = "Sound";
-        private const string EffectsVolumeSaveKey = "Effects";
-        private const string MainVolumeMixerParameter = "MasterVolume";
-        private const string EffectsVolumeMixerParameter = "EffectsVolume";
-        private const string SoundsVolumeMixerParameter = "SoundsVolume";
-
         private readonly IStaticDataService _staticDataService;
         private readonly IAudioFactory _audioFactory;
         private readonly MainThemeSoundsContainer _mainThemeSoundsContainer;
+        private readonly ISaveLoadService _saveLoadService;
+        private readonly SoundMixerConfig _soundMixerConfig;
         private readonly AudioMixer _mainMixer;
 
         private readonly Queue<SoundElement> _savedSounds = new Queue<SoundElement>();
@@ -28,13 +23,14 @@ namespace Code.Gameplay.Sounds.Service
         public float SoundsVolume { get; private set; }
         public float EffectsVolume { get; private set; }
 
-        public AudioService(IStaticDataService staticDataService, IAudioFactory audioFactory, MainThemeSoundsContainer mainThemeSoundsContainer, AudioMixer mainMixer)
+        public AudioService(IStaticDataService staticDataService, IAudioFactory audioFactory, MainThemeSoundsContainer mainThemeSoundsContainer, ISaveLoadService saveLoadService)
         {
+            _saveLoadService = saveLoadService;
             _staticDataService = staticDataService;
             _audioFactory = audioFactory;
             _mainThemeSoundsContainer = mainThemeSoundsContainer;
-            _mainMixer = mainMixer;
-            LoadPreferences();
+            _soundMixerConfig = staticDataService.GetSoundMixerConfig();
+            _mainMixer = _soundMixerConfig.MainMixer;
         }
 
         public SoundElement PlayAudio(SoundType type)
@@ -74,54 +70,37 @@ namespace Code.Gameplay.Sounds.Service
 
         public void ChangeMainVolume(float value)
         {
-            _mainMixer.SetFloat(MainVolumeMixerParameter, MixerVolume(value));
+            _mainMixer.SetFloat(_soundMixerConfig.MainVolumeMixerParameter, value.MixerVolume());
             MainSoundVolume = value;
         }
         
         public void ChangeEffectsVolume(float value)
         {
-            _mainMixer.SetFloat(EffectsVolumeMixerParameter, MixerVolume(value));
+            _mainMixer.SetFloat(_soundMixerConfig.EffectsVolumeMixerParameter, value.MixerVolume());
             EffectsVolume = value;
         }
         
         public void ChangeSoundsVolume(float value)
         {
-            _mainMixer.SetFloat(SoundsVolumeMixerParameter, MixerVolume(value));
+            _mainMixer.SetFloat(_soundMixerConfig.SoundsVolumeMixerParameter, value.MixerVolume());
             SoundsVolume = value;
         }
 
-        private float MixerVolume(float volume)
+        public void RestoreParameters(SavedAudioPreferences audioPreferences)
         {
-            if (volume == 0)
-                return -80;
-
-            return Mathf.Log10(volume) * 20;
-        }
-
-        public void UpdateParameters()
-        {
-            ChangeMainVolume(MainSoundVolume);
-            ChangeSoundsVolume(SoundsVolume);
-            ChangeEffectsVolume(EffectsVolume);
+            ChangeMainVolume(audioPreferences.MainSoundVolume);
+            ChangeSoundsVolume(audioPreferences.SoundsVolume);
+            ChangeEffectsVolume(audioPreferences.EffectsVolume);
         }
         
         public void SavePreferences()
         {
-            PlayerPrefs.SetFloat(MainSoundVolumeSaveKey, MainSoundVolume);
-            PlayerPrefs.SetFloat(SoundsVolumeSaveKey, SoundsVolume);
-            PlayerPrefs.SetFloat(EffectsVolumeSaveKey, EffectsVolume);
-            PlayerPrefs.Save();
-        }
-
-        private void LoadPreferences()
-        {
-            MainSoundVolume = PlayerPrefs.GetFloat(MainSoundVolumeSaveKey, 0.5f);
-            SoundsVolume = PlayerPrefs.GetFloat(SoundsVolumeSaveKey, 0.5f);
-            EffectsVolume = PlayerPrefs.GetFloat(EffectsVolumeSaveKey, 0.5f);
-            
-            ChangeMainVolume(MainSoundVolume);
-            ChangeSoundsVolume(SoundsVolume);
-            ChangeEffectsVolume(EffectsVolume);
+            _saveLoadService.SaveAudioPreferences(new SavedAudioPreferences()
+            {
+                MainSoundVolume = MainSoundVolume,
+                SoundsVolume = SoundsVolume,
+                EffectsVolume = EffectsVolume
+            });
         }
     }
 }

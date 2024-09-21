@@ -6,5 +6,7 @@ namespace Code.Progress.SaveLoad
     void LoadProgress();
     void CreateProgress();
     bool HasSavedProgress { get; }
+    void SaveAudioPreferences(SavedAudioPreferences savedAudioPreferences);
+    SavedAudioPreferences LoadAudioPreferences();
   }
 }

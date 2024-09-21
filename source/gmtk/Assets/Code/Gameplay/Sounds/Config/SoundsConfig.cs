@@ -6,5 +6,6 @@ namespace Code.Gameplay.Sounds.Config
     public class SoundsConfig : ScriptableObject
     {
         public SoundContainer[] SoundContainers;
+
     }
 }
