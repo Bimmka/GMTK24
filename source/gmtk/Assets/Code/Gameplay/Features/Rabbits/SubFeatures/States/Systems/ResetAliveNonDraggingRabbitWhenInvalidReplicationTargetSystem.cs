@@ -14,7 +14,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.States.Systems
                     GameMatcher.Rabbit,
                     GameMatcher.InvalidReplicationTarget,
                     GameMatcher.ReplicationTarget,
-                    GameMatcher.RabbitAnimator)
+                    GameMatcher.RabbitAnimator,
+                    GameMatcher.RabbitVisualChanger)
                 .NoneOf(GameMatcher.Dragging));
         }
 
@@ -26,8 +27,11 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.States.Systems
                 rabbit.isWaitingForNextReplicationUp = true;
                 rabbit.isCanStartReplication = true;
                 rabbit.isWaitingForMoving = true;
+                rabbit.isMovingToReplicationTarget = false;
+                rabbit.isWantToReplicate = false;
                 
                 rabbit.RabbitAnimator.PlayIdle();
+                rabbit.RabbitVisualChanger.RemoveLove();
             }
         }
     }

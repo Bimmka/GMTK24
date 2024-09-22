@@ -2,25 +2,24 @@
 
 namespace Code.Gameplay.Features.Rabbits.SubFeatures.States.Systems
 {
-    public class PrepareForSelectionAliveRabbitAfterDraggingSystem : IExecuteSystem
+    public class EnableMovementAfterConveyoringSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _rabbits;
 
-        public PrepareForSelectionAliveRabbitAfterDraggingSystem(GameContext game)
+        public EnableMovementAfterConveyoringSystem(GameContext game)
         {
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Rabbit,
-                    GameMatcher.DragFinished,
-                    GameMatcher.Alive,
-                    GameMatcher.RabbitAnimator));
+                    GameMatcher.ConveyoringFinished,
+                    GameMatcher.Alive));
         }
 
         public void Execute()
         {
             foreach (GameEntity rabbit in _rabbits)
             {
-                rabbit.isSelectable = true;
+                rabbit.isMovementAvailable = true;
             }
         }
     }

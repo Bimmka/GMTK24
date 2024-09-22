@@ -2,26 +2,28 @@
 
 namespace Code.Gameplay.Features.Rabbits.SubFeatures.States.Systems
 {
-    public class PrepareForReplicationAliveRabbitAfterDraggingSystem : IExecuteSystem
+    public class PrepareForMovementAfterDraggingSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _rabbits;
 
-        public PrepareForReplicationAliveRabbitAfterDraggingSystem(GameContext game)
+        public PrepareForMovementAfterDraggingSystem(GameContext game)
         {
             _rabbits = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Rabbit,
                     GameMatcher.DragFinished,
-                    GameMatcher.Alive));
+                    GameMatcher.Alive,
+                    GameMatcher.RabbitAnimator));
         }
 
         public void Execute()
         {
             foreach (GameEntity rabbit in _rabbits)
             {
-                rabbit.isCanBeChosenForReplication = true;
-                rabbit.isWaitingForNextReplicationUp = true;
-                rabbit.isCanStartReplication = true;
+                rabbit.isMovementAvailable = true;
+                rabbit.isWaitingForMoving = true;
+
+                rabbit.RabbitAnimator.PlayIdle();
             }
         }
     }

@@ -8,10 +8,15 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.States
         public StatesFeature(ISystemFactory systems)
         {
             Add(systems.Create<PrepareForDraggingSystem>());
+            Add(systems.Create<PrepareForConveyoringSystem>());
 
-            Add(systems.Create<PrepareForReplicationAliveRabbitAfterDraggingSystem>());
-            Add(systems.Create<PrepareForMovementAliveRabbitAfterDraggingSystem>());
-            Add(systems.Create<PrepareForSelectionAliveRabbitAfterDraggingSystem>());
+            Add(systems.Create<PrepareForReplicationAfterDraggingSystem>());
+            Add(systems.Create<PrepareForMovementAfterDraggingSystem>());
+            Add(systems.Create<PrepareForSelectionAfterDraggingSystem>());
+            
+            Add(systems.Create<PrepareForReplicationAfterConveyoringSystem>());
+            Add(systems.Create<EnableMovementAfterConveyoringSystem>());
+            Add(systems.Create<EnableWaitingMovementAfterConveyoringSystem>());
 
             Add(systems.Create<ResetAliveRabbitWhenReplicationFinishedSystem>());
             Add(systems.Create<ResetAliveNonDraggingRabbitWhenInvalidReplicationTargetSystem>());

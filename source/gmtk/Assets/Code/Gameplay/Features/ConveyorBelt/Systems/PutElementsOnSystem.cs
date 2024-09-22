@@ -24,7 +24,7 @@ namespace Code.Gameplay.Features.ConveyorBelt.Systems
                 {
                     GameEntity target = _game.GetEntityWithId(targetId);
 
-                    if (target == null || target.isDead || target.hasWorldPosition == false || target.isOnConveyorBelt)
+                    if (target == null || target.isDead || target.hasWorldPosition == false || target.isOnConveyorBelt || target.isDragging)
                         continue;
 
                     conveyorBelt.ElementsOnConveyor.Add(targetId);
