@@ -53,6 +53,9 @@ TagManager:
   - name: Hole
     uniqueID: 1270456167
     locked: 0
+  - name: ConveyorBelt
+    uniqueID: 2852376275
+    locked: 0
   - name: Rabbit
     uniqueID: 2604813159
     locked: 0

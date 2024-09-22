@@ -1,6 +1,7 @@
 ﻿using Code.Common.Destruct;
 using Code.Gameplay.Features.CharacterStats;
 using Code.Gameplay.Features.ClickHandle;
+using Code.Gameplay.Features.ConveyorBelt;
 using Code.Gameplay.Features.Death;
 using Code.Gameplay.Features.Death.Systems;
 using Code.Gameplay.Features.Foxes;
@@ -12,6 +13,7 @@ using Code.Gameplay.Features.Movement;
 using Code.Gameplay.Features.Rabbits;
 using Code.Gameplay.Features.Selection;
 using Code.Gameplay.Features.Statuses;
+using Code.Gameplay.Features.TargetCollection;
 using Code.Gameplay.Input;
 using Code.Infrastructure.Systems;
 using Code.Infrastructure.View;
@@ -29,10 +31,13 @@ namespace Code.Gameplay
       Add(systems.Create<LevelTaskFeature>());
 
       Add(systems.Create<HoleFeature>());
+      
+      Add(systems.Create<CollectTargetsFeature>());
 
       Add(systems.Create<StatsFeature>());
       Add(systems.Create<SelectionFeature>());
 
+      Add(systems.Create<ConveyorBeltFeature>());
       Add(systems.Create<MovementFeature>());
 
       Add(systems.Create<FoxFeature>());

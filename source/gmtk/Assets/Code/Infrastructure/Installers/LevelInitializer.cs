@@ -13,6 +13,7 @@ namespace Code.Infrastructure.Installers
     public Transform RabbitSpawnParent;
     public Transform FoxesSpawnParent;
     public Transform HolesSpawnParent;
+    public Transform ConveyorBeltSpawnParent;
 
     private ICameraProvider _cameraProvider;
     private ILevelDataProvider _levelDataProvider;
@@ -34,6 +35,7 @@ namespace Code.Infrastructure.Installers
       _levelDataProvider.SetRabbitSpawnParent(RabbitSpawnParent);
       _levelDataProvider.SetFoxSpawnParent(FoxesSpawnParent);
       _levelDataProvider.SetHoleSpawnParent(HolesSpawnParent);
+      _levelDataProvider.SetConveyorBeltSpawnParent(ConveyorBeltSpawnParent);
 
       _cameraProvider.SetMainCamera(MainCamera);
     }

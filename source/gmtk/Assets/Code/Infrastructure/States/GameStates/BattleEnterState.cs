@@ -1,5 +1,6 @@
 using Code.Common.Extensions;
 using Code.Gameplay;
+using Code.Gameplay.Features.ConveyorBelt.Factory;
 using Code.Gameplay.Features.Foxes.Factory;
 using Code.Gameplay.Features.Holes.Factory;
 using Code.Gameplay.Features.Infections.Factory;
@@ -38,6 +39,7 @@ namespace Code.Infrastructure.States.GameStates
     private readonly GameContext _gameContext;
     private readonly ITaskFactory _levelTaskFactory;
     private readonly IAudioService _audioService;
+    private readonly IConveyorBeltFactory _conveyorBeltFactory;
 
     public BattleEnterState(
       IGameStateMachine stateMachine, 
@@ -51,7 +53,8 @@ namespace Code.Infrastructure.States.GameStates
       IFoxFactory foxFactory,
       IHoleFactory holeFactory,
       ITaskFactory levelTaskFactory,
-      IAudioService audioService)
+      IAudioService audioService,
+      IConveyorBeltFactory conveyorBeltFactory)
     {
       _stateMachine = stateMachine;
       _levelDataProvider = levelDataProvider;
@@ -65,6 +68,7 @@ namespace Code.Infrastructure.States.GameStates
       _holeFactory = holeFactory;
       _levelTaskFactory = levelTaskFactory;
       _audioService = audioService;
+      _conveyorBeltFactory = conveyorBeltFactory;
     }
     
     public override void Enter()
@@ -84,6 +88,7 @@ namespace Code.Infrastructure.States.GameStates
       PlaceFoxes(config.PresetupFoxesData);
       PlaceHoles(config.PresetupHoleData);
       CreateLevelTask(config.TaskConfig);
+      CreateConveyorBelts(config.ConveyorBelts);
       
       _windowService.Open(WindowId.MultipleSelection);
       
@@ -145,6 +150,14 @@ namespace Code.Infrastructure.States.GameStates
     private void CreateLevelTask(LevelTaskConfig taskConfig)
     {
       _levelTaskFactory.Create(taskConfig);
+    }
+
+    private void CreateConveyorBelts(ConveyorBeltData[] conveyorBeltsData)
+    {
+      foreach (ConveyorBeltData beltData in conveyorBeltsData)
+      {
+        _conveyorBeltFactory.Create(beltData);
+      }
     }
   }
 }

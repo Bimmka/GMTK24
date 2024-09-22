@@ -65,4 +65,6 @@ namespace Code.Gameplay.Features.Rabbits
     [Game] public class ProcessingDeath : IComponent {}
     [Game] public class ReplicationBlocked : IComponent {}
     [Game] public class ReplicationAvailable : IComponent {}
+    [Game] public class InSafety : IComponent {}
+    [Game] public class InDanger : IComponent {}
 }

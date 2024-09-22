@@ -10,6 +10,7 @@ namespace Code.Gameplay.Levels
     public Transform RabbitSpawnParent { get; private set; }
     public Transform FoxSpawnParent { get; private set; }
     public Transform HoleSpawnParent { get; private set; }
+    public Transform ConveyorBeltSpawnParent { get; private set; }
 
     public void SetStartPoint(Transform startPoint)
     {
@@ -34,6 +35,11 @@ namespace Code.Gameplay.Levels
     public void SetHoleSpawnParent(Transform holeSpawnParent)
     {
       HoleSpawnParent = holeSpawnParent;
+    }
+
+    public void SetConveyorBeltSpawnParent(Transform conveyorBeltSpawnParent)
+    {
+      ConveyorBeltSpawnParent = conveyorBeltSpawnParent;
     }
 
     public void SetCurrentId(string id)
