@@ -27,8 +27,6 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.States.Systems
                 rabbit.isMovementAvailable = false;
                 rabbit.isWaitingForMoving = false;
                 rabbit.isMovingUp = false;
-                
-                rabbit.isConveyoringStarted = false;
 
                 rabbit.isWaitingForNextReplicationUp = false;
                 rabbit.isReplicationTimeUp = false;
