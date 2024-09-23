@@ -13,6 +13,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication
             Add(systems.Create<CheckReplicationTargetByReplicationBlockedSystem>());
             Add(systems.Create<CheckReplicationTargetForValidByPositionComponentSystem>());
             Add(systems.Create<CheckReplicationTargetForValidByStallIndexSystem>());
+            Add(systems.Create<CheckReplicationTargetForValidByConveyoringSystem>());
 
             Add(systems.Create<UpdateTimeForNextReplicationSystem>());
 

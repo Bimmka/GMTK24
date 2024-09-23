@@ -13,7 +13,8 @@ namespace Code.Gameplay.Features.ConveyorBelt.Systems
             _conveyorBelts = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.ElementsOnConveyor,
-                    GameMatcher.TargetBuffer));
+                    GameMatcher.TargetBuffer,
+                    GameMatcher.Id));
         }
 
         public void Execute()
@@ -30,6 +31,7 @@ namespace Code.Gameplay.Features.ConveyorBelt.Systems
                     conveyorBelt.ElementsOnConveyor.Add(targetId);
                     target.isOnConveyorBelt = true;
                     target.isConveyoringStarted = true;
+                    target.ReplaceParentConveyorBeltId(conveyorBelt.Id);
                 }
             }
         }

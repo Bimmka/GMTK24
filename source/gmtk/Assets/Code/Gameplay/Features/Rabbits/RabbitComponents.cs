@@ -49,16 +49,6 @@ namespace Code.Gameplay.Features.Rabbits
     
     [Game] public class RabbitAnimatorComponent : IComponent { public RabbitAnimator Value; }
     [Game] public class RabbitVisualChangerComponent : IComponent { public RabbitVisualChanger Value; }
-    [Game] public class RabbitStateMachineComponent : IComponent { public RabbitStateMachine Value; }
-    [Game] public class RabbitNextSimpleState : IComponent { public Type Value; }
-    [Game] public class TransitionComplete : IComponent { }
-    [Game] public class StupidMoveState : IComponent {}
-    [Game] public class ReplicationState : IComponent {}
-    [Game] public class DraggingState : IComponent {}
-    [Game] public class IdleState : IComponent {}
-    [Game] public class DeadState : IComponent {}
-    [Game] public class AngryState : IComponent {}
-    
     [Game] public class DeadByInfection : IComponent {}
     [Game] public class Alive : IComponent {}
     [Game] public class Dead : IComponent {}

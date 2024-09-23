@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6684221510178701135}
   - component: {fileID: 3691628482555803214}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 9-Sliced
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,8 @@ GameObject:
   - component: {fileID: 8498572494778265779}
   - component: {fileID: 4494797219918737050}
   - component: {fileID: 9091267717811779900}
-  m_Layer: 0
+  - component: {fileID: 2201937607371202998}
+  m_Layer: 10
   m_Name: BaseConveyorBelt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,3 +145,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EntityView: {fileID: 4494797219918737050}
   Transform: {fileID: 8498572494778265779}
+--- !u!61 &2201937607371202998
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2636658528298898693}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.28, y: 1}
+  m_EdgeRadius: 0

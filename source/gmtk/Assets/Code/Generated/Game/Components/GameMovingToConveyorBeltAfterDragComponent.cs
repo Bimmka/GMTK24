@@ -8,17 +8,17 @@
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherDeadState;
+    static Entitas.IMatcher<GameEntity> _matcherMovingToConveyorBeltAfterDrag;
 
-    public static Entitas.IMatcher<GameEntity> DeadState {
+    public static Entitas.IMatcher<GameEntity> MovingToConveyorBeltAfterDrag {
         get {
-            if (_matcherDeadState == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.DeadState);
+            if (_matcherMovingToConveyorBeltAfterDrag == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.MovingToConveyorBeltAfterDrag);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherDeadState = matcher;
+                _matcherMovingToConveyorBeltAfterDrag = matcher;
             }
 
-            return _matcherDeadState;
+            return _matcherMovingToConveyorBeltAfterDrag;
         }
     }
 }
@@ -33,18 +33,18 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Gameplay.Features.Rabbits.DeadState deadStateComponent = new Code.Gameplay.Features.Rabbits.DeadState();
+    static readonly Code.Gameplay.Features.Selection.MovingToConveyorBeltAfterDrag movingToConveyorBeltAfterDragComponent = new Code.Gameplay.Features.Selection.MovingToConveyorBeltAfterDrag();
 
-    public bool isDeadState {
-        get { return HasComponent(GameComponentsLookup.DeadState); }
+    public bool isMovingToConveyorBeltAfterDrag {
+        get { return HasComponent(GameComponentsLookup.MovingToConveyorBeltAfterDrag); }
         set {
-            if (value != isDeadState) {
-                var index = GameComponentsLookup.DeadState;
+            if (value != isMovingToConveyorBeltAfterDrag) {
+                var index = GameComponentsLookup.MovingToConveyorBeltAfterDrag;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : deadStateComponent;
+                            : movingToConveyorBeltAfterDragComponent;
 
                     AddComponent(index, component);
                 } else {

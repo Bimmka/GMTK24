@@ -1,5 +1,6 @@
 ﻿using Code.Gameplay.Common.Time;
 using Entitas;
+using UnityEngine;
 
 namespace Code.Gameplay.Features.ConveyorBelt.Systems
 {
@@ -15,7 +16,7 @@ namespace Code.Gameplay.Features.ConveyorBelt.Systems
             _time = time;
             _conveyorBelts = game.GetGroup(GameMatcher
                 .AllOf(
-                    GameMatcher.ConveyorMoveDirection,
+                    GameMatcher.ConveyorEndPoint,
                     GameMatcher.Speed,
                     GameMatcher.ElementsOnConveyor));
         }
@@ -31,7 +32,9 @@ namespace Code.Gameplay.Features.ConveyorBelt.Systems
                     if (element == null || element.hasWorldPosition == false)
                         continue;
 
-                    element.ReplaceWorldPosition(element.WorldPosition + conveyorBelt.ConveyorMoveDirection * _time.DeltaTime * conveyorBelt.Speed);
+                    Vector3 moveDirection = (conveyorBelt.ConveyorEndPoint - element.WorldPosition).normalized;
+
+                    element.ReplaceWorldPosition(element.WorldPosition + moveDirection * _time.DeltaTime * conveyorBelt.Speed);
                 }
             }
         }

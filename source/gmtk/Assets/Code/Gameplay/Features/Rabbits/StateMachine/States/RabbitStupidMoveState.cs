@@ -15,8 +15,6 @@ namespace Code.Gameplay.Features.Rabbits.StateMachine.States
         {
             base.Enter();
             
-            Entity.ChangeStateToStupidMove();
-            
             Entity.isMovingUp = false;
             Entity.isWaitingForMoving = false;
             Entity.isMoving = true;

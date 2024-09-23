@@ -19,6 +19,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dragging
             Add(systems.Create<RefreshDragReleaseTimeSystem>());
 
             Add(systems.Create<CleanupDragStartedMarkSystem>());
+            Add(systems.Create<CleanupMovingToConveyorBeltWhenDragFinishedSystem>());
             Add(systems.Create<CleanupDragComponentsWhenDragFinishedSystem>());
             Add(systems.Create<CleanupDragFinishedMarkSystem>());
         }

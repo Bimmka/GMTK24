@@ -15,7 +15,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.States.Systems
                     GameMatcher.Rabbit,
                     GameMatcher.ConveyoringStarted,
                     GameMatcher.RabbitAnimator,
-                    GameMatcher.Alive));
+                    GameMatcher.Alive,
+                    GameMatcher.RabbitVisualChanger));
         }
 
         public void Execute()
@@ -24,17 +25,25 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.States.Systems
             {
                 rabbit.isMoving = false;
                 rabbit.isMovementAvailable = false;
-                rabbit.isConveyoringStarted = false;
-
                 rabbit.isWaitingForMoving = false;
                 rabbit.isMovingUp = false;
+                
+                rabbit.isConveyoringStarted = false;
+
                 rabbit.isWaitingForNextReplicationUp = false;
                 rabbit.isReplicationTimeUp = false;
-                
+                rabbit.isCanBeChosenForReplication = false;
+                rabbit.isCanStartReplication = false;
+                rabbit.isWantToReplicate = false;
+                rabbit.isMovingToReplicationTarget = false;
+                rabbit.isValidReplicationTarget = false;
+
                 rabbit.RabbitAnimator.PlayIdle();
 
                 if (rabbit.hasMoveDirection)
                     rabbit.RemoveMoveDirection();
+
+                rabbit.RabbitVisualChanger.RemoveLove();
             }
         }
     }

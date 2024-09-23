@@ -8,17 +8,17 @@
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherTransitionComplete;
+    static Entitas.IMatcher<GameEntity> _matcherConveyorBelt;
 
-    public static Entitas.IMatcher<GameEntity> TransitionComplete {
+    public static Entitas.IMatcher<GameEntity> ConveyorBelt {
         get {
-            if (_matcherTransitionComplete == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.TransitionComplete);
+            if (_matcherConveyorBelt == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.ConveyorBelt);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherTransitionComplete = matcher;
+                _matcherConveyorBelt = matcher;
             }
 
-            return _matcherTransitionComplete;
+            return _matcherConveyorBelt;
         }
     }
 }
@@ -33,18 +33,18 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Gameplay.Features.Rabbits.TransitionComplete transitionCompleteComponent = new Code.Gameplay.Features.Rabbits.TransitionComplete();
+    static readonly Code.Gameplay.Features.ConveyorBelt.ConveyorBelt conveyorBeltComponent = new Code.Gameplay.Features.ConveyorBelt.ConveyorBelt();
 
-    public bool isTransitionComplete {
-        get { return HasComponent(GameComponentsLookup.TransitionComplete); }
+    public bool isConveyorBelt {
+        get { return HasComponent(GameComponentsLookup.ConveyorBelt); }
         set {
-            if (value != isTransitionComplete) {
-                var index = GameComponentsLookup.TransitionComplete;
+            if (value != isConveyorBelt) {
+                var index = GameComponentsLookup.ConveyorBelt;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : transitionCompleteComponent;
+                            : conveyorBeltComponent;
 
                     AddComponent(index, component);
                 } else {

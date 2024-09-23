@@ -13,7 +13,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.States.Systems
                     GameMatcher.Rabbit,
                     GameMatcher.DragFinished,
                     GameMatcher.Alive,
-                    GameMatcher.RabbitAnimator));
+                    GameMatcher.RabbitAnimator)
+                .NoneOf(GameMatcher.MovingToConveyorBeltAfterDrag));
         }
 
         public void Execute()

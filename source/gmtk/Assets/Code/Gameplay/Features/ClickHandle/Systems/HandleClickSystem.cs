@@ -31,7 +31,17 @@ namespace Code.Gameplay.Features.ClickHandle.Systems
 
                 foreach (GameEntity selection in _selections)
                 {
-                    if (result == null || selection.isHasSelections)
+                    if (result == null)
+                    {
+                        click.With(x => x.isEmptyClicked = true);
+                    }
+                    else if (selection.isHasSelections && result.isConveyorBelt)
+                    {
+                        click
+                            .AddClickedEntityId(result.Id)
+                            .With(x => x.isConveyorBeltClicked = true);
+                    }
+                    else if (selection.isHasSelections)
                     {
                         click.With(x => x.isEmptyClicked = true);
                     }

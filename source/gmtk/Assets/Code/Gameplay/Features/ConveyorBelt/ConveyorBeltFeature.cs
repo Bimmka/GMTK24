@@ -8,6 +8,7 @@ namespace Code.Gameplay.Features.ConveyorBelt
       public ConveyorBeltFeature(ISystemFactory systems)
       {
          Add(systems.Create<PutElementsOnSystem>());
+         Add(systems.Create<PutElementsOnAfterDragFinishedSystem>());
          Add(systems.Create<RemoveInvalidElementsSystem>());
          Add(systems.Create<MoveElementsSystem>());
          Add(systems.Create<FinishElementMoveSystem>());

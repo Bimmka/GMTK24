@@ -17,4 +17,4 @@ MonoBehaviour:
   PositionShiftForDragStart: 1
   ClickableLayerMask:
     serializedVersion: 2
-    m_Bits: 320
+    m_Bits: 1344

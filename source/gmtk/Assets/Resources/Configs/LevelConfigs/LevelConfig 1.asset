@@ -21,7 +21,7 @@ MonoBehaviour:
     AmountCondition: 0
     TaskGoalsByRabbitColor:
     - ColorType: 1
-      MinAmount: 5
+      MinAmount: 210
       MaxAmount: 5
     TaskDurationTime: 0
     TimeToHold: 0
@@ -36,21 +36,16 @@ MonoBehaviour:
     Bounds: {x: 9.31, y: 10.4}
   PresetupRabbits:
   - Type: 1
-    StallIndex: 0
-  - Type: 1
     StallIndex: 1
   - Type: 1
     StallIndex: 1
-  - Type: 1
-    StallIndex: 0
   Infections: []
-  PresetupFoxesData:
-  - StallIndex: 1
+  PresetupFoxesData: []
   PresetupHoleData: []
   ConveyorBelts:
   - View: {fileID: 4494797219918737050, guid: fbd5884e7acef7940a9ce451bb23389a, type: 3}
-    StartStallIndex: 0
-    EndStallIndex: 1
+    StartStallIndex: 1
+    EndStallIndex: 0
     StartPosition: {x: 4.345116, y: -1.32, z: 0}
     EndPosition: {x: 16.914284, y: -1.32, z: 0}
     Speed: 3

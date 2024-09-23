@@ -4,22 +4,22 @@ using Entitas;
 
 namespace Code.Gameplay.Features.Selection.SubFeatures.DragSelections.Systems
 {
-    public class StopDragAfterMouseClickSystem : IExecuteSystem
+    public class StopDragAfterConveyorBeltMouseClickSystem : IExecuteSystem
     {
         private readonly GameContext _game;
-        private readonly IStallService _stallService;
         private readonly IGroup<InputEntity> _clicks;
         private readonly IGroup<GameEntity> _selections;
         private readonly List<GameEntity> _buffer = new List<GameEntity>(1);
 
-        public StopDragAfterMouseClickSystem(InputContext input, GameContext game, IStallService stallService)
+        public StopDragAfterConveyorBeltMouseClickSystem(InputContext input, GameContext game)
         {
             _game = game;
-            _stallService = stallService;
             _clicks = input.GetGroup(InputMatcher
                 .AllOf(
                     InputMatcher.Click,
-                    InputMatcher.WorldMousePosition));
+                    InputMatcher.ConveyorBeltClicked,
+                    InputMatcher.WorldMousePosition,
+                    InputMatcher.ClickedEntityId));
             
             _selections = game.GetGroup(GameMatcher
                 .AllOf(
@@ -37,25 +37,17 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.DragSelections.Systems
                 foreach (GameEntity selection in _selections.GetEntities(_buffer))
                 {
                     selection.isDragging = false;
-
-                    int stallIndex = _stallService.GetStallIndex(click.WorldMousePosition);
-
-                    if (stallIndex < 0)
-                    {
-                        selection.isDragCanceled = true;
-                        continue;
-                    }
-
+                    
                     foreach (int entityId in selection.SelectedEntities)
                     {
                         GameEntity selectedEntity = _game.GetEntityWithId(entityId);
 
-                        if (selectedEntity.hasStallParentIndex)
-                            selectedEntity.ReplaceStallParentIndex(stallIndex);
-
-                        selectedEntity.ReplaceAfterDragPosition(_stallService.GetRandomPositionInStall(stallIndex, click.WorldMousePosition, selection.SelectCenterRadius));
+                        selectedEntity.ReplaceAfterDragPosition(click.WorldMousePosition);
                         selectedEntity.isMovingToAfterDragPosition = true;
+                        selectedEntity.isMovingToConveyorBeltAfterDrag = true;
                         selectedEntity.isDragging = false;
+
+                        selectedEntity.ReplaceParentConveyorBeltId(click.ClickedEntityId);
                     }
 
                     selection.isUnselectSelectedEntities = true;

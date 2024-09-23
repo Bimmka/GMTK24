@@ -6,19 +6,19 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed partial class GameMatcher {
+public sealed partial class InputMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherDraggingState;
+    static Entitas.IMatcher<InputEntity> _matcherConveyorBeltClicked;
 
-    public static Entitas.IMatcher<GameEntity> DraggingState {
+    public static Entitas.IMatcher<InputEntity> ConveyorBeltClicked {
         get {
-            if (_matcherDraggingState == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.DraggingState);
-                matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherDraggingState = matcher;
+            if (_matcherConveyorBeltClicked == null) {
+                var matcher = (Entitas.Matcher<InputEntity>)Entitas.Matcher<InputEntity>.AllOf(InputComponentsLookup.ConveyorBeltClicked);
+                matcher.componentNames = InputComponentsLookup.componentNames;
+                _matcherConveyorBeltClicked = matcher;
             }
 
-            return _matcherDraggingState;
+            return _matcherConveyorBeltClicked;
         }
     }
 }
@@ -31,20 +31,20 @@ public sealed partial class GameMatcher {
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial class GameEntity {
+public partial class InputEntity {
 
-    static readonly Code.Gameplay.Features.Rabbits.DraggingState draggingStateComponent = new Code.Gameplay.Features.Rabbits.DraggingState();
+    static readonly Code.Gameplay.Features.ClickHandle.ConveyorBeltClicked conveyorBeltClickedComponent = new Code.Gameplay.Features.ClickHandle.ConveyorBeltClicked();
 
-    public bool isDraggingState {
-        get { return HasComponent(GameComponentsLookup.DraggingState); }
+    public bool isConveyorBeltClicked {
+        get { return HasComponent(InputComponentsLookup.ConveyorBeltClicked); }
         set {
-            if (value != isDraggingState) {
-                var index = GameComponentsLookup.DraggingState;
+            if (value != isConveyorBeltClicked) {
+                var index = InputComponentsLookup.ConveyorBeltClicked;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : draggingStateComponent;
+                            : conveyorBeltClickedComponent;
 
                     AddComponent(index, component);
                 } else {

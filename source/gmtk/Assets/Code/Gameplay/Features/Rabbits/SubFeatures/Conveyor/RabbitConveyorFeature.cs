@@ -8,7 +8,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Conveyor
         public RabbitConveyorFeature(ISystemFactory systems)
         {
             Add(systems.Create<CleanupConveyoringStartedSystem>());
-            Add(systems.Create<CleanupConveyoringFinishedSystem>());
+            Add(systems.Create<CleanupConveyorComponentsWhenConveyoringFinishedSystem>());
         }
     }
 }
