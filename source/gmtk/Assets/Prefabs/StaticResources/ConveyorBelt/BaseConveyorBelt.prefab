@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 4494797219918737050}
   - component: {fileID: 9091267717811779900}
   - component: {fileID: 2201937607371202998}
+  - component: {fileID: 1884306520275274328}
   m_Layer: 10
   m_Name: BaseConveyorBelt
   m_TagString: Untagged
@@ -190,3 +191,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.28, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1884306520275274328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2636658528298898693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2309af2f439e42ef9d36bec3c1c9e234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EntityBehaviour: {fileID: 4494797219918737050}
+  ConveyorBeltSprite: {fileID: 3691628482555803214}
+  ConveyorBeltCollider: {fileID: 2201937607371202998}
