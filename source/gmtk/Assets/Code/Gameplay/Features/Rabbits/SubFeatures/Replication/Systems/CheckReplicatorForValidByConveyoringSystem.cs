@@ -3,13 +3,13 @@ using Entitas;
 
 namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
 {
-    public class CheckReplicationTargetForValidByConveyoringSystem : IExecuteSystem
+    public class CheckReplicatorForValidByConveyoringSystem : IExecuteSystem
     {
         private readonly GameContext _game;
         private readonly IGroup<GameEntity> _replicators;
         private readonly List<GameEntity> _buffer = new List<GameEntity>(32);
 
-        public CheckReplicationTargetForValidByConveyoringSystem(GameContext game)
+        public CheckReplicatorForValidByConveyoringSystem(GameContext game)
         {
             _game = game;
             _replicators = game.GetGroup(GameMatcher
@@ -19,6 +19,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
                     GameMatcher.ReplicationAvailable,
                     GameMatcher.Alive,
                     GameMatcher.Rabbit,
+                    GameMatcher.OnConveyorBelt,
                     GameMatcher.ValidReplicationTarget));
         }
 
@@ -28,9 +29,6 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
             {
                 GameEntity target = _game.GetEntityWithId(replicator.ReplicationTarget);
                 
-                if (target.isOnConveyorBelt == false)
-                    continue;
-
                 replicator.isValidReplicationTarget = false;
                 replicator.isInvalidReplicationTarget = true;
 

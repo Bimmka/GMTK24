@@ -12,7 +12,10 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.States.Systems
                 .AllOf(
                     GameMatcher.Rabbit,
                     GameMatcher.DragFinished,
-                    GameMatcher.Alive));
+                    GameMatcher.Alive)
+                .NoneOf(
+                    GameMatcher.ReplicationTarget,
+                    GameMatcher.ChosenForReplicationBy));
         }
 
         public void Execute()

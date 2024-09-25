@@ -8,7 +8,6 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.States
         public StatesFeature(ISystemFactory systems)
         {
             Add(systems.Create<PrepareForDraggingSystem>());
-            Add(systems.Create<PrepareForConveyoringSystem>());
 
             Add(systems.Create<PrepareForReplicationAfterDraggingSystem>());
             Add(systems.Create<PrepareForMovementAfterDraggingSystem>());
@@ -23,6 +22,8 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.States
             Add(systems.Create<ResetNonDraggingReplicationTargetSystem>());
             Add(systems.Create<ResetDraggingReplicationTargetSystem>());
 
+            Add(systems.Create<PrepareForConveyoringSystem>());
+            
             Add(systems.Create<UpdateInSafetyOrDangerMarkSystem>());
         }
     }
