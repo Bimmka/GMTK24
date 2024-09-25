@@ -6,7 +6,7 @@ namespace Code.Gameplay.Features.ConveyorBelt.Systems
 {
     public class FinishElementMoveSystem : IExecuteSystem
     {
-        private const float FinishGap = 1.5f;
+        private const float FinishGap = 0.5f;
         
         private readonly GameContext _game;
         private readonly IGroup<GameEntity> _conveyorBelts;
