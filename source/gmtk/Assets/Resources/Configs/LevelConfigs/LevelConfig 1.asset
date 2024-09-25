@@ -21,7 +21,7 @@ MonoBehaviour:
     AmountCondition: 0
     TaskGoalsByRabbitColor:
     - ColorType: 1
-      MinAmount: 210
+      MinAmount: 5
       MaxAmount: 5
     TaskDurationTime: 0
     TimeToHold: 0
@@ -46,8 +46,8 @@ MonoBehaviour:
   - View: {fileID: 4494797219918737050, guid: fbd5884e7acef7940a9ce451bb23389a, type: 3}
     StartStallIndex: 1
     EndStallIndex: 0
-    StartPosition: {x: 4.345116, y: -1.32, z: 0}
-    EndPosition: {x: 16.914284, y: -1.32, z: 0}
+    StartPosition: {x: 7.52, y: -1.32, z: 0}
+    EndPosition: {x: 14.01, y: -1.32, z: 0}
     Speed: 3
     InteractionRadius: 0.5
     InteractionInterval: 0.1
