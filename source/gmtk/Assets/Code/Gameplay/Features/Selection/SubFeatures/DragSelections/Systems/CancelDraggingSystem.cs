@@ -27,7 +27,6 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.DragSelections.Systems
                     GameEntity selectedEntity = _game.GetEntityWithId(entityId);
 
                     selectedEntity.isMovingToAfterDragPosition = true;
-                    selectedEntity.isDragging = false;
                     selectedEntity.ReplaceAfterDragPosition(selectedEntity.SavedPositionBeforeDrag);
                 }
 

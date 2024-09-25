@@ -45,7 +45,6 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.DragSelections.Systems
                         selectedEntity.ReplaceAfterDragPosition(click.WorldMousePosition);
                         selectedEntity.isMovingToAfterDragPosition = true;
                         selectedEntity.isMovingToConveyorBeltAfterDrag = true;
-                        selectedEntity.isDragging = false;
 
                         selectedEntity.ReplaceParentConveyorBeltId(click.ClickedEntityId);
                     }

@@ -56,7 +56,6 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.DragSelections.Systems
 
                         selectedEntity.ReplaceAfterDragPosition(_stallService.GetRandomPositionInStall(stallIndex, click.WorldMousePosition, selection.SelectCenterRadius));
                         selectedEntity.isMovingToAfterDragPosition = true;
-                        selectedEntity.isDragging = false;
                     }
 
                     selection.isUnselectSelectedEntities = true;
