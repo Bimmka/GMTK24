@@ -100,6 +100,54 @@ namespace Code.Gameplay.Features.Stalls.Services
             return new Vector3(randomX, randomY, stall.WorldPosition.z);
         }
 
+        public int GetNearestStallIndexFromPosition(Vector3 position)
+        {
+            float minDistance = float.MaxValue;
+            int currentIndex = 0;
+            foreach ((int index, GameEntity stall) in _stallsByIndex)
+            {
+                Vector2 halfStallBounds = stall.StallBounds / 2;
+                Vector2 leftUpCorner = new Vector2(stall.WorldPosition.x - halfStallBounds.x, stall.WorldPosition.y + halfStallBounds.y);
+                Vector2 leftDownCorner = new Vector2(stall.WorldPosition.x - halfStallBounds.x, stall.WorldPosition.y - halfStallBounds.y);
+                Vector2 rightUpCorner = new Vector2(stall.WorldPosition.x + halfStallBounds.x, stall.WorldPosition.y + halfStallBounds.y);
+                Vector2 rightDownCorner = new Vector2(stall.WorldPosition.x + halfStallBounds.x, stall.WorldPosition.y - halfStallBounds.y);
+
+                float calculatedDistance = Vector2.Distance(position, leftUpCorner);
+
+                if (calculatedDistance < minDistance)
+                {
+                    minDistance = calculatedDistance;
+                    currentIndex = index;
+                }
+                
+                calculatedDistance = Vector2.Distance(position, leftDownCorner);
+
+                if (calculatedDistance < minDistance)
+                {
+                    minDistance = calculatedDistance;
+                    currentIndex = index;
+                }
+                
+                calculatedDistance = Vector2.Distance(position, rightUpCorner);
+
+                if (calculatedDistance < minDistance)
+                {
+                    minDistance = calculatedDistance;
+                    currentIndex = index;
+                }
+                
+                calculatedDistance = Vector2.Distance(position, rightDownCorner);
+
+                if (calculatedDistance < minDistance)
+                {
+                    minDistance = calculatedDistance;
+                    currentIndex = index;
+                }
+            }
+
+            return currentIndex;
+        }
+
         private bool IsInBounds(Vector2 worldPosition, GameEntity stall, Vector2 halfStallBounds)
         {
             return worldPosition.x >= (stall.WorldPosition.x - halfStallBounds.x)
