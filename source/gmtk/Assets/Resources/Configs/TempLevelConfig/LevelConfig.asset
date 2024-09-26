@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: LevelConfig
   m_EditorClassIdentifier: 
   Id: 
+  Index: 0
   LevelPrefab: {fileID: 7239083468505109449, guid: 4cde3b2c48919f64f9e9f72216782378, type: 3}
   TaskConfig:
     TaskType: 0
-    DurationLimitation: 0000000001000000
-    AmountCondition: 0
+    DurationLimitation: 
+    AmountCondition: 1
     TaskGoalsByRabbitColor:
     - ColorType: 6
       MinAmount: 5

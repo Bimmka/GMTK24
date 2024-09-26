@@ -91,7 +91,6 @@ namespace Code.Gameplay.Features.Rabbits.Factory
                 .With(x => x.isRabbit = true)
                 .With(x => x.isSaveRotationInSpawn = true)
                 .With(x => x.isTurnedAlongDirection = true)
-                .With(x => x.isIdleState = true)
                 .With(x => x.isSelectable = true)
                 .With(x => x.isCanStartReplication = true)
                 .With(x => x.isReplicationAvailable = true)

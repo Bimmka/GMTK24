@@ -5,8 +5,6 @@
         public override void Enter()
         {
             base.Enter();
-            
-            Entity.ChangeStateToIdle();
 
             Entity.isMovementAvailable = true;
             Entity.isWaitingForMoving = true;

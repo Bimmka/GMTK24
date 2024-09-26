@@ -27,6 +27,7 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.MoveSelected.Systems
                 {
                     selected.isMovingToAfterDragPosition = false;
                     selected.isDragFinished = true;
+                    selected.isDragging = false;
                     selected.RemoveAfterDragPosition();
                 }
             }

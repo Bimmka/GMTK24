@@ -26,7 +26,7 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Replication.Systems
             {
                 GameEntity target = _game.GetEntityWithId(rabbit.ReplicationTarget);
 
-                rabbit.isWaitingReplicationTarget = target.isDragging;
+                rabbit.isWaitingReplicationTarget = target.isDragging || target.isOnConveyorBelt;
             }
         }
     }

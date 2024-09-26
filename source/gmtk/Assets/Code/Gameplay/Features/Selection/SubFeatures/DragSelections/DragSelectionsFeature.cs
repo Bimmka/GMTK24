@@ -10,7 +10,8 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.DragSelections
             Add(systems.Create<StartDragByClick>());
             Add(systems.Create<StartDragByMultipleSelectionSystem>());
             
-            Add(systems.Create<StopDragAfterMouseClickSystem>());
+            Add(systems.Create<StopDragAfterEmptyMouseClickSystem>());
+            Add(systems.Create<StopDragAfterConveyorBeltMouseClickSystem>());
             Add(systems.Create<CancelDraggingSystem>());
         }
     }

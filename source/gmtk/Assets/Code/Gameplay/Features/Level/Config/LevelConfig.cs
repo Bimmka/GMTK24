@@ -18,6 +18,7 @@ namespace Code.Gameplay.Features.Level.Config
         public InfectionForLevelData[] Infections;
         public PresetupFoxesData[] PresetupFoxesData;
         public PresetupHoleData[] PresetupHoleData;
+        public ConveyorBeltData[] ConveyorBelts;
 
         [TextArea(0,10)]
         public string Hint;

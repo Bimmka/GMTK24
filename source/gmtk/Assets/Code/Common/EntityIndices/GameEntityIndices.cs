@@ -65,7 +65,8 @@ namespace Code.Common.EntityIndices
           GameMatcher.Rabbit,
           GameMatcher.Id,
           GameMatcher.Alive,
-          GameMatcher.StallParentIndex)
+          GameMatcher.StallParentIndex,
+          GameMatcher.InDanger)
           .NoneOf(
             GameMatcher.Replicating,
             GameMatcher.Dragging)),

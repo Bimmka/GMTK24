@@ -19,8 +19,6 @@ namespace Code.Gameplay.Features.Rabbits.StateMachine.States
         {
             base.Enter();
             
-            Entity.ChangeStateToDragging();
-            
             if (Entity.hasRabbitAnimator)
                 Entity.RabbitAnimator.PlayDragging();
             

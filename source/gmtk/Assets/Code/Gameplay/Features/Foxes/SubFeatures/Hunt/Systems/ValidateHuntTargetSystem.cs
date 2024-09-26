@@ -27,7 +27,7 @@ namespace Code.Gameplay.Features.Foxes.SubFeatures.Hunt.Systems
             {
                 GameEntity huntTarget = _game.GetEntityWithId(fox.HuntTarget);
 
-                if (huntTarget.isDead || huntTarget.isDragging || huntTarget.StallParentIndex != fox.StallParentIndex || huntTarget.isReplicating)
+                if (huntTarget.isDead || huntTarget.isInSafety || huntTarget.StallParentIndex != fox.StallParentIndex)
                 {
                     RemoveValidTarget(fox);
                     fox.isWaitingNextHuntTarget = true;

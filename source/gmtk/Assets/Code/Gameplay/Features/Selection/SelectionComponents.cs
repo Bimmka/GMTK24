@@ -18,6 +18,7 @@ namespace Code.Gameplay.Features.Selection
     [Game] public class UnselectSelectedEntities : IComponent {}
     [Game] public class CleanupUnselectMark : IComponent {}
     [Game] public class MovingToAfterDragPosition : IComponent {}
+    [Game] public class MovingToConveyorBeltAfterDrag : IComponent {}
     [Game] public class SavedPositionBeforeDrag : IComponent { public Vector3 Value; }
     [Game] public class AfterDragPosition : IComponent { public Vector3 Value; }
     [Game] public class FollowSelectCenterSpeed : IComponent { public float Value; }

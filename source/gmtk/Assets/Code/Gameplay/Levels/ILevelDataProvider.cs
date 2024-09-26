@@ -10,6 +10,7 @@ namespace Code.Gameplay.Levels
     Transform RabbitSpawnParent { get; }
     Transform FoxSpawnParent { get; }
     Transform HoleSpawnParent { get; }
+    Transform ConveyorBeltSpawnParent { get; }
 
     void SetStartPoint(Transform startPoint);
     void SetStallSpawnParent(Transform stallSpawnParent);
@@ -17,5 +18,6 @@ namespace Code.Gameplay.Levels
     void SetFoxSpawnParent(Transform foxSpawnParent);
     void SetCurrentId(string id);
     void SetHoleSpawnParent(Transform holeSpawnParent);
+    void SetConveyorBeltSpawnParent(Transform conveyorBeltSpawnParent);
   }
 }

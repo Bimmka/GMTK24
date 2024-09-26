@@ -4,6 +4,7 @@ using Code.Gameplay.Common.Collisions;
 using Code.Gameplay.Common.Physics;
 using Code.Gameplay.Common.Random;
 using Code.Gameplay.Common.Time;
+using Code.Gameplay.Features.ConveyorBelt.Factory;
 using Code.Gameplay.Features.Foxes.Factory;
 using Code.Gameplay.Features.Holes.Factory;
 using Code.Gameplay.Features.Infections.Factory;
@@ -151,6 +152,7 @@ namespace Code.Infrastructure.Installers
       Container.Bind<ITaskFactory>().To<TaskFactory>().AsSingle();
       Container.Bind<IVFXFactory>().To<VFXFactory>().AsSingle();
       Container.Bind<IAudioFactory>().To<AudioFactory>().AsSingle();
+      Container.Bind<IConveyorBeltFactory>().To<ConveyorBeltFactory>().AsSingle();
     }
 
     private void BindEntityIndices()

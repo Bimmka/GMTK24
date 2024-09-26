@@ -20,8 +20,6 @@ namespace Code.Gameplay.Features.Rabbits.StateMachine.States
         {
             base.Enter();
             
-            Entity.ChangeStateToDead();
-            
             Entity.isMovingUp = false;
             Entity.isWaitingForMoving = false;
             Entity.isMoving = false;

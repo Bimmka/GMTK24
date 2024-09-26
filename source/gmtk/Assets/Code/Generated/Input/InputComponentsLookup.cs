@@ -9,33 +9,35 @@
 public static class InputComponentsLookup {
 
     public const int ClickedEntityId = 0;
-    public const int EmptyClicked = 1;
-    public const int FoxClicked = 2;
-    public const int RabbitClicked = 3;
-    public const int AxisInput = 4;
-    public const int Click = 5;
-    public const int ClickableLayerMask = 6;
-    public const int ClickInterval = 7;
-    public const int Dragging = 8;
-    public const int Input = 9;
-    public const int LastMouseDownTime = 10;
-    public const int LongTap = 11;
-    public const int LongTapInterval = 12;
-    public const int LongTapPressed = 13;
-    public const int MouseDown = 14;
-    public const int MousePressed = 15;
-    public const int MouseUp = 16;
-    public const int PositionShiftForDragStart = 17;
-    public const int ScreenMousePosition = 18;
-    public const int StartMouseDownScreenPosition = 19;
-    public const int StartMouseDownWorldPosition = 20;
-    public const int WasDragging = 21;
-    public const int WorldMousePosition = 22;
+    public const int ConveyorBeltClicked = 1;
+    public const int EmptyClicked = 2;
+    public const int FoxClicked = 3;
+    public const int RabbitClicked = 4;
+    public const int AxisInput = 5;
+    public const int Click = 6;
+    public const int ClickableLayerMask = 7;
+    public const int ClickInterval = 8;
+    public const int Dragging = 9;
+    public const int Input = 10;
+    public const int LastMouseDownTime = 11;
+    public const int LongTap = 12;
+    public const int LongTapInterval = 13;
+    public const int LongTapPressed = 14;
+    public const int MouseDown = 15;
+    public const int MousePressed = 16;
+    public const int MouseUp = 17;
+    public const int PositionShiftForDragStart = 18;
+    public const int ScreenMousePosition = 19;
+    public const int StartMouseDownScreenPosition = 20;
+    public const int StartMouseDownWorldPosition = 21;
+    public const int WasDragging = 22;
+    public const int WorldMousePosition = 23;
 
-    public const int TotalComponents = 23;
+    public const int TotalComponents = 24;
 
     public static readonly string[] componentNames = {
         "ClickedEntityId",
+        "ConveyorBeltClicked",
         "EmptyClicked",
         "FoxClicked",
         "RabbitClicked",
@@ -62,6 +64,7 @@ public static class InputComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(Code.Gameplay.Features.ClickHandle.ClickedEntityId),
+        typeof(Code.Gameplay.Features.ClickHandle.ConveyorBeltClicked),
         typeof(Code.Gameplay.Features.ClickHandle.EmptyClicked),
         typeof(Code.Gameplay.Features.ClickHandle.FoxClicked),
         typeof(Code.Gameplay.Features.ClickHandle.RabbitClicked),
