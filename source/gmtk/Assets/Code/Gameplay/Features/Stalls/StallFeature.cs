@@ -6,7 +6,9 @@ namespace Code.Gameplay.Features.Stalls
     {
         public StallFeature(ISystemFactory systems)
         {
-            
+            Add(systems.Create<CalculateRabbitOnConveyorStallIIndexSystem>());
+
+            Add(systems.Create<CalculateRabbitsAmountInStallSystem>());
         }
     }
 }

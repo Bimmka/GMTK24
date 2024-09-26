@@ -14,6 +14,7 @@ namespace Code.Gameplay.Features.Stalls.Factory
                 .AddStallIndex(spawnData.Index)
                 .AddStallBounds(spawnData.Bounds)
                 .AddWorldPosition(spawnData.SpawnPosition)
+                .AddRabbitsAmount(0)
                 .With(x => x.isStall = true)
                 .With(x => x.isSaveRotationInSpawn = true)
                 ;

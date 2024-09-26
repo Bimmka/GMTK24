@@ -18,6 +18,11 @@ namespace Code.Gameplay.Features.Rabbits.SubFeatures.Dragging
             Add(systems.Create<PlaySoundAfterDragFinishedSystem>());
             Add(systems.Create<RefreshDragReleaseTimeSystem>());
 
+            Add(systems.Create<RemoveOnGroundAfterDragStartedSystem>());
+            Add(systems.Create<SetOnGroundAfterDragFinishedSystem>());
+            
+            Add(systems.Create<ValidateStallParentIndexAfterDragFinishedSystem>());
+
             Add(systems.Create<CleanupDragStartedMarkSystem>());
             Add(systems.Create<CleanupMovingToConveyorBeltWhenDragFinishedSystem>());
             Add(systems.Create<CleanupDragComponentsWhenDragFinishedSystem>());
