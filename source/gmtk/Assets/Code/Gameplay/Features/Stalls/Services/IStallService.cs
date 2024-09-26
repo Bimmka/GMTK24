@@ -10,5 +10,6 @@ namespace Code.Gameplay.Features.Stalls.Services
         Vector3 GetRandomPositionInStall(int index);
         int GetStallIndex(Vector2 worldPosition);
         Vector3 GetRandomPositionInStall(int index, Vector3 at, float maxGap);
+        int GetNearestStallIndexFromPosition(Vector3 position);
     }
 }
