@@ -12,6 +12,7 @@ using Code.Gameplay.Features.LevelTasks;
 using Code.Gameplay.Features.Movement;
 using Code.Gameplay.Features.Rabbits;
 using Code.Gameplay.Features.Selection;
+using Code.Gameplay.Features.Stalls;
 using Code.Gameplay.Features.Statuses;
 using Code.Gameplay.Features.TargetCollection;
 using Code.Gameplay.Input;
@@ -27,6 +28,8 @@ namespace Code.Gameplay
       Add(systems.Create<InputFeature>());
       Add(systems.Create<ClickHandleFeature>());
       Add(systems.Create<BindViewFeature>());
+      
+      Add(systems.Create<StallFeature>());
       
       Add(systems.Create<LevelTaskFeature>());
 
