@@ -8,34 +8,37 @@
 //------------------------------------------------------------------------------
 public static class InputComponentsLookup {
 
-    public const int ClickedEntityId = 0;
-    public const int ConveyorBeltClicked = 1;
-    public const int EmptyClicked = 2;
-    public const int FoxClicked = 3;
-    public const int RabbitClicked = 4;
-    public const int AxisInput = 5;
-    public const int Click = 6;
-    public const int ClickableLayerMask = 7;
-    public const int ClickInterval = 8;
-    public const int Dragging = 9;
-    public const int Input = 10;
-    public const int LastMouseDownTime = 11;
-    public const int LongTap = 12;
-    public const int LongTapInterval = 13;
-    public const int LongTapPressed = 14;
-    public const int MouseDown = 15;
-    public const int MousePressed = 16;
-    public const int MouseUp = 17;
-    public const int PositionShiftForDragStart = 18;
-    public const int ScreenMousePosition = 19;
-    public const int StartMouseDownScreenPosition = 20;
-    public const int StartMouseDownWorldPosition = 21;
-    public const int WasDragging = 22;
-    public const int WorldMousePosition = 23;
+    public const int BuildingClicked = 0;
+    public const int ClickedEntityId = 1;
+    public const int ConveyorBeltClicked = 2;
+    public const int EmptyClicked = 3;
+    public const int FoxClicked = 4;
+    public const int RabbitClicked = 5;
+    public const int AxisInput = 6;
+    public const int Click = 7;
+    public const int ClickableLayerMask = 8;
+    public const int ClickInterval = 9;
+    public const int Dragging = 10;
+    public const int Input = 11;
+    public const int LastMouseDownTime = 12;
+    public const int LongTap = 13;
+    public const int LongTapInterval = 14;
+    public const int LongTapPressed = 15;
+    public const int ModeSwitch = 16;
+    public const int MouseDown = 17;
+    public const int MousePressed = 18;
+    public const int MouseUp = 19;
+    public const int PositionShiftForDragStart = 20;
+    public const int ScreenMousePosition = 21;
+    public const int StartMouseDownScreenPosition = 22;
+    public const int StartMouseDownWorldPosition = 23;
+    public const int WasDragging = 24;
+    public const int WorldMousePosition = 25;
 
-    public const int TotalComponents = 24;
+    public const int TotalComponents = 26;
 
     public static readonly string[] componentNames = {
+        "BuildingClicked",
         "ClickedEntityId",
         "ConveyorBeltClicked",
         "EmptyClicked",
@@ -51,6 +54,7 @@ public static class InputComponentsLookup {
         "LongTap",
         "LongTapInterval",
         "LongTapPressed",
+        "ModeSwitch",
         "MouseDown",
         "MousePressed",
         "MouseUp",
@@ -63,6 +67,7 @@ public static class InputComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Code.Gameplay.Features.ClickHandle.BuildingClicked),
         typeof(Code.Gameplay.Features.ClickHandle.ClickedEntityId),
         typeof(Code.Gameplay.Features.ClickHandle.ConveyorBeltClicked),
         typeof(Code.Gameplay.Features.ClickHandle.EmptyClicked),
@@ -78,6 +83,7 @@ public static class InputComponentsLookup {
         typeof(Code.Gameplay.Input.LongTap),
         typeof(Code.Gameplay.Input.LongTapInterval),
         typeof(Code.Gameplay.Input.LongTapPressed),
+        typeof(Code.Gameplay.Input.ModeSwitch),
         typeof(Code.Gameplay.Input.MouseDown),
         typeof(Code.Gameplay.Input.MousePressed),
         typeof(Code.Gameplay.Input.MouseUp),

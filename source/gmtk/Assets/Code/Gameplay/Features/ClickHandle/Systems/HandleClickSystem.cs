@@ -10,6 +10,7 @@ namespace Code.Gameplay.Features.ClickHandle.Systems
         private readonly IPhysicsService _physicsService;
         private readonly IGroup<GameEntity> _selections;
         private readonly IGroup<InputEntity> _clicks;
+        private readonly IGroup<GameEntity> _modeHandlers;
 
         public HandleClickSystem(InputContext input, GameContext game, IPhysicsService physicsService)
         {
@@ -21,6 +22,7 @@ namespace Code.Gameplay.Features.ClickHandle.Systems
                 InputMatcher.ClickableLayerMask));
 
             _selections = game.GetGroup(GameMatcher.AllOf(GameMatcher.Selection));
+            _modeHandlers = game.GetGroup(GameMatcher.AllOf(GameMatcher.ModeHandler));
         }
 
         public void Execute()
@@ -28,20 +30,32 @@ namespace Code.Gameplay.Features.ClickHandle.Systems
             foreach (InputEntity click in _clicks)
             {
                 GameEntity result = _physicsService.Raycast(click.WorldMousePosition, Vector2.zero, click.ClickableLayerMask);
+                bool isHasSelections = false;
+                bool isGameplayMode = false;
 
                 foreach (GameEntity selection in _selections)
+                {
+                    isHasSelections = selection.isHasSelections;
+                }
+
+                foreach (GameEntity modeHandler in _modeHandlers)
+                {
+                    isGameplayMode = modeHandler.isGameplayMode;
+                }
+                
+                if (isGameplayMode)
                 {
                     if (result == null)
                     {
                         click.With(x => x.isEmptyClicked = true);
                     }
-                    else if (selection.isHasSelections && result.isConveyorBelt)
+                    else if (isHasSelections && result.isConveyorBelt)
                     {
                         click
                             .AddClickedEntityId(result.Id)
                             .With(x => x.isConveyorBeltClicked = true);
                     }
-                    else if (selection.isHasSelections)
+                    else if (isHasSelections)
                     {
                         click.With(x => x.isEmptyClicked = true);
                     }
@@ -57,6 +71,10 @@ namespace Code.Gameplay.Features.ClickHandle.Systems
                             .AddClickedEntityId(result.Id)
                             .With(x => x.isFoxClicked = true);
                     }
+                }
+                else
+                {
+                    click.isBuildingClicked = true;
                 }
             }
         }

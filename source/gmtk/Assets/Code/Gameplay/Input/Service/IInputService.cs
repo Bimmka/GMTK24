@@ -13,5 +13,6 @@ namespace Code.Gameplay.Input.Service
     bool GetLeftMouseButtonDown();
     bool GetLeftMouseButtonUp();
     bool GetLeftMouseButton();
+    bool GetModeSwitchButton();
   }
 }

@@ -7,4 +7,5 @@ namespace Code.Gameplay.Features.ClickHandle
     [Input] public class FoxClicked : IComponent {}
     [Input] public class EmptyClicked : IComponent {}
     [Input] public class ConveyorBeltClicked : IComponent {}
+    [Input] public class BuildingClicked : IComponent {}
 }

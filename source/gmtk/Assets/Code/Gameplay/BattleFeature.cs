@@ -1,10 +1,12 @@
 ﻿using Code.Common.Destruct;
+using Code.Gameplay.Features.Building;
 using Code.Gameplay.Features.CharacterStats;
 using Code.Gameplay.Features.ClickHandle;
 using Code.Gameplay.Features.ConveyorBelt;
 using Code.Gameplay.Features.Death;
 using Code.Gameplay.Features.Death.Systems;
 using Code.Gameplay.Features.Foxes;
+using Code.Gameplay.Features.GameMode;
 using Code.Gameplay.Features.Holes;
 using Code.Gameplay.Features.Infections;
 using Code.Gameplay.Features.LevelFinish;
@@ -30,8 +32,11 @@ namespace Code.Gameplay
       Add(systems.Create<BindViewFeature>());
       
       Add(systems.Create<StallFeature>());
-      
+
       Add(systems.Create<LevelTaskFeature>());
+
+      Add(systems.Create<GameModeFeature>());
+      Add(systems.Create<BuildingFeature>());
 
       Add(systems.Create<HoleFeature>());
       

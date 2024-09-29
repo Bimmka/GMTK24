@@ -21,6 +21,7 @@ namespace Code.Gameplay.Input.Systems
         input.isMouseDown = _inputService.GetLeftMouseButtonDown();
         input.isMousePressed = _inputService.GetLeftMouseButton();
         input.isMouseUp = _inputService.GetLeftMouseButtonUp();
+        input.isModeSwitch = _inputService.GetModeSwitchButton();
       }
     }
   }

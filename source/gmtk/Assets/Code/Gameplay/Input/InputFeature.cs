@@ -15,8 +15,8 @@ namespace Code.Gameplay.Input
       Add(systems.Create<UpdateLastMouseDownTimeSystem>());
       Add(systems.Create<SaveFirstMouseDownPositionSystem>());
 
-      Add(systems.Create<MarkWasDraggingSystem>());
-      Add(systems.Create<MarkDraggingSystem>());
+    //  Add(systems.Create<MarkWasDraggingSystem>());
+    //  Add(systems.Create<MarkDraggingSystem>());
       Add(systems.Create<EmitLongTapSystem>());
       Add(systems.Create<EmitClickSystem>());
 
