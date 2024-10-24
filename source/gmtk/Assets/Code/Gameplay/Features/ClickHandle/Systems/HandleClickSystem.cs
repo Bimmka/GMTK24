@@ -45,12 +45,12 @@ namespace Code.Gameplay.Features.ClickHandle.Systems
                     {
                         click.With(x => x.isEmptyClicked = true);
                     }
-                    else if (result is { isRabbit: true, hasId: true, isSelectable: true })
-                    {
-                        click
-                            .AddClickedEntityId(result.Id)
-                            .With(x => x.isRabbitClicked = true);
-                    }
+                    // else if (result is { isRabbit: true, hasId: true, isSelectable: true })
+                    // {
+                    //     click
+                    //         .AddClickedEntityId(result.Id)
+                    //         .With(x => x.isRabbitClicked = true);
+                    // }
                     else if (result is { isFox: true, hasId: true, isAlive: true })
                     {
                         click

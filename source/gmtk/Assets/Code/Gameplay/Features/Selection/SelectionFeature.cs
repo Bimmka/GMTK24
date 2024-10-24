@@ -17,7 +17,7 @@ namespace Code.Gameplay.Features.Selection
             Add(systems.Create<DisplayMultipleSelectionAreaSystem>());
             Add(systems.Create<HideMultipleSelectionAreaSystem>());
             
-            Add(systems.Create<SelectByClickSystem>());
+            //Add(systems.Create<SelectByClickSystem>());
             Add(systems.Create<SelectByMouseDraggingSystem>());
             
             Add(systems.Create<ClearSelectedEntitiesWhenUnselectSystem>());
