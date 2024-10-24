@@ -42,16 +42,5 @@ MonoBehaviour:
   Infections: []
   PresetupFoxesData: []
   PresetupHoleData: []
-  ConveyorBelts:
-  - View: {fileID: 4494797219918737050, guid: fbd5884e7acef7940a9ce451bb23389a, type: 3}
-    StartStallIndex: 1
-    EndStallIndex: 0
-    StartPosition: {x: 7.52, y: -1.32, z: 0}
-    EndPosition: {x: 14.01, y: -1.32, z: 0}
-    Speed: 3
-    InteractionRadius: 0.5
-    InteractionInterval: 0.1
-    TargetCollectionLayerMask:
-      serializedVersion: 2
-      m_Bits: 64
+  ConveyorBelts: []
   Hint: Rabbits only reproduce when they are in the same pen.
