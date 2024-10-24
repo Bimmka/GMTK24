@@ -22,6 +22,7 @@ namespace Code.Gameplay.Input
 
       Add(systems.Create<CleanupClicksSystem>());
       Add(systems.Create<CleanupLongTapsSystem>());
+      Add(systems.Create<CleanupDraggingMarksSystem>());
     }
   }
 }

@@ -7,7 +7,7 @@ namespace Code.Gameplay.Features.Selection.SubFeatures.DragSelections
     {
         public DragSelectionsFeature(ISystemFactory systems)
         {
-            Add(systems.Create<StartDragByClick>());
+            //Add(systems.Create<StartDragByClick>());
             Add(systems.Create<StartDragByMultipleSelectionSystem>());
             
             Add(systems.Create<StopDragAfterEmptyMouseClickSystem>());
